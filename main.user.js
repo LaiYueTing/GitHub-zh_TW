@@ -1,17 +1,17 @@
 // ==UserScript==
-// @name         GitHub 中文化插件
-// @namespace    https://github.com/maboloshi/github-chinese
-// @description  中文化 GitHub 界面的部分菜单及内容。原作者为楼教主(http://www.52cik.com/)。
-// @copyright    2021, 沙漠之子 (https://maboloshi.github.io/Blog)
+// @name         GitHub 繁體中文化
+// @namespace    https://github.com/LaiYueTing/GitHub-zh_TW
+// @description  繁體中文化 GitHub 介面的部分選單及內容。
+// @copyright    2024, LaiYueTing (https://github.com/LaiYueTing)
 // @icon         https://github.githubassets.com/pinned-octocat.svg
-// @version      1.9.2-2024-07-26
-// @author       沙漠之子
+// @version      1.9.2
+// @author       LaiYueTing
 // @license      GPL-3.0
 // @match        https://github.com/*
 // @match        https://skills.github.com/*
 // @match        https://gist.github.com/*
 // @match        https://www.githubstatus.com/*
-// @require      https://raw.githubusercontent.com/maboloshi/github-chinese/gh-pages/locals.js?v1.9.2
+// @require      https://raw.githubusercontent.com/LaiYueTing/GitHub-zh_TW/main/locals.js?v1.9.2
 // @run-at       document-end
 // @grant        GM_xmlhttpRequest
 // @grant        GM_getValue
@@ -20,49 +20,49 @@
 // @grant        GM_unregisterMenuCommand
 // @grant        GM_notification
 // @connect      www.iflyrec.com
-// @supportURL   https://github.com/maboloshi/github-chinese/issues
+// @supportURL   https://github.com/LaiYueTing/Github-zh_TW/issues
 // ==/UserScript==
 
 (function (window, document, undefined) {
     'use strict';
 
-    const lang = 'zh'; // 设置默认语言
+    const lang = 'zh'; // 設定預設語言
     let page;
     let enable_RegExp = GM_getValue("enable_RegExp", 1);
 
     /**
-     * watchUpdate 函数：监视页面变化，根据变化的节点进行翻译
+     * watchUpdate 函數：監視頁面變化，根據變化的節點進行翻譯
      */
     function watchUpdate() {
-        // 检测浏览器是否支持 MutationObserver
+        // 檢測瀏覽器是否支援 MutationObserver
         const MutationObserver =
             window.MutationObserver ||
             window.WebKitMutationObserver ||
             window.MozMutationObserver;
 
-        // 获取当前页面的 URL
+        // 取得目前頁面的 URL
         const getCurrentURL = () => location.href;
         getCurrentURL.previousURL = getCurrentURL();
 
-        // 创建 MutationObserver 实例，监听 DOM 变化
+        // 創建 MutationObserver 實例，監聽 DOM 變化
         const observer = new MutationObserver((mutations, observer) => {
             const currentURL = getCurrentURL();
 
-            // 如果页面的 URL 发生变化
+            // 如果頁面的 URL 發生變化
             if (currentURL !== getCurrentURL.previousURL) {
                 getCurrentURL.previousURL = currentURL;
-                page = getPage(); // 当页面地址发生变化时，更新全局变量 page
-                console.log(`链接变化 page= ${page}`);
+                page = getPage(); // 當頁面地址發生變化時，更新全域變數 Page
+                console.log(`連結變化 Page = ${page}`);
 
-                transTitle(); // 翻译页面标题
+                transTitle(); // 翻譯頁面標題
 
                 if (page) {
                     setTimeout(() => {
-                        // 使用 CSS 选择器找到页面上的元素，并将其文本内容替换为预定义的翻译
+                        // 使用 CSS 選擇器找到頁面上的元素，並將其文字內容替換為預定義的翻譯
                         transBySelector();
-                        if (page === "repository") { //仓库简介翻译
+                        if (page === "repository") { // 倉庫簡介翻譯
                             transDesc(".f4.my-3");
-                        } else if (page === "gist") { // Gist 简介翻译
+                        } else if (page === "gist") { // Gist 簡介翻譯
                             transDesc(".gist-content [itemprop='about']");
                         }
                     }, 500);
@@ -70,33 +70,33 @@
             }
 
             if (page) {
-                // 使用 filter 方法对 mutations 数组进行筛选，
-                // 返回 `节点增加、文本更新 或 属性更改的 mutation` 组成的新数组 filteredMutations。
+                // 使用 Filter 方法對 mutations 數組進行篩選，
+                // 回傳 `節點增加、文字更新 或 屬性更改的 mutation` 組成的新數組 filteredMutations。
                 const filteredMutations = mutations.filter(mutation => mutation.addedNodes.length > 0 || mutation.type === 'attributes' || mutation.type === 'characterData');
 
-                // 处理每个变化
+                // 處理每個變化
                 filteredMutations.forEach(mutation => traverseNode(mutation.target));
             }
         });
 
-        // 配置 MutationObserver
+        // 設定 MutationObserver
         const config = {
             characterData: true,
             subtree: true,
             childList: true,
-            attributeFilter: ['value', 'placeholder', 'aria-label', 'data-confirm'], // 仅观察特定属性变化
+            attributeFilter: ['value', 'placeholder', 'aria-label', 'data-confirm'], // 僅觀察特定屬性變化
         };
 
-        // 开始观察 document.body 的变化
+        // 開始觀察 document.body 的變化
         observer.observe(document.body, config);
     }
 
     /**
-     * traverseNode 函数：遍历指定的节点，并对节点进行翻译。
-     * @param {Node} node - 需要遍历的节点。
+     * traverseNode 函數：遍歷指定的節點，並對節點進行翻譯。
+     * @param {Node} node - 需要遍歷的節點。
      */
     function traverseNode(node) {
-        // 跳过忽略
+        // 跳過忽略
         if (I18N.conf.reIgnoreId.test(node.id) ||
             I18N.conf.reIgnoreClass.test(node.className) ||
             I18N.conf.reIgnoreTag.includes(node.tagName) ||
@@ -105,9 +105,9 @@
             return;
         }
 
-        if (node.nodeType === Node.ELEMENT_NODE) { // 元素节点处理
+        if (node.nodeType === Node.ELEMENT_NODE) { // 元素節點處理
 
-            // 翻译时间元素
+            // 翻譯時間元素
             if (
                 ["RELATIVE-TIME", "TIME-AGO", "TIME", "LOCAL-TIME"].includes(node.tagName)
             ) {
@@ -120,10 +120,10 @@
                 return;
             }
 
-            // 元素节点属性翻译
-            if (["INPUT", "TEXTAREA"].includes(node.tagName)) { // 输入框 按钮 文本域
+            // 元素節點屬性翻譯
+            if (["INPUT", "TEXTAREA"].includes(node.tagName)) { // 輸入框 按鈕 文字域
                 if (["button", "submit", "reset"].includes(node.type)) {
-                    if (node.hasAttribute('data-confirm')) { // 翻译 浏览器 提示对话框
+                    if (node.hasAttribute('data-confirm')) { // 翻譯 瀏覽器 提示對話框
                         transElement(node, 'data-confirm', true);
                     }
                     transElement(node, 'value');
@@ -132,75 +132,75 @@
                 }
             } else if (node.tagName === 'BUTTON') {
                 if (node.hasAttribute('aria-label') && /tooltipped/.test(node.className)) {
-                    transElement(node, 'aria-label', true); // 翻译 浏览器 提示对话框
+                    transElement(node, 'aria-label', true); // 翻譯 瀏覽器 提示對話框
                 }
                 if (node.hasAttribute('title')) {
-                    transElement(node, 'title', true); // 翻译 浏览器 提示对话框
+                    transElement(node, 'title', true); // 翻譯 瀏覽器 提示對話框
                 }
                 if (node.hasAttribute('data-confirm')) {
-                    transElement(node, 'data-confirm', true); // 翻译 浏览器 提示对话框 ok
+                    transElement(node, 'data-confirm', true); // 翻譯 瀏覽器 提示對話框
                 }
                 if (node.hasAttribute('data-confirm-text')) {
-                    transElement(node, 'data-confirm-text', true); // 翻译 浏览器 提示对话框 ok
+                    transElement(node, 'data-confirm-text', true); // 翻譯 瀏覽器 提示對話框
                 }
                 if (node.hasAttribute('data-confirm-cancel-text')) {
-                    transElement(node, 'data-confirm-cancel-text', true); // 取消按钮 提醒
+                    transElement(node, 'data-confirm-cancel-text', true); // 取消按鈕 提醒
                 }
                 if (node.hasAttribute('cancel-confirm-text')) {
-                    transElement(node, 'cancel-confirm-text', true); // 取消按钮 提醒
+                    transElement(node, 'cancel-confirm-text', true); // 取消按鈕 提醒
                 }
-                if (node.hasAttribute('data-disable-with')) { // 按钮等待提示
+                if (node.hasAttribute('data-disable-with')) { // 按鈕等待提示
                     transElement(node, 'data-disable-with', true);
                 }
-            } else if (node.tagName === 'OPTGROUP') { // 翻译 <optgroup> 的 label 属性
+            } else if (node.tagName === 'OPTGROUP') { // 翻譯 <optgroup> 的 label 屬性
                 transElement(node, 'label');
-            } else if (/tooltipped/.test(node.className)) { // 仅当 元素存在'tooltipped'样式 aria-label 才起效果
-                transElement(node, 'aria-label', true); // 带提示的元素，类似 tooltip 效果的
+            } else if (/tooltipped/.test(node.className)) { // 僅當 元素存在 'tooltipped' 樣式 aria-label 才起效果
+                transElement(node, 'aria-label', true); // 帶提示的元素，類似 tooltip 效果的
             } else if (node.tagName === 'A') {
                 if (node.hasAttribute('title')) {
-                    transElement(node, 'title', true); // 翻译 浏览器 提示对话框
+                    transElement(node, 'title', true); // 翻譯 瀏覽器 提示對話框
                 }
                 if (node.hasAttribute('data-hovercard-type')) {
-                    return; // 不翻译
+                    return; // 不翻譯
                 }
             }
 
             let childNodes = node.childNodes;
-            childNodes.forEach(traverseNode); // 遍历子节点
+            childNodes.forEach(traverseNode); // 遍歷子節點
 
-        } else if (node.nodeType === Node.TEXT_NODE) { // 文本节点翻译
-            if (node.length <= 500) { // 修复 许可证编辑框初始化载入内容被翻译
+        } else if (node.nodeType === Node.TEXT_NODE) { // 文字節點翻譯
+            if (node.length <= 500) { // 修復 許可證編輯框初始化載入內容被翻譯
                 transElement(node, 'data');
             }
         }
     }
 
     /**
-     * getPage 函数：获取当前页面的类型。
-     * @returns {string|boolean} 当前页面的类型，如果无法确定类型，那么返回 false。
+     * getPage 函數：取得目前頁面的類型。
+     * @returns {string|boolean} 目前頁面的類型，如果無法確定類型，那麼回傳 false。
      */
     function getPage() {
 
-        // 站点，如 gist, developer, help 等，默认主站是 github
+        // 站點，如 Gist, Developer, Help 等，預設首頁是 GitHub
         const siteMapping = {
             'gist.github.com': 'gist',
             'www.githubstatus.com': 'status',
             'skills.github.com': 'skills'
         };
-        const site = siteMapping[location.hostname] || 'github'; // 站点
-        const pathname = location.pathname; // 当前路径
+        const site = siteMapping[location.hostname] || 'github'; // 站點
+        const pathname = location.pathname; // 目前路徑
 
-        // 是否登录
+        // 是否登入
         const isLogin = document.body.classList.contains("logged-in");
 
-        // 用于确定 个人首页，组织首页，仓库页 然后做判断
+        // 用於確定 個人首頁，組織首頁，倉庫頁 然後做判斷
         const analyticsLocation = (document.getElementsByName('analytics-location')[0] || {}).content || '';
-        // 组织页
+        // 組織頁
         const isOrganization = /\/<org-login>/.test(analyticsLocation) || /^\/(?:orgs|organizations)/.test(pathname);
-        // 仓库页
+        // 倉庫頁
         const isRepository = /\/<user-name>\/<repo-name>/.test(analyticsLocation);
 
-        // 优先匹配 body 的 class
+        // 優先匹配 Body 的 Class
         let page, t = document.body.className.match(I18N.conf.rePageClass);
         if (t) {
             if (t[1] === 'page-profile') {
@@ -213,37 +213,37 @@
             } else {
                 page = t[1];
             }
-        } else if (site === 'gist') { // Gist 站点
+        } else if (site === 'gist') { // Gist 站點
             page = 'gist';
-        } else if (site === 'status') {  // GitHub Status 页面
+        } else if (site === 'status') {  // GitHub Status 頁面
             page = 'status';
-        } else if (site === 'skills') {  // GitHub Skills 页面
+        } else if (site === 'skills') {  // GitHub Skills 頁面
             page = 'skills';
-        } else if (pathname === '/' && site === 'github') { // github.com 首页
+        } else if (pathname === '/' && site === 'github') { // github.com 首頁
             page = isLogin ? 'page-dashboard' : 'homepage';
-        } else if (isRepository) { // 仓库页
+        } else if (isRepository) { // 倉庫頁
             t = pathname.match(I18N.conf.rePagePathRepo);
             page = t ? 'repository/' + t[1] : 'repository';
-        } else if (isOrganization) { // 组织页
+        } else if (isOrganization) { // 組織頁
             t = pathname.match(I18N.conf.rePagePathOrg);
             page = t ? 'orgs/' + (t[1] || t.slice(-1)[0]) : 'orgs';
         } else {
             t = pathname.match(I18N.conf.rePagePath);
-            page = t ? (t[1] || t.slice(-1)[0]) : false; // 取页面 key
+            page = t ? (t[1] || t.slice(-1)[0]) : false; // 取頁面 key
         }
 
         if (!page || !I18N[lang][page]) {
-            console.log(`请注意对应 page ${page} 词库节点不存在`);
+            console.log(`請注意對應 Page ${page} 詞庫節點不存在`);
             page = false;
         }
         return page;
     }
 
     /**
-     * transTitle 函数：翻译页面标题
+     * transTitle 函數：翻譯頁面標題
      */
     function transTitle() {
-        let key = document.title; // 标题文本内容
+        let key = document.title; // 標題文字內容
         let str = I18N[lang]['title']['static'][key] || '';
         if (!str) {
             let res = I18N[lang]['title'].regexp || [];
@@ -258,12 +258,12 @@
     }
 
     /**
-     * transTimeElement 函数：翻译时间元素文本内容。
-     * @param {Element} el - 需要翻译的元素。
+     * transTimeElement 函數：翻譯時間元素文字內容。
+     * @param {Element} el - 需要翻譯的元素。
      */
     function transTimeElement(el) {
         let key = el.childNodes.length > 0 ? el.lastChild.textContent : el.textContent;
-        let res = I18N[lang]['pubilc']['time-regexp']; // 时间正则规则
+        let res = I18N[lang]['pubilc']['time-regexp']; // 時間正規表達式規則
 
         for (let [a, b] of res) {
             let str = key.replace(a, b);
@@ -275,8 +275,8 @@
     }
 
     /**
-     * watchTimeElement 函数：监视时间元素变化, 触发和调用时间元素翻译
-     * @param {Element} el - 需要监视的元素。
+     * watchTimeElement 函數：監視時間元素變化, 觸發和呼叫時間元素翻譯
+     * @param {Element} el - 需要監視的元素。
      */
     function watchTimeElement(el) {
         const MutationObserver =
@@ -292,16 +292,16 @@
     }
 
     /**
-     * transElement 函数：翻译指定元素的文本内容或属性。
-     * @param {Element} el - 需要翻译的元素。
-     * @param {string} field - 需要翻译的文本内容或属性的名称。
-     * @param {boolean} isAttr - 是否需要翻译属性。
+     * transElement 函數：翻譯指定元素的文字內容或屬性。
+     * @param {Element} el - 需要翻譯的元素。
+     * @param {string} field - 需要翻譯的文字內容或屬性的名稱。
+     * @param {boolean} isAttr - 是否需要翻譯屬性。
      */
     function transElement(el, field, isAttr = false) {
-        let text = isAttr ? el.getAttribute(field) : el[field]; // 需要翻译的文本
-        let str = translateText(text); // 翻译后的文本
+        let text = isAttr ? el.getAttribute(field) : el[field]; // 需要翻譯的文字
+        let str = translateText(text); // 翻譯後的文字
 
-        // 替换翻译后的内容
+        // 替換翻譯後的內容
         if (str) {
             if (!isAttr) {
                 el[field] = str;
@@ -312,46 +312,46 @@
     }
 
     /**
-     * translateText 函数：翻译文本内容。
-     * @param {string} text - 需要翻译的文本内容。
-     * @returns {string|boolean} 翻译后的文本内容，如果没有找到对应的翻译，那么返回 false。
+     * translateText 函數：翻譯文字內容。
+     * @param {string} text - 需要翻譯的文字內容。
+     * @returns {string|boolean} 翻譯後的文字內容，如果沒有找到對應的翻譯，那麼回傳 false。
      */
-    function translateText(text) { // 翻译
+    function translateText(text) { // 翻譯
 
-        // 内容为空, 空白字符和或数字, 不存在英文字母和符号,. 跳过
+        // 內容為空, 空白字元和或數字, 不存在英文字母和符號,. 跳過
         if (!isNaN(text) || !/[a-zA-Z,.]+/.test(text)) {
             return false;
         }
 
         let _key = text.trim(); // 去除首尾空格的 key
-        let _key_neat = _key.replace(/\xa0|[\s]+/g, ' ') // 去除多余空白字符(&nbsp; 空格 换行符)
+        let _key_neat = _key.replace(/\xa0|[\s]+/g, ' ') // 去除多餘空白字元 (&nbsp; 空格 換行符)
 
-        let str = fetchTranslatedText(_key_neat); // 翻译已知页面 (局部优先)
+        let str = fetchTranslatedText(_key_neat); // 翻譯已知頁面 (局部優先)
 
-        if (str && str !== _key_neat) { // 已知页面翻译完成
-            return text.replace(_key, str); // 替换原字符，保留首尾空白部分
+        if (str && str !== _key_neat) { // 已知頁面翻譯完成
+            return text.replace(_key, str); // 替換原字元，保留首尾空白部分
         }
 
         return false;
     }
 
     /**
-     * fetchTranslatedText 函数：从特定页面的词库中获得翻译文本内容。
-     * @param {string} key - 需要翻译的文本内容。
-     * @returns {string|boolean} 翻译后的文本内容，如果没有找到对应的翻译，那么返回 false。
+     * fetchTranslatedText 函數：從特定頁面的詞庫中獲得翻譯文字內容。
+     * @param {string} key - 需要翻譯的文字內容。
+     * @returns {string|boolean} 翻譯後的文字內容，如果沒有找到對應的翻譯，那麼回傳 false。
      */
     function fetchTranslatedText(key) {
 
-        // 静态翻译
-        let str = I18N[lang][page]['static'][key] || I18N[lang]['pubilc']['static'][key]; // 默认翻译 公共部分
+        // 靜態翻譯
+        let str = I18N[lang][page]['static'][key] || I18N[lang]['pubilc']['static'][key]; // 預設翻譯 公共部分
 
         if (typeof str === 'string') {
             return str;
         }
 
-        // 正则翻译
+        // 正規表達式翻譯
         if (enable_RegExp) {
-            let res = (I18N[lang][page].regexp || []).concat(I18N[lang]['pubilc'].regexp || []); // 正则数组
+            let res = (I18N[lang][page].regexp || []).concat(I18N[lang]['pubilc'].regexp || []); // 正規表達式數組
 
             for (let [a, b] of res) {
                 str = key.replace(a, b);
@@ -361,58 +361,58 @@
             }
         }
 
-        return false; // 没有翻译条目
+        return false; // 沒有翻譯條目
     }
 
     /**
-     * transDesc 函数：为指定的元素添加一个翻译按钮，并为该按钮添加点击事件。
-     * @param {string} el - CSS选择器，用于选择需要添加翻译按钮的元素。
+     * transDesc 函數：為指定的元素新增一個翻譯按鈕，並為該按鈕新增點擊事件。
+     * @param {string} el - CSS選擇器，用於選擇需要新增翻譯按鈕的元素。
      */
     function transDesc(el) {
-        // 使用 CSS 选择器选择元素
+        // 使用 CSS 選擇器選擇元素
         let element = document.querySelector(el);
 
-        // 如果元素不存在 或者 translate-me 元素已存在，那么直接返回
+        // 如果元素不存在 或者 translate-me 元素已存在，那麼直接回傳
         if (!element || document.getElementById('translate-me')) {
             return false;
         }
 
-        // 在元素后面插入一个翻译按钮
-        const buttonHTML = `<div id='translate-me' style='color: rgb(27, 149, 224); font-size: small; cursor: pointer'>翻译</div>`;
+        // 在元素後面插入一個翻譯按鈕
+        const buttonHTML = `<div id='translate-me' style='color: rgb(27, 149, 224); font-size: small; cursor: pointer'>翻譯</div>`;
         element.insertAdjacentHTML('afterend', buttonHTML);
         let button = element.nextSibling;
 
-        // 为翻译按钮添加点击事件
+        // 為翻譯按鈕新增點擊事件
         button.addEventListener('click', () => {
-            // 获取元素的文本内容
+            // 取得元素的文字內容
             const desc = element.textContent.trim();
 
-            // 如果文本内容为空，那么直接返回
+            // 如果文字內容為空，那麼直接回傳
             if (!desc) {
                 return false;
             }
 
-            // 调用 translateDescText 函数进行翻译
+            // 呼叫 translateDescText 函數進行翻譯
             translateDescText(desc, text => {
-                // 翻译完成后，隐藏翻译按钮，并在元素后面插入翻译结果
+                // 翻譯完成後，隱藏翻譯按鈕，並在元素後面插入翻譯結果
                 button.style.display = "none";
-                const translationHTML = `<span style='font-size: small'>由 <a target='_blank' style='color:rgb(27, 149, 224);' href='https://www.iflyrec.com/html/translate.html'>讯飞听见</a> 翻译👇</span><br/>${text}`;
+                const translationHTML = `<span style='font-size: small'>翻譯👇</span><br/>${text}`;
                 element.insertAdjacentHTML('afterend', translationHTML);
             });
         });
     }
 
     /**
-     * translateDescText 函数：将指定的文本发送到讯飞的翻译服务进行翻译。
-     * @param {string} text - 需要翻译的文本。
-     * @param {function} callback - 翻译完成后的回调函数，该函数接受一个参数，即翻译后的文本。
+     * translateDescText 函數：將指定的文字發送到訊飛的翻譯服務進行翻譯。
+     * @param {string} text - 需要翻譯的文字。
+     * @param {function} callback - 翻譯完成後的回調函數，該函數接受一個參數，即翻譯後的文字。
      */
     function translateDescText(text, callback) {
-        // 使用 GM_xmlhttpRequest 函数发送 HTTP 请求
+        // 使用 GM_xmlhttpRequest 函數發送 HTTP 請求
         GM_xmlhttpRequest({
-            method: "POST", // 请求方法为 POST
-            url: "https://www.iflyrec.com/TranslationService/v1/textTranslation", // 请求的 URL
-            headers: { // 请求头
+            method: "POST", // 請求方法為 POST
+            url: "https://www.iflyrec.com/TranslationService/v1/textTranslation", // 請求的 URL
+            headers: { // 請求標頭
                 'Content-Type': 'application/json',
                 'Origin': 'https://www.iflyrec.com',
             },
@@ -423,39 +423,39 @@
                     "text": text,
                     "frontBlankLine": 0
                 }]
-            }), // 请求的数据
-            responseType: "json", // 响应的数据类型为 JSON
+            }), // 請求的資料
+            responseType: "json", // 響應的資料類型為 JSON
             onload: (res) => {
                 try {
                     const { status, response } = res;
-                    const translatedText = (status === 200) ? response.biz[0].translateResult : "翻译失败";
+                    const translatedText = (status === 200) ? response.biz[0].translateResult : "翻譯失敗";
                     callback(translatedText);
                 } catch (error) {
-                    console.error('翻译失败', error);
-                    callback("翻译失败");
+                    console.error('翻譯失敗', error);
+                    callback("翻譯失敗");
                 }
             },
             onerror: (error) => {
-                console.error('网络请求失败', error);
-                callback("网络请求失败");
+                console.error('網路請求失敗', error);
+                callback("網路請求失敗");
             }
         });
     }
 
     /**
-     * transBySelector 函数：通过 CSS 选择器找到页面上的元素，并将其文本内容替换为预定义的翻译。
+     * transBySelector 函數：透過 CSS 選擇器找到頁面上的元素，並將其文字內容替換為預定義的翻譯。
      */
     function transBySelector() {
-        // 获取当前页面的翻译规则，如果没有找到，那么使用公共的翻译规则
-        let res = (I18N[lang][page]?.selector || []).concat(I18N[lang]['pubilc'].selector || []); // 数组
+        // 取得目前頁面的翻譯規則，如果沒有找到，那麼使用公共的翻譯規則
+        let res = (I18N[lang][page]?.selector || []).concat(I18N[lang]['pubilc'].selector || []); // 數組
 
-        // 如果找到了翻译规则
+        // 如果找到了翻譯規則
         if (res.length > 0) {
-            // 遍历每个翻译规则
+            // 遍歷每個翻譯規則
             for (let [selector, translation] of res) {
-                // 使用 CSS 选择器找到对应的元素
+                // 使用 CSS 選擇器找到對應的元素
                 let element = document.querySelector(selector)
-                // 如果找到了元素，那么将其文本内容替换为翻译后的文本
+                // 如果找到了元素，那麼將其文字內容替換為翻譯後的文字
                 if (element) {
                     element.textContent = translation;
                 }
@@ -467,47 +467,47 @@
         const toggleRegExp = () => {
             enable_RegExp = !enable_RegExp;
             GM_setValue("enable_RegExp", enable_RegExp);
-            GM_notification(`已${enable_RegExp ? '开启' : '关闭'}正则功能`);
+            GM_notification(`已${enable_RegExp ? '開啟' : '關閉'}正規表達式功能`);
             if (enable_RegExp) {
                 location.reload();
             }
             GM_unregisterMenuCommand(id);
-            id = GM_registerMenuCommand(`${enable_RegExp ? '关闭' : '开启'}正则功能`, toggleRegExp);
+            id = GM_registerMenuCommand(`${enable_RegExp ? '關閉' : '開啟'}正規表達式功能`, toggleRegExp);
         };
 
-        let id = GM_registerMenuCommand(`${enable_RegExp ? '关闭' : '开启'}正则功能`, toggleRegExp);
+        let id = GM_registerMenuCommand(`${enable_RegExp ? '關閉' : '開啟'}正規表達式功能`, toggleRegExp);
     }
 
     /**
-     * init 函数：初始化翻译功能。
+     * init 函數：初始化翻譯功能。
      */
     function init() {
-        // 获取当前页面的翻译规则
+        // 取得目前頁面的翻譯規則
         page = getPage();
-        console.log(`开始page= ${page}`);
+        console.log(`開始 Page = ${page}`);
 
-        // 翻译页面标题
+        // 翻譯頁面標題
         transTitle();
 
         if (page) {
-            // 立即翻译页面
+            // 立即翻譯頁面
             traverseNode(document.body);
 
             setTimeout(() => {
-                // 使用 CSS 选择器找到页面上的元素，并将其文本内容替换为预定义的翻译
+                // 使用 CSS 選擇器找到頁面上的元素，並將其文字內容替換為預定義的翻譯
                 transBySelector();
-                if (page === "repository") { //仓库简介翻译
+                if (page === "repository") { // 倉庫簡介翻譯
                     transDesc(".f4.my-3");
-                } else if (page === "gist") { // Gist 简介翻译
+                } else if (page === "gist") { // Gist 簡介翻譯
                     transDesc(".gist-content [itemprop='about']");
                 }
             }, 100);
         }
-        // 监视页面变化
+        // 監視頁面變化
         watchUpdate();
     }
 
-    // 执行初始化
+    // 執行初始化
     registerMenuCommand();
     init();
 
