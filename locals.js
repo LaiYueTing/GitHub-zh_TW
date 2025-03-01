@@ -1174,6 +1174,7 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
             "The key has expired": "密钥已过期",
             "This commit is not signed, but one or more authors requires that any commit attributed to them is signed.": "此提交未签名，但一位或多位作者要求对归属于他们的任何提交进行签名。",
             "We had a problem verifying this signature. Please try again later.": "我们在验证此签名时遇到问题。请稍后再试。",
+            "We were unable to verify this signature.": "我们无法验证此签名。",
             "This user has not yet uploaded their public signing key.": "此用户尚未上传其公共签名密钥。",
 
             "GPG Key ID:": "GPG 密钥 ID：",
@@ -3766,7 +3767,8 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
             "You don't have an active coupon.": "您没有有效的优惠券。",
             "* Discount only applies for GitHub Pro": "* 优惠仅限 GitHub Pro。",
 
-            "Additional Information": "附加信息",
+            //"Additional Information": "附加信息",
+            "Additional information": "附加信息",
                 "Add specific contact or tax information to your receipts, like your full business name, VAT/GST identification number, or address of record here. We’ll make sure it shows up on every receipt.": "在您的收据上添加具体的联系方式或税务信息，例如您的企业全称、VAT/GST 识别号码或记录地址。我们将确保它显示在每张收据上。",
             "Add information": "添加信息",
             "No additional information added to your receipts.": "您的收据上没有添加任何额外的信息。",
@@ -3775,6 +3777,7 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
             "Extra billing information": "额外的账单信息",
             "This information will appear on all your receipts.": "此信息将出现在您的所有收据上。",
             "For your security, do not include any confidential or financial information (like credit card numbers).": "为了您的安全，请勿包含任何机密或财务信息（如信用卡号）。",
+            "To update the information that appears on invoices (if enabled), visit the": "要更新显示在发票上的信息（如果已启用），请访问",
             "Full business name or address of record": "企业全称或记录地址",
             "Save contact information": "保存联系信息",
 
@@ -6663,6 +6666,7 @@ I18N["zh-CN"]["repository-public"] = { // 仓库 - 公共部分
             "Unsubscribe": "退订",
             "Mark as read": "标记为已读",
             "Mark as unread": "标记为未读",
+            "Move to inbox": "移动到收件箱",
             "Save": "保存",
             "Unsave": "未保存",
 
@@ -6873,7 +6877,7 @@ I18N["zh-CN"]["repository-public"] = { // 仓库 - 公共部分
         [/(\d+) in progress check/, "$1 个正在运行的检查"],
         // [/ and /, " 和 "],
         [/, and (\d+) more/, "，以及其他 $1 个组织"], // 用户 浮动信息卡
-        [/(\d+) repositor(y|ies)/, "$1 个仓库"], // 组织  浮动信息卡
+        [/^(\d+) repositor(y|ies)/, "$1 个仓库"], // 组织  浮动信息卡
         [/(\d+) members?/, "$1 个成员"], // 组织  浮动信息卡
         [/Answered (\d+) discussions? in this repository in the past month/, "过去一个月内在此仓库中回答了 $1 个讨论"], // 用户 浮动信息卡
         [/Answered (\d+) discussions? in this repository in the past week/, "过去一周内在此仓库中回答了 $1 个讨论"], // 用户 浮动信息卡
@@ -7967,6 +7971,7 @@ I18N["zh-CN"]["repository/pull_issue_public"] = { // 仓库 - 议题和拉取请
                     "Link an issue from this repository": "关联来自此仓库的议题",
                     "Filter": "筛选",
                     "No results": "无结果",
+                    "Open in Workspace": "在工作区打开",
 
                 // "Notifications": "通知类型",
                 "Customize": "自定义",
@@ -8186,6 +8191,9 @@ I18N["zh-CN"]["repository/issues"] = { // 仓库 - 议题页面
             // "closed": "已关闭",
             // 新版
                 "Closed as not planned": "关闭因未计划",
+                "Closed as duplicate": "关闭因重复",
+                "of": "于",
+                "Not planned": "未计划",
 
             // 父级议题
             "Parent:": "父级：",
@@ -8357,7 +8365,6 @@ I18N["zh-CN"]["repository/issues"] = { // 仓库 - 议题页面
                     "Create a branch": "创建分支",
                     "for this issue or link a pull request.": "为这个议题或关联一个拉取请求",
                     "When branches are created from issues, their pull requests are automatically linked.": "当从议题中创建分支时，它们的拉取请求会自动关联。",
-                    "Open in Workspace": "在工作区打开",
 
                     // 关系
                         "Add parent": "添加父议题",
@@ -9164,6 +9171,7 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
             "branch can be safely deleted.": "分支可以被安全删除。",
             "This branch has conflicts that must be resolved": "该分支存在冲突，必须解决",
                 "Resolve conflicts then push again. These conflicts are too complex to resolve in the web editor. Actions workflows will not trigger on activity from this pull request while it has merge conflicts.": "解决冲突后再次推送。这些冲突过于复杂，无法在 Web 编辑器中解决。当该拉取请求存在合并冲突时，操作工作流将不会触发该拉取请求的活动。",
+                "These conflicts are too complex to resolve in the web editor.": "这些冲突过于复杂，无法在网页编辑器中解决。",
                 "Use the command line": "使用命令行",
                 "to resolve conflicts before continuing.": "解决冲突后再继续。",
                 "or the command line to resolve conflicts before continuing. Actions workflows will not trigger on activity from this pull request while it has merge conflicts.": "或通过命令行解决冲突。在此拉取请求仍存在合并冲突的情况下，操作工作流不会因该拉取请求的活动而触发。",
@@ -11419,6 +11427,9 @@ I18N["zh-CN"]["repository/actions"] = { // 仓库 - 操作页面
         [/([^ ]+) summary/, "$1 摘要"],
         [/By ([^ ]+)/, "创建：$1"],
         [/Branch "([^ ]+)" is not allowed to deploy to ([^ ]+) due to environment protection rules./, "由于环境保护规则，“$1”分支不允许部署到 $2 上。"],
+        // 时间
+        [/(\d+)d (\d+)h (\d+)m (\d+)s/, "$1天$2时$3分$4秒"],
+        [/(\d+)h (\d+)m (\d+)s/, "$1时$2分$3秒"],
     ],
 };
 I18N["zh-CN"]["repository/runs"] = I18N["zh-CN"]["repository/actions"];
@@ -15901,12 +15912,16 @@ I18N["zh-CN"]["repository/settings/pages"] = { // 仓库设置页面(含组织�
                     "documentation": "文档",
                     "(NotServedByPagesError).": "（Pages 服务错误）。",
 
+                    "Domain's DNS record could not be retrieved. For more information, see": "无法检索域的 DNS 记录。更多信息，请参阅",
+                    "(InvalidDNSError).": "（DNS 错误）。",
+
                     // 顶部提醒
                     "No changes to custom domain.": "没有对自定义域进行修改。",
                     "Custom domain removed. Please remember to remove any GitHub Pages DNS records for this domain if you do not plan to continue using it with GitHub Pages.": "自定义域已删除。如果您不打算继续使用 GitHub Pages，请记得删除此域的任何 GitHub Pages 的 DNS 记录。",
 
                 "Enforce HTTPS": "强制 HTTPS",
                     "— Unavailable for your site because your domain is not properly configured to support HTTPS (": "— 您的网站不可用，因为您的域未正确配置为支持 HTTPS (",
+                    "— Unavailable for your site because a certificate has not yet been issued for your domain (": "— 您的网站不可用，因为您的域尚未颁发证书 (",
                     "Troubleshooting custom domains": "自定义域故障排除",
                     "— Required for your site because you are using the default domain (": "— 必须先设置自定义域，目前您正在使用默认域 (",
 
@@ -15931,6 +15946,7 @@ I18N["zh-CN"]["repository/settings/pages"] = { // 仓库设置页面(含组织�
         [/([a-zA-Z0-9][-a-zA-Z0-9]{0,62}(?:\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+\.?) DNS check is in progress./, "$1 的 DNS 检查正在进行。"],
         [/([a-zA-Z0-9][-a-zA-Z0-9]{0,62}(?:\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+\.?) is improperly configured/, "$1 配置不正确"],
         [/Your site's DNS settings are using a custom subdomain, ([a-zA-Z0-9][-a-zA-Z0-9]{0,62}(?:\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+\.?), that's not set up with a correct CNAME record. We recommend you set this CNAME record to point at [YOUR USERNAME].github.io. For more information, see/, "您网站的 DNS 设置使用的是自定义子域 $1，该子域未设置正确的 CNAME 记录。我们建议您将此 CNAME 记录设置为指向 [YOUR USERNAME].github.io。有关详细信息，请参阅"],
+        [/Something went wrong issuing a certificate for ([a-zA-Z0-9][-a-zA-Z0-9]{0,62}(?:\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+\.?). Please contact the Pages team./, "为 $1 颁发证书时出现问题。请联系 Pages 团队。"],
     ],
 };
 
@@ -23367,6 +23383,7 @@ I18N["zh-CN"]["repository/actions/metrics/usage"] = { // 仓库 - 洞察 - 操�
 
     },
     "regexp": [
+        ...I18N["zh-CN"]["repository-public"]["regexp"],
         [/Showing data from (\d+)\/(\d+)\/(\d+) to/, "显示数据：从$1年$2月$3日至"],
         [/Total (minutes|job runs) across all workflows in this organization for (current week \(mon-sun\)|current month|last month|last 30 days|last 90 days|last year|custom)/, function(all, type, period){
             var typeKey = {'minutes': '总分钟数', 'job runs': '总工作运行数'};
@@ -23533,6 +23550,8 @@ I18N["zh-CN"]["copilot"] = {
             "Open sidebar": "打开侧边栏",
             "Close sidebar": "关闭侧边栏",
             "New conversation": "新聊天",
+            "Close conversations": "关闭侧边栏",
+            "Open conversations": "打开侧边栏",
 
             // 时间
                 "Today": "今天",
@@ -23607,11 +23626,15 @@ I18N["zh-CN"]["copilot"] = {
 
             "Open panel": "打开面板",
             "Close panel": "关闭面板",
+            "Close file browser": "关闭文件浏览器",
                 "View files directly within Copilot": "直接在 Copilot 中查看文件",
                     "Ask to generate a file or app, or use the button below to try it yourself.": "询问生成文件或应用程序，或使用下面的按钮自行尝试。",
                 "I’m feeling lucky": "我手气不错",
 
+                "Download code": "下载代码",
+
                 "lines": "行",
+                "line": "行",
         // 聊天窗口
         "Install Copilot in your favorite code editor": "安装 Copilot 到您的代码编辑器",
             "Copilot is available for a multitude of editors to fit your needs": "Copilot 可用于多种编辑器，以满足您的需求",
