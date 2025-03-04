@@ -279,7 +279,7 @@ I18N["zh-CN"]["title"] = { // 标题翻译
         "Account security": "账户安全",
         "SSH and GPG keys": "SSH 与 GPG 公钥",
         "Organizations": "组织",
-        "Blocked users": "拉黑用户",
+        //"Blocked users": "拉黑用户",
         "Temporary interaction limits": "临时互动限制",
         "Code review limits": "代码审查限制",
         "Repositorys": "仓库",
@@ -698,6 +698,7 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
                 "Command Palette": "命令面板",
                     "Quickly navigate and jump between your organizations or repositories and search recent issues, pull requests, projects and more with the new command palette. You can also execute time saving commands all without lifting your fingers off the keyboard!": "使用新的命令面板，可以快速导航并跳转到您所在的组织或仓库，并搜索最近的议题、拉取请求、项目等等。您还可以执行节省时间的命令，而无需将手指从键盘上移开！",
                     "To open the command palette:": "打开命令面板：",
+                        "other:": "其他：",
                 "Copilot Workspace for Pull Requests": "适用于拉取请求的 Copilot 工作区",
                     "Copilot Workspace is a Copilot-native coding environment that helps you land high-quality pull requests faster by allowing you to edit and run code from your pull request without leaving GitHub.com.": "Copilot 工作区是 Copilot 的原生编码环境，允许您在不离开 GitHub.com 的情况下编辑和运行拉取请求中的代码，从而帮助您更快提交高质量的拉取请求。",
                     "Copilot Workspace is available to customers with access to the Copilot code review public preview.": "访问 Copilot 代码审查公开预览版的客户可使用 Copilot 工作区。",
@@ -3091,7 +3092,10 @@ I18N["zh-CN"]["settings/profile"] = { // 设置 - 个人资料
             "other users and organizations to link to them.": "链接到其他用户和组织。",
             "URL": "网站",
             "Social accounts": "社交账户",
-            "Link to social profile": "链接到社交账户",
+                "Link to social profile 1": "链接到社交账户",
+                "Link to social profile 2": "链接到社交账户",
+                "Link to social profile 3": "链接到社交账户",
+                "Link to social profile 4": "链接到社交账户",
             "Company": "公司",
             "your company’s GitHub organization to link it.": "链接到您所在公司的 GitHub 组织。",
              //"your company's GitHub organization to link it.": "贵公司和GitHub的组织联系起来。",
@@ -4927,6 +4931,8 @@ I18N["zh-CN"]["settings/copilot"] = { // 设置 - GitHub Copilot
                     "Select an option": "选择",
                         "You will have access to the feature": "您将能够访问此功能",
                         "You won’t have access to the feature": "您将不能访问此功能",
+                "Anthropic Claude 3.7 Sonnet in Copilot": "Claude 3.7 模型",
+                    "You can use the latest Claude 3.7 Sonnet model.": "您可以使用最新 Claude 3.7 Sonnet 模型。",
                 "Google Gemini 2.0 Flash in Copilot": "Gemini 2.0 Flash 模型",
                     "You can use Google’s Gemini 2.0 Flash model in Copilot.": "您可以使用 Gemini 2.0 Flash 模型。",
                     "Learn more about the public preview of Gemini 2.0 Flash.": "了解更多关于 GitHub Copilot 如何为 Gemini 2.0 Flash 提供服务。",
@@ -7040,6 +7046,7 @@ I18N["zh-CN"]["page-new-repo"] = {// 仓库 - 新建/导入/复刻仓库
             "Change repository": "选择仓库",
 
         // 导入仓库 第二页 /<user-name>/<repo-name>/import
+            "Your import will begin shortly...": "导入即将开始...",
             "Preparing your new repository": "准备您的新仓库",
                 "There is no need to keep this window open, we’ll email you when the import is done.": "无需保持此窗口，导入完成后我们会通过电子邮件通知您。",
                 "There is no need to keep this window open. We'll email you when the import is done.": "无需保持此窗口，导入完成后我们会通过电子邮件通知您。",
@@ -9549,6 +9556,7 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
         // 状态
         [/branch (\d+) times, most recently from/, "分支 $1 次，最近一次从"],
         [/pushed a commit to ([^ ]+) that referenced this pull request/, " 向 $1 推送一次提交，其中引用了此拉取请求"],
+        [/added a commit to ([^ ]+) that referenced this pull request/, "向 $1 添加一个提交，其中引用了此拉取请求"],
         [/Missing successful active ([^ ]+) deployment./, "未成功激活 $1 部署。"], // 新本合并页面
 
         [/(\d+) in progress checks?/, "$1 个正在进行的检查"],
@@ -9767,6 +9775,10 @@ I18N["zh-CN"]["repository/compare"] = { // 仓库 - 比较并创建拉取请求
                 "Request": "请求",
                 // [/Request review from ([^ ]+)/, "请求 $1 审查"], // 具体的拉取请求 审查者
                 "This pull request is waiting on your review.": "此拉取请求正在等待您的审核。",
+                // Copilot
+                    "Copilot can review pull requests": "Copilot 可以审查拉取请求",
+                    "Request a review from Copilot to get fast, actionable feedback on your code, so you can start iterating before you receive a human review.": "向 Copilot 请求代码审查，即可获得快速且可操作的反馈，让您能在收到人工审查前就开始迭代优化。",
+                    "OK, dismiss": "关闭",
 
             "Assignees": "受理人",
                 "No one assigned": "无人受理",
@@ -13470,6 +13482,11 @@ I18N["zh-CN"]["repository/graphs/contributors"] = { // 仓库 -> 洞察 - 贡献
             const translatedDate = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
             return `${translatedDate}当周`; // 无论如何都是星期一
         }],
+        [/([^ ]+)-([^ ]+) (\d+)/, (match, p1, p2 ,p3) => { // 出现位置：具体某贡献者 - 贡献数柱形图日期，原文格式为 月-月 年
+            const translatedP1 = I18N["zh-CN"]["public"]["static"][p1] || p1;
+            const translatedP2 = I18N["zh-CN"]["public"]["static"][p2] || p2;
+            return `${p3}年 ${translatedP1}-${translatedP2}`; // 此处修改格式为 年 月-月
+        }],
         ...I18N["zh-CN"]["repository-public"]["regexp"],
     ],
 };
@@ -13723,7 +13740,7 @@ I18N["zh-CN"]["repository/graphs/code-frequency"] = { // 仓库 -> 洞察 - 代�
             "Download CSV": "下载 CSV",
             "Download PNG": "下载 PNG",
             // 图表本体
-                "Date": "日期",
+                "DateTime": "日期时间",
                 "Frequency": "频率",
                 "Values": "值",
 
