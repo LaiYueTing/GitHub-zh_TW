@@ -464,6 +464,7 @@ I18N["zh-CN"]["title"] = { // 标题翻译
         [/Invitation to join ([^ ]+)/, "加入 $1 邀请"],
         [/Security Managers for · ([^ ]+)/, "安全管理员 · $1"],
         [/New File at \/ · ([^ ]+)/, "新建文件 · $1"],
+        [/Blaming ([^ ]+) at ([^ ]+) · ([^ ]+)/, "追溯 $1（$2） · $3"],
         ["_regexp_end", "end"]
     ],
 };
@@ -703,13 +704,6 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
                     "Copilot Workspace is a Copilot-native coding environment that helps you land high-quality pull requests faster by allowing you to edit and run code from your pull request without leaving GitHub.com.": "Copilot 工作区是 Copilot 的原生编码环境，允许您在不离开 GitHub.com 的情况下编辑和运行拉取请求中的代码，从而帮助您更快提交高质量的拉取请求。",
                     "Copilot Workspace is available to customers with access to the Copilot code review public preview.": "访问 Copilot 代码审查公开预览版的客户可使用 Copilot 工作区。",
                     "Sign up for the Copilot code review public preview": "注册参与 Copilot 代码审查公开预览",
-                "Personal Instructions": "个人指导",
-                    "Personal Instructions allow you to provide Copilot with important details about your preferences, such as your preferred language, response style, or even code standards.": "个人指导允许您向 Copilot 提供有关您的偏好的重要细节，例如您的首选语言、响应风格，甚至代码标准。",
-                    "Examples:": "示例：",
-                        "Always respond in Portuguese.": "始终用葡萄牙语回复。",
-                        "I have lots of experience with React but not with Vue. Please give answers with both React and Vue examples side-by-side. It is useful to see a comparison between React and Vue.": "我对 React 有很多经验，但对 Vue 没有。请给出 React 和 Vue 示例并排的答案。看到 React 和 Vue 之间的比较很有用。",
-                        "Each message should communicate a singular idea. That idea should be limited to ONE codeblock or paragraph. At the end of each message, prompt me whether to continue on. Let me know what is coming next.": "每条消息应传达一个单一的想法。该想法应限于一个代码块或段落。在每条消息的末尾，提示我是否继续。让我知道接下来会发生什么。",
-                        "Please give overly excited explanations! I need TONS of enthusiasm! Use ALL CAPS and lots of EMOJIS wherever possible!": "请给出过于兴奋的解释！我需要大量的热情！尽可能使用大写字母和大量的表情符号！",
                 "New Commit Details Page": "新版提交详情页",
                     "New version of the commit details page that lets you quickly understand and navigate the changes in a commit. Improves filtering, commenting (with new floating comments and comment counts on the file tree), keyboard navigation, and more.": "新版提交详细信息页面可让您快速了解和浏览提交中的更改。改进了过滤、注释（文件树中新增了浮动注释和注释计数）、键盘导航等功能。",
                 "Rich Jupyter Notebook Diffs": "Jupyter Notebook 的丰富差异视图",
@@ -1285,6 +1279,8 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
             "All repositories": "所有仓库",
             "Back": "返回",
             "Conversation options": "选项",
+                "Enable custom instructions": "启用个人指导",
+                "Disable custom instructions": "禁用个人指导",
                 "Personal instructions": "个人指导",
                     "Set up Copilot to align with your workflows and preferences. These instructions will only impact your personal conversation.": "设置 Copilot 以符合您的工作流程和偏好。这些指导仅影响您的个人对话。",
                     "Your instructions": "您的指导",
@@ -8836,8 +8832,6 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
                         "Repository access limited": "仓库访问受限",
                             "You do not have access to push to this repository and its owner has disabled forking.": "您无权推送到此仓库，其所有者已禁用了复刻。",
 
-                    "Codespaces will be undergoing maintenance in Europe and Southeast Asia from 17:00 UTC Friday 2/28 to 02:00 UTC Saturday 3/1. Users may experience connection issues during this time.": "代码空间将于 UTC 时间 2/28 星期五下午 5:00 至 3/1 星期六凌晨 2:00 在欧洲和东南亚进行维护。用户在此期间可能会遇到连接问题。",
-
                     // [/Codespace \"(.+)\" stopped./, "代码空间 “$1” 已停止。"],
                     // [/Codespace \"(.+)\" deleted./, "代码空间 “$1” 已删除。"],
                     // [/Are you sure you want to delete (.+)\?/, "您确定要删除 $1 吗？"],
@@ -9504,6 +9498,9 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
         "Switch back to the classic merge experience": "切换回经典的合并界面",
         "Try the new merge experience": "尝试新的合并界面",
 
+        "Repository owner locked as": "仓库所有者锁定为",
+            "resolved": "已解决",
+
     },
     "regexp": [ // 正则翻译
         [/The (\d+) commits? from this branch will be rebased and added to the base branch./, "该分支的 $1 次提交将变基并添加到基本分支。"],
@@ -9852,6 +9849,7 @@ I18N["zh-CN"]["repository/compare"] = { // 仓库 - 比较并创建拉取请求
         "code of conduct": "行为准则",
         "Remember, contributions to this repository should follow our": "请记住，对此仓库的贡献应遵循我们的",
         "GitHub Community Guidelines": "GitHub 社区准则",
+        "Support": "支持",
 
         // 右侧栏补充
         "Development": "进展",
@@ -9999,6 +9997,8 @@ I18N["zh-CN"]["repository/commit"] = { // 仓库 - 提交页面
             "Open in desktop": "在 GitHub Desktop 中打开",
             "Copilot is loading...": "Copilot 加载中...",
             "Ask about this diff": "询问此差异",
+                "Explain": "解释",
+                "Attach to current thread": "附加至当前话题",
 
             //底部评论框上部
             "Lock conversation": "锁定对话",
@@ -10383,6 +10383,11 @@ I18N["zh-CN"]["repository/blob"] = { // 仓库 - 浏览代码
                 "Press": "按",
                 "again to open the browser's find menu": "打开浏览器的查找菜单",
                 "Search this file": "搜索此文件",
+
+            "Ask Copilot about this snippet": "向 Copilot 询问此片段",
+                "Explain": "解释",
+                "Suggest improvements": "提出优化建议",
+                "Attach to current thread": "附加至当前话题",
 
         // 中间栏 顶部 权限信息
         "the": "为：", // 上半句走正则
@@ -11351,6 +11356,7 @@ I18N["zh-CN"]["repository/actions"] = { // 仓库 - 操作页面
 
         // /<user-name>/<repo-name>/actions/runs/<id>/job/<job-id>
             "The logs for this run have expired and are no longer available.": "此运行日志已过期，不再可用。",
+            "This job was cancelled": "作业已取消",
 
             "Started": "开始于",
             "succeeded": "成功于",
@@ -14428,6 +14434,7 @@ I18N["zh-CN"]["repository/settings/access"] = { // 仓库设置 - 协作者/(组
             "You haven't invited any collaborators yet": "您尚未邀请任何协作者",
             // "invite a collaborator": "邀请协作者",
             "Add people": "添加他人",
+                "Add to repository": "添加到仓库",
 
             "Select all": "全选",
                 // [/(\d+) members? selected…/, "已选择 $1 名成员..."],
@@ -14477,6 +14484,8 @@ I18N["zh-CN"]["repository/settings/access"] = { // 仓库设置 - 协作者/(组
         [/([^ ]+) • Invite collaborator/, "$1 • 邀请协作者"],
         [/(\d+) users?/, "$1 个用户"],
         [/(\d+) teams?/, "$1 个团队"],
+        [/Add people to ([^ ]+)/, "添加人员到 $1"],
+        [/([^ ]+) has been added as a collaborator  on the repository./, "已将 $1 添加为仓库协作者。"],
         ...I18N["zh-CN"]["repository-public"]["regexp"],
     ],
 };
@@ -22750,6 +22759,8 @@ I18N["zh-CN"]["codespaces"] = { // 代码空间页面
                 "Open in JupyterLab": "在 JupyterLab 中打开",
                 "Start is temporarily disabled": "启动暂时被禁用",
 
+                "Expiring in": "最后使用", // GitHub 的烂活，原为过期，但居然还能重新打开
+
             "Created from": "创建自",
             "2-core • 8GB RAM • 32GB": "双核 • 8GB 内存 • 32GB 硬盘",
             "4-core • 16GB RAM • 32GB": "四核 • 16GB 内存 • 32GB 硬盘",
@@ -23925,6 +23936,7 @@ I18N["zh-CN"]["education"] = { // 教育页面，申请学生包会用到
                             "You are unlikely to be verified until you have completed your": "在完成",
                                 "GitHub user profile": "GitHub 用户资料",
                                 "with your full name exactly as it appears in your academic affiliation document. Please do not use a variation of your name or a nickname. Once you have updated your profile information log out and log back into GitHub before re-applying.": "之前，您不可能通过验证。请不要使用姓名的变体或昵称。更新个人档案信息后，请退出并重新登录 GitHub，然后再重新申请。",
+                            "The image you captured appears to be a screen display. Please take a clear, live photo of physical documentation confirming your academic enrollment.": "您提供的图片似乎是屏幕显示内容。请直接拍摄纸质材料以确认您的在学状态，例如学生证、录取通知书或官方在学证明等纸质文件的原件照片。",
             // https://education.github.com/discount_requests/数字/completed 成功
                 "Get benefits": "获取福利",
 
