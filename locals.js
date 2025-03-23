@@ -1922,6 +1922,7 @@ I18N["zh-CN"]["page-dashboard"] = { // 已登录的首页 - 仪表板（含组�
         "has a new discussion in": "有一条新讨论，在",
         "Join discussion": "参与讨论",
         "Popular among": "很受欢迎",
+        "Popular projects among": "热门项目",
         "people you follow": "在您关注的人中",
         "Sponsor": "赞助",
 
@@ -2544,6 +2545,7 @@ I18N["zh-CN"]["page-profile/repositories"] = { // 个人首页 - 仓库标签卡
         [/(\d+(k|M|B)?) repositor(y|ies)/, "$1 个仓库"],
         [/(\d+) members?/, "$1 成员"], // 组织 浮动信息卡
         [/([^ ]+) doesn’t have any repositories that match./, "$1 没有任何匹配的仓库"], // 仓库标签卡
+        [/([^ ]+) doesn’t have any public repositories yet./, "$1 没有任何公共仓库。"],
         [/Your repository \"([^ ]+)\" was successfully deleted./, "您的仓库 “$1” 已成功删除。"],
         [/(\d+) issues? needs? help/, "$1 个议题需要帮助"],
         [/and (\d+) more/, "等 $1 人"],
@@ -8763,6 +8765,7 @@ I18N["zh-CN"]["repository/pulls"] = { // 仓库 - 拉取请求页面
         [/(\d+) tasks? done/, "$1 个任务完成"],
         [/(\d+) of (\d+) tasks?/, "$1 / $2 个任务"],
         [/(\d+) tasks?/, "$1 个任务"],
+        [/(\d+) Total/, "$1 总计"],
         [/(\d+) review requesting changes/, "$1 个要求修改的审查"],
         [/First time contributing to ([^ ]+)\?/, "首次为 $1 做贡献？"],
         [/Suggested change/, "建议更改"],
@@ -11366,12 +11369,14 @@ I18N["zh-CN"]["repository/actions"] = { // 仓库 - 操作页面
             "Triggered via GitHub Pages": "通过 GitHub 页面触发",
             "Triggered via repository dispatch": "通过仓库调度触发",
             "Triggered via release": "通过发行版触发",
+            "Triggered via issue": "通过议题触发",
             "Re-run triggered": "重新触发",
             "Manually triggered": "手动触发",
 
             "pushed": "推送",
             "opened": "打开",
             "reopened": "重新打开",
+            "commented on": "评论于",
 
             // 状态
                 "Success": "成功",
@@ -23937,6 +23942,10 @@ I18N["zh-CN"]["copilot"] = {
         // 漏洞相关
             "Path Injection": "路径注入",
                 "Unvalidated input in path value creation risks unintended file/directory access": "创建路径值时输入的无效信息可能会导致意外文件/目录访问",
+
+        "You’ve edited": "您已编辑",
+            "Undo": "撤销",
+            "Revert": "回退",
 
         // 了解世界领先的人工智能开发工具的所有优势。
         "Accelerate your development speed with Copilot": "使用 Copilot 加快开发速度",
