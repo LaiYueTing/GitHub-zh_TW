@@ -465,6 +465,7 @@ I18N["zh-CN"]["title"] = { // 标题翻译
         [/Security Managers for · ([^ ]+)/, "安全管理员 · $1"],
         [/New File at \/ · ([^ ]+)/, "新建文件 · $1"],
         [/Blaming ([^ ]+) at ([^ ]+) · ([^ ]+)/, "追溯 $1（$2） · $3"],
+        [/Deleting ([^ ]+)\/([^ ]+) at ([^ ]+) · ([^ ]+)/, "删除 $3/$2 · $4"], // 简化部分内容
         ["_regexp_end", "end"]
     ],
 };
@@ -2344,7 +2345,7 @@ I18N["zh-CN"]["page-profile"] = { // 个人首页
 
             return '- ' + compareKey[compare] + num + '小时';
         }],
-        [/(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (\d+)/, function(all, m, d){
+        [/(?:on )?(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (\d+)/, function(all, m, d){
             var mKey = {
                 "Jan": "1月",
                 "Feb": "2月",
@@ -4749,6 +4750,10 @@ I18N["zh-CN"]["settings/codespaces"] = { // 设置 - 代码空间
                 // "Enabled": "启用",
                     "VS Code Settings Sync will be available in Codespaces": "VS Code 设置同步将在代码空间中可用",
 
+            // 通知
+            "When enabled, you will receive emails when your codespaces are nearing deletion due to inactivity.": "启用后，当您的代码空间因长时间未使用而即将被删除时，您将收到电子邮件通知。",
+            "Warning notifications for codespace deletions will be enabled": "代码空间删除警告通知将启用",
+
             "Trusted repositories": "受信任仓库",
                 "The following repositories will be referenced by GPG verification and Settings Sync.": "以下仓库将被 GPG 验证和设置同步所引用。",
 
@@ -4759,6 +4764,8 @@ I18N["zh-CN"]["settings/codespaces"] = { // 设置 - 代码空间
                     "Select repositories": "选择仓库",
                     // [/Selected (\d+) repositor(y|ies)./, "选定 #1 个仓库"],
                     "GPG and VS Code Settings Sync will be available for Codespaces from these repositories.": "GPG 和 VS Code 设置同步将可用于这些仓库的代码空间。",
+
+                "Submit": "确定",
 
             "Access and security": "访问和安全",
             "Deprecated": "弃用",
@@ -4852,6 +4859,7 @@ I18N["zh-CN"]["settings/codespaces"] = { // 设置 - 代码空间
         [/Selected (\d+) repositor(y|ies)./, "选定 $1 个仓库"],
         [/(\d+) repositor(y|ies)/, "$1 个仓库"],
         [/Are you sure you want to delete ([^ ]+)\?/, "您确定要删除 $1 吗？"],
+        [/Remove ([^ ]+)/, "移除 $1"],
     ],
 };
 
@@ -8277,6 +8285,7 @@ I18N["zh-CN"]["repository/issues"] = { // 仓库 - 议题页面
             // 置顶议题
             "Pinned issues": "置顶议题",
             "Drag to reorder": "拖拽排序",
+            "Pinned issue options": "置顶选项",
 
             "Unpin": "取消置顶",
             "Advanced move...": "高级移动…",
@@ -8445,14 +8454,19 @@ I18N["zh-CN"]["repository/issues"] = { // 仓库 - 议题页面
                     // 在本地仓库检出对话框
                         "Checkout in your local repository": "在本地仓库检出",
                         "Run the following commands in your local clone.": "在您的本地克隆中运行以下指令。",
+                    
+                    // 项目
+                        "Select projects": "选择项目",
 
-                    //
+                    // 进展
                         "Link a branch or pull request": "关联分支或拉取请求",
                         "Select a repository to search for branches and pull requests or": "选择一个仓库来搜索分支和拉取请求或",
                         "create a branch": "创建一分支",
+                        "Search pull requests": "搜索拉取请求",
                         "Search for repositories": "搜索仓库",
                         "Link a branch, pull request, or": "关联分支、拉取请求或",
                         "Search for branches or pull requests": "搜索分支或拉取请求",
+                        "no pull request": "无拉取请求",
 
                 "Pin issue": "置顶议题",
                     "Up to 3 issues can be pinned and they will appear publicly at the top of the issues page": "最多可以置顶 3 个议题，它们将公开显示在议题页面的顶部",
@@ -9792,6 +9806,7 @@ I18N["zh-CN"]["repository/compare"] = { // 仓库 - 比较并创建拉取请求
             "These branches can be automatically merged.": "该分支可被自动合并。",
 
             "View pull request": "查看拉取请求", //存在拉取请求时
+                "No description available": "无说明", // 拉取请求无评论时
 
             "commit": "次提交",
             "commits": "次提交",
@@ -10310,6 +10325,7 @@ I18N["zh-CN"]["repository/blob"] = { // 仓库 - 浏览代码
                         "Wrap lines": "换行",
                         "Center content": "核心内容",
                         "Open symbols on click": "单击打开符号",
+                    "Ask about this file": "讨论此文件",
                     "Delete file": "删除文件",
 
             "Copied path!": "✅ 路径已复制！",
@@ -11892,6 +11908,11 @@ I18N["zh-CN"]["repository/new"] = { // 仓库 - 新建/编辑/上传/删除文�
         // 删除文件页面 /<user-name>/<repo-name>/delete/<branch>/<file>
             // 顶部提醒
             "File successfully deleted.": "文件已成功删除。",
+
+            "Copy path to clipboard": "复制路径到剪切板",
+
+            "Load diff": "加载差异",
+            "This file was deleted.": "此文件已删除。",
 
         // 上传文件页面 /<user-name>/<repo-name>/upload/<branch>
             // 自有仓库
@@ -14560,6 +14581,7 @@ I18N["zh-CN"]["repository/settings/access"] = { // 仓库设置 - 协作者/(组
             "private repository": "私有仓库",
             "Only those with access to this repository can view it.": "只有拥有该仓库访问权的用户才能查看。",
             "Manage": "管理",
+            "Manage visibility": "管理", // 内容重复，直接省略
 
             "Direct access": "直接访问",
             "collaborators have access to this repository. Only you can contribute to this repository.": "个协作者有权访问此仓库。 只有您可以对此仓库做出贡献。",
@@ -14595,6 +14617,7 @@ I18N["zh-CN"]["repository/settings/access"] = { // 仓库设置 - 协作者/(组
             "Find people or a team…": "寻找用户或一个团队……",
 
             "Pending Invite": "待处理邀请",
+            "Invite expired": "已过期",
             // [/Awaiting ([^ ]+)’s response/, "等待 $1 的回复"],
             "Remove": "移除",
 
@@ -19316,13 +19339,16 @@ I18N["zh-CN"]["marketplace"] = { // GitHub 市场
 
             "Models": "模型",
                 "Model": "模型",
+                "Catalog": "目录",
 
                     // 分类
                         "All providers": "所有提供商",
+                    "Publisher:": "发布者：",
                     "Capability:": "能力：",
                         "Chat/completion": "聊天/完成",
                         "Embeddings": "嵌入",
                     "Tag:": "标签",
+                    "Category:": "类型：",
                         "Agents": "代理",
                         "Conversation": "对话",
                         "Large context": "大模型",
@@ -19333,6 +19359,10 @@ I18N["zh-CN"]["marketplace"] = { // GitHub 市场
                         "Rag": "检索增强生成",
                         "Reasoning": "推理",
                         "Understanding": "理解",
+                    // 排序
+                        "Alphabetical": "A-Z",
+                        "Output token limit": "输出令牌限制",
+                        "Input token limit": "输入令牌顺序",
 
             "All apps": "所有应用",
                 "Apps": "应用",
@@ -19766,6 +19796,9 @@ I18N["zh-CN"]["marketplace"] = { // GitHub 市场
             "Input:": "输入：",
             "• Output:": "• 输出：",
             "ms": "毫秒",
+
+            "Welcome to GitHub Models!": "欢迎使用 GitHub 模型！",
+                "We want to make Models Playground amazing for you. Got feedback? Book a call or": "我们致力于让模型游乐场为您带来卓越体验。如有反馈，请预约通话或",
             // 聊天窗口
                 // 顶部横条
                     "Restore last session": "恢复上次聊天",
@@ -19803,11 +19836,21 @@ I18N["zh-CN"]["marketplace"] = { // GitHub 市场
                     "Text": "文本",
                     "Set the format for the model response.": "设置模型响应的格式。",
                 "Max Tokens": "最大令牌",
+                "Max Completion Tokens": "最大输出标记",
                     "Limit the maximum output tokens for the model response.": "限制模型响应的最大输出标记。",
+                "Reasoning Effort": "推理强度调节",
+                    "Adjust the model's cognitive load with options for low, medium, and high reasoning levels.": "通过低、中、高三级可选项调整模型的计算资源分配，控制输出结果的逻辑复杂度和思考深度。",
+                    "high": "高",
+                    "medium": "中",
+                    "low": "低",
                 "Temperature": "随机度",
                     "Controls randomness in the response, use lower to be more deterministic.": "控制响应的随机性，使用较低值则更具确定性。",
                 "Top P": "最大概率",
                     "Controls text diversity by selecting the most probable words until a set probability is reached.": "通过选择最有可能出现的词语来控制文本多样性，直到达到设定的概率。",
+                "Presence Penalty": "重复惩罚",
+                    "Discourages the model from repeating the same words or phrases too frequently by applying a penalty (between -2.0 and 2.0) based on their presence in the text.": "通过根据文本中已存在的词语或短语施加惩罚（范围在-2.0到2.0之间），抑制模型过于频繁地重复使用相同词语或短语的倾向。",
+                "Frequency Penalty": "频率惩罚",
+                    "Discourages the model from generating the same words or phrases too frequently by applying a penalty (between -2.0 and 2.0) based on their existing frequency in the text.": "通过根据文本中已存在词语或短语的出现频率施加惩罚（范围在-2.0到2.0之间），抑制模型过于频繁地生成相同词语或短语的倾向。",
                 "Stop": "停止",
                     "Force cutting the output when this string occurs.": " 当出现该字符串时，强制切断输出。",
             // 模型比较
@@ -20080,6 +20123,8 @@ I18N["zh-CN"]["orgs"] = { // 组织页面
                 "View as:": "浏览：",
                     "Switch profile context": "切换视角",
                     "Member": "成员",
+                        "Member of": "隶属于", // 成员 - 浮动信息卡
+                        "- same time": "- 时间相同", // 成员 - 浮动信息卡
 
                 // 公共视角
                     "You are viewing the README and pinned repositories as a public user.": "您正在以公共用户的身份查看自述文件和置顶仓库。",
@@ -20183,6 +20228,13 @@ I18N["zh-CN"]["orgs"] = { // 组织页面
         [/Invite a member to/, "邀请成员加入"],
         [/\((\d+) issues? need help\)/, "($1 个议题需要帮助)"],
         [/([^ ]+)’s past year of commit activity/, "近几年 $1 的提交活动"],
+        // 用户 - 浮动信息卡
+        [/- (\d+)h (ahead|behind)/, function(all, num, compare){
+            var compareKey = {ahead: '早', behind: '晚'};
+
+            return '- ' + compareKey[compare] + num + '小时';
+        }],
+        [/, and (\d+) more/, " 等 $1 个组织"],
         ...I18N["zh-CN"]["orgs-public"]["regexp"],
     ],
     "selector": [ // 元素筛选器规则
@@ -23841,6 +23893,11 @@ I18N["zh-CN"]["copilot"] = {
                             "Retrieving discussions": "检索讨论",
             "uses AI. Check for mistakes.": "使用 AI。请检查错误。",
             "Get file": "获取文件",
+
+            // 拉取请求列表
+            "opened": "打开于",
+            "closed": "关闭于",
+            "ago": "之前",
 
             "Copy code": "复制代码",
             "Copied!": "复制成功！",
