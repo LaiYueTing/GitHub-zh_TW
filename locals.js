@@ -661,8 +661,9 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
             "Open Copilot…": "打开 Copilot…",
                 "New conversation in": "新聊天",
                 "New conversation": "新聊天",
-                    "Immersive": "沉浸式",
-                "Open with": "打开于",
+                    "Assistive": "小窗",
+                    "Immersive": "全屏",
+                "Download for": "下载插件",
 
         // 右上角个人图标下拉菜单
             "Account switcher": "账户切换",
@@ -1295,7 +1296,7 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
                     "All conversations": "所有对话",
                     // 删除
                         "Are you sure? This can’t be undone.": "您确定吗？此操作无法撤销。",
-            "Take conversation to immersive": "全屏对话",
+            "Continue in immersive": "全屏对话",
             "Close chat": "关闭",
 
             "public": "公共",
@@ -3191,6 +3192,8 @@ I18N["zh-CN"]["settings/profile"] = { // 设置 - 个人资料
                 // 顶部提醒
                 "Profile updated successfully —": "个人资料更新成功 —",
                 "view your profile.": "查看您的个人资料。",
+                "Visitors will now see your public and anonymized private contributions.": "现在访客可以看到您的公开和匿名私人贡献。",
+                "Visitors will now see only your public contributions.": "现在访客只能看到您的公开贡献",
 
             "Trending settings": "趋势设置",
             "Preferred spoken language": "首选语言",
@@ -8177,6 +8180,8 @@ I18N["zh-CN"]["repository/issues"] = { // 仓库 - 议题页面
             "Now, GitHub will help potential first-time contributors": "现在，GitHub 将帮助潜在的首次贡献者",
             "discover issues": "探索议题",
             "labeled with": "标记为",
+                "Completed": "已完成",
+            "Project": "项目",
 
             "Clear filter": "清除筛选",
             "Filter authors": "筛选作者",
@@ -8408,6 +8413,8 @@ I18N["zh-CN"]["repository/issues"] = { // 仓库 - 议题页面
             "as off topic": "因偏离主题",
             "as too heated": "因争论不休",
             "added a sub-issue": "添加了一个子议题",
+            "removed a parent issue": "移除了一个父议题",
+            "removed a sub-issue": "移除了一个子议题",
 
             // 右侧栏 补充
                 // "Development": "进展",
@@ -8420,6 +8427,8 @@ I18N["zh-CN"]["repository/issues"] = { // 仓库 - 议题页面
                     // 关系
                         "Add parent": "添加父议题",
                         "Select a repository": "选择一个仓库",
+                        "Change or remove parent": "更改或移除父议题",
+                            "Selected": "当前",
 
                     // 参与者数大于2
                         "and others": "等",
@@ -8534,6 +8543,8 @@ I18N["zh-CN"]["repository/issues"] = { // 仓库 - 议题页面
                 "hide comment": "隐藏评论",
             "Edits": "编辑",
                 "Most recent": "最近",
+                "Viewing edit": "查看编辑",
+                "Delete revision": "删除记录",
             "Reopen Issue": "重新打开议题",
                 "You do not have permissions to reopen this issue": "您没有权限重新打开此议题",
             // 关闭议题
@@ -9675,6 +9686,9 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
         // 文件差异过大 参考 https://github.com/maboloshi/github-chinese/pull/306/files
         [/([\d,]+) additions, ([\d,]+) deletions not shown because the diff is too large. Please use a local Git client to view these changes./, "差异过大，不会显示 $1 行添加以及 $1 行删除。请使用本地 Git 客户端查看更改。"],
 
+        // 任务
+        [/(\d+) tasks?/, "$1 个任务"],
+        
         // 解决冲突编辑器（似乎又是 F12 才会翻译）
         [/Search:/, "搜索："],
         [/\(Use \/re\/ syntax for regexp search\)/, "(使用 /re/ 进行正则搜索)"],
@@ -14630,6 +14644,11 @@ I18N["zh-CN"]["repository/settings/access"] = { // 仓库设置 - 协作者/(组
                 "Add": "添加",
                 "to this repository": "到这个仓库",
 
+            "Confirm you want to remove this invitation": "确认移除邀请",
+                "Once canceled,": "取消后，",
+                "will no longer be invited to access the": "将不再被邀请访问",
+                "repository.": "仓库。",
+
             // 组织仓库
             "Create team": "创建组织",
             "You haven't added any teams or people yet": "您尚未添加团队或成员",
@@ -14655,6 +14674,7 @@ I18N["zh-CN"]["repository/settings/access"] = { // 仓库设置 - 协作者/(组
         [/(\d+) teams?/, "$1 个团队"],
         [/Add people to ([^ ]+)/, "添加人员到 $1"],
         [/([^ ]+) has been added as a collaborator  on the repository./, "已将 $1 添加为仓库协作者。"],
+        [/Cancel ([^ ]+)'s invitation/, "取消邀请 $1"],
         ...I18N["zh-CN"]["repository-public"]["regexp"],
     ],
 };
