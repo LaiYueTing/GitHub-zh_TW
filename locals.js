@@ -474,6 +474,7 @@ I18N["zh-CN"]["title"] = { // 标题翻译
 I18N["zh-CN"]["public"] = { // 公共区域翻译
     "static": { // 静态翻译
         // 错误页面
+        "Find code, projects, and people on GitHub:": "在 GitHub 上查找代码、项目和人员：",
         "Access has been restricted": "访问被限制",
             "You have triggered a rate limit.": "您已触发速率限制。",
             "Please wait a few minutes before you try again;": "请稍等几分钟再重试；",
@@ -486,11 +487,16 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
         "Looks like network is down!": "看起来网络未连接！",
         "Contact Support": "联系 GitHub 支持",
         "GitHub Status": "GitHub 状态",
+        // 右上角切换账户提示
+        "Signed in as": "登录为",
+        "Switch to another account": "切换到另一个帐户",
         // 顶部提示
         "You only have a single verified email address. We recommend verifying at least one more email address to ensure you can recover your account if you lose access to your primary email.": "您只有一个经过验证的电子邮件地址。我们建议您至少再验证一个电子邮件地址，以确保在失去主邮箱访问权限时可以恢复账户。",
         "Email settings": "电子邮件设置",
         "Your recovery codes have not been saved in the past year. Make sure you still have them stored somewhere safe by viewing and downloading them again.": "如果您在过去一年中没有保存恢复密码。请确保将其保存在安全的地方，并再次查看和下载。",
             "View recovery codes": "查看恢复码",
+        "You can also": "你也可以",
+        "view this object as it appeared at the time of the comment": "查看此对象在评论时的状态",
         // 底部红条
         "You can’t perform that action at this time.": "此时无法执行该操作。",
         // 速率限制 - 短时间频繁访问网页，至少包括 https://github.com/issues
@@ -1175,7 +1181,7 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
             "We were unable to verify this signature.": "我们无法验证此签名。",
             "This user has not yet uploaded their public signing key.": "此用户尚未上传其公共签名密钥。",
 
-            "GPG Key ID:": "GPG 密钥 ID：",
+            "GPG key ID:": "GPG 密钥 ID：",
             "SSH key Fingerprint:": "SSH 密钥指纹：",
             "Learn about vigilant mode": "了解警戒模式",
             "The email in this signature doesn’t match the committer email.": "此签名中的电子邮箱与提交者的电子邮箱不相符。",
@@ -1774,6 +1780,8 @@ I18N["zh-CN"]["page-dashboard"] = { // 已登录的首页 - 仪表板（含组�
             "You're seeing this because you haven't created a repository in a while.": "您看到这个是因为您有一段时间没有创建仓库了。",
             "You're seeing this because you haven't used repositories, issues, and pull requests recently.": "您看到这个是因为您最近没有使用仓库、议题和拉取请求。",
             "Remove from dashboard": "从仪表板中删除",
+            "Repositories that need your help": "这些仓库需要您的帮助",
+            "See more repos with good first issues": "查看更多适合新手提交议题的仓库",
         "Use tools of the trade": "使用贸易工具",
             "You're seeing this because you haven't opened a pull request in a while.": "您看到这个是因为您有一段时间没有打开拉取请求了。",
                 "Simplify your development workflow with a GUI": "使用 GUI 简化开发工作流程",
@@ -1928,6 +1936,7 @@ I18N["zh-CN"]["page-dashboard"] = { // 已登录的首页 - 仪表板（含组�
         "Popular projects among": "热门项目",
         "people you follow": "在您关注的人中",
         "Sponsor": "赞助",
+        "added": "添加",
 
         // 右侧栏
         "Latest changes": "最新变化",
@@ -2570,7 +2579,7 @@ I18N["zh-CN"]["page-profile/projects"] = { // 个人首页- 项目标签卡
             "Provide quick access to relevant projects.": "提供快速访问相关项目的途径。",
             "Add projects to view them here.": "将项目添加到此处查看。",
 
-            "Welcome to the all-new projects": "欢迎访问全新的项目",
+            "Welcome to projects": "欢迎访问项目页面",
             "Built like a spreadsheet, project tables give you a live canvas to filter, sort, and group issues and pull requests. Tailor them to your needs with custom fields and saved views.": "构建像电子表格一样的项目表，给您一个实时的画布来对议题和拉取请求进行筛选、排序和分组。通过自定义字段和保存的视图，使它们符合您的需要。",
 
             "Learn more about projects": "了解更多关于项目的信息", // ?tab=projects
@@ -3537,14 +3546,17 @@ I18N["zh-CN"]["settings/notifications"] = { // 设置 - 通知
                 "Dependabot alerts": "Dependabot 警报",
                 "automatically receive notifications when a new vulnerability is found in one of your dependencies.": " 访问权限时，当您的某个依赖关系中发现新的漏洞时，就会自动收到通知。",
 
-            "Email weekly digest": "每周电子邮件摘要",
-                "Email a weekly summary summarizing alerts for up to 10 of your repositories.": "通过电子邮件发送每周摘要，汇总最多 10 个仓库的警报。",
+            "Dependabot alerts: Email digest": "Dependabot 警报：电子邮件摘要",
+                "Email a regular summary of Dependabot alerts for up to 10 of your repositories.": "通过电子邮件发送最多 10 个仓库库的 Dependabot 警报定期摘要。",
                 "Don't send": "不发送",
                 "Send weekly": "每周发送",
                 "Send daily": "每日发送",
 
             "\'Deploy key\' alert email": "“部署密钥” 警报电子邮件",
                 "When you are given admin permissions to an organization, automatically receive notifications when a new deploy key is added.": "当您获得组织的管理员权限时，会在添加新部署密钥时自动接收通知。",
+
+            "In-product messages": "产品消息",
+                "Get tips, solutions and exclusive offers from GitHub about products, services and events we think you might find interesting.": "从 GitHub 获取有关我们认为您可能感兴趣的产品、服务和活动的提示、解决方案和独家优惠。",
 
         // 通知 自定义路由 https://github.com/settings/notifications/custom_routing
                 "/ Custom Routing": "/ 自定义路由",
@@ -4943,10 +4955,8 @@ I18N["zh-CN"]["settings/copilot"] = { // 设置 - GitHub Copilot
                 "Start a free trial": "免费试用",
 
             "Copilot policies": "Copilot 规则",
-                //"Copilot in github.com": "在 github.com 中使用 Copilot",
                 "Copilot in GitHub.com": "在 GitHub.com 中使用 Copilot",
-                    "You can use Copilot Chat in Github.com, but not preview features.": "您可以在 Github.com 中使用 Copilot Chat，但无预览功能。",
-                    //"Learn more about Copilot in Github.com": "了解更多关于在 Github.com 中使用 Copilot 的信息",
+                    "You can use Copilot Chat in GitHub.com, but not preview features.": "您可以在 GitHub.com 中使用 Copilot Chat，但无预览功能。",
                     "Learn more about Copilot in GitHub.com": "了解更多关于在 GitHub.com 中使用 Copilot 的信息",
                 "Editor preview features": "编辑器预览功能",
                     "You can use preview features in your editor.": "您可以在编辑器中使用预览功能。",
@@ -4990,6 +5000,11 @@ I18N["zh-CN"]["settings/copilot"] = { // 设置 - GitHub Copilot
             "For more information about the data your organization receives regarding your use of GitHub Copilot, please review": "如需了解贵机构在使用 GitHub Copilot 时会收到哪些数据，请查看",
                 "GitHub's Privacy Statement": "GitHub 的《隐私声明》",
             "It can take up to 30 minutes for the changes to take effect. Restart your code editor for the changes to take effect immediately.": "更改可能需要 30 分钟才能生效。重新启动代码编辑器，更改会立即生效。",
+
+            "Visibility": "可见度",
+                "Show Copilot": "显示 Copilot",
+                "Enable Copilot for all GitHub features, including navigation bar, search, and dashboard.": "为所有 GitHub 功能启用 Copilot，包括导航栏、搜索和仪表板。",
+                "When disabled, Copilot will be hidden and unavailable.": "禁用后，Copilot 将隐藏且不可用。",
 
         // 专业版
             // 顶部提醒
@@ -5288,6 +5303,9 @@ I18N["zh-CN"]["settings/installations"] = { // 设置 - 应用/安装的 GitHub 
             "App settings": "应用设置",
             "Permissions": "权限",
                 // [/is requesting an update to its permissions./, "正在请求更新其权限。"],
+                "Read": "读取",
+                "write": "写入",
+                "access to metadata": "元数据的权限",
                 "Review request": "审核请求",
                 "Access public information (read-only)": "访问公开信息（只读）",
                 "Access user email addresses (read-only)": "访问用户电子邮件地址（只读）",
@@ -5301,13 +5319,9 @@ I18N["zh-CN"]["settings/installations"] = { // 设置 - 应用/安装的 GitHub 
 
             "Repository access": "仓库访问权限",
             "All repositories": "所有仓库",
-                "This applies to all current": "这适用于所有当前",
-                "and": "和",
-                "future repositories owned by the resource owner.": "资源所有者未来拥有的仓库。",
-                "Also includes public repositories (read-only).": "还包括公共仓库（只读）。",
+                "This applies to all current and future repositories owned by the resource owner. Also includes public repositories (read-only).": "这适用于资源所有者拥有的所有当前和未来的仓库。还包括公共仓库（只读）。",
             "Only select repositories": "仅选定的仓库",
-                "Select at least one repository.": "至少选择一个仓库。",
-                "Also includes public repositories (read-only).": "还包括公共仓库（只读）。",
+                "Select at least one repository. Also includes public repositories (read-only).": "至少选择一个仓库。还包括公共仓库（只读）。",
                 // [/Selected (\d+) repositor(y|ies)./, "选择了 $1 个仓库。"],
             "Select repositories": "选择仓库",
             "Search for a repository": "搜索仓库",
@@ -5542,6 +5556,7 @@ I18N["zh-CN"]["settings/security-log"] = { // 设置 - 安全日志
             "User signed in from an unrecognized device and location.": "用户从无法识别的设备与位置登录。",
             "New Device Used": "使用新设备",
             "Created the repository": "创建了仓库",
+            "Deleted the repository": "删除了仓库",
             "Created GitHub Pages site in": "创建了 GitHub Pages 在",
             "Modified GitHub Pages source in": "修改了 GitHub Pages 源代码在",
             "Created environment": "创造环境",
@@ -5552,6 +5567,7 @@ I18N["zh-CN"]["settings/security-log"] = { // 设置 - 安全日志
                 "read": "读取",
                 "permission": "权限",
             "Added the following repositories to the": "添加以下仓库到",
+            "Removed the following repositories from the": "删除以下仓库到",
             "integration:": "集成：",
             "Enabled GitHub Actions for": "启用仓库操作：",
             "Created a secret for": "创建机密：",
@@ -5893,7 +5909,7 @@ I18N["zh-CN"]["settings/apps"] = { // 设置 - 开发者设置/GitHub 应用
                 "Issue comment": "议题评论",
                     "Issue comment created, edited, or deleted.": "议题评论的创建、编辑或删除。",
                 //"议题": "",
-                    "Issue opened, edited, deleted, transferred, pinned, unpinned, closed, reopened, assigned, unassigned, labeled, unlabeled, milestoned, demilestoned, locked, or unlocked.": "议题的打开、编辑、删除、转移、置顶、取消置顶、关闭、重新打开、分配、取消分配、标记、取消标记、设置里程碑、取消里程碑、锁定或解锁。",
+                    "Issue opened, edited, deleted, transferred, pinned, unpinned, closed, reopened, assigned, unassigned, labeled, unlabeled, milestoned, demilestoned, locked, unlocked, typed, or untyped.": "议题的打开、编辑、删除、转移、置顶、取消置顶、关闭、重新打开、分配、取消分配、标记、取消标记、设置里程碑、取消里程碑、锁定、解锁。",
                 "Label": "标签",
                     "Label created, edited or deleted.": "标签的创建、编辑或删除。",
                 "Milestone": "里程碑",
@@ -5960,6 +5976,8 @@ I18N["zh-CN"]["settings/apps"] = { // 设置 - 开发者设置/GitHub 应用
                     "Commit status updated from the API.": "通过 API 更新提交状态。",
                 //"团队": "",
                     "Team is created, deleted, edited, or added to/removed from a repository.": "团队的创建、删除、编辑以及向仓库添加团队、从仓库中移除团队。",
+                "Sub issues": "子议题",
+                    "Sub-issues added or removed, and parent issues added or removed.": "子议题和父议题的添加或删除。",
                 "Team add": "团队添加",
                     "Team added or modified on a repository.": "仓库团队的添加或修改。",
                 "Watch": "关注",
@@ -15649,7 +15667,7 @@ I18N["zh-CN"]["repository/settings/hooks"] = { // 仓库设置 - Web 钩子 /<us
                     "Branch protection rules": "分支保护规则",
                         "Branch protection rule created, deleted or edited.": "分支保护规则的创建、删除或编辑。",
                     "Bypass requests for push rulesets": "绕过推送规则集的请求",
-                        "Push ruleset bypass request was created, cancelled, completed, received a response, or a response was dismissed. Note: Delegated bypass for push rules is currently in beta and subject to change.": "推送规则集旁路请求已创建、取消、完成、收到回复或回复被驳回。注：推送规则的委托旁路目前处于测试阶段，可能会有更改。",
+                        "Push ruleset bypass request was created, cancelled, completed, received a response, or a response was dismissed.": "推送规则集旁路请求已创建、取消、完成、收到回复或回复被驳回。",
                     "Bypass requests for secret scanning push protections": "绕过机密扫描推送保护请求",
                         "Secret scanning push protection bypass request was created, cancelled, completed, received a response, or a response was dismissed. Note: Delegated bypass for push protection is currently in beta and subject to change.": "机密扫描推送保护旁路请求的创建、取消、完成、收到回复或回复被驳回。注意：推送保护的委托旁路目前处于测试阶段，可能会有更改。",
                     "Check runs": "检查运行",
@@ -16382,7 +16400,7 @@ I18N["zh-CN"]["repository/settings/security_analysis"] = { // 仓库设置 - 代
                 // 顶部提醒
                 "Code Scanning alert severity settings saved.": "代码扫描警报严重性设置已保存。",
 
-            "Secret scanning": "机密扫描",
+            "Secret Protection": "机密保护",
                 "Receive alerts on GitHub for detected secrets, keys, or other tokens.": "在 GitHub 上接收有关检测到的机密、密钥或其他令牌的警报。",
                 "GitHub will always send alerts to partners for detected secrets in public repositories.": "GitHub 会始终向合作伙伴发送检测到公共仓库中机密的警报。",
                 "Learn more about partner patterns": "了解更多关于合作伙伴模式的信息",
@@ -16414,6 +16432,11 @@ I18N["zh-CN"]["repository/settings/keys"] = { // 仓库设置 - 部署密钥 /<u
         ...I18N["zh-CN"]["repository-settings-menu"]["static"],
 
         // 部署密钥 页面 /<user-name>/<repo-name>/settings/keys====================================
+            "We recommend using": "我们建议使用",
+            "instead for fine grained control over repositories and": "来对存储库进行细粒度控制并",
+            "enhanced security": "增强安全性",
+            "use an SSH key to grant readonly or write access to a single repository. They are not protected by a passphrase and can be a security risk if your server is compromised. If you have a complex project or want more fine-grain control over permissions, consider using": "使用 SSH 密钥授予对单个仓库的只读或写入访问权限。它们不受密码保护，如果您的服务器受到威胁，则可能存在安全风险。如果您的项目很复杂或想要更精细地控制权限，请考虑使用",
+            "instead.": "。",
             "Add deploy key": "添加部署密钥",
             "There are no deploy keys for this repository": "此仓库暂无部署密钥",
             "Check out our": "查看我们的",
@@ -18412,12 +18435,16 @@ I18N["zh-CN"]["gist"] = { // 代码片段页面
             "Yours": "您的",
         "All gists": "所有片段",
         "Back to GitHub": "返回到 GitHub",
+        "You don’t have any gists yet.": "您还没有任何代码片段。",
+        "Your public gists will show up here on your profile.": "您的公开代码片段将显示在这里。",
+        "Create a gist": "新建一个代码片段",
 
         "Forked": "复刻",
         "Starred": "星标",
 
         // 左侧用户信息栏
         "Change your avatar": "修改头像",
+        "follower": "关注者",
         "followers": "关注者",
         "following": "关注",
         "Joined": "加入于",
@@ -19067,7 +19094,9 @@ I18N["zh-CN"]["sponsors"] = { // 赞助界面
             // 收款方式
                 "Bank account": "银行账户",
                     "Use a bank account to receive your sponsorships. Note: If you use a personal bank account, your country may tax your GitHub Sponsors payouts as personal income.": "使用银行账户接收您的赞助。注意：如果您使用个人银行账户，您所在的国家/地区可能会将您的 GitHub 赞助者 付款作为个人收入征税。",
+                    "Country or region where your bank account is located": "请选择您的银行账户所在的国家或地区",
                 "Fiscal Host": "财政主办方",
+                    "Choose a fiscal host": "请选择一个财政主办方",
                     "Members of supported fiscal hosts can use their fiscal host to join GitHub Sponsors instead of using a bank account.": "受支持财务主办方的成员可使用其财务主机加入 GitHub 赞助者，而无需使用银行账户。",
             "Submit": "提交",
             "Your information has been saved.": "您的信息已保存。",
@@ -19130,6 +19159,7 @@ I18N["zh-CN"]["sponsors"] = { // 赞助界面
 
             "None of your dependencies can be sponsored": "您的任何依赖项都尚未开放赞助",
                 // [/([^ ]+) does not directly depend on any repositories whose maintainers can be sponsored./, "$1 不直接依赖于任何可以赞助其维护人员的仓库。"],
+            "You don't directly depend on any repositories whose maintainers can be sponsored.": "您不直接依赖任何可赞助维护者的仓库。",
             "developers who maintain your dependencies": "位开发人员维护您的依赖项",
             "Download your": "下载",
             "results as CSV": "结果（CSV格式）",
@@ -22383,6 +22413,13 @@ I18N["zh-CN"]["projects"] = { // 项目页面(含仓库项目)
                 "Go to Wiki"                 : "跳转到 Wiki",
                 "Go to Discussions"          : "跳转到讨论",
 
+        // https://github.com/projects
+            "Recently viewed": "最近浏览",
+                "Remove from recently viewed": "从最近浏览中删除",
+            "Created by me": "由我创建",
+                "Create your first GitHub project": "创建您的第一个 GitHub 项目",
+                "Projects are a customizable, flexible tool for planning and tracking your work.": "项目是用于规划和跟踪您工作的可定制、灵活的工具。",
+
         // 公共词 简版 议题&拉取请求信息
             "opened by": "打开者",
             "Opened in": "打开在",
@@ -22849,6 +22886,7 @@ I18N["zh-CN"]["projects"] = { // 项目页面(含仓库项目)
             "Once you delete this project, there is no going back. Please be certain.": "一旦您删除了这个项目，就再也无法恢复。请确认。",
     },
     "regexp": [ // 正则翻译
+        [/updated/, "更新于"],
         [/View (\d+)/, "视图 $1"],
         [/Delete/, "删除"],
         [/Edit/, "编辑"],
