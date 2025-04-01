@@ -106,6 +106,7 @@ I18N.conf = {
         'repository/tree': [
             '.AppHeader-context-full', // 顶部 <username>/<repo_name>
             'div.react-tree-show-tree-items', // 左侧文件树项目
+            'span.PRIVATE_TreeView-item-content-text', // 左侧文件树项目 - 子文件夹
             'tr.react-directory-row', // 文件列表中文件夹和文件条目
             '#repos-header-breadcrumb',
             '#file-name-id', // 文件路径中文件部分
@@ -2077,6 +2078,7 @@ I18N["zh-CN"]["page-profile-public"] = { // 个人首页（含组织）
                         "these repositories, and more, were archived": "这些仓库以及更多仓库已存档",
                 // YOLO
                     "You want it? You merge it.": "您想要它？您合并它。",
+                    "inaccessible": "已删库",
                     "Merged without a review": "未经审查就合并",
                 // Pull Shark
                     "Pull Shark": "鲨鱼拉",
@@ -2377,6 +2379,7 @@ I18N["zh-CN"]["page-profile"] = { // 个人首页
         [/opened pull requests that have been merged./, "打开的拉取请求已被合并。"], // Pull Shark
         [/created a repository that has many stars./, "创建了一个拥有很多星标的仓库。"], // Starstruck
         [/coauthored commits on merged pull requests./, "与他人共同提交了合并的拉取请求。"], // Pair Extraordinaire
+        [/(\@[^ ]+) contributed code to several repositories in the/, "$1 为多个仓库贡献了代码，在"], // 北极代码库贡献者
     ],
 };
 I18N["zh-CN"]["page-profile/overview"] = I18N["zh-CN"]["page-profile"];
@@ -8333,6 +8336,7 @@ I18N["zh-CN"]["repository/issues"] = { // 仓库 - 议题页面
         // 新建空白议题  /<user-name>/<repo-name>/issues/new
             "Title": "标题",
             "Helpful resources": "帮助性资源",
+            "Create more": "创建多个",
 
         // 从讨论创建议题  /<user-name>/<repo-name>/issues/new?created_from_discussion_number=<id>
             "Documentation has changed since you last contributed": "自您上次贡献以来，文档已更改",
@@ -8717,6 +8721,7 @@ I18N["zh-CN"]["repository/issues"] = { // 仓库 - 议题页面
         [/(.+) will be last item in the list./, "“$1” 将移至最后。"],
         [/of (\d+) selected/, "/ $1 选中"],
         [/(\d+\%) completed/, "$1 完成"],
+        [/Issue (#\d+) created/, "议题 $1 已创建"],
         ...I18N["zh-CN"]["repository-public"]["regexp"],
         ...I18N["zh-CN"]["repository/pull_issue_public"]["regexp"],
     ],
@@ -9226,6 +9231,7 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
             "View command line instructions.": "查看命令行指令。",
 
             // "Merged": "已合并",
+            "More actions": "更多操作",
             "View details": "查看详情",
             "Hide details": "隐藏详情",
             "Revert": "还原",
@@ -14196,6 +14202,10 @@ I18N["zh-CN"]["repository/forks"] = { // 仓库 -> 洞察 - 复刻
         ...I18N["zh-CN"]["repository-public"]["regexp"],
         [/Created/, "创建于"],
         [/Updated/, "更新于"],
+        [/(Active|Inactive|Network|Archived|Starred) (\+\d+)/, function(all, type, num){
+            var typeKey = {"Active": "活跃","Inactive": "不活跃","Network": "网络","Archived": "存档","Starred": "星标"};
+            return typeKey[type] + ' ' + num;
+        }],
     ],
 };
 
@@ -23994,11 +24004,18 @@ I18N["zh-CN"]["copilot"] = {
 
                 "More options": "更多",
                     "Download all files": "下载全部",
+                    "Close all tabs": "关闭所有标签",
 
                 "Download code": "下载代码",
 
                 "lines": "行",
                 "line": "行",
+
+                // 代码窗 - 底部栏
+                  "to toggle the": "切换",
+                  "key moving focus. Alternatively, use": "键移动对焦。或者使用",
+                  "then": "键，然后",
+                  "to move to the next interactive element on the page.": "键移动到页面上的下一个交互元素。",
         // 聊天窗口
         "Install Copilot in your favorite code editor": "安装 Copilot 到您的代码编辑器",
             "Copilot is available for a multitude of editors to fit your needs": "Copilot 可用于多种编辑器，以满足您的需求",
