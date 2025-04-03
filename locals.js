@@ -70,6 +70,9 @@ I18N.conf = {
         'repository/issues': [
             '.styled-input-container', // 筛选条
         ],
+        'copilot':[
+            '.cm-line',
+        ],
         '*': [
             'div.QueryBuilder-StyledInputContainer',  // 顶部搜索栏 关键词被翻译
         ],
@@ -180,6 +183,9 @@ I18N.conf = {
         ],
         'marketplace': [
             '.markdown-body',
+        ],
+        'copilot':[
+            '.cm-line',
         ],
         '*': [
             '.js-comment-body', '.js-preview-body',
@@ -383,6 +389,8 @@ I18N["zh-CN"]["title"] = { // 标题翻译
         [/Accessibility/, "无障碍"],
         [/Environments/, "环境"],
         [/New repository/, "新仓库"],
+        [/([^ ]+) \((.+)\) \/ Repositories/, "$1 / 仓库"], // github 账户名/ 成就
+        [/([^ ]+) \((.+)\) \/ Starred/, "$1($2) / 星标"], // github 账户名（昵称）/ 星标
         [/Repositories/, "仓库"],
         [/Starred/, "星标页面"],
         [/starred repositories/, "星标仓库"],
@@ -467,6 +475,8 @@ I18N["zh-CN"]["title"] = { // 标题翻译
         [/New File at \/ · ([^ ]+)/, "新建文件 · $1"],
         [/Blaming ([^ ]+) at ([^ ]+) · ([^ ]+)/, "追溯 $1（$2） · $3"],
         [/Deleting ([^ ]+)\/([^ ]+) at ([^ ]+) · ([^ ]+)/, "删除 $3/$2 · $4"], // 简化部分内容
+        [/([^ ]+)'s list \/ (.+)/, "$1 的列表 / $2"],
+        [/([^ ]+) \((.+)\) \/ Achievements/, "$1($2) / 成就"], // github 账户名（昵称）/ 成就
         ["_regexp_end", "end"]
     ],
 };
@@ -1757,6 +1767,8 @@ I18N["zh-CN"]["page-dashboard"] = { // 已登录的首页 - 仪表板（含组�
         "Create your first project": "创建您的第一个项目",
             "Ready to start building? Create a repository for a new idea or bring over an existing repository to keep contributing to it.": "准备好开始构建了吗？为新想法创建一个仓库或使用现有仓库继续为其做出贡献。",
             "Create repository": "创建仓库",
+
+        "Forked from": "复刻自", // 复刻仓库
 
         // 中间栏
         "The home for all developers — including you.": "所有开发者的家园——包括您。",
@@ -6709,7 +6721,7 @@ I18N["zh-CN"]["repository-public"] = { // 仓库 - 公共部分
             "Some checks haven't completed yet": "部分检查还未完成",
 
             "Jump to bottom": "跳到底部", //小屏模式
-            "forked from": "复刻自", // 同上（发行版未登录页面）
+            "Forked from": "复刻自", // 同上（发行版未登录页面）
 
             "people": "人", // 提交
             "committed": "提交于", // 提交浮窗
@@ -8124,6 +8136,7 @@ I18N["zh-CN"]["repository/pull_issue_public"] = { // 仓库 - 议题和拉取请
                     "will be able to comment on this pull request once more.": "将能够再次对这个拉取请求发表评论。",
                     "You can always lock this pull request again in the future.": "您今后仍可以随时再次锁定此拉取请求。",
                     "You can always lock this issue again in the future.": "您今后仍可以随时再次锁定此议题。",
+                    "Everyone will be able to comment on this issue once more. You can always lock this issue again in the future.": "任何人将能够再次对这个议题发表评论。您今后仍可以随时再次锁定此议题。",
 
                 // 隐藏评论对话框
                 "The reason will be displayed to describe this comment to others.": "将显示原因，以便向其他人描述此评论。",
@@ -8444,11 +8457,14 @@ I18N["zh-CN"]["repository/issues"] = { // 仓库 - 议题页面
             "added a parent issue": "添加了一个父议题",
             "added a commit that references this issue": "添加了一个引用此议题的提交",
             "transferred this issue from": "将此议题转移，从",
-            "as off topic": "因偏离主题",
-            "as too heated": "因争论不休",
-            "added a sub-issue": "添加了一个子议题",
-            "removed a parent issue": "移除了一个父议题",
-            "removed a sub-issue": "移除了一个子议题",
+            "as off topic": "为偏离主题",
+            "as too heated": "为争论不休",
+            "as spam": "为垃圾信息",
+            "as resolved": "为已解决",
+            "added a sub-issue": "添加子议题",
+            "added sub-issues": "添加子议题",
+            "removed a parent issue": "移除父议题",
+            "removed a sub-issue": "移除子议题",
 
             // 右侧栏 补充
                 // "Development": "进展",
@@ -8987,6 +9003,7 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
             "pushed a commit that referenced this pull request": "推送了一个引用此拉取请求的提交",
             "suggested changes": "建议更改",
             "deleted the branch": "删除了分支",
+            "deleted a comment from": "删除了评论从",
 
             // 隐藏
             "Load more…": "加载更多…",
@@ -9087,6 +9104,8 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
             "reopened this": "已重新打开",
             "closed this by deleting the head repository": "已关闭因仓库已删除",
             "Requested changes": "请求更改",
+            "restored the": "恢复",
+            "unlocked this conversation": "解锁此对话",
 
             //
             "This branch has not been deployed": "该分支尚未部署",
@@ -9612,6 +9631,8 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
 
         "Repository owner locked as": "仓库所有者锁定为",
             "resolved": "已解决",
+            "too heated": "争论不休",
+            "off-topic": "偏离主题",
 
     },
     "regexp": [ // 正则翻译
