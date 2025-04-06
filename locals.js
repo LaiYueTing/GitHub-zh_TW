@@ -381,6 +381,9 @@ I18N["zh-CN"]["title"] = { // 标题翻译
         "Spending Limit": "支付限额",
         "Autolink references": "自动链接引用",
         "Add autolink reference": "添加自动链接引用",
+        "Billing Overview": "账单概览",
+        "Billing Usage": "计费用量",
+        "Budgets": "预算",
     },
     "regexp": [ // 正则翻译
         [/Authorized OAuth Apps/, "授权的 OAuth 应用"],
@@ -2996,10 +2999,14 @@ I18N["zh-CN"]["settings-menu"] = { // 设置 - 公共部分
         "Notifications": "通知",
 
         "Access": "访问",
-        "Billing and plans": "账单和计划",
-            "Plans and usage": "计划和使用情况",
-            "Spending limits": "支出限额",
+        "Billing & Licensing": "账单 & 许可",
+            "New": "新",
+            "Usage": "使用情况",
+            "Budgets and alerts": "预算和警报",
+            "Licensing": "许可",
             "Payment information": "支付信息",
+            "Payment history": "支付历史",
+            "Additional billing details": "其他账单",
         "Emails": "电子邮箱",
         "Password and authentication": "密码和身份验证",
         "Sessions": "会话",
@@ -3597,6 +3604,58 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
 
         // 顶部提示
             "Successfully updated billing information.": "成功更新支付信息。",
+            "For more information on using these billing pages": "有关使用这些账单页面的更多信息，",
+                "please refer to the docs content here": "请参阅此处的文档内容。",
+        
+        // 概况
+            "Current metered usage": "当前计费用量",
+                "Showing gross metered usage for your account.": "显示您账户的总计费用量。",
+            "Current included usage": "当前包含用量",
+                "More details": "详情",
+                "Showing currently applied discounts for your account.": "显示您账户当前应用的折扣。",
+                "* As per current pricing": "* 根据当前定价方案",
+
+        "Subscriptions": "订阅",
+            "Manage subscriptions": "管理订阅",
+            "per": "/",
+            "month": "月",
+
+        "Metered usage": "计费用量",
+            // 时间段，这部分走正则
+                "Today": "今天",
+                "Current month": "这个月",
+                "Last month": "上个月",
+                // 后 2 项正则
+            "Chart options": "图表选项",
+                "View as table": "以表格形式查看",
+                    "DateTime": "日期时间",
+                "Download CSV": "下载 CSV",
+                "Download PNG": "下载 PNG",
+            "All usage": "全部",
+                // 某单位
+                "Gross:": "总计：",
+                "Billed:": "计费：",
+                "Discount:": "优惠：",
+            "Usage by repository": "按仓库统计",
+                "usage": "用量",
+                "Gross amount": "总计",
+                "All other repositories": "其他",
+
+            "No usage found": "无数据",
+            
+            // 底下计算部分
+                "View details": "详情",
+                "consumed usage -": "计费 -",
+                "in discounts =": "折扣 =",
+                "in billable usage": "计费",
+                "Usage for Actions and Actions Runners.": "操作（运行器）用量。", // 后半句走正则
+                "Copilot usage": "Copilot 用量",
+                    "Total spend on Copilot for the selected timeframe, excluding applicable discounts.": "所选时间段内 Copilot 的总支出，不含适用折扣。",
+                "Billable licenses": "计费许可数",
+                    "About billable licenses": "关于计费许可",
+                        "If a user stops consuming a license within the month, the adjustment will be reflected in your next month's bill.": "如果用户在当月停止使用许可，相关调整将体现在您下个月的账单中。",
+                        "Billable licenses are only available for the 'Current month' timeframe.": "计费许可仅适用于“当前月”时间段。",
+                    "Showing total unique licenses billed for your enterprise. Actual billed amount for each license is prorated based on when it is added during the billing cycle.": "显示您企业所计费的唯一许可证总数。每个许可证的实际计费金额将根据其在计费周期内添加的时间按比例分摊。",
 
         // 代码空间超限
         "You've used 90% of included services for GitHub Codespaces storage.": "您已使用 90% 代码空间存储。",
@@ -3609,6 +3668,80 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
             "codespace": "代码空间",
             "delete prebuilds for a repository.": "删除某个仓库的预构建。",
         "Update spending limit": "更新支出限额",
+
+        // 使用情况 https://github.com/settings/billing/usage
+            "Search or filter usage": "搜索或筛选",
+
+            //"Group: None": "分组：无",
+            //"Group: Product": "分组：产品",
+            //"Group: SKU": "分组：库存单位",
+            //"Group: Repository": "分组：仓库",
+                "None": "无",
+                "SKU": "库存单位",
+            "Metered usage grouped by Product": "分组：产品",
+                "actions": "操作",
+                "codespaces": "代码空间",
+
+                "Products": "产品",
+            "Metered usage grouped by SKU": "分组：库存单位",
+                "Actions storage": "操作存储",
+                "Codespaces storage": "代码空间存储",
+                "Actions Windows": "操作 Windows",
+                "Actions Linux": "操作 Linux",
+                "Actions macOS 3-core": "操作 macOS 三核",
+            "Metered usage grouped by Repository": "分组：仓库",
+                "All other": "其他",
+                
+            "Date": "日期",
+            "SKUs": "库存单位",
+            "Products": "产品",
+            "Repositories": "仓库",
+            "Units": "单位",
+            "Price/unit": "单价",
+            "Billed amount": "计费",
+
+        // 账户预算 https://github.com/settings/billing/budgets
+           "Account budgets": "账户预算",
+                "New budget": "新建",
+                "On": "开",
+                "Off": "关",
+                "spent": "支出",
+                "budget": "预算",
+
+            // https://github.com/settings/billing/budgets/new
+            "New monthly budget": "新建月度预算",
+                "Create a budget to track spending for a selected product and scope.": "创建预算以跟踪选定产品和范围的支出。",
+            // 缺失支付方式
+                "You can’t increase the budget until you set up a valid payment method.": "在您设置有效的支付方式之前，无法增加预算。",
+            // 产品
+                "Select the product to include in this budget.": "选择要包含在这个预算中的产品。",
+
+            "Budget scope": "预算范围",
+                "Select the scope of spending for this budget.": "选择此预算的支出范围。",
+                // 账户
+                    "Spending for all repositories owned by your account": "账户拥有的所有仓库的支出",
+                // 仓库
+                    "Spending for a single repository": "单个仓库支出",
+            
+            "Budget": "预算",
+                "Set a budget amount to track your spending on a monthly basis.": "设置预算金额以按月跟踪您的支出。",
+                "Usage before budget creation isn't counted in the current billing cycle.": "预算创建前的使用情况不会计入当前计费周期。",
+                "Budget amount": "预算金额",
+                    "Stop usage when budget limit is reached": "达到预算上限时停止使用",
+                        "This will limit your spending to the budget amount set by you": "这将把您的支出限制在您设定的预算额度内",
+
+            // 警示
+                "Get emails and GitHub notifications when your spending has reached 75%, 90%, and 100% of the budget threshold.": "当您的支出达到预算阈值的75%、90%和100%时，接收电子邮件和 GitHub 通知。",
+
+                "Receive budget threshold alerts": "接收预算阈值警报",
+            
+            "Create budget": "创建",
+
+        // 许可 https://github.com/settings/billing/licensing
+
+        // 其他 https://github.com/settings/billing/subscriptions
+            "Marketplace apps": "市场应用",
+            "Sponsorships": "赞助",
 
         // 账单和计划 https://github.com/settings/billing/summary
             "Billing summary": "账单摘要",
@@ -4105,27 +4238,81 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
         [/(\$\d+\.\d{2}) off \/ month/, "-$1/月"],
         [/(\$\d+\.\d{2})\/year/, "$1/年"],
         [/(\$\d+\.\d{2}) off \/ year/, "-$1/年"],
-        //[/(Due by|until|On|Expires) (Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?) (\d+), (\d+)/, function(all, opt, month, day, yesr){
-        //    var monthKey = {
-        //        "Jan": "1月", "Feb": "2月", "Mar": "3月", "Apr": "4月", "May": "5月", "Jun": "6月", "Jul": "7月", "Aug": "8月", "Sep": "9月", "Oct": "10月", "Nov": "11月", "Dec": "12月"
-        //    };
-        //    var optKey = {
-        //        "Due by": "截止", "until": "直到", "On": "开始", "Expires": "到期"
-        //    };
-        //    return year + '年' + monthKey[month] + day + '日 ' + optKey[opt];
-        //}],
-        //[/Due by (.+)/, "$1 截止"],
         [/(Due by|On|Expires) (.+)/, (match, opt, p1) => {
             var optKey = {"Due by": "结算", "On": "开始", "Expires": "到期"};
             const dateRegExp = I18N["zh-CN"]["public"]["time-regexp"];
             const translatedDate = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
             return `${translatedDate}` + optKey[opt];
         }],
-        [/until (.+)./, (match, p1) => { // p1为(.+)
+        [/until (.+)./, (match, p1) => {
             const dateRegExp = I18N["zh-CN"]["public"]["time-regexp"];
             const translatedDate = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
-            return `直到 ${translatedDate}。`; // 这里写翻译结果
+            return `直到 ${translatedDate}。`;
         }],
+        [/(.+) \(All times in UTC\)/, (match, p1) => {
+            const dateRegExp = I18N["zh-CN"]["public"]["time-regexp"];
+            const translatedDate = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
+            return `${translatedDate}（UTC时间）`;
+        }],
+        [/(Usage|codespaces|actions) (?:[^ ]+), (.+)/, (match, s1, p1) => {
+            //const translatedP1 = I18N["zh-CN"]["public"]["time-regexp"][p1] || p1;
+            //const translatedP2 = I18N["zh-CN"]["public"]["time-regexp"][p2] || p2;
+            var s1Key = {'Usage': '用量','actions': '操作', 'codespaces': '代码空间'};
+            const dateRegExp = I18N["zh-CN"]["public"]["time-regexp"];
+            const translatedDate = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
+            return `${translatedDate}` + s1Key[s1];// 星期几暂时省略
+        }],
+        // 计费用量 - 右上角时间选项
+        [/^Time Frame: (Today|Current month|Last month|This year \((\d+)\)|Last year \((\d+)\))$/, (match, p1, p2, p3) => {
+            switch (p1) {
+              case 'Today':
+                return '时间段：今天';
+              case 'Current month':
+                return '时间段：本月';
+              case 'Last month':
+                return '时间段：上个月';
+              case `This year (${p2})`:
+                return `时间段：今年（${p2}）`;
+              case `Last year (${p3})`:
+                return `时间段：去年（${p3}）`;
+              default:
+                return match;
+            }
+        }],
+        [/This year \((\d+)\)/, "今年（$1）"],
+        [/Last year \((\d+)\)/, "去年（$1）"],
+        [/Top five repositories (today|this month|last month|this year|last year)/, function(all, time) {
+            var timeKey = {
+                'today': '今天',
+                'this month': '这个月',
+                'last month':'上个月',
+                'this year': '今年',
+                'last year': '去年'};
+            return timeKey[time] + "用量最高的 5 个仓库";
+        }], // 按仓库统计 - 下方
+        // 概况 - 底部，因词条打架放到这里
+        [/([\d,+]) included Actions minutes \(~(\$\d+\.\d+) off\*\)/, "$1 操作分钟数（~$2 减免*）"],
+        [/\(~(\$\d+\.\d+) off\*\)/, "（~$1 减免*）"],
+        // 当前包含用量
+        [/([\d,+]) included Actions minutes/, "$1 操作分钟数"],
+        [/(\d+) GB included Actions storage/, "$1 GB 操作存储"],
+        [/(\d+) GB included Git LFS bandwidth/, "$1 GB Git LFS 带宽"],
+        [/(\d+) GB included Git LFS storage/, "$1 GB Git LFS 存储"],
+        [/(\d+) GB included Packages data transfer/, "$1 GB 软件包数据传输"],
+        [/(\d+) GB included Packages storage/, "$1 GB 软件包存储"],
+        [/Discount for usage in public repositories \((\d+%) off\)/, "公共仓库使用折扣（$1 减免）"],
+        [/(\d+) GB included Codespaces storage/, "$1 GB 代码空间存储"],
+        [/(\d+) included Codespaces core hours/, "$1 代码空间核心小时数"],
+
+        // 使用情况
+        [/^Group: (None|Product|SKU|Repository)$/, function(all, group) {
+            var groupKey = {'None': '无','Product': '产品','SKU': '库存单位','Repository': '仓库'};
+            return '分组：' + groupKey[group];
+        }],
+        [/(\d+) min/, "$1 分"],
+        [/([\d,+]\.\d+) GB-hr/, "$1 GB/时"],
+        // 账户预算
+        [/(\d+) budgets?/, "$1 预算"],
         ...I18N["zh-CN"]["orgs-public"]["regexp"],
     ],
 };
