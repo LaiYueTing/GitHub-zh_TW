@@ -2999,6 +2999,9 @@ I18N["zh-CN"]["settings-menu"] = { // 设置 - 公共部分
         "Notifications": "通知",
 
         "Access": "访问",
+        "Billing and plans": "账单和计划", // 旧版，暂时加回
+            "Plans and usage": "计划和使用情况",
+            "Spending limits": "支出限额",
         "Billing & Licensing": "账单 & 许可",
             "New": "新",
             "Usage": "使用情况",
@@ -3605,7 +3608,7 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
         // 顶部提示
             "Successfully updated billing information.": "成功更新支付信息。",
             "For more information on using these billing pages": "有关使用这些账单页面的更多信息，",
-                "please refer to the docs content here": "请参阅此处的文档内容。",
+                "please refer to the docs content here": "请参阅此处的文档内容",
         
         // 概况
             "Current metered usage": "当前计费用量",
@@ -3644,6 +3647,7 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
             "No usage found": "无数据",
             
             // 底下计算部分
+                "More": "更多", // 小屏模式
                 "View details": "详情",
                 "consumed usage -": "计费 -",
                 "in discounts =": "折扣 =",
@@ -3691,6 +3695,18 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
                 "Actions macOS 3-core": "操作 macOS 三核",
             "Metered usage grouped by Repository": "分组：仓库",
                 "All other": "其他",
+
+            // 有上下文，后面重复部分直接省略
+            "Actions usage": "操作",
+            "Actions usage grouped by SKU": "操作 - 详细",
+            "Copilot usage": "Copilot",
+            "Copilot usage grouped by SKU": "Copilot - 详细",
+            "Codespaces usage": "代码空间",
+            "Codespaces usage grouped by SKU": "代码空间 - 详细",
+            "Git_lfs usage": "Git LFS",
+            "Git_lfs usage grouped by SKU": "Git LFS - 详细",
+            "Packages usage": "软件包",
+            "Packages usage grouped by SKU": "软件包 - 详细",
                 
             "Date": "日期",
             "SKUs": "库存单位",
@@ -4254,10 +4270,10 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
             const translatedDate = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
             return `${translatedDate}（UTC时间）`;
         }],
-        [/(Usage|codespaces|actions) (?:[^ ]+), (.+)/, (match, s1, p1) => {
+        [/(Usage|codespaces|actions|Codespaces storage|Actions Windows|Actions macOS 3-core|Actions Linux|Actions storage) (?:[^ ]+), (.+)/, (match, s1, p1) => {
             //const translatedP1 = I18N["zh-CN"]["public"]["time-regexp"][p1] || p1;
             //const translatedP2 = I18N["zh-CN"]["public"]["time-regexp"][p2] || p2;
-            var s1Key = {'Usage': '用量','actions': '操作', 'codespaces': '代码空间'};
+            var s1Key = {'Usage': '用量','actions': '操作', 'codespaces': '代码空间', 'Codespaces storage': '代码空间存储', 'Actions Windows': '操作 Windows', 'Actions Linux': '操作 Linux','Actions macOS 3-core': '操作 macOS 三核','Actions storage': "操作存储"};
             const dateRegExp = I18N["zh-CN"]["public"]["time-regexp"];
             const translatedDate = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
             return `${translatedDate}` + s1Key[s1];// 星期几暂时省略
@@ -4281,6 +4297,16 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
         }],
         [/This year \((\d+)\)/, "今年（$1）"],
         [/Last year \((\d+)\)/, "去年（$1）"],
+        [/(\d+)(AM|PM)/, (match, p1, p2) => {
+            // 运行规则：非12AM照搬，PM数字加12，12AM=0
+            let hour = parseInt(p1, 10);
+            if (p2 === "PM" && hour !== 12) {
+                hour += 12;
+            } else if (p2 === "AM" && hour === 12) {
+                hour = 0;
+            }
+            return `${hour}:00`;
+        }], // 计费用量 - 今天图表下方时间
         [/Top five repositories (today|this month|last month|this year|last year)/, function(all, time) {
             var timeKey = {
                 'today': '今天',
@@ -24286,6 +24312,7 @@ I18N["zh-CN"]["copilot"] = {
                         "Search repositories": "搜索仓库",
                         "Fetching repositories…": "正在获取仓库",
                     "Close": "关闭",
+                "Image…": "图片…",
                 "Extension…": "扩展…",
                 "Extension": "扩展",
                     "Extensions": "扩展",
