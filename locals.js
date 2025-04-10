@@ -3694,6 +3694,7 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
                 "Actions Windows": "操作 Windows",
                 "Actions Linux": "操作 Linux",
                 "Actions macOS 3-core": "操作 macOS 三核",
+                "Codespaces compute 2-core": "代码空间 - 双核",
             "Metered usage grouped by Repository": "分组：仓库",
                 "All other": "其他",
 
@@ -3708,14 +3709,15 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
             "Git_lfs usage grouped by SKU": "Git LFS - 详细",
             "Packages usage": "软件包",
             "Packages usage grouped by SKU": "软件包 - 详细",
-                
-            "Date": "日期",
-            "SKUs": "库存单位",
-            "Products": "产品",
-            "Repositories": "仓库",
-            "Units": "单位",
-            "Price/unit": "单价",
-            "Billed amount": "计费",
+
+            "Usage breakdown": "用量分析",               
+                "Date": "日期",
+                "SKUs": "库存单位",
+                "Products": "产品",
+                "Repositories": "仓库",
+                "Units": "单位",
+                "Price/unit": "单价",
+                "Billed amount": "计费",
 
         // 账户预算 https://github.com/settings/billing/budgets
            "Account budgets": "账户预算",
@@ -4271,10 +4273,10 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
             const translatedDate = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
             return `${translatedDate}（UTC时间）`;
         }],
-        [/(Usage|codespaces|actions|Codespaces storage|Actions Windows|Actions macOS 3-core|Actions Linux|Actions storage) (?:[^ ]+), (.+)/, (match, s1, p1) => {
+        [/(Usage|codespaces|actions|Codespaces storage|Codespaces compute 2-core|Actions Windows|Actions macOS 3-core|Actions Linux|Actions storage|All other) (?:[^ ]+), (.+)/, (match, s1, p1) => {
             //const translatedP1 = I18N["zh-CN"]["public"]["time-regexp"][p1] || p1;
             //const translatedP2 = I18N["zh-CN"]["public"]["time-regexp"][p2] || p2;
-            var s1Key = {'Usage': '用量','actions': '操作', 'codespaces': '代码空间', 'Codespaces storage': '代码空间存储', 'Actions Windows': '操作 Windows', 'Actions Linux': '操作 Linux','Actions macOS 3-core': '操作 macOS 三核','Actions storage': "操作存储"};
+            var s1Key = {'Usage': '用量','actions': '操作', 'codespaces': '代码空间', 'Codespaces storage': '代码空间存储', 'Codespaces compute 2-core': '代码空间 - 双核','Actions Windows': '操作 Windows', 'Actions Linux': '操作 Linux','Actions macOS 3-core': '操作 macOS 三核','Actions storage': "操作存储",'All other': '其他'};
             const dateRegExp = I18N["zh-CN"]["public"]["time-regexp"];
             const translatedDate = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
             return `${translatedDate}` + s1Key[s1];// 星期几暂时省略
@@ -4336,8 +4338,14 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
             var groupKey = {'None': '无','Product': '产品','SKU': '库存单位','Repository': '仓库'};
             return '分组：' + groupKey[group];
         }],
+        [/Usage for (.+)./, (match, p1) => {
+            const dateRegExp = I18N["zh-CN"]["public"]["time-regexp"];
+            const translatedDate = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
+            return `${translatedDate}`;       
+        }],
         [/(\d+) min/, "$1 分"],
         [/([\d,+]\.\d+) GB-hr/, "$1 GB/时"],
+        [/(\d+\.\d+) hr/, "$1 小时"],
         // 账户预算
         [/(\d+) budgets?/, "$1 预算"],
         ...I18N["zh-CN"]["orgs-public"]["regexp"],
@@ -7361,6 +7369,7 @@ I18N["zh-CN"]["page-new-repo"] = {// 仓库 - 新建/导入/复刻仓库
             "Creating fork…": "正在创建复刻…",
 
             // "Owners": "所有者",
+                "Search owners": "搜索",
                 "Choose an owner": "选择所有者",
                     "(fork already exists)": "(复刻已存在)",
             // "Repository name": "仓库名称",
@@ -8682,6 +8691,7 @@ I18N["zh-CN"]["repository/issues"] = { // 仓库 - 议题页面
             "removed a sub-issue": "移除子议题",
 
             // 右侧栏 补充
+            "Metadata": "元数据", // 小屏模式
                 // "Development": "进展",
                     "No branches or pull requests": "没有分支或拉取请求",
                     "Shows branches and pull requests linked to this issue.": "显示与该议题相关的分支和拉取请求。",
@@ -8812,12 +8822,13 @@ I18N["zh-CN"]["repository/issues"] = { // 仓库 - 议题页面
             "Edits": "编辑",
                 "Most recent": "最近",
                 "Viewing edit": "查看编辑",
-                "Delete revision": "删除记录",
+                "Delete revision": "删除修订",
             "Reopen Issue": "重新打开议题",
                 "You do not have permissions to reopen this issue": "您没有权限重新打开此议题",
             // 关闭议题
                 "You do not have permissions to close this issue": "您没有权限关闭此议题",
             "Comment can not be empty": "评论不能为空",
+            "Add files": "添加文件", // 小屏模式
 
         // 议题标签管理 /<user-name>/<repo-name>/issues/labels
         // 仓库 --> 标签页面 /<user-name>/<repo-name>/labels
