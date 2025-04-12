@@ -384,6 +384,7 @@ I18N["zh-CN"]["title"] = { // 标题翻译
         "Billing Overview": "账单概览",
         "Billing Usage": "计费用量",
         "Budgets": "预算",
+        "Code Security": "代码安全性",
     },
     "regexp": [ // 正则翻译
         [/Authorized OAuth Apps/, "授权的 OAuth 应用"],
@@ -722,6 +723,8 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
                     "Quickly navigate and jump between your organizations or repositories and search recent issues, pull requests, projects and more with the new command palette. You can also execute time saving commands all without lifting your fingers off the keyboard!": "使用新的命令面板，可以快速导航并跳转到您所在的组织或仓库，并搜索最近的议题、拉取请求、项目等等。您还可以执行节省时间的命令，而无需将手指从键盘上移开！",
                     "To open the command palette:": "打开命令面板：",
                         "other:": "其他：",
+                "Organization Custom Instructions": "组织自定义指令",
+                    "Organization administrators can apply custom instructions across all Copilot chats in github.com.": "组织管理员可以在 GitHub.com 的所有 Copilot 聊天中应用自定义指令。",
                 "Copilot Workspace for Pull Requests": "适用于拉取请求的 Copilot 工作区",
                     "Copilot Workspace is a Copilot-native coding environment that helps you land high-quality pull requests faster by allowing you to edit and run code from your pull request without leaving GitHub.com.": "Copilot 工作区是 Copilot 的原生编码环境，允许您在不离开 GitHub.com 的情况下编辑和运行拉取请求中的代码，从而帮助您更快提交高质量的拉取请求。",
                     "Copilot Workspace is available to customers with access to the Copilot code review public preview.": "访问 Copilot 代码审查公开预览版的客户可使用 Copilot 工作区。",
@@ -4341,7 +4344,7 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
         [/Usage for (.+)./, (match, p1) => {
             const dateRegExp = I18N["zh-CN"]["public"]["time-regexp"];
             const translatedDate = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
-            return `${translatedDate}`;       
+            return `${translatedDate}`; // 有标题作为上下文，直接省略，只剩日期
         }],
         [/(\d+) min/, "$1 分"],
         [/([\d,+]\.\d+) GB-hr/, "$1 GB/时"],
@@ -11701,8 +11704,13 @@ I18N["zh-CN"]["repository/actions"] = { // 仓库 - 操作页面
                 "Startup failure": "失败",
                 "Cancelled": "取消",
                 "Action required": "请求操作",
+                "Waiting": "等待",
             "Total duration": "总时长",
             "Billable time": "计费时间",
+
+            "This workflow is waiting for": "该工作流程正在等待",
+                "to complete before running.": "完成后再运行。",
+                "Learn more about concurrency": "了解有关并发执行的更多信息",
 
             // 右侧中间栏
                 "This workflow graph cannot be shown": "无法显示此工作流图表",
@@ -14511,7 +14519,7 @@ I18N["zh-CN"]["repository-settings-menu"] = { // 仓库设置公共部分
                 "Custom properties": "自定义属性",  // 组织仓库
 
             // "Security": "安全",
-            "Code security": "代码安全性",
+            "Code Security": "代码安全性",
                 "Code security and analysis": "代码安全性与分析",
                 "Deploy keys": "部署密钥",
                 "Secrets and variables": "机密和变量",
@@ -16464,6 +16472,7 @@ I18N["zh-CN"]["repository/settings/security_analysis"] = { // 仓库设置 - 代
         // 代码安全性与分析 /<user-name>/<repo-name>/settings/security_analysis
             "Security and analysis features help keep your repository secure and updated. By enabling these features, you're granting us permission to perform read-only analysis on your repository. Unarchive your repository to access additional features.": "安全和分析功能有助于确保您的仓库安全和更新。通过启用这些功能，您授予我们对您的仓库执行只读分析的权限。解除您仓库的存档以访问其他功能。", //存档仓库
             "Security and analysis features help keep your repository secure and updated. By enabling these features, you're granting us permission to perform read-only analysis on your repository.": "安全和分析功能有助于确保您的仓库安全和更新。通过启用这些功能，您授予我们对您的仓库执行只读分析的权限。",
+            "Code Security features help keep your repository secure and updated. By enabling these features, you're granting us permission to perform read-only analysis on your repository.": "代码安全功能有助于保持仓库的安全和更新。启用这些功能即表示您授予我们对仓库执行只读分析的权限。",
 
             "Private vulnerability reporting": "私下漏洞报告",
                 "Allow your community to privately report potential security vulnerabilities to maintainers and repository owners.": "允许您的社区向维护者和仓库所有者私下报告潜在的安全漏洞。",
