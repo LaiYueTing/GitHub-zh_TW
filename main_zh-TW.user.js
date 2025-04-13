@@ -196,6 +196,8 @@
         const site = siteMapping[url.hostname] || 'github';
         const pathname = url.pathname;
 
+        // 是否全站受限，2025-4-13 更新
+        const isForbidden = document.head.querySelector('meta[name="referrer"]')?.content === 'origin';
         // 是否登錄
         const isLogin = document.body.classList.contains("logged-in");
         // 獲取 analytics-location
@@ -210,7 +212,9 @@
         const { rePagePathRepo, rePagePathOrg, rePagePath } = I18N.conf;
         let t, page = false;
 
-        if (isSession) {
+        if (isForbidden) {
+            page = '403';
+        } else if (isSession) {
             page = 'session-authentication';
         } else if (site === 'gist' || site === 'status' || site === 'skills' || site === 'education') {
             page = site;
