@@ -45,7 +45,7 @@ I18N.conf = {
      * 导入仓库 /new/import
      * ...
      */
-    rePagePath: /^\/($|home|dashboard|copilot|signup|login\/oauth|login|logout|sessions?|password_reset|orgs|explore|topics|notifications\/subscriptions|notifications|watching|stars|issues|pulls|search|trending|showcases|new\/(import|project)|new|import|settings\/(profile|admin|appearance|accessibility|notifications|billing|emails|security_analysis|security-log|security|auth|sessions|keys|ssh|gpg|organizations|enterprises|blocked_users|interaction_limits|code_review_limits|repositories|codespaces|codespaces\/allow_permissions|deleted_repositories|packages|copilot|pages|replies|installations|apps\/authorizations|reminders|sponsors-log|apps|(?:personal-access-|)tokens|developers|applications\/new|applications|connections\/applications)|settings|installations\/new|marketplace|apps|account\/(organizations\/new|choose|upgrade|billing\/history)|projects|redeem|discussions|events|collections|sponsors|sponsoring|github-copilot\/(signup|free_signup|code-review-waitlist)|codespaces|developer\/register|features|security|sitemap|education)|^\/users\/[^\/]+\/(projects|packages|succession\/invitation)/,
+    rePagePath: /^\/($|home|dashboard|copilot|signup|login\/oauth|login|logout|sessions?|password_reset|orgs|explore|topics|notifications\/subscriptions|notifications|watching|stars|issues|pulls|search|trending|showcases|new\/(import|project)|new|import|settings\/(profile|admin|appearance|accessibility|notifications|billing|emails|security_analysis|security-log|security|auth|sessions|keys|ssh|gpg|organizations|enterprises|blocked_users|interaction_limits|code_review_limits|repositories|codespaces|codespaces\/allow_permissions|deleted_repositories|packages|copilot|pages|replies|installations|apps\/authorizations|reminders|sponsors-log|apps|(?:personal-access-|)tokens|developers|applications\/new|applications|connections\/applications|education\/benefits)|settings|installations\/new|marketplace|apps|account\/(organizations\/new|choose|upgrade|billing\/history)|projects|redeem|discussions|events|collections|sponsors|sponsoring|github-copilot\/(signup|free_signup|code-review-waitlist)|codespaces|developer\/register|features|security|sitemap|education)|^\/users\/[^\/]+\/(projects|packages|succession\/invitation)/,
 
     // 仓库路径
     rePagePathRepo: /^\/[^\/]+\/[^\/]+\/(issues|pulls|pull|tree|watchers|stargazers|new|edit|delete|upload|find|wiki|branches|discussions|activity|rules|releases|packages|tags|labels|milestones|compare|commit|blob|blame|actions(\/metrics\/(usage|performance))?|runs|deployments|security|pulse|community|forks|fork|import|graphs\/(contributors|community|traffic|commit-activity|code-frequency)|network$|network\/(dependencies|dependents|updates|members)|settings\/(access|code_review_limits|interaction_limits|branches|branch_protection_rules|tag_protection|rules|actions|hooks|environments|codespaces|pages|security_analysis|dependabot_rules|keys|secrets|variables|installations|notifications|key_links)|settings|transfer|projects\/new|pkgs|contribute|subscription|invitations|codespaces|attestations|custom-properties|reported_content)/,
@@ -2208,7 +2208,7 @@ I18N["zh-CN"]["page-profile-public"] = { // 个人首页（含组织）
         [/created a repository that has many stars./, "创建了一个拥有很多星标的仓库。"], // Starstruck
         [/coauthored commits on merged pull requests./, "与他人共同提交了合并的拉取请求。"], // Pair Extraordinaire
         [/answered discussions./, "回答了讨论。"], // Galaxy Brain
-        [/is sponsoring (\d+) organizations? or users?./, "赞助了 $1 个组织或用户。"], // Public Sponsor
+        [/(\@[^ ]+) (?:is sponsoring|has sponsored) (\d+) organizations? or users?./, "$1 赞助了 $2 个组织或用户。"], // Public Sponsor
         [/contributed code to (\d+) repositor(y|ies) used in the/, "贡献于 $1 个仓库收录于"], // Mars 2020 Helicopter Mission.
         [/The (.+) achievement will now be hidden from your profile./, "现在，将从您的个人资料中隐藏 “$1” 成就。"],
         [/The (.+) achievement will now be shown in your profile./, "现在，将在您的个人资料中显示 “$1” 成就。"],
@@ -3014,6 +3014,7 @@ I18N["zh-CN"]["settings-menu"] = { // 设置 - 公共部分
             "Payment information": "支付信息",
             "Payment history": "支付历史",
             "Additional billing details": "其他账单",
+            "Education benefits": "教育福利",
         "Emails": "电子邮箱",
         "Password and authentication": "密码和身份验证",
         "Sessions": "会话",
@@ -4360,6 +4361,20 @@ I18N["zh-CN"]["orgs/billing_managers/new"] = I18N["zh-CN"]["settings/billing"];
 I18N["zh-CN"]["orgs/billing/history"] = I18N["zh-CN"]["settings/billing"];
 I18N["zh-CN"]["orgs/billing/plans"] = I18N["zh-CN"]["settings/billing"];
 
+I18N["zh-CN"]["settings/education/benefits"] = {  // 设置 - 账单和计划（新）- 教育福利
+    "static": {
+        ...I18N["zh-CN"]["settings-menu"]["static"],
+        ...I18N["zh-CN"]["orgs-settings-menu"]["static"], // 组织设置
+
+        "GitHub Education": "GitHub 教育",
+
+        "Education Benefits": "教育福利",
+            "You have a current student coupon applied.": "您当前已应用学生优惠券。",
+            "Start an application": "申请",
+    },
+    "regexp": [],
+};
+
 I18N["zh-CN"]["settings/emails"] = { // 设置 - 电子邮箱
     "static": { // 静态翻译
         ...I18N["zh-CN"]["settings-menu"]["static"],
@@ -5231,6 +5246,12 @@ I18N["zh-CN"]["settings/copilot"] = { // 设置 - GitHub Copilot
                 "Google Gemini 2.0 Flash in Copilot": "Gemini 2.0 Flash 模型",
                     "You can use Google’s Gemini 2.0 Flash model in Copilot.": "您可以使用 Gemini 2.0 Flash 模型。",
                     "Learn more about the public preview of Gemini 2.0 Flash.": "了解更多关于 GitHub Copilot 如何为 Gemini 2.0 Flash 提供服务。",
+                "Google Gemini 2.5 Pro in Copilot": "Gemini 2.5 Pro 模型",
+                    "You can use the latest Google Gemini 2.5 Pro model.": "您可以使用 Gemini 2.5 Pro 模型。",
+                    "Learn more about how GitHub Copilot serves Google Gemini 2.5 Pro.": "了解更多关于 GitHub Copilot 如何为 Gemini 2.5 Pro 提供服务。",
+                "OpenAI GPT-4.1 in Copilot": "GPT-4.1 模型",
+                    "You can use the latest OpenAI GPT-4.1 model.": "您可以使用 GPT-4.1 模型。",
+                    "Learn more about how GitHub Copilot serves OpenAI GPT-4.1.": "了解更多关于 GitHub Copilot 如何为 GPT-4.1 提供服务。",
                 "Dashboard entry point": "仪表板入口",
                     "Allows instant chatting when landing on GitHub.com": "允许登陆 GitHub.com 时即时聊天",
 
@@ -5815,6 +5836,8 @@ I18N["zh-CN"]["settings/security-log"] = { // 设置 - 安全日志
                 "ending in": "结尾",
                 "for the": "用于",
                 "GitHub App": "GitHub 应用",
+
+            "We couldn’t find any events matching your search.": "无匹配结果。",
 
     },
     "regexp": [ // 正则翻译
@@ -6778,8 +6801,10 @@ I18N["zh-CN"]["settings/tokens"] = { // 设置 - 开发者设置/个人访问令
             "30 days": "30 天",
             "60 days": "60 天",
             "90 days": "90 天",
-            "Custom...": "自定义...",
+            "Custom": "自定义",
+                "Select date *": "选择日期 *",
             "No expiration": "无有效期",
+            "The token will expire on the selected date": "此令牌将在指定日期过期",
             "The token will never expire!": "此令牌永不过期！",
             "GitHub strongly recommends that you set an expiration date for your token to help keep your information secure.": "GitHub 强烈建议您为令牌设置有效期，以帮助确保您的信息安全。",
 
@@ -6890,6 +6915,11 @@ I18N["zh-CN"]["settings/tokens"] = { // 设置 - 开发者设置/个人访问令
             };
 
             return '该令牌有效期至' + year + '年' + monthKey[month] + day + '日，' + weekKey[week];
+        }],
+        [/(\d+) days? \((.+)\)/, (match, d , p1) => {
+            const dateRegExp = I18N["zh-CN"]["public"]["time-regexp"];
+            const translatedDate = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
+            return d + `天（${translatedDate}）`;
         }],
         [/Last used within the last (\d+) weeks?/, "最后一次使用是最近 $1 周之内"],
         [/Last used within the last (\d+) months?/, "最后一次使用是最近 $1 月之内"],
@@ -8696,6 +8726,9 @@ I18N["zh-CN"]["repository/issues"] = { // 仓库 - 议题页面
             // 右侧栏 补充
             "Metadata": "元数据", // 小屏模式
                 // "Development": "进展",
+                    "Code with Copilot Agent Mode": "使用 Copilot 代理模式编写代码",
+                        "Select code repository": "选择仓库",
+                        "Start a Codespace with Copilot Agent Mode for this issue in another repository.": "为另一个仓库中的此议题启动使用 Copilot 代理模式的代码空间",
                     "No branches or pull requests": "没有分支或拉取请求",
                     "Shows branches and pull requests linked to this issue.": "显示与该议题相关的分支和拉取请求。",
                     "Create a branch": "创建分支",
@@ -9862,6 +9895,11 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
             "resolved": "已解决",
             "too heated": "争论不休",
             "off-topic": "偏离主题",
+
+        "Merge status cannot be loaded": "合并状态加载出错",
+            "Try reloading the page, or if the problem persists contact support.": "尝试重载页面，或联系支持",
+            "GitHub status": "GitHub 状态",
+        
 
     },
     "regexp": [ // 正则翻译
@@ -11690,6 +11728,7 @@ I18N["zh-CN"]["repository/actions"] = { // 仓库 - 操作页面
             "Triggered via repository dispatch": "通过仓库调度触发",
             "Triggered via release": "通过发行版触发",
             "Triggered via issue": "通过议题触发",
+            "Triggered via discussion comment": "通过讨论评论触发",
             "Re-run triggered": "重新触发",
             "Manually triggered": "手动触发",
 
@@ -11778,6 +11817,7 @@ I18N["zh-CN"]["repository/actions"] = { // 仓库 - 操作页面
             "The operation was canceled.": "已取消。",
             "Release": "发行版",
                 "published by": "发布者",
+            "created by": "创建者",
             //"Process completed with exit code 1.": "进程完成，退出代码为 1。",
             "Cache not found": "找不到缓存",
             "Starting job": "作业启动中",
@@ -24212,15 +24252,22 @@ I18N["zh-CN"]["copilot"] = {
         // 中间
             // 模型选择窗
                 "Models": "模型",
-                // Claude 3.5
-                    "Enable Claude 3.5 Sonnet": "启用 Claude 3.5 Sonnet",
-                        "Enable access to the latest Claude 3.5 Sonnet model from Anthropic.": "允许访问 Anthropic 最新的 Claude 3.5 Sonnet 模型。",
-                        "Learn more about how GitHub Copilot serves Claude 3.5 Sonnet": "了解更多关于 GitHub Copilot 如何为 Claude 3.5 Sonnet 提供服务。",
-                // Claude 3.7
-                    "Enable Claude 3.7 Sonnet": "启用 Claude 3.7 Sonnet",
-                        "Enable access to the latest Claude 3.7 Sonnet model from Anthropic.": "允许访问 Anthropic 最新的 Claude 3.7 Sonnet 模型。",
-                        "Learn more about how GitHub Copilot serves Claude 3.7 Sonnet": "了解更多关于 GitHub Copilot 如何为 Claude 3.7 Sonnet 提供服务。",
-                    "Enable Claude 3.7 Sonnet Thinking": "启用 Claude 3.7 Sonnet Thinking",
+                //// Claude 3.5
+                //    "Enable Claude 3.5 Sonnet": "启用 Claude 3.5 Sonnet",
+                //        "Enable access to the latest Claude 3.5 Sonnet model from Anthropic.": "允许访问 Anthropic 最新的 Claude 3.5 Sonnet 模型。",
+                //        "Learn more about how GitHub Copilot serves Claude 3.5 Sonnet": "了解更多关于 GitHub Copilot 如何为 Claude 3.5 Sonnet 提供服务。",
+                //// Claude 3.7
+                //    "Enable Claude 3.7 Sonnet": "启用 Claude 3.7 Sonnet",
+                //        "Enable access to the latest Claude 3.7 Sonnet model from Anthropic.": "允许访问 Anthropic 最新的 Claude 3.7 Sonnet 模型。",
+                //        "Learn more about how GitHub Copilot serves Claude 3.7 Sonnet": "了解更多关于 GitHub Copilot 如何为 Claude 3.7 Sonnet 提供服务。",
+                //    "Enable Claude 3.7 Sonnet Thinking": "启用 Claude 3.7 Sonnet Thinking",
+//
+                //// gemini 2.5 pro
+                //    "Enable Gemini 2.5 Pro": "启用 Gemini 2.5 Pro",
+                //        "Enable access to the latest Gemini 2.5 Pro model from Google.": "允许访问 Google 最新的 Gemini 2.5 Pro 模型。",
+                //        "Learn more about how GitHub Copilot serves Gemini 2.5 Pro": "了解更多关于 GitHub Copilot 如何为 Gemini 2.5 Pro 提供服务",
+                //
+                //// gpt-4.1
 
                 "Model capabilities": "模型限制",
                     "Limited capabilities (o1)": "功能限制（o1）",
@@ -24244,6 +24291,7 @@ I18N["zh-CN"]["copilot"] = {
 
             "Good response": "点赞",
             "Bad response": "点踩",
+            "Retry with…": "重试…",
 
             "Scroll to bottom": "滚动至底部",
 
@@ -24374,6 +24422,11 @@ I18N["zh-CN"]["copilot"] = {
     "regexp":[
         [/Using results for “([^ ]+)” in ([^ ]+)/, "使用 $2 中“$1”的结果"],
         [/(\d+) vulnerability detected/, "检测到 $1 个漏洞"],
+        [/Retry with (.+)/, "使用 $1 重试"],
+        // 启用模型
+        [/Enable access to the latest (.+) model from ([^ ]+)./, "允许访问 $2 最新的 $1 模型。"],
+        [/Enable (.+)/, "启用 $1"],
+        [/Learn more about how GitHub Copilot serves (.+)/, "了解更多关于 GitHub Copilot 如何为 $1 提供服务"],
     ],
 };
 
