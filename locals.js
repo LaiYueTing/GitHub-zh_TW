@@ -45,7 +45,7 @@ I18N.conf = {
      * 导入仓库 /new/import
      * ...
      */
-    rePagePath: /^\/($|home|dashboard|copilot|signup|login\/oauth|login|logout|sessions?|password_reset|orgs|explore|topics|notifications\/subscriptions|notifications|watching|stars|issues|pulls|search|trending|showcases|new\/(import|project)|new|import|settings\/(profile|admin|appearance|accessibility|notifications|billing|emails|security_analysis|security-log|security|auth|sessions|keys|ssh|gpg|organizations|enterprises|blocked_users|interaction_limits|code_review_limits|repositories|codespaces|codespaces\/allow_permissions|deleted_repositories|packages|copilot|pages|replies|installations|apps\/authorizations|reminders|sponsors-log|apps|(?:personal-access-|)tokens|developers|applications\/new|applications|connections\/applications|education\/benefits)|settings|installations\/new|marketplace|apps|account\/(organizations\/new|choose|upgrade|billing\/history)|projects|redeem|discussions|events|collections|sponsors|sponsoring|github-copilot\/(signup|free_signup|code-review-waitlist)|codespaces|developer\/register|features|security|sitemap|education)|^\/users\/[^\/]+\/(projects|packages|succession\/invitation)/,
+    rePagePath: /^\/($|home|dashboard|copilot|signup|account_verifications|login\/oauth|login|logout|sessions?|password_reset|orgs|explore|topics|notifications\/subscriptions|notifications|watching|stars|issues|pulls|search|trending|showcases|new\/(import|project)|new|import|settings\/(profile|admin|appearance|accessibility|notifications|billing|emails|security_analysis|security-log|security|auth|sessions|keys|ssh|gpg|organizations|enterprises|blocked_users|interaction_limits|code_review_limits|repositories|codespaces|codespaces\/allow_permissions|deleted_repositories|packages|copilot|pages|replies|installations|apps\/authorizations|reminders|sponsors-log|apps|(?:personal-access-|)tokens|developers|applications\/new|applications|connections\/applications|education\/benefits)|settings|installations\/new|marketplace|apps|account\/(organizations\/new|choose|upgrade|billing\/history)|projects|redeem|discussions|events|collections|sponsors|sponsoring|github-copilot\/(signup|free_signup|code-review-waitlist)|codespaces|developer\/register|features|security|sitemap|education)|^\/users\/[^\/]+\/(projects|packages|succession\/invitation)/,
 
     // 仓库路径
     rePagePathRepo: /^\/[^\/]+\/[^\/]+\/(issues|pulls|pull|tree|watchers|stargazers|new|edit|delete|upload|find|wiki|branches|discussions|activity|rules|releases|packages|tags|labels|milestones|compare|commit|blob|blame|actions(\/metrics\/(usage|performance))?|runs|deployments|security|pulse|community|forks|fork|import|graphs\/(contributors|community|traffic|commit-activity|code-frequency)|network$|network\/(dependencies|dependents|updates|members)|settings\/(access|code_review_limits|interaction_limits|branches|branch_protection_rules|tag_protection|rules|actions|hooks|environments|codespaces|pages|security_analysis|dependabot_rules|keys|secrets|variables|installations|notifications|key_links)|settings|transfer|projects\/new|pkgs|contribute|subscription|invitations|codespaces|attestations|custom-properties|reported_content)/,
@@ -261,6 +261,7 @@ I18N["zh-CN"] = {};
 
 I18N["zh-CN"]["title"] = { // 标题翻译
     "static": { // 静态翻译
+        "Sign up to GitHub · GitHub": "注册 · GitHub",
         "Sign in to GitHub · GitHub": "登录 GitHub · GitHub",
         "Join GitHub · GitHub": "加入 GitHub · GitHub",
         "Forgot your password? · GitHub": "忘记您的密码了吗？· GitHub",
@@ -708,6 +709,7 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
             "Try Enterprise": "试用企业版",
                 "Free": "免费",
             "Feature preview": "功能预览",
+                "New": "新",
                 // 对话框
                 "Feature preview dialog": "功能预览对话框",
                 "Enable": "启用",
@@ -4369,10 +4371,54 @@ I18N["zh-CN"]["settings/education/benefits"] = {  // 设置 - 账单和计划（
         "GitHub Education": "GitHub 教育",
 
         "Education Benefits": "教育福利",
+            "Complete a teacher or student application to unlock tools and resources for your educational journey.": "完成教师或学生申请，解锁教育旅程所需的工具和资源。",
             "You have a current student coupon applied.": "您当前已应用学生优惠券。",
             "Start an application": "申请",
+                "You have not submitted an application for education benefits.": "没有申请",
+
+                "Education Benefits Application": "教育福利申请",
+                    "Select your role in education: *": "选择您的角色：*",
+                        "Teacher": "教师",
+                        "Student": "学生",
+
+                        "What is the name of your school? *": "学校名称 *",
+                            "If your school is not listed, then enter the full school name and continue. You will be asked to provide further information about your school on the next page. A minimum of two characters is required to find your school.": "如果您的学校未列出，请输入完整的学校名称并继续。下一页您将被要求提供有关学校的更多信息。查找您的学校至少需要输入两个字符。",
+                        "What is your school email address?": "教育邮箱地址",
+                            "Have a different email address you use with your school?": "您是否有一个与学校一起使用的不同电子邮件地址？",
+                            "Add it here.": "添加",
+
+                        "You have verified the email address": "您已验证邮件",
+                        "on your GitHub account. This academic domain is associated with the school": "。该域名属于：",
+                        "Unselect this school": "取消选择此学校",
+
+                        "Share Location": "位置共享",
+                        "Location shared": "位置已共享",
+                        "Continue": "继续",
+
+                        "Please select the type of proof you would like to provide *": "请选择您希望提供的证明类型 *",
+                        "1. Dated school ID - Good": "1. 注明日期的学校证件 - 完整",
+                        "What is a valid proof of education?": "什么是有效的教育证明？",
+                        "Good": "完整",
+                            "proof requires infinite academic affiliation documentation most likely to help you be approved.": "的证明需要详尽的学术关系文件，以最大限度地帮助您通过审核。",
+                        "For": "部分",
+                            "proof types may lower your chances of being approved.": "证明类型可能会降低您的审核通过概率。",
+                        "Poor": "无效",
+                            "proof types are unlikely to be acceptable.": "的证明类型通常无法被接受。",
+
+                        "There was an error creating the discount request. Errors: Discount request could not be created. Discount request errors: School email must be verified on your GitHub account": "创建折扣请求时出错。错误信息：无法创建折扣请求。折扣请求错误：学校邮箱必须在您的 GitHub 账户中完成验证",
+
+            "Approved": "批准",
+            "Loading details": "加载详情",
+            "Revoked": "撤销",
+            "Denied": "拒绝",
     },
-    "regexp": [],
+    "regexp": [
+        [/Submitted(?: about)? (.+)/, (match, p1) => {
+            const dateRegExp = I18N["zh-CN"]["public"]["time-regexp"];
+            const translatedDate = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
+            return `提交于 ${translatedDate}`;
+        }],
+    ],
 };
 
 I18N["zh-CN"]["settings/emails"] = { // 设置 - 电子邮箱
@@ -7470,6 +7516,7 @@ I18N["zh-CN"]["repository"] = { // 仓库页面 /<user-name>/<repo-name>/
                 "Public repository · Forked from": "公共仓库 · 复刻自", // Android UA 下出现
                 "Public repository · Generated from": "公共仓库 · 创建自", // 同上
                 "Public archive repository": "公共存档仓库",
+                "Public archive repository · Forked from": "公共存档仓库 · 复刻自",
                 "generated from": "创建自",
                 "mirrored from": "镜像自",
 
@@ -17167,6 +17214,7 @@ I18N["zh-CN"]["repository/codespaces"] = { // 仓库 - 内容举报 /<user-name>
 
 I18N["zh-CN"]["homepage"] = { // 未登录的首页
     "static": { // 静态翻译
+        "GitHub Copilot is now available for free.": "免费使用 GitHub Copilot。",
         //"Let’s build from here": "让我们从这里开始",
         //"The world’s leading AI-powered developer platform.": "全球领先的人工智能开发者平台。",
         "Build and ship software on a single, collaborative platform": "在单一协作平台上构建和发布软件",
@@ -17395,6 +17443,8 @@ I18N["zh-CN"]["session-authentication"] = { // 登录页 包含(/login, /session
     "static": { // 静态翻译
 
         // 登录页 https://github.com/login
+            "Your account was created successfully. Please sign in to continue": "您的账户创建成功，请继续登录",
+
             "Sign in to GitHub": "登录 GitHub",
             "Sign in to": "登录",
             "Signed in as": "登录身份为",
@@ -17832,41 +17882,71 @@ I18N["zh-CN"].password_reset = I18N["zh-CN"]["session-authentication"];
 
 I18N["zh-CN"]["signup"] = { // 注册页
     "static": { // 静态翻译
+        "Create your free account": "创建免费账户",
+            "Explore GitHub's core features for individuals and organizations.": "探索 GitHub 为个人及组织提供的核心功能。",
+            "See what's included": "包含内容",
+                "Access to GitHub Copilot": "访问 GitHub Copilot",
+                    "Increase your productivity and accelerate software development.": "提升生产力，加快软件开发进程。",
+                "Unlimited repositories": "无限仓库",
+                    "Collaborate securely on public and private projects.": "在公开和私有项目上安全协作。",
+                "Integrated code reviews": "集成代码审查",
+                    "Boost code quality with built-in review tools.": "通过内置审查工具提升代码质量。",
+                "Automated workflows": "自动化工作流",
+                    "Save time with CI/CD integrations and GitHub Actions.": "使用 CI/CD 集成和 GitHub Actions 节省时间。",
+                "Community support": "社区支持",
+                    "Connect with developers worldwide for instant feedback and insights.": "与全球开发者即时交流，获取反馈和见解。",
+
         "Already have an account?": "已经有账户吗？",
         "Sign in →": "登录 →",
-        "Welcome to GitHub!": "欢迎来到 GitHub!",
-        "Let’s begin the adventure": "让我们开始探险吧",
-        "Enter your email": "输入您的电子邮箱地址",
-            "Email is invalid or already taken": "电子邮箱地址无效或已被占用",
-        "Continue": "继续",
-        "Create a password": "创建密码",
-            "Password is too short": "密码太短",
-            "Password needs a number and lowercase letter": "密码需要有数字和小写字母",
-            "Password is strong": "密码很强",
-            "Make sure it's": "请确保",
-                "at least 15 characters": "至少需要15个字符",
-                "OR": " 或者",
-                "at least 8 characters": "至少需要8个字符",
-                "including a number": "包括数字",
-                "and a lowercase letter": "和小写字母",
-            "Password may be compromised": "密码可能被泄露",
-            "Password is in a list of passwords commonly used on other websites": "密码在其他网站常用的密码列表中",
-        "Enter a username": "输入您的用户名",
-            "Username may only contain alphanumeric characters or single hyphens, and cannot begin or end with a hyphen.": "用户名只能包含字母数字字符或单个连字符，并且不能以连字符开头或结尾。",
-        "Would you like to receive product updates and announcements via email?": "您是否愿意通过电子邮件接收产品更新和公告？",
-        "Type \"y\" for yes or \"n\" for no": "输入 \"y\" 表示愿意，输入 \"n\" 表示不愿意。",
-        "Verify your account": "验证您的账户",
-        "Create account": "创建账户",
-        "By creating an account, you agree to the": "创建账户即表示您同意",
-        "Terms of Service": "服务条款",
-        ". For more information about GitHub's privacy practices, see the": "。更多关于 GitHub 隐私条款的信息，请参见",
-        "GitHub Privacy Statement": "GitHub 隐私声明",
-        ". We'll occasionally send you account-related emails.": "。我们偶尔会向您发送与账户相关的电子邮件。",
+
+        "Sign up to GitHub": "注册 GitHub",
+            "Email": "电子邮件",
+                "Email is invalid or already taken": "电子邮箱地址无效或已被占用",
+                "Email cannot be blank": "电子邮件不能为空",
+                "The email you have provided is already associated with an account.": "该邮件已被注册。",
+                "reset your password": "重置密码",
+            "Password": "密码",
+                "Password is too short": "密码太短",
+                "Password needs a number and lowercase letter": "密码需要有数字和小写字母",
+                "Password is strong": "密码很强",
+                "Password may be compromised": "密码可能被泄露",
+                "Password is in a list of passwords commonly used on other websites": "密码在其他网站常用的密码列表中",
+                "Password cannot be blank": "密码不能为空",
+                "Password should be at least 15 characters OR at least 8 characters including a number and a lowercase letter.": "密码应至少包含15个字符，或者至少包含8个字符且其中包括一个数字和一个小写字母。",
+            "Username": "用户名",
+                "Username may only contain alphanumeric characters or single hyphens, and cannot begin or end with a hyphen.": "用户名只能包含字母数字字符或单个连字符，并且不能以连字符开头或结尾。",
+                "Username cannot be blank": "用户名不能为空",
+                "are available.": "可用。",
+            "Your Country/Region": "您的国家/地区",
+                "Select Country/Region": "选择国家/地区",
+                "For compliance reasons, we're required to collect country information to send you occasional updates and announcements.": "根据合规要求，我们需要收集您所在的国家/地区信息，以便向您发送最新的更新和公告。",
+
+                "Continue": "继续",
+                "By creating an account, you agree to the": "创建账户即表示您同意",
+                "Terms of Service": "服务条款",
+                ". For more information about GitHub's privacy practices, see the": "。更多关于 GitHub 隐私条款的信息，请参见",
+                "GitHub Privacy Statement": "GitHub 隐私声明",
+                ". We'll occasionally send you account-related emails.": "。我们偶尔会向您发送与账户相关的电子邮件。",
+        
     },
     "regexp": [ // 正则翻译
         [/Username ([^ ]+) is not available./, "用户名 $1 不可用。"],
         [/([^ ]+) is available./, "用户名 $1 可用。"],
     ],
+};
+
+I18N["zh-CN"]["account_verifications"] = {
+    "static": {
+        ...I18N["zh-CN"]["signup"]["static"],
+
+        "Confirm your email address": "验证您的邮箱",
+            "We have sent a code to": "已发送验证码至",
+        "Enter code": "键入验证码",
+        "Didn't get your email?": "未收到邮件？",
+            "Resend the code": "重发验证码",
+            "update your email address": "修改邮箱",
+    },
+    "regexp": [],
 };
 
 I18N["zh-CN"]["notifications"] = { // 通知页面
@@ -24252,23 +24332,6 @@ I18N["zh-CN"]["copilot"] = {
         // 中间
             // 模型选择窗
                 "Models": "模型",
-                //// Claude 3.5
-                //    "Enable Claude 3.5 Sonnet": "启用 Claude 3.5 Sonnet",
-                //        "Enable access to the latest Claude 3.5 Sonnet model from Anthropic.": "允许访问 Anthropic 最新的 Claude 3.5 Sonnet 模型。",
-                //        "Learn more about how GitHub Copilot serves Claude 3.5 Sonnet": "了解更多关于 GitHub Copilot 如何为 Claude 3.5 Sonnet 提供服务。",
-                //// Claude 3.7
-                //    "Enable Claude 3.7 Sonnet": "启用 Claude 3.7 Sonnet",
-                //        "Enable access to the latest Claude 3.7 Sonnet model from Anthropic.": "允许访问 Anthropic 最新的 Claude 3.7 Sonnet 模型。",
-                //        "Learn more about how GitHub Copilot serves Claude 3.7 Sonnet": "了解更多关于 GitHub Copilot 如何为 Claude 3.7 Sonnet 提供服务。",
-                //    "Enable Claude 3.7 Sonnet Thinking": "启用 Claude 3.7 Sonnet Thinking",
-//
-                //// gemini 2.5 pro
-                //    "Enable Gemini 2.5 Pro": "启用 Gemini 2.5 Pro",
-                //        "Enable access to the latest Gemini 2.5 Pro model from Google.": "允许访问 Google 最新的 Gemini 2.5 Pro 模型。",
-                //        "Learn more about how GitHub Copilot serves Gemini 2.5 Pro": "了解更多关于 GitHub Copilot 如何为 Gemini 2.5 Pro 提供服务",
-                //
-                //// gpt-4.1
-
                 "Model capabilities": "模型限制",
                     "Limited capabilities (o1)": "功能限制（o1）",
                     "Limited capabilities (Claude 3.7 Sonnet Thinking)": "模型限制（Claude 3.7 Sonnet Thinking）",
