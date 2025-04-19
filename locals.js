@@ -5295,6 +5295,9 @@ I18N["zh-CN"]["settings/copilot"] = { // 设置 - GitHub Copilot
                 "Google Gemini 2.5 Pro in Copilot": "Gemini 2.5 Pro 模型",
                     "You can use the latest Google Gemini 2.5 Pro model.": "您可以使用 Gemini 2.5 Pro 模型。",
                     "Learn more about how GitHub Copilot serves Google Gemini 2.5 Pro.": "了解更多关于 GitHub Copilot 如何为 Gemini 2.5 Pro 提供服务。",
+                "OpenAI o4-mini in Copilot": "o4-mini 模型",
+                    "You can use the latest OpenAI o4-mini model.": "您可以使用 o4-mini 模型",
+                    "Learn more about how GitHub Copilot serves OpenAI o4-mini.": "了解更多关于 GitHub Copilot 如何为 o4-mini 提供服务。",
                 "OpenAI GPT-4.1 in Copilot": "GPT-4.1 模型",
                     "You can use the latest OpenAI GPT-4.1 model.": "您可以使用 GPT-4.1 模型。",
                     "Learn more about how GitHub Copilot serves OpenAI GPT-4.1.": "了解更多关于 GitHub Copilot 如何为 GPT-4.1 提供服务。",
@@ -5337,6 +5340,8 @@ I18N["zh-CN"]["settings/copilot"] = { // 设置 - GitHub Copilot
                     "to explain a piece of code, propose bug fixes, or generate unit tests in a chat interface from your editor.": "在编辑器的聊天界面上解释代码、提出错误修复建议或生成单元测试。",
                 "Copilot Chat in GitHub Mobile": "在 GitHub Mobile 中使用 Copilot Chat",
                     "personalized to a codebase.": "，个性化代码。",
+                "Copilot in GitHub Desktop": "在 GitHub Desktop 中使用",
+                    "GitHub Copilot for assistance in GitHub Desktop": "在 GitHub Desktop 中获得 Copilot 的协助。",
 
     },
     "regexp": [ // 正则翻译
@@ -24335,6 +24340,9 @@ I18N["zh-CN"]["copilot"] = {
                 "Model capabilities": "模型限制",
                     "Limited capabilities (o1)": "功能限制（o1）",
                     "Limited capabilities (Claude 3.7 Sonnet Thinking)": "模型限制（Claude 3.7 Sonnet Thinking）",
+                        "This model has limited capabilities in retrieving external data. Learn more about selecting the right model": "该模型在检索外部数据方面的能力有限。如需了解如何选择合适的模型，请",
+                        "here": "此处",
+                        ". Here are a few of the common actions that are not supported:": "查看更多信息。以下是一些常见的不支持的操作：",
                         "While this model is better at reasoning, it is generally slower for everyday tasks and has limited capabilities in retrieving external data. Here are a few of the common actions that are not supported:": "虽然这种模型的推理能力更强，但在执行日常任务时通常速度较慢，而且检索外部数据的能力有限。以下是一些不支持的常见操作：",
                         "Not supported": "不支持",
                             "Using knowledge bases": "使用知识库",
@@ -24379,8 +24387,11 @@ I18N["zh-CN"]["copilot"] = {
                 "Copy link": "复制链接",
 
             // 分享
+            "This conversation is only visible to you": "此对话仅您可见",
+            "This conversation is visible to anyone with the link": "此对话对任何拥有链接的人可见",
             "Shared": "已分享",
             "Conversation shared": "对话已分享",
+                "This conversation and future messages are visible to anyone with the link. If private repository content is included, repository access is required to view.": "此对话及未来的消息对任何拥有链接的人都是可见的。如果包含私有仓库内容，则需要仓库访问权限才能查看。",
                 "Only users with access to referenced private content can view this conversation.": "只有有权访问相关私人内容的用户才能查看此对话。",
                 "This conversation is private and only visible to you. Share it to make it accessible to others with the link.": "此对话为私密对话，仅您自己可见。通过分享链接，其他人才能访问此对话。",
                 "This conversation is now shared. Anyone with the link can view it. Keep in mind that it is live and publicly accessible.": "此对话已共享。任何拥有该链接的人均可查看此对话。请注意，该对话为实时且公开可访问的内容。",
@@ -24389,6 +24400,15 @@ I18N["zh-CN"]["copilot"] = {
                 "Visible to anyone with the link": "拥有链接者可见",
 
                 "Unshare": "取消",
+            
+            "Manage shared conversations": "管理已分享对话",
+                "Last updated": "最后更新",
+                    // 日期走正则
+
+                    "Copy share link": "复制分享链接",
+                    "Unshare conversation": "取消分享",
+
+                "Unshare all": "全部取消分享",
 
             "Open menu": "菜单",
                 "Conversation": "对话",
@@ -24460,12 +24480,18 @@ I18N["zh-CN"]["copilot"] = {
                         "Fetching repositories…": "正在获取仓库",
                     "Close": "关闭",
                 "Image…": "图片…",
+                    "Only images below 3.75MB are supported": "仅支持小于 3.75 MB 的图片",
                 "Extension…": "扩展…",
                 "Extension": "扩展",
                     "Extensions": "扩展",
                         "Chat with your favorite tools and services": "使用您最喜欢的工具和服务聊天",
                         "Browse the marketplace to find extensions for the tools and services you rely on": "浏览市场以查找您所依赖的工具和服务的扩展",
                         "Browse marketplace": "前往市场",
+
+                        // 不支持
+                        "aren't supported by this model": "不支持此模型",
+                        "Switch back to the": "切回",
+                        "model or start a new conversation": "模型或新建对话",
             "Send now": "发送",
 
         // 漏洞相关
@@ -24490,6 +24516,21 @@ I18N["zh-CN"]["copilot"] = {
         [/Enable access to the latest (.+) model from ([^ ]+)./, "允许访问 $2 最新的 $1 模型。"],
         [/Enable (.+)/, "启用 $1"],
         [/Learn more about how GitHub Copilot serves (.+)/, "了解更多关于 GitHub Copilot 如何为 $1 提供服务"],
+        // 管理分享
+        [/(.+) at (\d{1,2}):(\d{2}) (AM|PM)/, (match, p1, p2, min, p3) =>{
+            const dateRegExp = I18N["zh-CN"]["public"]["time-regexp"];
+            const translatedDate = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
+
+            // 运行规则：非12AM照搬，PM数字加12，12AM=0
+            let hour = parseInt(p2, 10);
+            if (p3 === "PM" && hour !== 12) {
+                hour += 12;
+            } else if (p3 === "AM" && hour === 12) {
+                hour = 0;
+            }
+
+            return `${translatedDate}${hour}:${min}`;
+        }],
     ],
 };
 
