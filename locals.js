@@ -718,7 +718,7 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
                 "Disabled": "禁用",
                 "Documentation": "文档",
                 "Colorblind themes": "色盲主题",
-                    "Varying by gender and geography, color blindness can affect on average 8% of men and up to 0.5% of women. Our previous colorblind theme has been split into two new themes:": "色盲会因性别和地域的不同而有所不同，平均而言，色盲会影响 8% 的男性和高达 0.5% 的女性。我们之前的色盲主题被分为两个新主题：",
+                    "Varying by gender and geography, color blindness can affect on average 8% of men and up to 0.5% of women. Our previous colorblind theme has been split into two new themes:": "色盲会因性别和地域的不同而有所不同，平均而言，色盲会影响约 8% 的男性和约 0.5% 的女性。我们之前的色盲主题被分为两个新主题：",
                     "Light/dark Protanopia & Deuteranopia for red/green color blindness.": "明/暗 - 红绿色盲主题适用于红绿色盲。",
                     "Light/dark Tritanopia for blue/yellow color blindness.": "明/暗 - 蓝色盲主题适用于蓝黄色盲。",
                 "Command Palette": "命令面板",
@@ -776,8 +776,8 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
                 "Focusing": "专注中",
 
             "Busy": "繁忙中",
-                "When others mention you, assign you, or request your review, GitHub will let them know that you have limited availability.": "当其他人提及您、指派您或请求您进行评论时，GitHub 会告知他们您的很忙。",
-                "I may be slow to respond.": "我的反应可能比较慢。",
+                "When others mention you, assign you, or request your review, GitHub will let them know that you have limited availability.": "当其他人提及您、指派您或请求您进行评论时，GitHub 会告知他们您很忙。",
+                "I may be slow to respond.": "我的回复可能比较慢。",
 
             "Clear status": "清除状态",
                 "Never": "永不",
@@ -1099,7 +1099,7 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
             "Activate": "激活",
             "command mode": "命令模式",
 
-            "Use filters in issues, pull requests, discussions, and projects": "在议题题、拉取请求、讨论和项目中使用过滤器",
+            "Use filters in issues, pull requests, discussions, and projects": "在议题、拉取请求、讨论和项目中使用过滤器",
             "Search your issues, pull requests, and discussions": "搜索您的议题、拉取请求和讨论",
             "Filter to pull requests": "筛选拉取请求",
             "Filter to issues": "筛选议题",
@@ -3871,7 +3871,7 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
                     "Ubuntu 2-core": "双核 Ubuntu",
                     "Windows 2-core": "双核 Windows",
                     "macOS 3-core": "三核 macOS",
-                    "Included minutes quota only applies to Ubuntu 2-core, Windows 2-core and macOS 3-core runners. Windows 2-core and macOS 3-core runners consume included minutes at higher rates.": "包含的分钟配额仅适用于 双核 Ubuntu、双核 Windows 和三核 macOS 运行器。双核 Windows 和三核 macOS 运行器以更高的速度消耗包括的分钟数。",
+                    "Included minutes quota only applies to Ubuntu 2-core, Windows 2-core and macOS 3-core runners. Windows 2-core and macOS 3-core runners consume included minutes at higher rates.": "包含的分钟配额仅适用于双核 Ubuntu、双核 Windows 和三核 macOS 运行器。双核 Windows 和三核 macOS 运行器以更高的速度消耗包括的分钟数。",
                 // 软件包
                     "Data transfer out": "数据转出",
                     "Data transfer out (rounded)": "数据转出（四舍五入）",
@@ -4257,7 +4257,7 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
         [/of (\d+\.\d{2}) included GB-month used/, "/ $1 GB/每月"],
         [/Last (\d+) days/, "最近 $1 天"],
         [/([^ ]+) support/, "$1 支持"],
-        [/Included minutes quota only applies to Ubuntu 2-core, Windows 2-core and macOS 3-core runners\. Windows 2-core and macOS 3-core runners consume included minutes at higher rates\. Your (\d+\.\d+) included minutes used consists of (.*)/, "包含的分钟配额仅适用于 双核 Ubuntu、双核 Windows 和三核 macOS 运行器。双核 Windows 和三核 macOS 运行器以更高的速度消耗包括的分钟数。您已使用的 $1 分钟包含分钟数由 $2 组成。"],
+        [/Included minutes quota only applies to Ubuntu 2-core, Windows 2-core and macOS 3-core runners\. Windows 2-core and macOS 3-core runners consume included minutes at higher rates\. Your (\d+\.\d+) included minutes used consists of (.*)/, "包含的分钟配额仅适用于双核 Ubuntu、双核 Windows 和三核 macOS 运行器。双核 Windows 和三核 macOS 运行器以更高的速度消耗包括的分钟数。您已使用的 $1 分钟包含分钟数由 $2 组成。"],
         [/(\$\d+\.\d{2}) off per month for (\d+) years/, "每月优惠 $1，为期 $2 年"],
         [/(\$\d+\.\d{2})\/month/, "$1/月"],
         [/(\$\d+\.\d{2}) off \/ month/, "-$1/月"],
@@ -6617,7 +6617,7 @@ I18N["zh-CN"]["settings/tokens"] = { // 设置 - 开发者设置/个人访问令
             "Last used within the last week": "最后一次使用是最近 1 周之内",
 
             // 全部撤销对话框
-            "Are you sure you want to revoke access for all personal access tokens?": "对话框您确定要撤销所有个人访问令牌的访问权限吗？",
+            "Are you sure you want to revoke access for all personal access tokens?": "您确定要撤销所有个人访问令牌的访问权限吗？",
             "This will revoke access for": "这将撤销访问",
             "all personal access tokens": "所有个人访问令牌",
             ", but will not revoke access for any authorized third-party OAuth applications. This action cannot be undone.": "，但不会撤销任何授权第三方 OAuth 应用的访问权限。此操作无法撤消。",
@@ -8391,15 +8391,15 @@ I18N["zh-CN"]["repository/pull_issue_public"] = { // 仓库 - 议题和拉取请
                     "Notification settings": "通知设置",
                     "Notifications settings": "通知设置", // 新版议题页面
                     "Not subscribed": "未订阅",
-                        "Only receive notifications from this pull request when you have participated or have been @mentioned.": "只有在您参与或被 @您时才会收到来自此拉取请求的通知。",
-                        "Only receive notifications from this issue when you have participated or have been @mentioned.": "只有在您参与或被 @您时才会收到来自此议题的通知。", // 议题页面
+                        "Only receive notifications from this pull request when you have participated or have been @mentioned.": "只有在您参与或被 @您 时才会收到来自此拉取请求的通知。",
+                        "Only receive notifications from this issue when you have participated or have been @mentioned.": "只有在您参与或被 @您 时才会收到来自此议题的通知。", // 议题页面
                     "Subscribed": "订阅",
                         "Receive all notifications from this pull request.": "接收来自此拉取请求的所有通知。",
                         "Receive all notifications from this issue.": "接收来自此议题的所有通知。",  // 议题页面
                     "Custom": "自定义",
-                        "You will only be notified for events selected from the list below. If you participate or are @mentioned you will be subscribed.": "您只会收到从以下列表中选择的事件的通知。如果您参与或 @s您时，将自动订阅。",
+                        "You will only be notified for events selected from the list below. If you participate or are @mentioned you will be subscribed.": "您只会收到从以下列表中选择的事件的通知。如果您参与或 @您 时，将自动订阅。",
                         "You will only be notified for the events selected from the list below.": "您只会收到从以下列表中选择的事件的通知。",
-                        "If you participate or are @mentioned you will be subscribed.": "如果您参与或 @您时，将自动订阅。",
+                        "If you participate or are @mentioned you will be subscribed.": "如果您参与或 @您 时，将自动订阅。",
                     // 议题
                         "Receive a notification when this issue has been closed.": "当议题被关闭时，收到通知。",
                         "Reopened": "重新打开",
@@ -8991,8 +8991,8 @@ I18N["zh-CN"]["repository/issues"] = { // 仓库 - 议题页面
                         "Polls": "投票",
                         "Q&A": "问与答",
                         "Show and tell": "展示与讲述",
-                    "I understand, convert issue to discussion": "我明白了，依然将议题转换未讨论",
-                    "I understand, convert issues to discussions": "我明白了，依然将议题转换未讨论",
+                    "I understand, convert issue to discussion": "我明白了，依然将议题转换为讨论",
+                    "I understand, convert issues to discussions": "我明白了，依然将议题转换为讨论",
                     "Future issues with this label will not be automatically converted into discussions.": "今后带有此标签的议题不会自动转换为讨论。",
 
         // 添加/编辑议题模板 /<user-name>/<repo-name>/issues/templates/edit
@@ -12257,7 +12257,7 @@ I18N["zh-CN"]["repository/new"] = { // 仓库 - 新建/编辑/上传/删除文�
                         "not be rendered in the submitted issue body": "不会在提交的议题正文中呈现。",
                         // 必填项
                             "(String): The text that will be rendered. Markdown formatting is supported.": "(字符串）：将渲染的文本。支持 Markdown 格式。",
-                        "Tip #1: YAML processing will cause the hash symbol to be treated as a comment. To insert Markdown headers, wrap your text in quotes.": "提示 1：YAML 处理会将哈希符号视为注释。要插入 Markdown 标题，请用引号将文本包起来。",
+                        "Tip #1: YAML processing will cause the hash symbol to be treated as a comment. To insert Markdown headers, wrap your text in quotes.": "提示 1：YAML 处理会将 # 号视为注释。要插入 Markdown 标题，请用引号将文本包起来。",
                         "Tip #2: For multi-line text, you can use the pipe operator.": "提示 2：对于多行文本，可以使用管道运算符。",
                         "Example": "示例",
                     "Input": "输入",
@@ -15624,11 +15624,11 @@ I18N["zh-CN"]["repository/settings/rules"] = { // 仓库设置 - 规则 - 规则
                         "Wait time to meet minimum group size (minutes)": "达到最小分组数的等待时间（分钟）",
                             "The time merge queue should wait after the first PR is added to the queue for the minimum group size to be met. After this time has elapsed, the minimum group size will be ignored and a smaller group will be merged.": "第一个拉取请求添加到队列后，合并队列为达到最小分组规模所需的等待时间。超过这一时间后，将忽略最小分组大小，合并一个较小的分组",
                         "Require all queue entries to pass required checks": "要求所有队列条目通过必要的检查",
-                            "When this setting is disabled, only the commit at the head of the merge group, i.e. the commit containing changes from all of the PRs in the group, must pass its required checks to merge.": "禁用此设置后，只有位于合并组头部的提交（即包含组内所有拉取请求 变更的提交）必须通过合并所需的检查。",
+                            "When this setting is disabled, only the commit at the head of the merge group, i.e. the commit containing changes from all of the PRs in the group, must pass its required checks to merge.": "禁用此设置后，只有位于合并组头部的提交（即包含组内所有拉取请求变更的提交）必须通过合并所需的检查。",
                         "Status check timeout (minutes)": "状态检查超时（分钟）",
                             "Maximum time for a required status check to report a conclusion. After this much time has elapsed, checks that have not reported a conclusion will be assumed to have failed": "报告结论所需的状态检查的最长时间。超过此时间后，未报告结论的检查将被视为失败",
                     "Require deployments to succeed": "要求部署成功",
-                        "Choose which environments must be successfully deployed to before refs can be pushed into a ref that matches this rule.": "选择必须成功部署到哪些环境，后才能将引用推送到与此规则匹配的引用中。",
+                        "Choose which environments must be successfully deployed to before refs can be pushed into a ref that matches this rule.": "选择必须成功部署到哪些环境，之后才能将引用推送到与此规则匹配的引用中。",
                         "Hide additional settings": "隐藏附加设置",
                         "Show additional settings": "显示附加设置",
                             "Search for deployment environments": "搜索部署环境",
