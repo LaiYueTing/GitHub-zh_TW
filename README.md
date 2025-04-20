@@ -365,6 +365,9 @@ GitHub 的 ajax 载入方式逐步从 [defunkt/jquery-pjax](https://github.com/d
 <a href="https://github.com/pecasha" title="Pecasha">
   <img src="https://avatars.githubusercontent.com/u/9607128?v=4" width="42;" alt="Pecasha"/>
 </a>
+<a href="https://github.com/yrljroli" title="𠭞">
+  <img src="https://avatars.githubusercontent.com/u/169890386?v=4" width="42;" alt="𠭞"/>
+</a>
 <a href="https://github.com/YiShengJunn" title="益生君">
   <img src="https://avatars.githubusercontent.com/u/134821571?v=4" width="42;" alt="益生君"/>
 </a>
