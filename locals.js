@@ -2382,8 +2382,9 @@ I18N["zh-CN"]["page-profile"] = { // 个人首页
                 "Sep": "9月",
                 "Oct": "10月",
                 "Nov": "11月",
-                "Dec": "12月",};
-            
+                "Dec": "12月",
+            };
+
             return mKey[m] + d + "日";
         }],
         //[/A graph representing ([^ ]+)'s contributions from (.+) to (.+). The contributions are (\d+\%) (commits|pull requests|issues|code review), (\d+\%) (commits|pull requests|issues|code review), (\d+\%) (commits|pull requests|issues|code review), (\d+\%) (commits|pull requests|issues|code review)./, function(all, user, date1, date2, cd1, c1, cd2, c2, cd3, c3, cd4, c4){
@@ -3607,7 +3608,7 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
             "Successfully updated billing information.": "成功更新支付信息。",
             "For more information on using these billing pages": "有关使用这些账单页面的更多信息，",
                 "please refer to the docs content here": "请参阅此处的文档内容",
-        
+
         // 概况
             "Current metered usage": "当前计费用量",
                 "Showing gross metered usage for your account.": "显示您账户的总计费用量。",
@@ -3643,7 +3644,7 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
                 "All other repositories": "其他",
 
             "No usage found": "无数据",
-            
+
             // 底下计算部分
                 "More": "更多", // 小屏模式
                 "View details": "详情",
@@ -3707,7 +3708,7 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
             "Packages usage": "软件包",
             "Packages usage grouped by SKU": "软件包 - 详细",
 
-            "Usage breakdown": "用量分析",               
+            "Usage breakdown": "用量分析",
                 "Date": "日期",
                 "SKUs": "库存单位",
                 "Products": "产品",
@@ -3738,7 +3739,7 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
                     "Spending for all repositories owned by your account": "账户拥有的所有仓库的支出",
                 // 仓库
                     "Spending for a single repository": "单个仓库支出",
-            
+
             "Budget": "预算",
                 "Set a budget amount to track your spending on a monthly basis.": "设置预算金额以按月跟踪您的支出。",
                 "Usage before budget creation isn't counted in the current billing cycle.": "预算创建前的使用情况不会计入当前计费周期。",
@@ -3750,7 +3751,7 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
                 "Get emails and GitHub notifications when your spending has reached 75%, 90%, and 100% of the budget threshold.": "当您的支出达到预算阈值的75%、90%和100%时，接收电子邮件和 GitHub 通知。",
 
                 "Receive budget threshold alerts": "接收预算阈值警报",
-            
+
             "Create budget": "创建",
 
         // 许可 https://github.com/settings/billing/licensing
@@ -3961,7 +3962,7 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
                 "(Apartment, suite, unit)": "（公寓、套房、单元）",
             "City": "城市",
             "Country/Region": "国家/地区",
-                "Choose your country": "选择您所在的国家/地区",
+                "Choose your country/region": "选择您所在的国家/地区",
             "State/Province": "州/省",
             "Postal/Zip code": "邮政编码",
                 "Required for certain countries": "某些国家/地区需要",
@@ -7494,7 +7495,7 @@ I18N["zh-CN"]["repository"] = { // 仓库页面 /<user-name>/<repo-name>/
         // 顶部
             "Help us improve GitHub Codespaces": "帮助我们改进 GitHub 代码空间",
                 "Tell us how to make GitHub Codespaces work better for you with three quick questions.": "通过三个简单的问题告诉我们如何让 GitHub 代码空间更适合您。",
-            
+
             "Sorry, couldn’t delete that branch.": "抱歉，无法删除此分支。",
 
         // 代码标签卡 & 仓库首页 /<user-name>/<repo-name>/ 和 /<user-name>/<repo-name>/tree/<branch>
@@ -8820,7 +8821,7 @@ I18N["zh-CN"]["repository/issues"] = { // 仓库 - 议题页面
                     // 在本地仓库检出对话框
                         "Checkout in your local repository": "在本地仓库检出",
                         "Run the following commands in your local clone.": "在您的本地克隆中运行以下指令。",
-                    
+
                     // 项目
                         "Select projects": "选择项目",
 
@@ -9948,7 +9949,7 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
         "Merge status cannot be loaded": "合并状态加载出错",
             "Try reloading the page, or if the problem persists contact support.": "尝试重载页面，或联系支持",
             "GitHub status": "GitHub 状态",
-        
+
 
     },
     "regexp": [ // 正则翻译
@@ -10064,7 +10065,7 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
 
         // 任务
         [/(\d+) tasks?/, "$1 个任务"],
-        
+
         // 解决冲突编辑器（似乎又是 F12 才会翻译）
         [/Search:/, "搜索："],
         [/\(Use \/re\/ syntax for regexp search\)/, "(使用 /re/ 进行正则搜索)"],
@@ -10888,10 +10889,9 @@ I18N["zh-CN"]["repository/blob"] = { // 仓库 - 浏览代码
 
     },
     "regexp": [ // 正则翻译
-        ...I18N["zh-CN"]["repository-public"]["regexp"],
         [/(\d+) lines? \((\d+) loc\) ·/, "$1 行（$2 非空行）·"],  // loc = 代码行（line of code）= 行数 - 空行数（lines - blank lines）
         [/(\d+) References?/, "$1 次引用"],
-        [/Blame prior to change ([a-f0-9]{7}), made on ([^ ]+)/, "追溯 $1（$2）之前的更改"],
+        [/Blame prior to change ([a-f0-9]{7}), made on ([^ ]+)/, "追溯提交 $1，创建于 $2"],
 
         // 代码追溯页面
         [/(\d+) contributors?/, "$1 位贡献者"],
@@ -10901,6 +10901,8 @@ I18N["zh-CN"]["repository/blob"] = { // 仓库 - 浏览代码
         [/([^ ]+) is licensed under/, "$1 的许可证"],
 
         [/First (\d+) files? shown./, "显示前 $1 个文件。"],
+
+        ...I18N["zh-CN"]["repository-public"]["regexp"],
     ],
 };
 I18N["zh-CN"]["repository/blame"] = I18N["zh-CN"]["repository/blob"];
@@ -10908,6 +10910,7 @@ I18N["zh-CN"]["repository/blame"] = I18N["zh-CN"]["repository/blob"];
 I18N["zh-CN"]["repository/discussions"] = { // 讨论页面
     "static": { // 静态翻译
         ...I18N["zh-CN"]["repository-public"]["static"],
+        ...I18N["zh-CN"]["orgs-public"]["static"],
 
         // 讨论页面 /<user-name>/<repo-name>/discussions
         // 组织讨论页 /orgs/<orgs-name>/discussions
@@ -12122,8 +12125,7 @@ I18N["zh-CN"]["repository/new"] = { // 仓库 - 新建/编辑/上传/删除文�
                 "Sign off and propose changes": "提出更改建议并签署", // 向他人仓库提交
                     "Commit message": "提交信息",
                     "Extended description": "扩展描述",
-                        //"Add an optional extended description..": "添加描述.. (可选)",
-                        "Add an optional extended description...": "添加描述.. (可选)",
+                        "Add an optional extended description...": "添加描述... (可选)",
 
                     "You are": "您将",
                     "signing off": "签署",
@@ -13988,8 +13990,9 @@ I18N["zh-CN"]["repository/graphs/contributors"] = { // 仓库 -> 洞察 - 贡献
                 "Sep": "9月",
                 "Oct": "10月",
                 "Nov": "11月",
-                "Dec": "12月",};
-            
+                "Dec": "12月",
+            };
+
             return mKey[m] + d + "日";
         }],
         [/(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) '(\d+)/, function(all, m, d){
@@ -14005,8 +14008,9 @@ I18N["zh-CN"]["repository/graphs/contributors"] = { // 仓库 -> 洞察 - 贡献
                 "Sep": "9月",
                 "Oct": "10月",
                 "Nov": "11月",
-                "Dec": "12月",};
-            
+                "Dec": "12月",
+            };
+
             return mKey[m] + d + "日";
         }],
         ...I18N["zh-CN"]["repository-public"]["regexp"],
@@ -14287,8 +14291,9 @@ I18N["zh-CN"]["repository/graphs/code-frequency"] = { // 仓库 -> 洞察 - 代�
                 "Sep": "9月",
                 "Oct": "10月",
                 "Nov": "11月",
-                "Dec": "12月",};
-            
+                "Dec": "12月",
+            };
+
             return mKey[m] + d + "日";
         }],
         [/(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) '(\d+)/, function(all, m, d){
@@ -14304,8 +14309,9 @@ I18N["zh-CN"]["repository/graphs/code-frequency"] = { // 仓库 -> 洞察 - 代�
                 "Sep": "9月",
                 "Oct": "10月",
                 "Nov": "11月",
-                "Dec": "12月",};
-            
+                "Dec": "12月",
+            };
+
             return mKey[m] + d + "日";
         }],
     ],
@@ -17933,7 +17939,7 @@ I18N["zh-CN"]["signup"] = { // 注册页
                 ". For more information about GitHub's privacy practices, see the": "。更多关于 GitHub 隐私条款的信息，请参见",
                 "GitHub Privacy Statement": "GitHub 隐私声明",
                 ". We'll occasionally send you account-related emails.": "。我们偶尔会向您发送与账户相关的电子邮件。",
-        
+
     },
     "regexp": [ // 正则翻译
         [/Username ([^ ]+) is not available./, "用户名 $1 不可用。"],
@@ -19743,7 +19749,7 @@ I18N["zh-CN"]["account/upgrade"] = { // 账户
             "Country/Region": "国家/地区",
                 "Country code can't be blank.": "国家/地区不能为空。",
                 "Country code can't be blank": "国家/地区不能为空",
-                "Choose your country": "选择您所在的国家/地区",
+                "Choose your country/region": "选择您所在的国家/地区",
             "State/Province": "州/省",
                 "Required for certain countries": "某些国家/地区需要",
             "Postal/Zip code": "邮政编码",
@@ -20095,7 +20101,7 @@ I18N["zh-CN"]["marketplace"] = { // GitHub 市场
             "Country/Region": "国家/地区",
                 "Country code can't be blank.": "国家/地区不能为空。",
                 "Country code can't be blank": "国家/地区不能为空",
-                "Choose your country": "选择您所在的国家/地区",
+                "Choose your country/region": "选择您所在的国家/地区",
             "State/Province": "州/省",
                 "Required for certain countries": "某些国家/地区需要",
             "Postal/Zip code": "邮政编码",
@@ -20497,6 +20503,7 @@ I18N["zh-CN"]["apps"] = { // GitHub 应用
 
 I18N["zh-CN"]["orgs"] = { // 组织页面
     "static": { // 静态翻译
+        ...I18N["zh-CN"]["orgs-public"]["static"],
         //>>>>>>>>>>>>>>>>>> 组织主页/概况页 <<<<<<<<<<<<<<<<<<<<<
             // [/doesn't have any pinned public repositories yet./, "还没有任何置顶的公共仓库。"],
 
@@ -24087,91 +24094,93 @@ I18N["zh-CN"]["repo-actions-merics-public"] = { // 仓库 - 洞察 - 操作看�
     "static": {
         ...I18N["zh-CN"]["repository-public"]["static"],
         ...I18N["zh-CN"]["repository-insights-menu"]["static"],
+
         "Period": "周期",
-        "Current week (Mon-Sun)": "本周（周一 ~ 周日）",
-        "Current month": "本月",
-        "Last month": "上个月",
-        "Last 30 days": "最近 30 天",
-        "Last 90 days": "最近 90 天",
-        "Last year": "最近一年",
-        "Custom": "自定义",
+            "Current week (Mon-Sun)": "本周（周一 ~ 周日）",
+            "Current month": "本月",
+            "Last month": "上个月",
+            "Last 30 days": "最近 30 天",
+            "Last 90 days": "最近 90 天",
+            "Last year": "最近一年",
+            "Custom": "自定义",
 
         // 自定义日期
-        "Custom date range (UTC)": "自定义日期范围(UTC)",
-        "Choose dates": "选择日期",
-
-        // 日历
-        "Su": "一",
-        "Mo": "二",
-        "Tu": "三",
-        "We": "四",
-        "Th": "五",
-        "Fr": "六",
-        "Sa": "日",
+            "Custom date range (UTC)": "自定义日期范围(UTC)",
+            "Choose dates": "选择日期",
+            // 日历
+                "Su": "一",
+                "Mo": "二",
+                "Tu": "三",
+                "We": "四",
+                "Th": "五",
+                "Fr": "六",
+                "Sa": "日",
 
         // 筛选相关
-        "Filter": "筛选",
-        "Search or filter": "搜索或筛选",
-        "Exclude": "排除",
-        "Download report": "下载报告",
+            "Filter": "筛选",
+                "Search or filter": "搜索或筛选",
+                "Exclude": "排除",
+            "Download report": "下载报告",
 
         // 高级筛选窗口
-        "Advanced filters": "高级筛选",
-        "Build complex filter queries": "建立复杂的筛选器查询",
-        "To start building your query add your first filter using the button below.": "要开始建立查询，请使用下面的按钮添加第一个筛选器。",
-        "Qualifier": "限定",
-        "Operator": "操作",
-        "is not one of": "不包含",
-        "is one of": "包含",
-        "is": "是",
-        "greater than": "大于",
-        "less than": "小于",
-        "greater than or equal to": "大于或等于",
-        "less than or equal to": "小于或等于",
-        "equal to": "等于",
-        "between": "之间",
-        "Value": "值",
-        "Make a selection": "请选择",
-        "Select items": "请选择项目",
-        "Filter values": "筛选值",
-        "Enter a number": "键入数字",
-        "Enter search text": "键入任意文本",
-        "Me": "我",
-        "Signed-in user": "已登录用户",
-        "Add a filter": "添加",
-        "Text": "文本",
-        "Apply": "应用",
+            "Advanced filters": "高级筛选",
+                "Build complex filter queries": "建立复杂的筛选器查询",
+                "To start building your query add your first filter using the button below.": "要开始建立查询，请使用下面的按钮添加第一个筛选器。",
+
+                "Qualifier": "限定",
+                "Operator": "操作",
+                    "is not one of": "不包含",
+                    "is one of": "包含",
+                    "is": "是",
+                    "greater than": "大于",
+                    "less than": "小于",
+                    "greater than or equal to": "大于或等于",
+                    "less than or equal to": "小于或等于",
+                    "equal to": "等于",
+                    "between": "之间",
+                "Value": "值",
+                    "Make a selection": "请选择",
+                    "Select items": "请选择项目",
+                    "Filter values": "筛选值",
+                    "Enter a number": "键入数字",
+                    "Enter search text": "键入任意文本",
+                        "Me": "我",
+                        "Signed-in user": "已登录用户",
+                "Add a filter": "添加",
+                    "Text": "文本",
+                "Apply": "应用",
 
         // 关闭弹窗
-        "Discard changes?": "是否放弃更改？",
-        "You have unsaved changes. Are you sure you want to discard them?": "您有未保存的更改。您确定要放弃它们吗？",
-        "Keep editing": "继续编辑",
-        "Close and discard": "关闭并放弃",
+            "Discard changes?": "是否放弃更改？",
+            "You have unsaved changes. Are you sure you want to discard them?": "您有未保存的更改。您确定要放弃它们吗？",
+            "Keep editing": "继续编辑",
+            "Close and discard": "关闭并放弃",
 
         // 筛选器报错窗口
-        "Empty value for": "空值：",
-        "Text will be ignored since log searching is not yet available:": "由于尚未提供日志搜索功能，文本将被忽略：",
+            "Empty value for": "空值：",
+            "Text will be ignored since log searching is not yet available:": "由于尚未提供日志搜索功能，文本将被忽略：",
 
         // 工作流相关
-        "Workflows": "工作流",
-        "Jobs": "作业",
-        "Job": "作业",
-        "Job runs": "作业运行",
-        "Runtime OS": "操作系统",
-        "Runner type": "运行器类型",
-        "hosted": "托管",
-        "hosted-larger": "大型托管",
-        "self-hosted": "自托管",
-        "Runner labels": "运行器标签",
+            "Workflows": "工作流",
+            "Jobs": "作业",
+                "Job": "作业",
+                "Job runs": "作业运行",
+                "Runtime OS": "操作系统",
+                "Runner type": "运行器类型",
+                    "hosted": "托管",
+                    "hosted-larger": "大型托管",
+                    "self-hosted": "自托管",
+                "Runner labels": "运行器标签",
 
         // 无数据
-        "No table data available yet.": "还没有数据。",
-        "You don't have workflows on any of your organization repositories.": "您的任何组织仓库中都没有工作流程。",
-        "Get started with GitHub Actions": "快速开始",
+            "No table data available yet.": "还没有数据。",
+                "You don't have workflows on any of your organization repositories.": "您的任何组织仓库中都没有工作流程。",
+            "Get started with GitHub Actions": "快速开始",
 
         // 工作流条目
-        "Workflow": "工作流",
-        "Workflow runs": "工作流运行",
+            "Workflow": "工作流",
+            "Workflow runs": "工作流运行",
+
         "of": "/",
     },
     "regexp": [
@@ -24360,7 +24369,7 @@ I18N["zh-CN"]["copilot"] = {
                 "Visible to anyone with the link": "拥有链接者可见",
 
                 "Unshare": "取消",
-            
+
             "Manage shared conversations": "管理已分享对话",
                 "Last updated": "最后更新",
                     // 日期走正则
@@ -24672,7 +24681,7 @@ I18N["zh-CN"]["education"] = { // 教育页面，申请学生包会用到
                                 "Please upload proof of your current school affiliation that is less than 1MB in size": "请上传小于 1MB 的照片",
                                 "Binary data can't be blank": "二进制数据不能为空",
 
-                    "Please note, your request cannot be edited once it has been submitted, so please verify your details for accuracy before sending them to us. After clicking \"Process my application\", please wait as processing can take several seconds.": "请注意，您的申请一经提交便无法编辑，因此在发送给我们之前，请核实您的详细信息是否准确。点击 “处理申请 ”后，请稍候，因为处理过程可能需要几秒钟。",
+                    "Please note, your request cannot be edited once it has been submitted, so please verify your details for accuracy before sending them to us. After clicking \"Process my application\", please wait as processing can take several seconds.": "请注意，您的申请一经提交便无法编辑，因此在发送给我们之前，请核实您的详细信息是否准确。点击 “处理我的申请 ”后，请稍候，因为处理过程可能需要几秒钟。",
                         "Process my application": "处理申请",
                         "Processing your application": "处理中",
                         "Processing information...": "处理中...",
