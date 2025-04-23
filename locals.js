@@ -482,6 +482,8 @@ I18N["zh-CN"]["title"] = { // 标题翻译
         [/Deleting ([^ ]+)\/([^ ]+) at ([^ ]+) · ([^ ]+)/, "删除 $3/$2 · $4"], // 简化部分内容
         [/([^ ]+)'s list \/ (.+)/, "$1 的列表 / $2"],
         [/([^ ]+) \((.+)\) \/ Achievements/, "$1($2) / 成就"], // github 账户名（昵称）/ 成就
+        [/Teams · ([^ ]+)/, "团队 · $1"],
+        [/Create new team · ([^ ]+)/, "新建团队 · $1"],
         ["_regexp_end", "end"]
     ],
 };
@@ -7694,6 +7696,9 @@ I18N["zh-CN"]["repository"] = { // 仓库页面 /<user-name>/<repo-name>/
                     // "Copied!": "✅ 复制成功!",
 
                 // 代码空间
+                    // 维护提示
+                        "Codespaces will be undergoing maintenance. Users may experience connection issues during this time, for more details please visit": "代码空间将进行维护。在此期间，用户可能会遇到连接问题。更多详情请访问",
+                        "this announcement": "此公告",
                     "Your workspaces in the cloud": "您在云端的工作空间",
                     //[/Create a codespace on ([^ ]+)/, "在 $1 上创建代码空间"],
                     "Codespace repository configuration": "代码空间仓库配置",
@@ -9201,6 +9206,9 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
                             "and try again.": "并重试",
 
                 // 代码空间
+                    // 维护提示
+                        "Codespaces will be undergoing maintenance. Users may experience connection issues during this time, for more details please visit": "代码空间将进行维护。在此期间，用户可能会遇到连接问题。更多详情请访问",
+                        "this announcement": "此公告",
                     "This pull request must be reopened to create new codespaces on it.": "必须重新打开此拉取请求才能在其上创建新的代码空间。",
                     "Your workspaces in the cloud": "您在云端的工作空间",
                     //[/Create a codespace on ([^ ]+)/, "在 $1 上创建代码空间"],
@@ -14876,6 +14884,9 @@ I18N["zh-CN"]["repository/settings"] = { // 仓库设置 - 通常 /<user-name>/<
             "Can't leave the fork network because this fork has child forks.": "无法离开复刻网络，因为此复刻有子复刻。",
             "Can't detach forks larger than 1 GB.": "无法解除大于 1 GB 的复刻关联。",
             "Unlink this repository from the fork network and make it standalone.": "将该仓库从复刻网络中解除关联，使其成为独立仓库。",
+            "Detach is in progress.": "分离中。",
+            // 顶部提醒
+                "Detaching this repository.": "分离此仓库…",
 
             "Archive this repository": "存档仓库",
             "Mark this repository as archived and read-only.": "将此仓库标记为已存档和只读。",
@@ -20869,8 +20880,36 @@ I18N["zh-CN"]["orgs/teams"] = { // 组织 - 团队标签卡
             "Visibility": "可见性",
                 "All": "所有",
             "Members": "成员",
+            "Team members": "团队成员",
                 "My teams": "我的团队",
                 "No members": "没有成员",
+
+        // 子团队 https://github.com/orgs/<orgs-name>/teams/team
+            // 申请提示
+                "Membership requested. We’ll let you know once an administrator has reviewed your request.": "成员资格已申请。一旦管理员审核了您的请求，我们将通知您。",
+                "Okay, we’ve cancelled your request to join this team.": "好的，已取消加入此团队申请。",
+
+            "Find a member…": "查找成员…",
+
+            "Request to join": "请求加入",
+                "Requires approval from an owner or team maintainer": "需要所有者或团队维护者批准",
+            "Cancel pending request": "取消请求",
+                "Your request to join this team is pending review": "您的请求待审查",
+
+            "This team doesn’t have any child team members.": "此团队没有子团队成员。",
+
+            "Filter by role": "筛选角色",
+                "Maintainer": "维护者",
+                "Member": "成员",
+
+        // 子团队成员 https://github.com/orgs/<orgs-name>/teams/team/members
+            "Invite": "邀请",
+                "Search by username, full name, or email address": "搜索用户名，全名或邮件",
+
+            "Invitations": "邀请",
+            "Requests": "请求",
+                "Approve": "批准",
+                "Deny": "拒绝",
 
         // 创建团队 /orgs/<org-login>/new-team
             "Create new team": "新建团队",
@@ -20880,6 +20919,9 @@ I18N["zh-CN"]["orgs/teams"] = { // 组织 - 团队标签卡
             "What is this team all about?": "这个团队是什么？",
             "Parent team": "父团队",
                 "There are no teams that can be selected.": "没有可以选择的团队。",
+                "Select parent team": "选择父团队",
+                "Search teams": "搜索团队",
+                "Clear selected value": "清除",
             "Team visibility": "团队可见性",
                 "Visible": "可见",
                     "Recommended": "推荐",
@@ -20898,7 +20940,10 @@ I18N["zh-CN"]["orgs/teams"] = { // 组织 - 团队标签卡
     },
     "regexp": [ // 正则翻译
         [/(\d+) members?/, "$1 成员"],
+        [/(\d+) teams? in the ([^ ]+) organization/, "$2 组织中的 $1 个团队"],
         [/(\d+) teams?/, "$1 团队"],
+        [/(\d+) child team members?/, "$1 子团队成员"],
+        [/Add member to (.+)/, "添加成员至 $1"],
         ...I18N["zh-CN"]["orgs-public"]["regexp"],
     ],
 };
@@ -23387,6 +23432,11 @@ I18N["zh-CN"]["codespaces"] = { // 代码空间页面
         // 顶部
             "Help us improve GitHub Codespaces": "帮助我们改进 GitHub 代码空间",
                 "Tell us how to make GitHub Codespaces work better for you with three quick questions.": "通过三个简单的问题告诉我们如何让 GitHub 代码空间更适合您。",
+
+        // 维护提示
+            "Codespaces will be undergoing maintenance. Users may experience connection issues during this time, for more details please visit": "代码空间将进行维护。在此期间，用户可能会遇到连接问题。更多详情请访问",
+            "this announcement": "此公告",
+
         // https://github.com/codespaces
             "All": "所有",
             "Templates": "模版",
@@ -24033,110 +24083,101 @@ I18N["zh-CN"]["organizations/plan"] = {
     "regexp": [],
 };
 
-I18N["zh-CN"]["repository/actions/metrics/usage"] = { // 仓库 - 洞察 - 操作使用情况
+I18N["zh-CN"]["repo-actions-merics-public"] = { // 仓库 - 洞察 - 操作看板公共部分
     "static": {
         ...I18N["zh-CN"]["repository-public"]["static"],
         ...I18N["zh-CN"]["repository-insights-menu"]["static"],
+        "Period": "周期",
+        "Current week (Mon-Sun)": "本周（周一 ~ 周日）",
+        "Current month": "本月",
+        "Last month": "上个月",
+        "Last 30 days": "最近 30 天",
+        "Last 90 days": "最近 90 天",
+        "Last year": "最近一年",
+        "Custom": "自定义",
 
-            "Period": "周期",
-                "Current week (Mon-Sun)": "本周（周一 ~ 周日）",
-                "Current month": "本月",
-            "Last month": "上个月",
-            "Last 30 days": "最近 30 天",
-            "Last 90 days": "最近 90 天",
-            "Last year": "最近一年",
-            "Custom": "自定义",
+        // 自定义日期
+        "Custom date range (UTC)": "自定义日期范围(UTC)",
+        "Choose dates": "选择日期",
 
-            // 自定义日期
-                "Custom date range (UTC)": "自定义日期范围(UTC)",
-                "Choose dates": "选择日期",
-                // 日历
-                    "Su": "一",
-                    "Mo": "二",
-                    "Tu": "三",
-                    "We": "四",
-                    "Th": "五",
-                    "Fr": "六",
-                    "Sa": "日",
+        // 日历
+        "Su": "一",
+        "Mo": "二",
+        "Tu": "三",
+        "We": "四",
+        "Th": "五",
+        "Fr": "六",
+        "Sa": "日",
 
-        "Total minutes": "总分钟数",
-            // "Total minutes across all workflows in this organization for current month": "当月该组织所有工作流程的总时长",
-        "Total job runs": "总工作运行",
-            // "Total job runs across all workflows in this organization for current month": "当月该组织所有工作流程的工作运行总数",
-
+        // 筛选相关
         "Filter": "筛选",
-            "Search or filter": "搜索或筛选",
-            "Exclude": "排除",
+        "Search or filter": "搜索或筛选",
+        "Exclude": "排除",
         "Download report": "下载报告",
 
-        // 高级帅选窗口
-            "Advanced filters": "高级筛选",
-                "Build complex filter queries": "建立复杂的筛选器查询",
-                "To start building your query add your first filter using the button below.": "要开始建立查询，请使用下面的按钮添加第一个筛选器。",
+        // 高级筛选窗口
+        "Advanced filters": "高级筛选",
+        "Build complex filter queries": "建立复杂的筛选器查询",
+        "To start building your query add your first filter using the button below.": "要开始建立查询，请使用下面的按钮添加第一个筛选器。",
+        "Qualifier": "限定",
+        "Operator": "操作",
+        "is not one of": "不包含",
+        "is one of": "包含",
+        "is": "是",
+        "greater than": "大于",
+        "less than": "小于",
+        "greater than or equal to": "大于或等于",
+        "less than or equal to": "小于或等于",
+        "equal to": "等于",
+        "between": "之间",
+        "Value": "值",
+        "Make a selection": "请选择",
+        "Select items": "请选择项目",
+        "Filter values": "筛选值",
+        "Enter a number": "键入数字",
+        "Enter search text": "键入任意文本",
+        "Me": "我",
+        "Signed-in user": "已登录用户",
+        "Add a filter": "添加",
+        "Text": "文本",
+        "Apply": "应用",
 
-                "Qualifier": "限定",
-                "Operator": "操作",
-                    "is not one of": "不包含",
-                    "is one of": "包含",
-                    "is": "是",
-                    "greater than": "大于",
-                    "less than": "小于",
-                    "greater than or equal to": "大于或等于",
-                    "less than or equal to": "小于或等于",
-                    "equal to": "等于",
-                    "between": "之间",
-                "Value": "值",
-                    "Make a selection": "请选择",
-                    "Select items": "请选择项目",
-                    "Filter values": "筛选值",
-                    "Enter a number": "键入数字",
-                    "Enter search text": "键入任意文本",
-                        "Me": "我",
-                        "Signed-in user": "已登录用户",
-                "Add a filter": "添加",
-                    "Text": "文本",
-                "Apply": "应用",
+        // 关闭弹窗
+        "Discard changes?": "是否放弃更改？",
+        "You have unsaved changes. Are you sure you want to discard them?": "您有未保存的更改。您确定要放弃它们吗？",
+        "Keep editing": "继续编辑",
+        "Close and discard": "关闭并放弃",
 
-            // 关闭弹窗
-                "Discard changes?": "是否放弃更改？",
-                "You have unsaved changes. Are you sure you want to discard them?": "您有未保存的更改。您确定要放弃它们吗？",
-                "Keep editing": "继续编辑",
-                "Close and discard": "关闭并放弃",
+        // 筛选器报错窗口
+        "Empty value for": "空值：",
+        "Text will be ignored since log searching is not yet available:": "由于尚未提供日志搜索功能，文本将被忽略：",
 
-            // 筛选器报错窗口
-                "Empty value for": "空值：",
-                "Text will be ignored since log searching is not yet available:": "由于尚未提供日志搜索功能，文本将被忽略：",
-
+        // 工作流相关
         "Workflows": "工作流",
-            "Row Actions": "更多", // 暂译
-            "View performance": "查看数据看板",
         "Jobs": "作业",
-            "Job": "作业",
-            "Job runs": "作业运行",
+        "Job": "作业",
+        "Job runs": "作业运行",
         "Runtime OS": "操作系统",
         "Runner type": "运行器类型",
-            "hosted": "托管",
-            "hosted-larger": "大型托管",
-            "self-hosted": "自托管",
+        "hosted": "托管",
+        "hosted-larger": "大型托管",
+        "self-hosted": "自托管",
         "Runner labels": "运行器标签",
 
         // 无数据
-            "No table data available yet.": "还没有数据。",
-                "You don't have workflows on any of your organization repositories.": "您的任何组织仓库中都没有工作流程。",
-            "Get started with GitHub Actions": "快速开始",
+        "No table data available yet.": "还没有数据。",
+        "You don't have workflows on any of your organization repositories.": "您的任何组织仓库中都没有工作流程。",
+        "Get started with GitHub Actions": "快速开始",
 
+        // 工作流条目
         "Workflow": "工作流",
         "Workflow runs": "工作流运行",
-
         "of": "/",
-
     },
     "regexp": [
-        ...I18N["zh-CN"]["repository-public"]["regexp"],
         [/Showing data from (\d+)\/(\d+)\/(\d+) to/, "显示数据：从$1年$2月$3日至"],
         [/Total (minutes|job runs) across all workflows in this organization for (current week \(mon-sun\)|current month|last month|last 30 days|last 90 days|last year|custom)/, function(all, type, period){
             var typeKey = {'minutes': '总分钟数', 'job runs': '总工作运行数'};
-
             var periodKey = {
                 "current week (mon-sun)": "本周（周一 ~ 周日）",
                 "current month": "本月",
@@ -24146,7 +24187,6 @@ I18N["zh-CN"]["repository/actions/metrics/usage"] = { // 仓库 - 洞察 - 操�
                 "last year": "最近一年",
                 "custom": "自定义时间段",
             };
-
             return periodKey[period] + '该组织所有工作流程的' + typeKey[type];
         }],
         [/Period: (Current week \(Mon-Sun\)|Current month|Last month|Last 30 days|Last 90 days|Last year|Custom)/, function(all, period){
@@ -24164,30 +24204,24 @@ I18N["zh-CN"]["repository/actions/metrics/usage"] = { // 仓库 - 洞察 - 操�
     ],
 };
 
+I18N["zh-CN"]["repository/actions/metrics/usage"] = {
+    "static": {
+        ...I18N["zh-CN"]["repo-actions-merics-public"]["static"],
+
+        "Total minutes": "总分钟数",
+        "Total job runs": "总工作运行",
+
+        "Row Actions": "更多", // 暂译
+        "View performance": "查看数据看板",
+    },
+    "regexp": [
+        ...I18N["zh-CN"]["repo-actions-merics-public"]["regexp"],
+    ],
+};
+
 I18N["zh-CN"]["repository/actions/metrics/performance"] = {
     "static": {
-        ...I18N["zh-CN"]["repository-public"]["static"],
-        ...I18N["zh-CN"]["repository-insights-menu"]["static"],
-
-        "Period": "周期",
-            "Current week (Mon-Sun)": "本周（周一 ~ 周日）",
-            "Current month": "本月",
-            "Last month": "上个月",
-            "Last 30 days": "最近 30 天",
-            "Last 90 days": "最近 90 天",
-            "Last year": "最近一年",
-            "Custom": "自定义",
-            // 自定义日期
-            "Custom date range (UTC)": "自定义日期范围(UTC)",
-            "Choose dates": "选择日期",
-            // 日历
-                "Su": "一",
-                "Mo": "二",
-                "Tu": "三",
-                "We": "四",
-                "Th": "五",
-                "Fr": "六",
-                "Sa": "日",
+        ...I18N["zh-CN"]["repo-actions-merics-public"]["static"],
 
         "Avg job run time": "平均作业运行时长",
         "Avg job queue time": "平均作业等待时长",
@@ -24196,84 +24230,21 @@ I18N["zh-CN"]["repository/actions/metrics/performance"] = {
 
         "<1s": "<1秒",
 
-        "Filter": "筛选",
-            "Search or filter": "搜索或筛选",
-            "Avg run time minutes": "平均运行时长",
-            "Avg queue time minutes": "平均等待时长",
-            "Failure rate": "失败率",
-            "Exclude": "排除",
-        "Download report": "下载报告",
+        "Avg run time minutes": "平均运行时长",
+        "Avg queue time minutes": "平均等待时长",
+        "Failure rate": "失败率",
 
-        // 高级帅选窗口
-            "Advanced filters": "高级筛选",
-                "Build complex filter queries": "建立复杂的筛选器查询",
-                "To start building your query add your first filter using the button below.": "要开始建立查询，请使用下面的按钮添加第一个筛选器。",
-
-                "Qualifier": "限定",
-                "Operator": "操作",
-                    "is not one of": "不包含",
-                    "is one of": "包含",
-                    "is": "是",
-                    "greater than": "大于",
-                    "less than": "小于",
-                    "greater than or equal to": "大于或等于",
-                    "less than or equal to": "小于或等于",
-                    "equal to": "等于",
-                    "between": "之间",
-                "Value": "值",
-                    "Make a selection": "请选择",
-                    "Select items": "请选择项目",
-                    "Filter values": "筛选值",
-                    "Enter a number": "键入数字",
-                    "Enter search text": "键入任意文本",
-                        "Me": "我",
-                        "Signed-in user": "已登录用户",
-                "Add a filter": "添加",
-                    "Text": "文本",
-                "Apply": "应用",
-
-            // 关闭弹窗
-                "Discard changes?": "是否放弃更改？",
-                "You have unsaved changes. Are you sure you want to discard them?": "您有未保存的更改。您确定要放弃它们吗？",
-                "Keep editing": "继续编辑",
-                "Close and discard": "关闭并放弃",
-
-            // 筛选器报错窗口
-                "Empty value for": "空值：",
-                "Text will be ignored since log searching is not yet available:": "由于尚未提供日志搜索功能，文本将被忽略：",
-
-        "Workflows": "工作流",
         "Has job failures": "作业失败率",
         "Avg run time": "平均运行时长",
-        "Failure rate": "失败率",
         "Avg queue time": "平均等待时长",
-        "Jobs": "作业",
-            "Job": "作业",
-            "Job runs": "作业运行",
-        "Runtime OS": "操作系统",
-        "Runner type": "运行器类型",
-            "hosted": "托管",
-            "hosted-larger": "大型托管",
-            "self-hosted": "自托管",
-        "Runner labels": "运行器标签",
 
-        // 无数据
-            "No table data available yet.": "还没有数据。",
-                "You don't have workflows on any of your organization repositories.": "您的任何组织仓库中都没有工作流程。",
-            "Get started with GitHub Actions": "快速开始",
-
-        "Workflow": "工作流",
-            "Row Actions": "更多", // 暂译
-            "View usage": "查看使用情况",
-        "Workflow runs": "工作流运行",
-
-        "of": "/",
+        "Row Actions": "更多", // 暂译
+        "View usage": "查看使用情况",
     },
     "regexp": [
-        ...I18N["zh-CN"]["repository/actions/metrics/usage"]["regexp"],
+        ...I18N["zh-CN"]["repo-actions-merics-public"]["regexp"],
         [/(Average run time of|Average queue time of|Failure rate across|Total minutes used across failed) jobs in this organization for (current week \(mon-sun\)|current month|last month|last 30 days|last 90 days|last year|custom)/, function(all, type, period){
             var typeKey = {'Average run time of': '平均运行时长', 'Average queue time of': '平均等待时长', 'Failure rate across': '作业失败率', 'Total minutes used across failed': '作业失败次数'};
-
             var periodKey = {
                 "current week (mon-sun)": "本周（周一 ~ 周日）",
                 "current month": "本月",
@@ -24283,7 +24254,6 @@ I18N["zh-CN"]["repository/actions/metrics/performance"] = {
                 "last year": "最近一年",
                 "custom": "自定义时间段",
             };
-
             return periodKey[period] + '该组织所有工作流程的' + typeKey[type];
         }],
         [/(\d+)h (\d+)m (\d+)s/, "$1时$2分$3秒"],
