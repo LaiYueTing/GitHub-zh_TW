@@ -18784,6 +18784,7 @@ I18N["zh-CN"]["search"] = { // 搜索页面
         [/Filters?/, "过滤"], // Android UA
         [/(\d+(k|M|B)?) results?/, "$1 个结果"], // 顶部，数字后可能带 K、M、B 三种字母其中一个
         [/(\d+(k|M|B)?) files?/, "$1 个文件"], // 同上 https://github.com/search?q=<keyword>&type=code
+        [/More than ([\d,]+) results?/, "大于 $1 个结果"],
         [/Show ([\d,]+) more matches?/, "显示更多 $1 处匹配"],
         [/(\d+) issues? needs? help/, "$1 个议题需要帮助"],
         [/Sponsor ([^ ]+)?/, "赞助 $1"], // 赞助按钮 对话框 标题
