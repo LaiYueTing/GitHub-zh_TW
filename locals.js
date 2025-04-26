@@ -386,6 +386,7 @@ I18N["zh-CN"]["title"] = { // 标题翻译
         "Billing Usage": "计费用量",
         "Budgets": "预算",
         "Code Security": "代码安全性",
+        "New Fine-grained Personal Access Token": "新建精细化个人访问令牌",
     },
     "regexp": [ // 正则翻译
         [/Authorized OAuth Apps/, "授权的 OAuth 应用"],
