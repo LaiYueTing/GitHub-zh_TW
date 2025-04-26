@@ -13552,13 +13552,73 @@ I18N["zh-CN"]["repository/security"] = { // 仓库 - 安全页面
 
         // 代码扫描器 /<user-name>/<repo-name>/security/code-scanning
             "Automatically detect vulnerabilities in your code.": "自动检测您代码中的漏洞。",
-            "Code Scanning uses Actions to run the analysis. Enabling this feature will create a new workflow file. Learn more about": "代码扫描使用 Actions 来运行分析。启用此功能将创建一个新的工作流程文件。了解更多关于",
+            "Configure tools that integrate with Code Scanning to keep the quality of your code under control. Learn more about": "配置与代码扫描集成的工具，以控制代码质量。了解更多关于",
             "Code Scanning": "代码扫描",
-            "Configure CodeQL alerts": "配置 CodeQL 警报",
-            "Configure other scanning tools": "配置其他扫描工具",
 
-            "Configure tools that integrate with Code Scanning to keep the quality of your code under control. Learn more about": "与代码扫描集成的配置工具，使您的代码质量得到控制。了解更多关于",
             "Configure scanning tool": "配置扫描工具",
+
+            "All tools are working as expected": "所有工具均按预期运行",
+            "Tools": "工具",
+            "Add tool": "添加工具",
+
+            // 搜索条
+                "Available filters": "可用筛选器",
+                    "filter by open/closed state": "按打开/关闭状态筛选",
+                    "filter by tool": "按工具筛选",
+                    "filter by branch name": "按分支名称筛选",
+                    "filter by pr number": "按 PR 号筛选",
+                    "filter by ref (e.g. branches/tags)": "按引用筛选（例如 分支/标签）",
+                    "filter by rule": "按规则筛选",
+                    "filter by rule tag": "按规则标签筛选",
+                    "filter by severity": "按严重程度筛选",
+                    "sort by": "排序方式",
+                    "only show alerts in application code": "仅在应用程序代码中显示警报",
+                    "filter by closure reason": "按关闭原因筛选",
+                    "filter by file path (e.g. lib/crypto or *_test.js)": "按文件路径筛选（例如 lib/crypto or *_test.js）",
+                    "filter by language": "按语言筛选",
+
+            "Language": "语言",
+                "Filter by language": "筛选语言",
+            "Tool": "工具",
+                "Filter by tool": "筛选工具",
+            // 分支
+                "Filter by branch": "筛选分支",
+            "Rule": "规则",
+                "Filter by rule": "筛选规则",
+                "Filter rules": "筛选规则",
+            // 严重等级
+                "Medium": "中风险",
+                "Error": "错误",
+                "Warning": "警告",
+                "Note": "注意",
+
+            "Looking good!": "看起来不错！",
+                "No new code scanning alerts.": "没有新的代码扫描警报。",
+            "No code scanning alerts here!": "尚无代码扫描警报！",
+                "Keep up the good work!": "继续努力！",
+            "No code scanning alerts found.": "尚无代码扫描警报。",
+                "We'll keep watching out for new ones.": "我们会继续关注新的消息。",
+
+            "Detected by": "检测者",
+            "in": "在",
+
+        // 具体某条 代码扫描 警报/<user-name>/<repo-name>/security/security/code-scanning/<id>
+            "Code scanning alerts": "代码扫描警报",
+            "Generate fix": "创建修复",
+            "Affected branches": "受影响分支",
+            "Rule ID": "规则 ID",
+            "Query": "查询",
+            "View source": "查看源代码",
+            "First detected in commit": "首次在提交中检测到",
+
+        // /<user-name>/<repo-name>/security/code-scanning/tools/CodeQL/status
+            "Scanned files": "扫描文件",
+                "Download language CSV report": "下载语言 CSV 报告",
+            "Setup types": "设置类型",
+            "Default setup": "默认设置",
+            "· Last scan": "· 最近一次扫描",
+            "Menu": "菜单",
+            "View setup type": "查看设置类型",
 
         // 机密扫描警报 /<user-name>/<repo-name>/security/secret-scanning
             // 顶端窗口
