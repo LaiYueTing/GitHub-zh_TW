@@ -6654,6 +6654,7 @@ I18N["zh-CN"]["settings/tokens"] = { // 设置 - 开发者设置/个人访问令
                     "Select at least one repository. Max 50 repositories. Also includes public repositories (read-only).": "至少选择一个仓库，最多可选择 50 个仓库。还包括公共仓库（只读）。",
                     "Select repositories": "选择仓库",
                     "Search for a repository": "搜索仓库",
+                    "Select at least one repository.": "至少选择一个仓库。",
                     // [/Selected (\d+) repositor(y|ies)./, "选定 #1 个仓库"],
                         "No repositories found.": "未找到仓库。",
 
@@ -6747,8 +6748,14 @@ I18N["zh-CN"]["settings/tokens"] = { // 设置 - 开发者设置/个人访问令
                         "View and manage users blocked by the user.": "查看和管理被用户拉黑的用户。",
                     "Codespaces user secrets": "代码空间用户机密",
                         "Manage Codespaces user secrets.": "管理代码空间用户机密。",
+                    "Copilot Chat": "Copilot 聊天",
+                        "This application will receive your GitHub ID, your GitHub Copilot Chat session messages (not including messages sent to another application), and timestamps of provided GitHub Copilot Chat session messages. This permission must be enabled for Copilot Extensions.": "该应用程序将获取您的 GitHub ID、您的 GitHub Copilot 聊天会话消息（不包括发送到其他应用程序的消息），以及提供的 GitHub Copilot 聊天会话消息的时间戳。必须启用此权限才能使用 Copilot 扩展功能。",
+                    "Copilot Editor Context": "Copilot 编辑器上下文",
+                        "This application will receive bits of Editor Context (e.g. currently opened file) whenever you send it a message through Copilot Chat.": "每当您通过 Copilot Chat 向该应用发送消息时，该应用将接收部分编辑器上下文（例如当前打开的文件）。",
                     "Email addresses": "电子邮箱地址",
                         "Manage a user's email addresses.": "管理用户的电子邮箱地址。",
+                    // 活动
+                        "View events triggered by a user's activity.": "查看由用户活动触发的事件。",
                     // 关注者
                         "A user's followers": "用户的关注者",
                     "GPG keys": "GPG 密钥",
@@ -6758,6 +6765,10 @@ I18N["zh-CN"]["settings/tokens"] = { // 设置 - 开发者设置/个人访问令
                     "Git SSH keys": "Git SSH 密钥",
                     "Interaction limits": "交互限制",
                         "Interaction limits on repositories": "仓库的交互限制",
+                    "Knowledge bases": "知识库",
+                        "View knowledge bases for a user.": "为用户查看知识库。",
+                    "Models": "模型",
+                        "Allows access to GitHub Models.": "允许访问 GitHub 模型。",
                     "Plan": "计划",
                         "View a user's plan.": "查看用户的计划。",
                     "Private repository invitations": "私有仓库邀请",
