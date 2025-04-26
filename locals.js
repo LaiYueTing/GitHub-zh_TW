@@ -6633,18 +6633,25 @@ I18N["zh-CN"]["settings/tokens"] = { // 设置 - 开发者设置/个人访问令
             "Description": "描述",
             "What is this token for?": "这个令牌是用来做什么的？",
             "Resource owner": "资源所有者",
+                "The token will only be able to make changes to resources owned by the selected resource owner. Tokens can always read all public repositories.": "该令牌只能修改所选资源所有者拥有的资源。令牌始终可以读取所有公共仓库。",
+                "Select resource owner": "选择资源所有者",
+                    "You may only select resource owners with fine-grained PATs enabled.": "您只能选择已启用精细化个人访问令牌（PAT）的资源所有者。",
             "Authorizing...": "授权中...",
 
             "Custom expiration can't be blank. Please choose a date.": "自定义过期时间不能为空。请选择日期。",
 
             "Repository access": "仓库访问",
                 "Public Repositories (read-only)": "公共仓库（只读）",
+                "Public repositories": "公共仓库",
+                    "Read-only access to public repositories.": "对公共仓库的只读访问权限。",
                 "All repositories": "所有仓库",
                     "This applies to all current": "这适用于资源所有者拥有的所有当前",
                     "future repositories owned by the resource owner.": "未来的仓库。",
                     "Also includes public repositories (read-only).": "还包括公共仓库（只读）。",
+                    "This applies to all current and future repositories you own. Also includes public repositories (read-only).": "这适用于您当前和将来拥有的所有仓库。还包括公共仓库（只读）。",
                 "Only select repositories": "仅选定的仓库",
                     "Select at least one repository. Max 50 repositories.": "至少选择一个仓库。最多 50 个仓库。",
+                    "Select at least one repository. Max 50 repositories. Also includes public repositories (read-only).": "至少选择一个仓库，最多可选择 50 个仓库。还包括公共仓库（只读）。",
                     "Select repositories": "选择仓库",
                     "Search for a repository": "搜索仓库",
                     // [/Selected (\d+) repositor(y|ies)./, "选定 #1 个仓库"],
@@ -6652,6 +6659,9 @@ I18N["zh-CN"]["settings/tokens"] = { // 设置 - 开发者设置/个人访问令
 
             // 权限
             "Permissions": "权限",
+                "Choose the minimal permissions necessary for your needs.": "选择满足您需求的最低权限。",
+                "Learn more about permissions.": "了解更多关于权限的信息。",
+
                 "Read our": "阅读我们的",
                 "permissions documentation": "权限文档",
                 "for information about specific permissions.": "以了解关于具体权限的信息。",
