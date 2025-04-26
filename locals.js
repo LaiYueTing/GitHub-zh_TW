@@ -8126,6 +8126,7 @@ I18N["zh-CN"]["repository"] = { // 仓库页面 /<user-name>/<repo-name>/
             return licKey[lic] + '和另外' + num + '个许可证';
         }],
         [/First (\d+) files? shown./, "显示前 $1 个文件。"],
+        [/Copy \"(.+)\" to clipboard/, "复制“$1”到剪切板"],
     ],
 };
 I18N["zh-CN"]["repository/tree"] = I18N["zh-CN"]["repository"];
@@ -11832,6 +11833,8 @@ I18N["zh-CN"]["repository/actions"] = { // 仓库 - 操作页面
             "This workflow is waiting for": "该工作流程正在等待",
                 "to complete before running.": "完成后再运行。",
                 "Learn more about concurrency": "了解有关并发执行的更多信息",
+
+            "Job summary generated at run-time": "运行时生成的工作摘要",
 
             // 右侧中间栏
                 "This workflow graph cannot be shown": "无法显示此工作流图表",
