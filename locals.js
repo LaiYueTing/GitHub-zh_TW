@@ -386,6 +386,7 @@ I18N["zh-CN"]["title"] = { // 标题翻译
         "Billing Usage": "计费用量",
         "Budgets": "预算",
         "Code Security": "代码安全性",
+        "New Fine-grained Personal Access Token": "新建精细化个人访问令牌",
     },
     "regexp": [ // 正则翻译
         [/Authorized OAuth Apps/, "授权的 OAuth 应用"],
@@ -3003,7 +3004,7 @@ I18N["zh-CN"]["settings-menu"] = { // 设置 - 公共部分
         "Billing and plans": "账单和计划", // 旧版，暂时加回
             "Plans and usage": "计划和使用情况",
             "Spending limits": "支出限额",
-        "Billing & Licensing": "账单 & 许可",
+        "Billing and licensing": "账单和许可",
             "New": "新",
             "Usage": "使用情况",
             "Budgets and alerts": "预算和警报",
@@ -6633,25 +6634,36 @@ I18N["zh-CN"]["settings/tokens"] = { // 设置 - 开发者设置/个人访问令
             "Description": "描述",
             "What is this token for?": "这个令牌是用来做什么的？",
             "Resource owner": "资源所有者",
+                "The token will only be able to make changes to resources owned by the selected resource owner. Tokens can always read all public repositories.": "该令牌只能修改所选资源所有者拥有的资源。令牌始终可以读取所有公共仓库。",
+                "Select resource owner": "选择资源所有者",
+                    "You may only select resource owners with fine-grained PATs enabled.": "您只能选择已启用精细化个人访问令牌（PAT）的资源所有者。",
             "Authorizing...": "授权中...",
 
             "Custom expiration can't be blank. Please choose a date.": "自定义过期时间不能为空。请选择日期。",
 
             "Repository access": "仓库访问",
                 "Public Repositories (read-only)": "公共仓库（只读）",
+                "Public repositories": "公共仓库",
+                    "Read-only access to public repositories.": "对公共仓库的只读访问权限。",
                 "All repositories": "所有仓库",
                     "This applies to all current": "这适用于资源所有者拥有的所有当前",
                     "future repositories owned by the resource owner.": "未来的仓库。",
                     "Also includes public repositories (read-only).": "还包括公共仓库（只读）。",
+                    "This applies to all current and future repositories you own. Also includes public repositories (read-only).": "这适用于您当前和将来拥有的所有仓库。还包括公共仓库（只读）。",
                 "Only select repositories": "仅选定的仓库",
                     "Select at least one repository. Max 50 repositories.": "至少选择一个仓库。最多 50 个仓库。",
+                    "Select at least one repository. Max 50 repositories. Also includes public repositories (read-only).": "至少选择一个仓库，最多可选择 50 个仓库。还包括公共仓库（只读）。",
                     "Select repositories": "选择仓库",
                     "Search for a repository": "搜索仓库",
+                    "Select at least one repository.": "至少选择一个仓库。",
                     // [/Selected (\d+) repositor(y|ies)./, "选定 #1 个仓库"],
                         "No repositories found.": "未找到仓库。",
 
             // 权限
             "Permissions": "权限",
+                "Choose the minimal permissions necessary for your needs.": "选择满足您需求的最低权限。",
+                "Learn more about permissions.": "了解更多关于权限的信息。",
+
                 "Read our": "阅读我们的",
                 "permissions documentation": "权限文档",
                 "for information about specific permissions.": "以了解关于具体权限的信息。",
@@ -6737,8 +6749,14 @@ I18N["zh-CN"]["settings/tokens"] = { // 设置 - 开发者设置/个人访问令
                         "View and manage users blocked by the user.": "查看和管理被用户拉黑的用户。",
                     "Codespaces user secrets": "代码空间用户机密",
                         "Manage Codespaces user secrets.": "管理代码空间用户机密。",
+                    "Copilot Chat": "Copilot 聊天",
+                        "This application will receive your GitHub ID, your GitHub Copilot Chat session messages (not including messages sent to another application), and timestamps of provided GitHub Copilot Chat session messages. This permission must be enabled for Copilot Extensions.": "该应用程序将获取您的 GitHub ID、您的 GitHub Copilot 聊天会话消息（不包括发送到其他应用程序的消息），以及提供的 GitHub Copilot 聊天会话消息的时间戳。必须启用此权限才能使用 Copilot 扩展功能。",
+                    "Copilot Editor Context": "Copilot 编辑器上下文",
+                        "This application will receive bits of Editor Context (e.g. currently opened file) whenever you send it a message through Copilot Chat.": "每当您通过 Copilot Chat 向该应用发送消息时，该应用将接收部分编辑器上下文（例如当前打开的文件）。",
                     "Email addresses": "电子邮箱地址",
                         "Manage a user's email addresses.": "管理用户的电子邮箱地址。",
+                    // 活动
+                        "View events triggered by a user's activity.": "查看由用户活动触发的事件。",
                     // 关注者
                         "A user's followers": "用户的关注者",
                     "GPG keys": "GPG 密钥",
@@ -6748,6 +6766,10 @@ I18N["zh-CN"]["settings/tokens"] = { // 设置 - 开发者设置/个人访问令
                     "Git SSH keys": "Git SSH 密钥",
                     "Interaction limits": "交互限制",
                         "Interaction limits on repositories": "仓库的交互限制",
+                    "Knowledge bases": "知识库",
+                        "View knowledge bases for a user.": "为用户查看知识库。",
+                    "Models": "模型",
+                        "Allows access to GitHub Models.": "允许访问 GitHub 模型。",
                     "Plan": "计划",
                         "View a user's plan.": "查看用户的计划。",
                     "Private repository invitations": "私有仓库邀请",
@@ -9071,6 +9093,7 @@ I18N["zh-CN"]["repository/issues"] = { // 仓库 - 议题页面
         [/of (\d+) selected/, "/ $1 选中"],
         [/(\d+\%) completed/, "$1 完成"],
         [/Issue (#\d+) created/, "议题 $1 已创建"],
+        [/Lines (\d+) to (\d+) in/, "第 $1 - $2 行，"],
         ...I18N["zh-CN"]["repository-public"]["regexp"],
         ...I18N["zh-CN"]["repository/pull_issue_public"]["regexp"],
     ],
@@ -18783,6 +18806,7 @@ I18N["zh-CN"]["search"] = { // 搜索页面
         [/Filters?/, "过滤"], // Android UA
         [/(\d+(k|M|B)?) results?/, "$1 个结果"], // 顶部，数字后可能带 K、M、B 三种字母其中一个
         [/(\d+(k|M|B)?) files?/, "$1 个文件"], // 同上 https://github.com/search?q=<keyword>&type=code
+        [/More than ([\d,]+) results?/, "大于 $1 个结果"],
         [/Show ([\d,]+) more matches?/, "显示更多 $1 处匹配"],
         [/(\d+) issues? needs? help/, "$1 个议题需要帮助"],
         [/Sponsor ([^ ]+)?/, "赞助 $1"], // 赞助按钮 对话框 标题
