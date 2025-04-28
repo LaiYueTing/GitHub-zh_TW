@@ -7800,6 +7800,9 @@ I18N["zh-CN"]["repository"] = { // 仓库页面 /<user-name>/<repo-name>/
                         "Stop codespace": "停止代码空间",
                     "No changes": "未更改",
 
+                    // 删除对话框
+                        "Are you sure?": "您确定吗？",
+
                 // Copilot
                     "Describe a task...": "描述任务...",
                     "Start task": "开始任务",
@@ -8127,6 +8130,9 @@ I18N["zh-CN"]["repository"] = { // 仓库页面 /<user-name>/<repo-name>/
         }],
         [/First (\d+) files? shown./, "显示前 $1 个文件。"],
         [/Copy \"(.+)\" to clipboard/, "复制“$1”到剪切板"],
+        // 代码 -> 代码空间
+        [/(\d+) changes?/, "$1 个更改"],
+        [/(.+) has unpushed changes, are you sure you want to delete\?/, "$1 有未提交更改，您确定要删除吗？"],
     ],
 };
 I18N["zh-CN"]["repository/tree"] = I18N["zh-CN"]["repository"];
