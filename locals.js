@@ -19905,6 +19905,9 @@ I18N["zh-CN"]["marketplace"] = { // GitHub 市场
            "Enhance your workflow with extensions": "增强您的工作流程",
                "Tools from the community and partners to simplify tasks and automate processes": "社区和合作伙伴提供的简化任务和自动化流程的工具",
                "Search for Copilot extensions, apps, actions, and models": "搜索 Copilot 扩展、应用、操作和模型",
+               "Listing Type": "显示类型",
+                   "Copilot extensions": "Copilot 扩展",
+               "Clear filter": "清除筛选",
                "Menu": "菜单", // Android UA 下出现
 
             "Featured": "精选",
@@ -19964,6 +19967,11 @@ I18N["zh-CN"]["marketplace"] = { // GitHub 市场
                 "Build on your workflow with apps that integrate with GitHub": "使用与 GitHub 集成的应用构建您的工作流程。",
                 "App": "应用",
 
+            "AI Assisted": "AI 助理",
+                "AI Assisted apps": "AI 助理应用",
+                "AI Assisted actions": "AI 助理操作",
+                "Tools that are superpowered with AI (artificial intelligence) to help you be a better developer.": "使用人工智能（AI）强化的工具，助您成为更优秀的开发者。",
+
             "API management": "API 管理",
                 "API management apps": "API 管理应用",
                 "API management actions": "API 管理操作",
@@ -19989,6 +19997,16 @@ I18N["zh-CN"]["marketplace"] = { // GitHub 市场
                 "Code review actions": "代码审查操作",
                 "Ensure your code meets quality standards and ship with confidence.": "确保您的代码符合质量标准，并能放心交付。",
 
+            "Code Scanning Ready": "代码扫描",
+                "Code Scanning Ready apps": "代码扫描应用",
+                "Code Scanning Ready actions": "代码扫描操作",
+                "Static analysis, dynamic analysis, container scanning, linting, and fuzzing tools that integrate with GitHub Code Scanning SARIF Upload": "与 GitHub 代码扫描 SARIF 上传集成的静态分析、动态分析、容器扫描、代码规范检查（linting）和模糊测试（fuzzing）工具。",
+
+            "Code search": "代码搜索",
+                "Code search apps": "代码搜索应用",
+                "Code search actions": "代码搜索操作",
+                "Query, index, or hash the semantics of your source code.": "查询、索引或哈希您的源代码语义。",
+
             "Container CI": "容器持续集成",
                 "Container CI apps": "容器 CI 应用",
                 "Container CI actions": "容器 CI 操作",
@@ -20013,6 +20031,10 @@ I18N["zh-CN"]["marketplace"] = { // GitHub 市场
                 "Deployment Protection Rules apps": "部署保护规则应用",
                 "Deployment Protection Rules actions": "部署保护规则操作",
                 "Enables custom protection rules to gate deployments with third-party services": "启用自定义保护规则，以使用第三方服务进行部署",
+
+            "Desktop tools": "桌面工具",
+                "Desktop tools apps": "桌面工具应用",
+                "Developer tools that are run natively on your local machine.": "在本地计算机上本机运行的开发者工具。",
 
             "Game CI": "游戏 CI",
                 "Game CI apps": "游戏 CI 应用",
@@ -20054,6 +20076,11 @@ I18N["zh-CN"]["marketplace"] = { // GitHub 市场
                 "Monitoring actions": "监控操作",
                 "Monitor the impact of your code changes. Measure performance, track errors, and analyze your application.": "监控代码更改的影响。衡量性能、跟踪错误并分析您的应用。",
 
+            "Open Source management": "开源管理",
+                "Open Source management apps": "开源管理应用",
+                "Open Source management actions": "开源管理操作",
+                "Running open source projects can be hard. Here are some tools to make that process a little more fun and a ton more manageable.": "运营开源项目可能会很困难。以下是一些工具，可以让这个过程变得更有趣且更加易于管理。",
+
             "Project management": "项目管理",
                 "Project management apps": "项目管理应用",
                 "Project management actions": "项目管理操作",
@@ -20068,6 +20095,10 @@ I18N["zh-CN"]["marketplace"] = { // GitHub 市场
                 "Recently added apps": "最近添加应用",
                 "Recently added actions": "最近添加操作",
                 "The latest tools that help you and your team build software better, together.": "最新的工具可帮助您和您的团队更好地共同构建软件。",
+            
+            "Reporting": "报告",
+                "Reporting apps": "报告应用",
+                "Get insights into how your teams are developing software using GitHub.": "了解您的团队如何使用 GitHub 开发软件的深入见解。",
 
             // 安全
                 "Security apps": "安全应用",
@@ -20083,6 +20114,11 @@ I18N["zh-CN"]["marketplace"] = { // GitHub 市场
                 "Testing apps": "测试应用",
                 "Testing actions": "测试操作",
                 "Eliminate bugs and ship with more confidence by adding these tools to your workflow.": "通过将这些工具添加到您的工作流程中，消除错误并更有信心地交付。",
+            
+            "Time tracking": "时间跟踪",
+                "Time tracking apps": "时间追踪应用",
+                "Time tracking actions": "时间追踪操作",
+                "Track your progress, and predict how long a task will take based on your coding activity.": "跟踪您的进度，并根据您的编码活动预测完成任务所需的时间。",
 
             "Utilities": "实用工具",
                 "Utilities apps": "实用工具应用",
@@ -20524,7 +20560,7 @@ I18N["zh-CN"]["marketplace"] = { // GitHub 市场
 
     },
     "regexp": [ // 正则翻译
-        [/Search results for “([^ ]+)”/, "“$1”的搜索结果"], // 市场搜索
+        [/Search results for “(.+)”/, "“$1”的搜索结果"], // 市场搜索
         [/(\d+) results?/, "$1 个结果"], // 市场搜索
         [/plan has been deleted./, "计划已被删除。"],
 
