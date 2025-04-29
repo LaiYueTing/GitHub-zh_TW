@@ -4405,7 +4405,14 @@ I18N["zh-CN"]["settings/education/benefits"] = {  // 设置 - 账单和计划（
 
                         "There was an error creating the discount request. Errors: Discount request could not be created. Discount request errors: School email must be verified on your GitHub account": "创建折扣请求时出错。错误信息：无法创建折扣请求。折扣请求错误：学校邮箱必须在您的 GitHub 账户中完成验证",
 
+                "Application Type:": "申请类型：",
+
             "Approved": "批准",
+                "Congratulations! Your application has been approved and the coupon code has been applied to your account.": "恭喜！您的申请已获批准，优惠码已成功应用到您的账户。",
+                "Please visit the": "请访问",
+                "Developer Pack": "开发者包",
+                "page to view your benefits.": "页面查看您的权益。",
+                "Your benefits will expire on": "您的福利过期时间：",
             "Loading details": "加载详情",
             "Revoked": "撤销",
             "Denied": "拒绝",
