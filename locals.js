@@ -20110,6 +20110,10 @@ I18N["zh-CN"]["marketplace"] = { // GitHub 市场
                 "Support actions": "支持操作",
                 "Get your team and customers the help they need.": "为您的团队和客户提供所需的帮助。",
 
+            "Sustainability": "可持续",
+                "Sustainability actions": "可持续操作",
+                "Optimize your work to minimize impact on the environment.": "优化您的工作以尽量减少对环境的影响。",
+
             "Testing": "测试",
                 "Testing apps": "测试应用",
                 "Testing actions": "测试操作",
