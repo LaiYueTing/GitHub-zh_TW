@@ -11719,6 +11719,7 @@ I18N["zh-CN"]["repository/actions"] = { // 仓库 - 操作页面
                 "Re-running...": "重新运行中...",
 
             // 重新运行对话框
+            "Re-run single job": "重新运行单个作业",
                 "A new attempt of this workflow will be started, including": "将开始此工作流程的新尝试，包括",
                 "all the jobs": "所有作业",
                 "all failed jobs": "所有失败作业",
@@ -11884,6 +11885,7 @@ I18N["zh-CN"]["repository/actions"] = { // 仓库 - 操作页面
                 "Show full screen (Shift+F)": "全屏显示（Shift+F）",
                 "Download log archive": "下载日志存档",
                 "View raw logs": "查看原始日志",
+                "View job summary": "查看作业摘要",
 
             "Try broadening your search filters.": "尝试扩大您的搜索筛选器。",
 
