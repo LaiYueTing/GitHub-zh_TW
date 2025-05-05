@@ -10770,6 +10770,10 @@ I18N["zh-CN"]["repository/blob"] = { // 仓库 - 浏览代码
             "Top": "顶部",
             "Jump to file": "跳转到文件",
 
+            // 正文 - 错误信息，例如某些二进制文件
+                "Error rendering embedded code": "嵌入代码渲染错误",
+                    "Invalid PDF": "无效 PDF",
+
             // 代码操作栏
                 "Blame": "追溯",
                 "Your blame took too long to compute.": "追溯花了太长时间来计算。",
