@@ -11936,6 +11936,7 @@ I18N["zh-CN"]["repository/actions"] = { // 仓库 - 操作页面
 
         // 摘要窗口
             "Unable to load summary": "无法加载摘要",
+            "This job summary has expired and is no longer available": "此作业摘要已过期，不再可用",
                 // 右侧三个点
                 "View job logs": "查看日志",
                 "View raw markdown": "查看原始 Markdown",
