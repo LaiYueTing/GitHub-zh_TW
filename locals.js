@@ -10770,6 +10770,10 @@ I18N["zh-CN"]["repository/blob"] = { // 仓库 - 浏览代码
             "Top": "顶部",
             "Jump to file": "跳转到文件",
 
+            // 正文 - 错误信息，例如某些二进制文件
+                "Error rendering embedded code": "嵌入代码渲染错误",
+                    "Invalid PDF": "无效 PDF",
+
             // 代码操作栏
                 "Blame": "追溯",
                 "Your blame took too long to compute.": "追溯花了太长时间来计算。",
@@ -11719,6 +11723,7 @@ I18N["zh-CN"]["repository/actions"] = { // 仓库 - 操作页面
                 "Re-running...": "重新运行中...",
 
             // 重新运行对话框
+            "Re-run single job": "重新运行单个作业",
                 "A new attempt of this workflow will be started, including": "将开始此工作流程的新尝试，包括",
                 "all the jobs": "所有作业",
                 "all failed jobs": "所有失败作业",
@@ -11884,6 +11889,7 @@ I18N["zh-CN"]["repository/actions"] = { // 仓库 - 操作页面
                 "Show full screen (Shift+F)": "全屏显示（Shift+F）",
                 "Download log archive": "下载日志存档",
                 "View raw logs": "查看原始日志",
+                "View job summary": "查看作业摘要",
 
             "Try broadening your search filters.": "尝试扩大您的搜索筛选器。",
 
@@ -11930,6 +11936,7 @@ I18N["zh-CN"]["repository/actions"] = { // 仓库 - 操作页面
 
         // 摘要窗口
             "Unable to load summary": "无法加载摘要",
+            "This job summary has expired and is no longer available": "此作业摘要已过期，不再可用",
                 // 右侧三个点
                 "View job logs": "查看日志",
                 "View raw markdown": "查看原始 Markdown",
