@@ -1414,8 +1414,15 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
             "Copied!": "复制成功！",
 
             "Good response": "点赞",
+                "positive feedback submitted": "已提交正面反馈",
             "Bad response": "点踩",
             "Retry": "重试",
+
+            "Give additional feedback": "提交额外反馈",
+                "Would you like to participate in our research?": "您愿意参与我们的研究吗？",
+                "You will be compensated for your time": "您的时间将得到补偿。",
+                "Book a session": "预约",
+                "No, thanks": "不，谢谢",
 
     },
     "regexp": [ // 正则翻译
