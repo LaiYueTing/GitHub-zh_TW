@@ -4371,7 +4371,9 @@ I18N["zh-CN"]["settings/education/benefits"] = {  // 设置 - 账单和计划（
 
         "Education Benefits": "教育福利",
             "Complete a teacher or student application to unlock tools and resources for your educational journey.": "完成教师或学生申请，解锁教育旅程所需的工具和资源。",
-            "You have a current student coupon applied.": "您当前已应用学生优惠券。",
+            //"You have a current student coupon applied.": "您当前已应用学生优惠券。",
+            "You have a current student coupon applied. Find more information on your benefits": "您当前已应用学生优惠券。详情查看",
+                "here": "这里",
             "Start an application": "申请",
                 "You have not submitted an application for education benefits.": "没有申请",
 
