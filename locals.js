@@ -1711,7 +1711,11 @@ I18N["zh-CN"]["orgs-public"] = { // 组织公共部分
         [/Invite someone to/, "邀请加入到组织"],
         [/New team in/, "新建团队在组织"],
         [/New repository in/, "新建仓库在组织"],
-        [/This organization was marked as archived by an administrator (on .+). It is no longer maintained./, "该组织已由管理员于 $1 存档。不再维护。"],
+        [/This organization was marked as archived by an administrator on (.+). It is no longer maintained./, (match, p1) => {
+            const dateRegExp = I18N["zh-CN"]["public"]["time-regexp"];
+            const translatedDate = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
+            return `该组织已由管理员于 ${translatedDate} 存档。不再维护。`;
+        }],
         [/You are now a member of ([^ ]+)!/, "您现在是 $1 的成员了！"],
     ],
 };
