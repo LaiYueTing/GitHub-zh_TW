@@ -167,6 +167,7 @@ I18N.conf = {
         'search': [
             'span.search-match', // 搜索匹配信息
             'div.code-list', // 代码片段预览
+            'optgroup > option', // 下拉菜单列表
         ],
         'dashboard': [
             '.js-notice-dismiss', // 右侧栏 广告
