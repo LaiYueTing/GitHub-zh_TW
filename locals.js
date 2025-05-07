@@ -24536,6 +24536,8 @@ I18N["zh-CN"]["copilot"] = {
 
         // 右侧
             "Share conversation": "分享对话",
+                "Anyone with the link can view this conversation": "持有链接者可见",
+                "When shared, this conversation and future messages will be visible to anyone with the link. If private repository content is included, repository access is required to view.": "分享后，该对话及后续消息将对所有拥有链接的人可见。如果包含私有仓库内容，则需具有仓库访问权限才能查看。",
                 "This conversation may contain private content. Viewers must have access to all referenced content.": "这段对话可能包含私人内容。查看者必须拥有对所有引用内容的访问权限。",
                 "Create link": "创建链接",
                 "Copy link": "复制链接",
@@ -24555,6 +24557,7 @@ I18N["zh-CN"]["copilot"] = {
                 "Copy link": "复制链接",
 
             // 分享
+            "This conversation has not yet been shared": "还没有分享",
             "This conversation is only visible to you": "此对话仅您可见",
             "This conversation is visible to anyone with the link": "此对话对任何拥有链接的人可见",
             "Shared": "已分享",
@@ -24575,6 +24578,8 @@ I18N["zh-CN"]["copilot"] = {
 
                     "Copy share link": "复制分享链接",
                     "Unshare conversation": "取消分享",
+                        "You're about to unshare the link for the following conversation:": "您将取消分享此对话：",
+                        "Once unshared, the link will no longer be accessible.": "取消后，此链接将失效。",
 
                 "Unshare all": "全部取消分享",
 
