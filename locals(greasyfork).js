@@ -1335,9 +1335,9 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
                 "Fetching files, folders, and symbols…": "正在获取文件（夹）和符号…",
             "Add an extension": "添加扩展",
                 //"Files and symbols…": "文件和符号…",
-                "Files, folders, and symbols…": "文件、文件夹和符号…",
+                "Files, folders, and symbols…": "文件（夹）和符号…",
                     "First attach a repository": "请先附加仓库",
-                    "Select files, folders, and symbols": "选择文件、文件夹和符号",
+                    "Select files, folders, and symbols": "选择文件（夹）和符号",
                     "Choose a repository to browse for files and symbols.": "选择仓库以浏览文件和符号。",
                     //"Attach files and symbols": "附加文件和符号",
                         //"Choose which files and symbols you want to chat about. Use fewer references for more accurate responses.": "选择您想要讨论的文件和符号。使用较少的参考资料即可获得更准确的回复。",
@@ -4405,7 +4405,14 @@ I18N["zh-CN"]["settings/education/benefits"] = {  // 设置 - 账单和计划（
 
                         "There was an error creating the discount request. Errors: Discount request could not be created. Discount request errors: School email must be verified on your GitHub account": "创建折扣请求时出错。错误信息：无法创建折扣请求。折扣请求错误：学校邮箱必须在您的 GitHub 账户中完成验证",
 
+                "Application Type:": "申请类型：",
+
             "Approved": "批准",
+                "Congratulations! Your application has been approved and the coupon code has been applied to your account.": "恭喜！您的申请已获批准，优惠码已成功应用到您的账户。",
+                "Please visit the": "请访问",
+                "Developer Pack": "开发者包",
+                "page to view your benefits.": "页面查看您的权益。",
+                "Your benefits will expire on": "您的福利过期时间：",
             "Loading details": "加载详情",
             "Revoked": "撤销",
             "Denied": "拒绝",
@@ -7800,6 +7807,9 @@ I18N["zh-CN"]["repository"] = { // 仓库页面 /<user-name>/<repo-name>/
                         "Stop codespace": "停止代码空间",
                     "No changes": "未更改",
 
+                    // 删除对话框
+                        "Are you sure?": "您确定吗？",
+
                 // Copilot
                     "Describe a task...": "描述任务...",
                     "Start task": "开始任务",
@@ -8126,6 +8136,10 @@ I18N["zh-CN"]["repository"] = { // 仓库页面 /<user-name>/<repo-name>/
             return licKey[lic] + '和另外' + num + '个许可证';
         }],
         [/First (\d+) files? shown./, "显示前 $1 个文件。"],
+        [/Copy \"(.+)\" to clipboard/, "复制“$1”到剪切板"],
+        // 代码 -> 代码空间
+        [/(\d+) changes?/, "$1 个更改"],
+        [/(.+) has unpushed changes, are you sure you want to delete\?/, "$1 有未提交更改，您确定要删除吗？"],
     ],
 };
 I18N["zh-CN"]["repository/tree"] = I18N["zh-CN"]["repository"];
@@ -11832,6 +11846,8 @@ I18N["zh-CN"]["repository/actions"] = { // 仓库 - 操作页面
             "This workflow is waiting for": "该工作流程正在等待",
                 "to complete before running.": "完成后再运行。",
                 "Learn more about concurrency": "了解有关并发执行的更多信息",
+
+            "Job summary generated at run-time": "运行时生成的工作摘要",
 
             // 右侧中间栏
                 "This workflow graph cannot be shown": "无法显示此工作流图表",
@@ -19896,6 +19912,9 @@ I18N["zh-CN"]["marketplace"] = { // GitHub 市场
            "Enhance your workflow with extensions": "增强您的工作流程",
                "Tools from the community and partners to simplify tasks and automate processes": "社区和合作伙伴提供的简化任务和自动化流程的工具",
                "Search for Copilot extensions, apps, actions, and models": "搜索 Copilot 扩展、应用、操作和模型",
+               "Listing Type": "显示类型",
+                   "Copilot extensions": "Copilot 扩展",
+               "Clear filter": "清除筛选",
                "Menu": "菜单", // Android UA 下出现
 
             "Featured": "精选",
@@ -19955,6 +19974,11 @@ I18N["zh-CN"]["marketplace"] = { // GitHub 市场
                 "Build on your workflow with apps that integrate with GitHub": "使用与 GitHub 集成的应用构建您的工作流程。",
                 "App": "应用",
 
+            "AI Assisted": "AI 助理",
+                "AI Assisted apps": "AI 助理应用",
+                "AI Assisted actions": "AI 助理操作",
+                "Tools that are superpowered with AI (artificial intelligence) to help you be a better developer.": "使用人工智能（AI）强化的工具，助您成为更优秀的开发者。",
+
             "API management": "API 管理",
                 "API management apps": "API 管理应用",
                 "API management actions": "API 管理操作",
@@ -19980,6 +20004,16 @@ I18N["zh-CN"]["marketplace"] = { // GitHub 市场
                 "Code review actions": "代码审查操作",
                 "Ensure your code meets quality standards and ship with confidence.": "确保您的代码符合质量标准，并能放心交付。",
 
+            "Code Scanning Ready": "代码扫描",
+                "Code Scanning Ready apps": "代码扫描应用",
+                "Code Scanning Ready actions": "代码扫描操作",
+                "Static analysis, dynamic analysis, container scanning, linting, and fuzzing tools that integrate with GitHub Code Scanning SARIF Upload": "与 GitHub 代码扫描 SARIF 上传集成的静态分析、动态分析、容器扫描、代码规范检查（linting）和模糊测试（fuzzing）工具。",
+
+            "Code search": "代码搜索",
+                "Code search apps": "代码搜索应用",
+                "Code search actions": "代码搜索操作",
+                "Query, index, or hash the semantics of your source code.": "查询、索引或哈希您的源代码语义。",
+
             "Container CI": "容器持续集成",
                 "Container CI apps": "容器 CI 应用",
                 "Container CI actions": "容器 CI 操作",
@@ -20004,6 +20038,10 @@ I18N["zh-CN"]["marketplace"] = { // GitHub 市场
                 "Deployment Protection Rules apps": "部署保护规则应用",
                 "Deployment Protection Rules actions": "部署保护规则操作",
                 "Enables custom protection rules to gate deployments with third-party services": "启用自定义保护规则，以使用第三方服务进行部署",
+
+            "Desktop tools": "桌面工具",
+                "Desktop tools apps": "桌面工具应用",
+                "Developer tools that are run natively on your local machine.": "在本地计算机上本机运行的开发者工具。",
 
             "Game CI": "游戏 CI",
                 "Game CI apps": "游戏 CI 应用",
@@ -20045,6 +20083,11 @@ I18N["zh-CN"]["marketplace"] = { // GitHub 市场
                 "Monitoring actions": "监控操作",
                 "Monitor the impact of your code changes. Measure performance, track errors, and analyze your application.": "监控代码更改的影响。衡量性能、跟踪错误并分析您的应用。",
 
+            "Open Source management": "开源管理",
+                "Open Source management apps": "开源管理应用",
+                "Open Source management actions": "开源管理操作",
+                "Running open source projects can be hard. Here are some tools to make that process a little more fun and a ton more manageable.": "运营开源项目可能会很困难。以下是一些工具，可以让这个过程变得更有趣且更加易于管理。",
+
             "Project management": "项目管理",
                 "Project management apps": "项目管理应用",
                 "Project management actions": "项目管理操作",
@@ -20059,6 +20102,10 @@ I18N["zh-CN"]["marketplace"] = { // GitHub 市场
                 "Recently added apps": "最近添加应用",
                 "Recently added actions": "最近添加操作",
                 "The latest tools that help you and your team build software better, together.": "最新的工具可帮助您和您的团队更好地共同构建软件。",
+            
+            "Reporting": "报告",
+                "Reporting apps": "报告应用",
+                "Get insights into how your teams are developing software using GitHub.": "了解您的团队如何使用 GitHub 开发软件的深入见解。",
 
             // 安全
                 "Security apps": "安全应用",
@@ -20070,10 +20117,19 @@ I18N["zh-CN"]["marketplace"] = { // GitHub 市场
                 "Support actions": "支持操作",
                 "Get your team and customers the help they need.": "为您的团队和客户提供所需的帮助。",
 
+            "Sustainability": "可持续",
+                "Sustainability actions": "可持续操作",
+                "Optimize your work to minimize impact on the environment.": "优化您的工作以尽量减少对环境的影响。",
+
             "Testing": "测试",
                 "Testing apps": "测试应用",
                 "Testing actions": "测试操作",
                 "Eliminate bugs and ship with more confidence by adding these tools to your workflow.": "通过将这些工具添加到您的工作流程中，消除错误并更有信心地交付。",
+            
+            "Time tracking": "时间跟踪",
+                "Time tracking apps": "时间追踪应用",
+                "Time tracking actions": "时间追踪操作",
+                "Track your progress, and predict how long a task will take based on your coding activity.": "跟踪您的进度，并根据您的编码活动预测完成任务所需的时间。",
 
             "Utilities": "实用工具",
                 "Utilities apps": "实用工具应用",
@@ -20515,7 +20571,7 @@ I18N["zh-CN"]["marketplace"] = { // GitHub 市场
 
     },
     "regexp": [ // 正则翻译
-        [/Search results for “([^ ]+)”/, "“$1”的搜索结果"], // 市场搜索
+        [/Search results for “(.+)”/, "“$1”的搜索结果"], // 市场搜索
         [/(\d+) results?/, "$1 个结果"], // 市场搜索
         [/plan has been deleted./, "计划已被删除。"],
 
