@@ -14505,6 +14505,13 @@ I18N["zh-CN"]["repository/network/dependencies"] = { // 仓库 -> 洞察 - 依�
 
             "Export SBOM": "导出 SBOM",
 
+            "Detect additional dependencies with GitHub Actions": "使用 GitHub Actions 检测额外的依赖项",
+                // 并非所有依赖项都会自动检测到，例如 Gradle 这样的生态系统。GitHub Actions 会通过依赖项提交 API 添加您的依赖项，这样您就可以收到有关已知漏洞的 Dependabot 警报。
+                "Not all dependencies are automatically detected for ecosystems like Gradle. GitHub Actions adds your dependencies using the": "并非所有依赖项都会自动检测到，例如 Gradle 这样的生态系统。GitHub Actions 会通过",
+                "dependency submission API": "依赖项提交 API",
+                "so you can receive Dependabot alerts for known vulnerabilities.": "添加您的依赖项，这样您就可以收到有关已知漏洞的 Dependabot 警报。",
+            "View in Marketplace": "去市场查看",
+
             // "Dependencies": "依赖关系",
             "Search all dependencies": "搜索所有依赖项",
                 "Suggested filters": "建议筛选",
