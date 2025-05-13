@@ -7828,6 +7828,7 @@ I18N["zh-CN"]["repository"] = { // 仓库页面 /<user-name>/<repo-name>/
                             "Update codespace": "更新代码空间",
                         "Stop codespace": "停止代码空间",
                     "No changes": "未更改",
+                    "Uncommitted changes": "未提交更改",
 
                     // 删除对话框
                         "Are you sure?": "您确定吗？",
