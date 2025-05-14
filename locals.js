@@ -4422,10 +4422,18 @@ I18N["zh-CN"]["settings/education/benefits"] = {  // 设置 - 账单和计划（
                 "Application Type:": "申请类型：",
 
             "Approved": "批准",
-                "Congratulations! Your application has been approved and the coupon code has been applied to your account.": "恭喜！您的申请已获批准，优惠码已成功应用到您的账户。",
-                "Please visit the": "请访问",
-                "Developer Pack": "开发者包",
-                "page to view your benefits.": "页面查看您的权益。",
+                // 等待
+                    "Your academic status has been verified. Congratulations!": "您的学术状态已验证。恭喜！",
+                    "Your academic benefits, including Partner offers, will become available with 72 hours of your verification.": "您的学术权益，包括合作伙伴优惠，将在验证通过后的72小时内生效。",
+                    "Once the benefits become available, you will be able to access the Students Developer Pack offers": "权益生效后，您将可以访问学生开发者礼包优惠在",
+                    "To redeem your Copilot Pro coupon, please sign up via": "要兑换您的 Copilot Pro 优惠券，请访问",
+                    "this link": "此链接",
+                    "We hope you enjoy your GitHub Education benefits.": "希望您享受 GitHub 教育权益。",
+                // 结束
+                    "Congratulations! Your application has been approved and the coupon code has been applied to your account.": "恭喜！您的申请已获批准，优惠码已成功应用到您的账户。",
+                    "Please visit the": "请访问",
+                    "Developer Pack": "开发者包",
+                    "page to view your benefits.": "页面查看您的权益。",
                 "Your benefits will expire on": "您的福利过期时间：",
             "Loading details": "加载详情",
             "Revoked": "撤销",
@@ -7820,6 +7828,7 @@ I18N["zh-CN"]["repository"] = { // 仓库页面 /<user-name>/<repo-name>/
                             "Update codespace": "更新代码空间",
                         "Stop codespace": "停止代码空间",
                     "No changes": "未更改",
+                    "Uncommitted changes": "未提交更改",
 
                     // 删除对话框
                         "Are you sure?": "您确定吗？",
@@ -14504,6 +14513,13 @@ I18N["zh-CN"]["repository/network/dependencies"] = { // 仓库 -> 洞察 - 依�
             ", and": "，和",
 
             "Export SBOM": "导出 SBOM",
+
+            "Detect additional dependencies with GitHub Actions": "使用 GitHub Actions 检测额外的依赖项",
+                // 并非所有依赖项都会自动检测到，例如 Gradle 这样的生态系统。GitHub Actions 会通过依赖项提交 API 添加您的依赖项，这样您就可以收到有关已知漏洞的 Dependabot 警报。
+                "Not all dependencies are automatically detected for ecosystems like Gradle. GitHub Actions adds your dependencies using the": "并非所有依赖项都会自动检测到，例如 Gradle 这样的生态系统。GitHub Actions 会通过",
+                "dependency submission API": "依赖项提交 API",
+                "so you can receive Dependabot alerts for known vulnerabilities.": "添加您的依赖项，这样您就可以收到有关已知漏洞的 Dependabot 警报。",
+            "View in Marketplace": "去市场查看",
 
             // "Dependencies": "依赖关系",
             "Search all dependencies": "搜索所有依赖项",
