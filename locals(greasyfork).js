@@ -167,6 +167,7 @@ I18N.conf = {
         'search': [
             'span.search-match', // 搜索匹配信息
             'div.code-list', // 代码片段预览
+            'optgroup > option', // 下拉菜单列表
         ],
         'dashboard': [
             '.js-notice-dismiss', // 右侧栏 广告
@@ -1413,8 +1414,15 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
             "Copied!": "复制成功！",
 
             "Good response": "点赞",
+                "positive feedback submitted": "已提交正面反馈",
             "Bad response": "点踩",
             "Retry": "重试",
+
+            "Give additional feedback": "提交额外反馈",
+                "Would you like to participate in our research?": "您愿意参与我们的研究吗？",
+                "You will be compensated for your time": "您的时间将得到补偿。",
+                "Book a session": "预约",
+                "No, thanks": "不，谢谢",
 
     },
     "regexp": [ // 正则翻译
@@ -1703,7 +1711,11 @@ I18N["zh-CN"]["orgs-public"] = { // 组织公共部分
         [/Invite someone to/, "邀请加入到组织"],
         [/New team in/, "新建团队在组织"],
         [/New repository in/, "新建仓库在组织"],
-        [/This organization was marked as archived by an administrator (on .+). It is no longer maintained./, "该组织已由管理员于 $1 存档。不再维护。"],
+        [/This organization was marked as archived by an administrator on (.+). It is no longer maintained./, (match, p1) => {
+            const dateRegExp = I18N["zh-CN"]["public"]["time-regexp"];
+            const translatedDate = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
+            return `该组织已由管理员于 ${translatedDate} 存档。不再维护。`;
+        }],
         [/You are now a member of ([^ ]+)!/, "您现在是 $1 的成员了！"],
     ],
 };
@@ -4272,7 +4284,7 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
             const translatedDate = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
             return `直到 ${translatedDate}。`;
         }],
-        [/(.+) \(All times in UTC\)/, (match, p1) => {
+        [/(?:Usage for )?(.+) \(All times in UTC\).?/, (match, p1) => {
             const dateRegExp = I18N["zh-CN"]["public"]["time-regexp"];
             const translatedDate = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
             return `${translatedDate}（UTC时间）`;
@@ -4370,7 +4382,9 @@ I18N["zh-CN"]["settings/education/benefits"] = {  // 设置 - 账单和计划（
 
         "Education Benefits": "教育福利",
             "Complete a teacher or student application to unlock tools and resources for your educational journey.": "完成教师或学生申请，解锁教育旅程所需的工具和资源。",
-            "You have a current student coupon applied.": "您当前已应用学生优惠券。",
+            //"You have a current student coupon applied.": "您当前已应用学生优惠券。",
+            "You have a current student coupon applied. Find more information on your benefits": "您当前已应用学生优惠券。详情查看",
+                "here": "这里",
             "Start an application": "申请",
                 "You have not submitted an application for education benefits.": "没有申请",
 
@@ -10770,6 +10784,10 @@ I18N["zh-CN"]["repository/blob"] = { // 仓库 - 浏览代码
             "Top": "顶部",
             "Jump to file": "跳转到文件",
 
+            // 正文 - 错误信息，例如某些二进制文件
+                "Error rendering embedded code": "嵌入代码渲染错误",
+                    "Invalid PDF": "无效 PDF",
+
             // 代码操作栏
                 "Blame": "追溯",
                 "Your blame took too long to compute.": "追溯花了太长时间来计算。",
@@ -11719,6 +11737,7 @@ I18N["zh-CN"]["repository/actions"] = { // 仓库 - 操作页面
                 "Re-running...": "重新运行中...",
 
             // 重新运行对话框
+            "Re-run single job": "重新运行单个作业",
                 "A new attempt of this workflow will be started, including": "将开始此工作流程的新尝试，包括",
                 "all the jobs": "所有作业",
                 "all failed jobs": "所有失败作业",
@@ -11884,6 +11903,7 @@ I18N["zh-CN"]["repository/actions"] = { // 仓库 - 操作页面
                 "Show full screen (Shift+F)": "全屏显示（Shift+F）",
                 "Download log archive": "下载日志存档",
                 "View raw logs": "查看原始日志",
+                "View job summary": "查看作业摘要",
 
             "Try broadening your search filters.": "尝试扩大您的搜索筛选器。",
 
@@ -11930,6 +11950,7 @@ I18N["zh-CN"]["repository/actions"] = { // 仓库 - 操作页面
 
         // 摘要窗口
             "Unable to load summary": "无法加载摘要",
+            "This job summary has expired and is no longer available": "此作业摘要已过期，不再可用",
                 // 右侧三个点
                 "View job logs": "查看日志",
                 "View raw markdown": "查看原始 Markdown",
@@ -24515,6 +24536,8 @@ I18N["zh-CN"]["copilot"] = {
 
         // 右侧
             "Share conversation": "分享对话",
+                "Anyone with the link can view this conversation": "持有链接者可见",
+                "When shared, this conversation and future messages will be visible to anyone with the link. If private repository content is included, repository access is required to view.": "分享后，该对话及后续消息将对所有拥有链接的人可见。如果包含私有仓库内容，则需具有仓库访问权限才能查看。",
                 "This conversation may contain private content. Viewers must have access to all referenced content.": "这段对话可能包含私人内容。查看者必须拥有对所有引用内容的访问权限。",
                 "Create link": "创建链接",
                 "Copy link": "复制链接",
@@ -24534,6 +24557,7 @@ I18N["zh-CN"]["copilot"] = {
                 "Copy link": "复制链接",
 
             // 分享
+            "This conversation has not yet been shared": "还没有分享",
             "This conversation is only visible to you": "此对话仅您可见",
             "This conversation is visible to anyone with the link": "此对话对任何拥有链接的人可见",
             "Shared": "已分享",
@@ -24554,6 +24578,8 @@ I18N["zh-CN"]["copilot"] = {
 
                     "Copy share link": "复制分享链接",
                     "Unshare conversation": "取消分享",
+                        "You're about to unshare the link for the following conversation:": "您将取消分享此对话：",
+                        "Once unshared, the link will no longer be accessible.": "取消后，此链接将失效。",
 
                 "Unshare all": "全部取消分享",
 
