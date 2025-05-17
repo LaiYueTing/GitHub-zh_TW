@@ -1332,6 +1332,7 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
             // 对话框
             "Ask about the repository:": "询问关于此仓库的信息：",
             "Ask about the tree comparison:": "询问关于比较的信息：",
+            "Attach": "附件",
             "Attach files or symbols": "附加文件或符号",
                 "Fetching files, folders, and symbols…": "正在获取文件（夹）和符号…",
             "Add an extension": "添加扩展",
@@ -7043,6 +7044,14 @@ I18N["zh-CN"]["repository-public"] = { // 仓库 - 公共部分
             "Sorry, that branch already exists.": "抱歉，该分支已存在。",
             "has invited you to collaborate on this repository": "邀请您成为该仓库协作者",
                 "View invitation": "查看",
+
+            "Appearance settings": "外观设置", // 未登录时出现
+                "Increase contrast": "高对比度",
+                    "Enable high contrast for light or dark mode (or both) based on your system settings": "根据您的系统设置，为浅色或深色模式（或两者）启用高对比度",
+                    "Light mode": "浅色模式",
+                    "Dark mode": "深色模式",
+                    "On": "开",
+                    "Off": "关",
 
             // 仓库违反 DMCA
             "Repository unavailable due to DMCA takedown.": "由于 DMCA 删除，仓库不可用。",
