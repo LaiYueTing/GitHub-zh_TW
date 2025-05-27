@@ -7085,6 +7085,9 @@ I18N["zh-CN"]["repository-public"] = { // 仓库 - 公共部分
             "Sorry, that branch already exists.": "抱歉，该分支已存在。",
             "has invited you to collaborate on this repository": "邀请您成为该仓库协作者",
                 "View invitation": "查看",
+            
+            // 存档
+            "This repository has been archived by the owner. It is now read-only.": "此仓库已被所有者存档。它现在是只读的。",
 
             "Appearance settings": "外观设置", // 未登录时出现
                 "Increase contrast": "高对比度",
@@ -7408,7 +7411,7 @@ I18N["zh-CN"]["page-new-repo"] = {// 仓库 - 新建/导入/复刻仓库
             "Create a new repository": "创建新仓库",
                 "A repository contains all project files, including the revision history.": "仓库包含项目中的所有文件，包括修订历史记录。",
                 "Already have a project repository elsewhere?": "在其他地方已有仓库？",
-                "Import a repository.": "导入仓库",
+                "Import a repository": "导入仓库",
                 "Required fields are marked with an asterisk (*).": "带星号 (*) 的为必填项。",
 
             "Repository template": "仓库模板",
@@ -7460,6 +7463,10 @@ I18N["zh-CN"]["page-new-repo"] = {// 仓库 - 新建/导入/复刻仓库
                     ".gitignore template": ".gitignore 模板",
                     "Filter…": "筛选…",
                     "None": "无",
+
+                    // 筛选 - 无模板
+                    "You haven't created any items yet": "您尚未创建任何项目",
+                        "Please add or create new items to populate the list.": "请添加或创建新项目以填充列表。",
             "Choose a license": "选择许可证",
                 "A license tells others what they can and can't do with your code.": "许可证告诉其他人，他们可以使用您的代码做什么和不能做什么。",
                 "Learn more about licenses.": "了解更多关于许可证的信息。",
@@ -10639,6 +10646,7 @@ I18N["zh-CN"]["repository/commit"] = { // 仓库 - 提交页面
             "No commits history": "尚无提交历史记录",
             "There isn't any commit history to show here": "此处没有可显示",
             "for the selected date range": "所选日期范围内的任何提交历史记录",
+            "There isn't any commit history to show here for the selected date range": "这里没有显示所选日期范围内的任何提交历史记录",
 
         // 新版提交 commits 页面 /<user-name>/<repo-name>/commits/<branch> 或 /<user-name>/<repo-name>/commits
             // 用户筛选
@@ -11314,6 +11322,7 @@ I18N["zh-CN"]["repository/discussions"] = { // 讨论页面
             "started this conversation in": "开始了这次讨论，在",
             "asked this question in": "提出了这个问题，在",
             "Maintainer": "维护者",
+            "Sponsor": "赞助者",
             "Discussion options": "讨论选项",
             "Category": "分类",
 
@@ -11555,6 +11564,7 @@ I18N["zh-CN"]["repository/discussions"] = { // 讨论页面
 
             return '筛选：' + statKey[stat];
         }],
+        [/This user is sponsoring ([^ ]+)./, "该用户正在赞助 $1。"],
     ],
 };
 I18N["zh-CN"]["repository/orgs/discussions"] = I18N["zh-CN"]["repository/discussions"] ;
