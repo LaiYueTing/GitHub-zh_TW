@@ -15209,6 +15209,8 @@ I18N["zh-CN"]["repository/settings/access"] = { // 仓库设置 - 协作者/(组
             // 顶部提醒
                 "Repository invitation URLs work for invited users only. You may only share this URL with an invited user.": "仓库邀请 URL 仅适用于受邀请的用户。您只能与受邀请的用户共享此 URL。",
 
+                // [/Removed ([^ ]+) as a collaborator of ([^ ]+\/[^ ]+)/, "删除 $1 为 $2 的协作者"],
+
             "Who has access": "谁有权访问",
             "public repository": "公共仓库",
             "Public repository": "公共仓库",
@@ -15238,7 +15240,15 @@ I18N["zh-CN"]["repository/settings/access"] = { // 仓库设置 - 协作者/(组
             "You haven't invited any collaborators yet": "您尚未邀请任何协作者",
             // "invite a collaborator": "邀请协作者",
             "Add people": "添加他人",
-                "Add to repository": "添加到仓库",
+                // 邀请对话框
+                    "Add people to": "添加成员到",
+                    "Search by username, full name, or email": "搜索用户名、全名、或电子邮箱",
+                    "Find people": "查找",
+                    "Invite collaborator": "邀请协作者",
+                    "Add to repository": "添加到仓库",
+                    // 顶部提醒
+                        // [/([^ ]+) has been added as a collaborator on the repository./, "$1 已被添加为仓库的协作者。"],
+
 
             "Select all": "全选",
                 // [/(\d+) members? selected…/, "已选择 $1 名成员..."],
@@ -15251,25 +15261,28 @@ I18N["zh-CN"]["repository/settings/access"] = { // 仓库设置 - 协作者/(组
                     "Pending Invitations": "待处理邀请",
             "Find a collaborator…": "寻找协作者……",
             "Find people or a team…": "寻找用户或一个团队……",
+            "No Results": "无结果",
 
             "Pending Invite": "待处理邀请",
             "Invite expired": "已过期",
             // [/Awaiting ([^ ]+)’s response/, "等待 $1 的回复"],
             "Remove": "移除",
 
-            // 邀请对话框
-                "Add a collaborator to": "添加协作者到",
-                "Search by username, full name, or email": "搜索用户名、全名、或电子邮箱",
-                "Find people": "查找",
-                "Invite collaborator": "邀请协作者",
-                "Select a collaborator above": "从上方选择协作者",
-                "Add": "添加",
-                "to this repository": "到这个仓库",
-
-            "Confirm you want to remove this invitation": "确认移除邀请",
+            // 移除邀请对话框
+                "Confirm you want to remove this invitation": "确认移除邀请",
                 "Once canceled,": "取消后，",
                 "will no longer be invited to access the": "将不再被邀请访问",
                 "repository.": "仓库。",
+                // [/Cancel ([^ ]+)'s invitation/, "取消邀请 $1"],
+                // 顶部提醒
+                    // [/([^ ]+) is no longer invited to this repository./, "$1 不再受邀访问该仓库。"],
+
+            // 删除协助者对话框
+                "Confirm you want to remove this member": "确认要删除此成员？",
+                "Once removed,": "一旦删除，",
+                "will no longer have direct access to this repository. However, they may still have access to this repository if they are a member of a team that is granted access.": "将不再能直接访问此仓库。但是，如果他们是获准访问该仓库的团队成员，则仍可访问该仓库。",
+                // 顶部提醒
+                    // [/Remove ([^ ]+) from this repository/, "从该仓库移除 $1"],
 
             // 组织仓库
             "Create team": "创建组织",
@@ -15278,7 +15291,7 @@ I18N["zh-CN"]["repository/settings/access"] = { // 仓库设置 - 协作者/(组
             "Learn more about organization access": "了解更多关于组织访问权限的信息",
             "Add teams": "添加团队",
 
-            "Add people to": "添加成员到",
+            // "Add people to": "添加成员到",
             "Select a member above": "在上面选择一名成员",
             "Add teams to": "添加团队",
             "Search by team name": "按团队名称搜索",
@@ -15291,12 +15304,16 @@ I18N["zh-CN"]["repository/settings/access"] = { // 仓库设置 - 协作者/(组
         [/(\d+) collaborators?/, "$1 位协作者"],
         [/(\d+) invitations?/, "$1 个邀请"],
         [/Awaiting ([^ ]+)’s response/, "等待 $1 的回复"],
+        [/([^ ]+) • Collaborator/, "$1 • 协作者"],
         [/([^ ]+) • Invite collaborator/, "$1 • 邀请协作者"],
         [/(\d+) users?/, "$1 个用户"],
         [/(\d+) teams?/, "$1 个团队"],
         [/Add people to ([^ ]+)/, "添加人员到 $1"],
-        [/([^ ]+) has been added as a collaborator  on the repository./, "已将 $1 添加为仓库协作者。"],
+        [/([^ ]+) has been added as a collaborator on the repository./, "已将 $1 添加为仓库协作者。"],
         [/Cancel ([^ ]+)'s invitation/, "取消邀请 $1"],
+        [/([^ ]+) is no longer invited to this repository./, "$1 不再受邀访问该仓库。"],
+        [/Remove ([^ ]+) from this repository/, "从该仓库移除 $1"],
+        [/Removed ([^ ]+) as a collaborator of ([^ ]+\/[^ ]+)/, "删除 $1 为 $2 的协作者"],
         ...I18N["zh-CN"]["repository-public"]["regexp"],
     ],
 };
