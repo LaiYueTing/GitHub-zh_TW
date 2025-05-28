@@ -1339,10 +1339,10 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
                 "Fetching files, folders, and symbols…": "正在获取文件（夹）和符号…",
             "Add an extension": "添加扩展",
                 //"Files and symbols…": "文件和符号…",
-                "Files, folders, and symbols…": "文件（夹）和符号…",
+                "Files, folders, and symbols": "文件（夹）和符号…",
                     "First attach a repository": "请先附加仓库",
                     "Select files, folders, and symbols": "选择文件（夹）和符号",
-                    "Choose a repository to browse for files and symbols.": "选择仓库以浏览文件和符号。",
+                    "Choose a repository to browse for files, folders, and symbols.": "选择仓库以浏览文件（夹）和符号。",
                     //"Attach files and symbols": "附加文件和符号",
                         //"Choose which files and symbols you want to chat about. Use fewer references for more accurate responses.": "选择您想要讨论的文件和符号。使用较少的参考资料即可获得更准确的回复。",
                         "Choose what you want to chat about. Use fewer references for more accurate responses.": "选择您想要讨论的内容。使用较少的参考资料即可获得更准确的回复。",
@@ -9147,6 +9147,10 @@ I18N["zh-CN"]["repository/issues"] = { // 仓库 - 议题页面
 
         // Copilot 浮窗 独有词条
             "Ask about the issue:": "讨论此议题：",
+        
+        // 底部提示栏（未登录
+        "to join this conversation on GitHub.": "加入 GitHub 上的这个讨论。",
+            "Already have an account?": "已经有账户？",
 
     },
     "regexp": [ // 正则翻译
@@ -9548,6 +9552,9 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
             "Learn more about requesting a pull request review.": "了解更多关于申请拉取请求审核的信息。",
             // [/(\d+) pending reviewers?/, "$1 名待审者"],
             "was requested for review": "被请求审查",
+
+            "Changes reviewed": "更改已审查",
+                "No applicable reviews submitted by reviewers with write access.": "没有具有写入权限的审查者提交适用的审查意见。",
 
             // 已请求更改
                 // [/(\d+) reviews? requesting changes by reviewers with write access./, "$1 条评论请求更改由具有写入权限的审查者进行更改。"], // 拉取请求
