@@ -535,6 +535,7 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
         "You were mentioned on and commented on this pull request": "您在此拉取请求上被提及并发表评论",
         "You were mentioned on and opened this pull request": "您被提及并打开了此拉取请求",
         "You are assigned to this pull request": "您被指派处理此拉取请求",
+        "You are assigned to and opened this pull request": "您打开并被指派处理此拉取请求",
         "You left a review": "您已评论",
         "Changes requested": "请求更改", // 拉取请求
         "Review required": "请求审查", // 拉取请求
@@ -7400,6 +7401,8 @@ I18N["zh-CN"]["repository-public"] = { // 仓库 - 公共部分
         // 成为协作者提示
         [/You now have push access to the ([^ ]+) repository./, "您现在拥有推送至 $1 仓库的权限"],
         ...I18N["zh-CN"]["orgs-public"]["regexp"],
+        // 提交 - 作者窗
+        [/(\d+) authors?/, "$1 作者"],
     ],
 };
 
@@ -7812,6 +7815,7 @@ I18N["zh-CN"]["repository"] = { // 仓库页面 /<user-name>/<repo-name>/
 
                 // 代码空间
                     // 维护提示
+                        "Codespaces is undergoing maintenance. Users may experience connection issues during this time, for more details please visit": "代码空间正在维护。在此期间，用户可能会遇到连接问题。更多详情请访问",
                         "Codespaces will be undergoing maintenance. Users may experience connection issues during this time, for more details please visit": "代码空间将进行维护。在此期间，用户可能会遇到连接问题。更多详情请访问",
                         "this announcement": "此公告",
                     "Your workspaces in the cloud": "您在云端的工作空间",
@@ -7886,6 +7890,8 @@ I18N["zh-CN"]["repository"] = { // 仓库页面 /<user-name>/<repo-name>/
                         "Stop codespace": "停止代码空间",
                     "No changes": "未更改",
                     "Uncommitted changes": "未提交更改",
+
+                    "You seem to have a billing issue. Please adjust your billing settings to continue using codespaces.": "您似乎遇到了账单问题。请调整您的账单设置以继续使用代码空间。",
 
                     // 删除对话框
                         "Are you sure?": "您确定吗？",
@@ -9330,6 +9336,7 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
 
                 // 代码空间
                     // 维护提示
+                        "Codespaces is undergoing maintenance. Users may experience connection issues during this time, for more details please visit": "代码空间正在维护。在此期间，用户可能会遇到连接问题。更多详情请访问",
                         "Codespaces will be undergoing maintenance. Users may experience connection issues during this time, for more details please visit": "代码空间将进行维护。在此期间，用户可能会遇到连接问题。更多详情请访问",
                         "this announcement": "此公告",
                     "This pull request must be reopened to create new codespaces on it.": "必须重新打开此拉取请求才能在其上创建新的代码空间。",
@@ -9384,6 +9391,8 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
                     "No changes": "未更改",
 
                     "Codespace usage for this repository is paid for by": "该仓库的代码空间使用费由以下人员支付",
+
+                    "You seem to have a billing issue. Please adjust your billing settings to continue using codespaces.": "您似乎遇到了账单问题。请调整您的账单设置以继续使用代码空间。",
 
                     // 被拉黑
                         "Repository access limited": "仓库访问受限",
@@ -23801,6 +23810,7 @@ I18N["zh-CN"]["codespaces"] = { // 代码空间页面
                 "Tell us how to make GitHub Codespaces work better for you with three quick questions.": "通过三个简单的问题告诉我们如何让 GitHub 代码空间更适合您。",
 
         // 维护提示
+            "Codespaces is undergoing maintenance. Users may experience connection issues during this time, for more details please visit": "代码空间正在维护。在此期间，用户可能会遇到连接问题。更多详情请访问",
             "Codespaces will be undergoing maintenance. Users may experience connection issues during this time, for more details please visit": "代码空间将进行维护。在此期间，用户可能会遇到连接问题。更多详情请访问",
             "this announcement": "此公告",
 
@@ -23880,6 +23890,7 @@ I18N["zh-CN"]["codespaces"] = { // 代码空间页面
             // 警告
                 "You're at 100% of your included usage for this billing period. For more information, view your": "您已使用了本计费周期的 100% 额度。有关更多信息，请查看您的",
                 "billing settings": "账单设置",
+                "You seem to have a billing issue. Please adjust your billing settings to continue using codespaces.": "您似乎遇到了账单问题。请调整您的账单设置以继续使用代码空间。",
 
             // 状态
                 "No changes": "没有更改",
