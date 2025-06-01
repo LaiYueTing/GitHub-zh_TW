@@ -24869,6 +24869,96 @@ I18N["zh-CN"]["copilot"] = {
         "Discover all the": "了解世界领先的人工智能开发工具的所有",
             "benefits": "优势",
             "of the world’s leading AI developer tool.": "。",
+
+        "Spaces": "空间",
+
+        "Set context once. Chat again and again": "一次设置上下文，反复聊天。",
+            "Create and share a custom Copilot experience using a collection of GitHub repositories, files, and other content.": "使用一组 GitHub 仓库、文件和其他内容创建并分享定制的 Copilot 体验。",
+            "Spaces lets you create shared research environments where you and your team can collaborate, explore topics, and exchange insights—all powered by AI-driven search and summarization.": "空间让您创建共享的研究环境，您和您的团队可以在其中协作、探索主题和交流见解——所有这些都得益于 AI 驱动的搜索和摘要。",
+
+        "Yours": "我的",
+            "Spaces you create will appear here.": "您创建的空间将在此显示。",
+
+            "Manage space": "管理",
+              // 删除按钮
+                  "Delete space": "删除空间",
+                  "Are you sure you want to delete this space? This action cannot be undone.": "您确定要删除吗？此操作不可撤销！",
+
+        "New space": "新建",
+        "Edit space": "编辑",
+            "Name": "名称",
+                "Memorable name that helps you find your space.": "帮助你找到空间的易记名称。",
+
+            "Icon": "图标",
+                "Pick a color to make your space more recognizable.": "选择一种颜色，让您的空间更易于识别。",
+
+            "Color:": "颜色：",
+                "Select a color": "选择颜色",
+                    "Filter colors": "筛选",
+                    "auburn": "赤褐色",
+                    "blue": "蓝",
+                    "brown": "棕",
+                    "coral": "珊瑚红",
+                    "cyan": "青",
+                    "gray": "灰",
+                    "green": "绿",
+                    "indigo": "靛蓝",
+                    "lemon": "柠檬黄",
+                    "lime": "酸橙",
+                    "olive": "橄榄绿",
+                    "orange": "橙",
+                    "pine": "松绿",
+                    "pink": "粉",
+                    "plum": "梅子",
+                    "purple": "紫",
+                    "red": "红",
+                    "teal": "蓝绿",
+                    "yellow": "黄",
+
+            "Owner": "所有者",
+                "Where we will store your space. Once created the space is not transferable.": "我们将存储您空间的位置，创建后无法转移。",
+
+            "Description": "介绍",
+                "(optional)": "（可选）",
+                "Displays beneath the title on your spaces overview page without impacting responses.": "在您的空间概览页标题下方显示，不影响回复内容。",
+
+            "Instructions": "说明",
+                "Changes how Copilot responds on specific questions or tasks.": "更改 Copilot 对特定问题或任务的回应方式。",
+
+            "Attachments": "附件",
+                "Add text, code files, or GitHub data to set a permanent context": "添加文本、代码文件或 GitHub 数据，以设置永久上下文",
+                "You've exceeded the size limit for this space. Remove some references to continue.": "您已超出此空间的大小限制。请移除一些引用以继续操作。",
+
+                // 添加菜单
+                    "Add files, folders...": "文件（夹）...",
+                        "Select folders and files": "选择文件（夹）",
+                        "Search for files or folders": "搜索文件（夹）",
+                        "Fetching files...": "获取文件中...",
+                        "Up to": "一次最多添加",
+                        "files can be added at a time.": "个文件。",
+                        "One or more files can't be submitted:": "一个或多个文件不能提交：",
+                        ". Only supported file types are allowed.": "。只允许支持的文件类型。",
+                    "Add a text file": "文本文件",
+                        // 名称
+                            "Give the file a title": "文件标题",
+                        "Content": "内容",
+                            "Enter content here": "在此键入内容",
+                
+                // 文件列表
+                "Size": "大小",
+                "Resource actions": "操作",
+        
+        // 空间 - 聊天
+            "Start a new conversation": "开始聊天",
+
+            "Ask anything": "询问任何事",
+
+            "Start your first conversation using the field above": "用上面的输入框开始您的第一次对话",
+            
+            // 右侧
+                "Owned by": "所有者",
+
+                "View all attachments": "查看所有附件",
     },
     "regexp":[
         [/Using results for “([^ ]+)” in ([^ ]+)/, "使用 $2 中“$1”的结果"],
@@ -24893,6 +24983,8 @@ I18N["zh-CN"]["copilot"] = {
 
             return `${translatedDate}${hour}:${min}`;
         }],
+        // 空间
+        [/Total percent used: (\d+\%)/, "总使用率：$1"],
     ],
 };
 
