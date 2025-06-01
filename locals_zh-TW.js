@@ -535,6 +535,7 @@ I18N["zh-TW"]["public"] = { // 公共區域翻譯
         "You were mentioned on and commented on this pull request": "您在此拉取請求上被提及並發表評論",
         "You were mentioned on and opened this pull request": "您被提及並打開了此拉取請求",
         "You are assigned to this pull request": "您被指派處理此拉取請求",
+        "You are assigned to and opened this pull request": "您打開並被指派處理此拉取請求",
         "You left a review": "您已評論",
         "Changes requested": "請求更改", // 拉取請求
         "Review required": "請求審查", // 拉取請求
@@ -547,7 +548,7 @@ I18N["zh-TW"]["public"] = { // 公共區域翻譯
                     "Automate any workflow": "自動化任何工作流程",
                 // 軟體包
                     "Host and manage packages": "託管和管理包",
-                // 安全
+                "GitHub Advanced Security": "GitHub 高級安全",
                     "Find and fix vulnerabilities": "查找並修復漏洞",
                 // 程式碼空間
                     "Instant dev environments": "即時開發環境",
@@ -555,6 +556,8 @@ I18N["zh-TW"]["public"] = { // 公共區域翻譯
                     "Manage code changes": "管理程式碼更改",
                 // Copilot
                     "Write better code with AI": "藉助 AI 寫出更好的程式碼",
+                "GitHub Models": "GitHub 模型",
+                    "Manage and compare prompts": "管理和比較提示詞",
                 // 議題
                     "Plan and track work": "計劃和追蹤工作",
                 // 討論
@@ -563,6 +566,7 @@ I18N["zh-TW"]["public"] = { // 公共區域翻譯
                     "Find more, search less": "查找更多，搜索更少",
 
                 // 右側
+                "Why GitHub": "為什麼選擇 GitHub",
                 "All features": "所有功能",
                 "GitHub Skills": "GitHub 技能",
             "Solutions": "解決方案",
@@ -571,6 +575,7 @@ I18N["zh-TW"]["public"] = { // 公共區域翻譯
                     "Enterprises": "企業",
                     "Small and medium teams": "中小團隊",
                     "Startups": "創業",
+                    "Nonprofits": "非盈利組織",
                 "By industry": "工業",
                     "Healthcare": "健康護理",
                     "Financial services": "金融服務",
@@ -586,10 +591,13 @@ I18N["zh-TW"]["public"] = { // 公共區域翻譯
             "Resources": "資源",
                 "Innersource": "內部源",
                 "Learning Pathways": "學習路徑",
+                "Events & Webinars": "事件 & 網絡研討會",
+                "Ebooks & Whitepapers": "電子書 & 白皮書",
                 "White papers, Ebooks, Webinars": "白皮書、電子書、網絡研討會",
                 "Customer Stories": "客戶案例",
                 "Software Development": "軟體開發",
                 "Partners": "合作",
+                "Executive Insights": "高管洞察",
                 "View all": "查看全部",
             "Open Source": "開源",
                 "GitHub Sponsors": "GitHub 贊助者",
@@ -612,7 +620,7 @@ I18N["zh-TW"]["public"] = { // 公共區域翻譯
                 "Available add-ons": "可用擴展",
                     "Advanced Security": "高級安全",
                         "Enterprise-grade security features": "企業級安全功能",
-                    // Copilot
+                    "Copilot for business": "Copilot 企業版",
                         "Enterprise-grade AI features": "企業級 AI 功能",
                     // 高級支持
                         "Enterprise-grade 24/7 support": "企業級24小時全天候支持",
@@ -1339,10 +1347,10 @@ I18N["zh-TW"]["public"] = { // 公共區域翻譯
                 "Fetching files, folders, and symbols…": "正在獲取文件（夾）和符號…",
             "Add an extension": "添加擴展",
                 //"Files and symbols…": "文件和符號…",
-                "Files, folders, and symbols…": "文件（夾）和符號…",
+                "Files, folders, and symbols": "文件（夾）和符號…",
                     "First attach a repository": "請先附加倉庫",
                     "Select files, folders, and symbols": "選擇文件（夾）和符號",
-                    "Choose a repository to browse for files and symbols.": "選擇倉庫以瀏覽文件和符號。",
+                    "Choose a repository to browse for files, folders, and symbols.": "選擇倉庫以瀏覽文件（夾）和符號。",
                     //"Attach files and symbols": "附加文件和符號",
                         //"Choose which files and symbols you want to chat about. Use fewer references for more accurate responses.": "選擇您想要討論的文件和符號。使用較少的參考資料即可獲得更準確的回覆。",
                         "Choose what you want to chat about. Use fewer references for more accurate responses.": "選擇您想要討論的內容。使用較少的參考資料即可獲得更準確的回覆。",
@@ -4365,7 +4373,7 @@ I18N["zh-TW"]["settings/billing"] = { // 設置 - 賬單和計劃
             return `${translatedDate}`; // 有標題作為上下文，直接省略，只剩日期
         }],
         [/(\d+) min/, "$1 分"],
-        [/([\d,+]\.\d+) GB-hr/, "$1 GB/時"],
+        [/([\d,+]\.\d+|[\d,+]) GB-hr/, "$1 GB/時"],
         [/(\d+\.\d+) hr/, "$1 小時"],
         // 賬戶預算
         [/(\d+) budgets?/, "$1 預算"],
@@ -5376,7 +5384,7 @@ I18N["zh-TW"]["settings/copilot"] = { // 設置 - GitHub Copilot
                 "Copilot Chat in GitHub Mobile": "在 GitHub Mobile 中使用 Copilot Chat",
                     "personalized to a codebase.": "，個性化程式碼。",
                 "Copilot in GitHub Desktop": "在 GitHub Desktop 中使用",
-                    "GitHub Copilot for assistance in GitHub Desktop": "在 GitHub Desktop 中獲得 Copilot 的協助。",
+                    "GitHub Copilot for assistance in GitHub Desktop": "在 GitHub Desktop 中獲得 Copilot 的協助",
 
         // 編程助手(預覽 https://github.com/settings/copilot/coding_agent
             // 頂部提示
@@ -7085,6 +7093,9 @@ I18N["zh-TW"]["repository-public"] = { // 倉庫 - 公共部分
             "Sorry, that branch already exists.": "抱歉，該分支已存在。",
             "has invited you to collaborate on this repository": "邀請您成為該倉庫協作者",
                 "View invitation": "查看",
+            
+            // 存檔
+            "This repository has been archived by the owner. It is now read-only.": "此倉庫已被所有者存檔。它現在是只讀的。",
 
             "Appearance settings": "外觀設置", // 未登錄時出現
                 "Increase contrast": "高對比度",
@@ -7397,6 +7408,8 @@ I18N["zh-TW"]["repository-public"] = { // 倉庫 - 公共部分
         // 成為協作者提示
         [/You now have push access to the ([^ ]+) repository./, "您現在擁有推送至 $1 倉庫的權限"],
         ...I18N["zh-TW"]["orgs-public"]["regexp"],
+        // 提交 - 作者窗
+        [/(\d+) authors?/, "$1 作者"],
     ],
 };
 
@@ -7408,7 +7421,7 @@ I18N["zh-TW"]["page-new-repo"] = {// 倉庫 - 新建/導入/複刻倉庫
             "Create a new repository": "創建新倉庫",
                 "A repository contains all project files, including the revision history.": "倉庫包含專案中的所有文件，包括修訂歷史記錄。",
                 "Already have a project repository elsewhere?": "在其他地方已有倉庫？",
-                "Import a repository.": "導入倉庫",
+                "Import a repository": "導入倉庫",
                 "Required fields are marked with an asterisk (*).": "帶星號 (*) 的為必填項。",
 
             "Repository template": "倉庫模板",
@@ -7460,6 +7473,10 @@ I18N["zh-TW"]["page-new-repo"] = {// 倉庫 - 新建/導入/複刻倉庫
                     ".gitignore template": ".gitignore 模板",
                     "Filter…": "篩選…",
                     "None": "無",
+
+                    // 篩選 - 無模板
+                    "You haven't created any items yet": "您尚未創建任何專案",
+                        "Please add or create new items to populate the list.": "請添加或創建新專案以填充列表。",
             "Choose a license": "選擇許可證",
                 "A license tells others what they can and can't do with your code.": "許可證告訴其他人，他們可以使用您的程式碼做什麼和不能做什麼。",
                 "Learn more about licenses.": "瞭解更多關於許可證的信息。",
@@ -7805,6 +7822,7 @@ I18N["zh-TW"]["repository"] = { // 倉庫頁面 /<user-name>/<repo-name>/
 
                 // 程式碼空間
                     // 維護提示
+                        "Codespaces is undergoing maintenance. Users may experience connection issues during this time, for more details please visit": "程式碼空間正在維護。在此期間，用戶可能會遇到連接問題。更多詳情請訪問",
                         "Codespaces will be undergoing maintenance. Users may experience connection issues during this time, for more details please visit": "程式碼空間將進行維護。在此期間，用戶可能會遇到連接問題。更多詳情請訪問",
                         "this announcement": "此公告",
                     "Your workspaces in the cloud": "您在雲端的工作空間",
@@ -7879,6 +7897,8 @@ I18N["zh-TW"]["repository"] = { // 倉庫頁面 /<user-name>/<repo-name>/
                         "Stop codespace": "停止程式碼空間",
                     "No changes": "未更改",
                     "Uncommitted changes": "未提交更改",
+
+                    "You seem to have a billing issue. Please adjust your billing settings to continue using codespaces.": "您似乎遇到了賬單問題。請調整您的賬單設置以繼續使用程式碼空間。",
 
                     // 刪除對話框
                         "Are you sure?": "您確定嗎？",
@@ -8288,6 +8308,28 @@ I18N["zh-TW"]["repository/pull_issue_public"] = { // 倉庫 - 議題和拉取請
             "Search all issues": "搜索所有議題",
             "Clear current search query, filters, and sorts": "清除當前的搜索查詢、篩選器和排序方式",
 
+            "ProTip!": "專業提示！",
+                "Find everything you created by searching": "查找您創建的所有內容，使用",
+                "Exclude your own issues with": "如需查看您自己創建的內容，請使用",
+                "Mix and match filters to narrow down what you’re looking for.": "混搭篩選器，以縮小範圍，找到您想看到的。",
+                "Exclude everything labeled": "要找到所有標有",
+                "with": "標籤的內容，請使用",
+                "Follow long discussions with": "要跟隨長討論，請使用",
+                "on any issue or pull request to go back to the pull request listing page.": "在任何議題或拉取請求來返回拉取請求列表頁面。",
+                "Filter pull requests by the default branch with": "通過默認分支過濾拉取請求：",
+                "to see everything that’s not assigned.": "查看所有未分配的內容。",
+                "Find all pull requests that aren't related to any open issues with": "查找所有與任何打開議題無關的拉取請求，並使用",
+                "Add comments to specific lines under": "為以下特定行添加註釋於",
+                "will show everything without a milestone.": "將顯示所有不含里程碑的內容",
+                "Updated in the last three days:": "顯示最近 3 天更新：",
+                "Notify someone on an issue with a mention, like:": "用提及的方式通知某人某個議題，例如：",
+                "Adding": "添加",
+                "will show everything without a label.": "將顯示所有無標籤內容。",
+                "on any issue or pull request to go back to the issue listing page.": "可返回議題列表頁面。",
+                "Click a checkbox on the left to edit multiple issues at once.": "單擊左側的複選框可同時編輯多個議題。",
+                // [/Ears burning? Get @([^ ]+) mentions with/, "耳朵要炸了？如果只需要查看提及了 $1 的內容，請使用"]
+
+
             "Labels": "標籤",
                 "No labels": "無標籤",
             "Milestones": "里程碑",
@@ -8375,6 +8417,8 @@ I18N["zh-TW"]["repository/pull_issue_public"] = { // 倉庫 - 議題和拉取請
             "locked as": "鎖定為",
                 "spam": "垃圾信息",
             "and limited conversation to collaborators": "並限制與協作者對話",
+            "assigned": "分配給",
+            "labels": "標籤",
 
             // 圖標浮窗
             "Open issue": "議題已打開",
@@ -8599,16 +8643,6 @@ I18N["zh-TW"]["repository/pull_issue_public"] = { // 倉庫 - 議題和拉取請
                 "to join this conversation on GitHub": "加入 GitHub 上的這個討論",
                 ". Already have an account?": "。已經有賬戶？",
                 "Sign in to comment": "登錄後發表評論",
-
-            // 專業提示
-                "will show everything without a milestone.": "將顯示所有不含里程碑的內容",
-                "Updated in the last three days:": "顯示最近3天更新：",
-                "Notify someone on an issue with a mention, like:": "用提及的方式通知某人某個議題，例如：",
-                "Adding": "添加",
-                "will show everything without a label.": "將顯示所有無標籤內容。",
-                "on any issue or pull request to go back to the issue listing page.": "可返回議題列表頁面。",
-                "Click a checkbox on the left to edit multiple issues at once.": "單擊左側的複選框可同時編輯多個議題。",
-
     },
     "regexp": [ // 正則翻譯
         // [/At least (\d+) approving reviews? is required by reviewers with write access./, "具有寫入權限的審查者至少需要 $1 次批准審查。"],
@@ -8620,6 +8654,7 @@ I18N["zh-TW"]["repository/pull_issue_public"] = { // 倉庫 - 議題和拉取請
         [/Open pull requests created by ([^ ]+)/, "$1 創建拉取請求"],
         [/pull requests opened by ([^ ]+)/, "$1 打開拉取請求"],
         [/(\d+) hidden conversations/, "$1 條隱藏對話"],
+        [/Ears burning\? Get @([^ ]+) mentions with/, "耳朵要炸了？如果只需要查看提及了 $1 的內容，請使用"]
     ]
 };
 
@@ -8766,13 +8801,6 @@ I18N["zh-TW"]["repository/issues"] = { // 倉庫 - 議題頁面
                     "Move item after": "移動到…之後",
                     "Move to position": "指定位置",
                     "Move": "移動",
-
-            "ProTip!": "專業提示！",
-                "Find everything you created by searching": "查找您創建的所有內容，使用",
-                "Exclude your own issues with": "查看您自己的問題，使用",
-                "Mix and match filters to narrow down what you’re looking for.": "混搭篩選器，以縮小範圍，找到您想看到的。",
-                "Exclude everything labeled": "如果要找到所有標有",
-                "with": "標籤的，請使用",
 
         // 新建議題 選擇議題模板  /<user-name>/<repo-name>/issues/new/choose
             "Get started": "開始",
@@ -9132,6 +9160,10 @@ I18N["zh-TW"]["repository/issues"] = { // 倉庫 - 議題頁面
 
         // Copilot 浮窗 獨有詞條
             "Ask about the issue:": "討論此議題：",
+        
+        // 底部提示欄（未登錄
+        "to join this conversation on GitHub.": "加入 GitHub 上的這個討論。",
+            "Already have an account?": "已經有賬戶？",
 
     },
     "regexp": [ // 正則翻譯
@@ -9235,19 +9267,6 @@ I18N["zh-TW"]["repository/pulls"] = { // 倉庫 - 拉取請求頁面
                 // 篩選結果
                 "There aren’t any open pull requests.": "暫無拉取請求。",
 
-            "ProTip!": "專業提示！",
-                "Find everything you created by searching": "查找您創建的所有內容，使用",
-                "Exclude your own issues with": "查看您自己的問題，使用",
-                "Mix and match filters to narrow down what you’re looking for.": "混搭篩選器，以縮小範圍，找到您想看到的。",
-                "Exclude everything labeled": "如果要找到所有標有",
-                "with": "標籤的，請使用",
-                "Follow long discussions with": "要跟隨長討論，請使用",
-                "on any issue or pull request to go back to the pull request listing page.": "在任何議題或拉取請求來返回拉取請求列表頁面。",
-                "Filter pull requests by the default branch with": "通過默認分支過濾拉取請求：",
-                "to see everything that’s not assigned.": "查看所有未分配的內容。",
-                "Find all pull requests that aren't related to any open issues with": "查找所有與任何打開議題無關的拉取請求，並使用",
-                "Add comments to specific lines under": "為以下特定行添加註釋於",
-
                 "You commented on and opened this pull request": "您打開了此拉取請求並發表了評論",
                 "You were mentioned on and commented on this pull request": "您被提及並對此拉取請求發表了評論",
                 "You commented on this pull request": "您對此拉取請求發表了評論",
@@ -9324,6 +9343,7 @@ I18N["zh-TW"]["repository/pull"] = { // 倉庫 - 某個拉取請求頁面
 
                 // 程式碼空間
                     // 維護提示
+                        "Codespaces is undergoing maintenance. Users may experience connection issues during this time, for more details please visit": "程式碼空間正在維護。在此期間，用戶可能會遇到連接問題。更多詳情請訪問",
                         "Codespaces will be undergoing maintenance. Users may experience connection issues during this time, for more details please visit": "程式碼空間將進行維護。在此期間，用戶可能會遇到連接問題。更多詳情請訪問",
                         "this announcement": "此公告",
                     "This pull request must be reopened to create new codespaces on it.": "必須重新打開此拉取請求才能在其上創建新的程式碼空間。",
@@ -9378,6 +9398,8 @@ I18N["zh-TW"]["repository/pull"] = { // 倉庫 - 某個拉取請求頁面
                     "No changes": "未更改",
 
                     "Codespace usage for this repository is paid for by": "該倉庫的程式碼空間使用費由以下人員支付",
+
+                    "You seem to have a billing issue. Please adjust your billing settings to continue using codespaces.": "您似乎遇到了賬單問題。請調整您的賬單設置以繼續使用程式碼空間。",
 
                     // 被拉黑
                         "Repository access limited": "倉庫訪問受限",
@@ -9512,6 +9534,7 @@ I18N["zh-TW"]["repository/pull"] = { // 倉庫 - 某個拉取請求頁面
                 "View reviewed changes": "查看已審核的更改",
             "self-requested a review": "自我要求審查",
             "self-assigned this": "已自我審查",
+            "unassign me": "取消自我分配",
             "marked this pull request as ready for review": "已將此拉取請求標記為可審核",
             "merged commit": "合併提交",
             "left a comment": "發表評論",
@@ -9545,6 +9568,9 @@ I18N["zh-TW"]["repository/pull"] = { // 倉庫 - 某個拉取請求頁面
             "Learn more about requesting a pull request review.": "瞭解更多關於申請拉取請求審核的信息。",
             // [/(\d+) pending reviewers?/, "$1 名待審者"],
             "was requested for review": "被請求審查",
+
+            "Changes reviewed": "更改已審查",
+                "No applicable reviews submitted by reviewers with write access.": "沒有具有寫入權限的審查者提交適用的審查意見。",
 
             // 已請求更改
                 // [/(\d+) reviews? requesting changes by reviewers with write access./, "$1 條評論請求更改由具有寫入權限的審查者進行更改。"], // 拉取請求
@@ -10646,6 +10672,7 @@ I18N["zh-TW"]["repository/commit"] = { // 倉庫 - 提交頁面
             "No commits history": "尚無提交歷史記錄",
             "There isn't any commit history to show here": "此處沒有可顯示",
             "for the selected date range": "所選日期範圍內的任何提交歷史記錄",
+            "There isn't any commit history to show here for the selected date range": "這裡沒有顯示所選日期範圍內的任何提交歷史記錄",
 
         // 新版提交 commits 頁面 /<user-name>/<repo-name>/commits/<branch> 或 /<user-name>/<repo-name>/commits
             // 用戶篩選
@@ -11321,6 +11348,7 @@ I18N["zh-TW"]["repository/discussions"] = { // 討論頁面
             "started this conversation in": "開始了這次討論，在",
             "asked this question in": "提出了這個問題，在",
             "Maintainer": "維護者",
+            "Sponsor": "贊助者",
             "Discussion options": "討論選項",
             "Category": "分類",
 
@@ -11562,6 +11590,7 @@ I18N["zh-TW"]["repository/discussions"] = { // 討論頁面
 
             return '篩選：' + statKey[stat];
         }],
+        [/This user is sponsoring ([^ ]+)./, "該用戶正在贊助 $1。"],
     ],
 };
 I18N["zh-TW"]["repository/orgs/discussions"] = I18N["zh-TW"]["repository/discussions"] ;
@@ -15209,6 +15238,8 @@ I18N["zh-TW"]["repository/settings/access"] = { // 倉庫設置 - 協作者/(組
             // 頂部提醒
                 "Repository invitation URLs work for invited users only. You may only share this URL with an invited user.": "倉庫邀請 URL 僅適用於受邀請的用戶。您只能與受邀請的用戶共享此 URL。",
 
+                // [/Removed ([^ ]+) as a collaborator of ([^ ]+\/[^ ]+)/, "刪除 $1 為 $2 的協作者"],
+
             "Who has access": "誰有權訪問",
             "public repository": "公共倉庫",
             "Public repository": "公共倉庫",
@@ -15238,7 +15269,15 @@ I18N["zh-TW"]["repository/settings/access"] = { // 倉庫設置 - 協作者/(組
             "You haven't invited any collaborators yet": "您尚未邀請任何協作者",
             // "invite a collaborator": "邀請協作者",
             "Add people": "添加他人",
-                "Add to repository": "添加到倉庫",
+                // 邀請對話框
+                    "Add people to": "添加成員到",
+                    "Search by username, full name, or email": "搜索用戶名、全名、或電子郵箱",
+                    "Find people": "查找",
+                    "Invite collaborator": "邀請協作者",
+                    "Add to repository": "添加到倉庫",
+                    // 頂部提醒
+                        // [/([^ ]+) has been added as a collaborator on the repository./, "$1 已被添加為倉庫的協作者。"],
+
 
             "Select all": "全選",
                 // [/(\d+) members? selected…/, "已選擇 $1 名成員..."],
@@ -15251,25 +15290,28 @@ I18N["zh-TW"]["repository/settings/access"] = { // 倉庫設置 - 協作者/(組
                     "Pending Invitations": "待處理邀請",
             "Find a collaborator…": "尋找協作者……",
             "Find people or a team…": "尋找用戶或一個團隊……",
+            "No Results": "無結果",
 
             "Pending Invite": "待處理邀請",
             "Invite expired": "已過期",
             // [/Awaiting ([^ ]+)’s response/, "等待 $1 的回覆"],
             "Remove": "移除",
 
-            // 邀請對話框
-                "Add a collaborator to": "添加協作者到",
-                "Search by username, full name, or email": "搜索用戶名、全名、或電子郵箱",
-                "Find people": "查找",
-                "Invite collaborator": "邀請協作者",
-                "Select a collaborator above": "從上方選擇協作者",
-                "Add": "添加",
-                "to this repository": "到這個倉庫",
-
-            "Confirm you want to remove this invitation": "確認移除邀請",
+            // 移除邀請對話框
+                "Confirm you want to remove this invitation": "確認移除邀請",
                 "Once canceled,": "取消後，",
                 "will no longer be invited to access the": "將不再被邀請訪問",
                 "repository.": "倉庫。",
+                // [/Cancel ([^ ]+)'s invitation/, "取消邀請 $1"],
+                // 頂部提醒
+                    // [/([^ ]+) is no longer invited to this repository./, "$1 不再受邀訪問該倉庫。"],
+
+            // 刪除協助者對話框
+                "Confirm you want to remove this member": "確認要刪除此成員？",
+                "Once removed,": "一旦刪除，",
+                "will no longer have direct access to this repository. However, they may still have access to this repository if they are a member of a team that is granted access.": "將不再能直接訪問此倉庫。但是，如果他們是獲准訪問該倉庫的團隊成員，則仍可訪問該倉庫。",
+                // 頂部提醒
+                    // [/Remove ([^ ]+) from this repository/, "從該倉庫移除 $1"],
 
             // 組織倉庫
             "Create team": "創建組織",
@@ -15278,7 +15320,7 @@ I18N["zh-TW"]["repository/settings/access"] = { // 倉庫設置 - 協作者/(組
             "Learn more about organization access": "瞭解更多關於組織訪問權限的信息",
             "Add teams": "添加團隊",
 
-            "Add people to": "添加成員到",
+            // "Add people to": "添加成員到",
             "Select a member above": "在上面選擇一名成員",
             "Add teams to": "添加團隊",
             "Search by team name": "按團隊名稱搜索",
@@ -15291,12 +15333,16 @@ I18N["zh-TW"]["repository/settings/access"] = { // 倉庫設置 - 協作者/(組
         [/(\d+) collaborators?/, "$1 位協作者"],
         [/(\d+) invitations?/, "$1 個邀請"],
         [/Awaiting ([^ ]+)’s response/, "等待 $1 的回覆"],
+        [/([^ ]+) • Collaborator/, "$1 • 協作者"],
         [/([^ ]+) • Invite collaborator/, "$1 • 邀請協作者"],
         [/(\d+) users?/, "$1 個用戶"],
         [/(\d+) teams?/, "$1 個團隊"],
         [/Add people to ([^ ]+)/, "添加人員到 $1"],
-        [/([^ ]+) has been added as a collaborator  on the repository./, "已將 $1 添加為倉庫協作者。"],
+        [/([^ ]+) has been added as a collaborator on the repository./, "已將 $1 添加為倉庫協作者。"],
         [/Cancel ([^ ]+)'s invitation/, "取消邀請 $1"],
+        [/([^ ]+) is no longer invited to this repository./, "$1 不再受邀訪問該倉庫。"],
+        [/Remove ([^ ]+) from this repository/, "從該倉庫移除 $1"],
+        [/Removed ([^ ]+) as a collaborator of ([^ ]+\/[^ ]+)/, "刪除 $1 為 $2 的協作者"],
         ...I18N["zh-TW"]["repository-public"]["regexp"],
     ],
 };
@@ -17464,6 +17510,7 @@ I18N["zh-TW"]["homepage"] = { // 未登錄的首頁
 
         "Try GitHub Copilot": "試用 GitHub Copilot",
             "30 days free": "30天免費",
+        "Free Enterprise trial": "免費試用企業版", // 已登錄
         "Explore upcoming releases": "探索即將發佈的產品", // 已登錄
 
         // 程式碼
@@ -17636,6 +17683,7 @@ I18N["zh-TW"]["homepage"] = { // 未登錄的首頁
 
         // 底部欄
         "Subscribe to our developer newsletter": "訂閱我們的開發者新聞",
+        "Get tips, technical guides, and best practices. Twice a month.": "獲取提示、技術指南和最佳實踐。每月兩次。",
         "Get tips, technical guides, and best practices. Twice a month. Right in your inbox.": "獲取提示、技術指南和最佳實踐。每月兩次。直接發送到您的收件箱。",
         "Subscribe": "訂閱",
 
@@ -18259,6 +18307,7 @@ I18N["zh-TW"]["notifications"] = { // 通知頁面
         "Subscriptions": "訂閱",
         "Watching": "關注",
 
+        "assigned": "分配",
         "subscribed": "訂閱",
         "mention": "提及",
         "commented": "評論",
@@ -23770,6 +23819,7 @@ I18N["zh-TW"]["codespaces"] = { // 程式碼空間頁面
                 "Tell us how to make GitHub Codespaces work better for you with three quick questions.": "通過三個簡單的問題告訴我們如何讓 GitHub 程式碼空間更適合您。",
 
         // 維護提示
+            "Codespaces is undergoing maintenance. Users may experience connection issues during this time, for more details please visit": "程式碼空間正在維護。在此期間，用戶可能會遇到連接問題。更多詳情請訪問",
             "Codespaces will be undergoing maintenance. Users may experience connection issues during this time, for more details please visit": "程式碼空間將進行維護。在此期間，用戶可能會遇到連接問題。更多詳情請訪問",
             "this announcement": "此公告",
 
@@ -23849,6 +23899,7 @@ I18N["zh-TW"]["codespaces"] = { // 程式碼空間頁面
             // 警告
                 "You're at 100% of your included usage for this billing period. For more information, view your": "您已使用了本計費週期的 100% 額度。有關更多信息，請查看您的",
                 "billing settings": "賬單設置",
+                "You seem to have a billing issue. Please adjust your billing settings to continue using codespaces.": "您似乎遇到了賬單問題。請調整您的賬單設置以繼續使用程式碼空間。",
 
             // 狀態
                 "No changes": "沒有更改",
@@ -24123,6 +24174,8 @@ I18N["zh-TW"]["status"] = { // GitHub Status
                 "Major Outage": "重大故障",
             "Degraded": "降級",
                 "Partial Outage": "部分中斷",
+            "Maintenance": "維護",
+                "Under Maintenance": "維護中",
             "Git Operations": "Git 操作",
                 "Performance of git clones, pulls, pushes, and associated operations": "git 克隆、拉取、推送和相關操作的性能",
             "API Requests": "API 請求",
@@ -24144,6 +24197,12 @@ I18N["zh-TW"]["status"] = { // GitHub Status
             "For the status of GitHub Enterprise Cloud - EU, please visit:": "有關 GitHub 企業雲的狀態，請訪問",
             "Current Status": "當前狀態",
             "Incident History": "歷史事故",
+
+        "Codespaces Scheduled Maintenance": "程式碼空間計劃維護",
+
+        "Subscribe to our developer newsletter": "訂閱我們的開發者新聞",
+        "Get tips, technical guides, and best practices. Twice a month. Right in your inbox.": "獲取提示、技術指南和最佳實踐。每月兩次。直接發送到您的收件箱。",
+
 
         // https://www.githubstatus.com/history
             "Incident with Packages": "軟體包事故",
@@ -24810,6 +24869,96 @@ I18N["zh-TW"]["copilot"] = {
         "Discover all the": "瞭解世界領先的人工智能開發工具的所有",
             "benefits": "優勢",
             "of the world’s leading AI developer tool.": "。",
+
+        "Spaces": "空間",
+
+        "Set context once. Chat again and again": "一次設置上下文，反覆聊天。",
+            "Create and share a custom Copilot experience using a collection of GitHub repositories, files, and other content.": "使用一組 GitHub 倉庫、文件和其他內容創建並分享定製的 Copilot 體驗。",
+            "Spaces lets you create shared research environments where you and your team can collaborate, explore topics, and exchange insights—all powered by AI-driven search and summarization.": "空間讓您創建共享的研究環境，您和您的團隊可以在其中協作、探索主題和交流見解——所有這些都得益於 AI 驅動的搜索和摘要。",
+
+        "Yours": "我的",
+            "Spaces you create will appear here.": "您創建的空間將在此顯示。",
+
+            "Manage space": "管理",
+              // 刪除按鈕
+                  "Delete space": "刪除空間",
+                  "Are you sure you want to delete this space? This action cannot be undone.": "您確定要刪除嗎？此操作不可撤銷！",
+
+        "New space": "新建",
+        "Edit space": "編輯",
+            "Name": "名稱",
+                "Memorable name that helps you find your space.": "幫助你找到空間的易記名稱。",
+
+            "Icon": "圖標",
+                "Pick a color to make your space more recognizable.": "選擇一種顏色，讓您的空間更易於識別。",
+
+            "Color:": "顏色：",
+                "Select a color": "選擇顏色",
+                    "Filter colors": "篩選",
+                    "auburn": "赤褐色",
+                    "blue": "藍",
+                    "brown": "棕",
+                    "coral": "珊瑚紅",
+                    "cyan": "青",
+                    "gray": "灰",
+                    "green": "綠",
+                    "indigo": "靛藍",
+                    "lemon": "檸檬黃",
+                    "lime": "酸橙",
+                    "olive": "橄欖綠",
+                    "orange": "橙",
+                    "pine": "松綠",
+                    "pink": "粉",
+                    "plum": "梅子",
+                    "purple": "紫",
+                    "red": "紅",
+                    "teal": "藍綠",
+                    "yellow": "黃",
+
+            "Owner": "所有者",
+                "Where we will store your space. Once created the space is not transferable.": "我們將存儲您空間的位置，創建後無法轉移。",
+
+            "Description": "介紹",
+                "(optional)": "（可選）",
+                "Displays beneath the title on your spaces overview page without impacting responses.": "在您的空間概覽頁標題下方顯示，不影響回覆內容。",
+
+            "Instructions": "說明",
+                "Changes how Copilot responds on specific questions or tasks.": "更改 Copilot 對特定問題或任務的回應方式。",
+
+            "Attachments": "附件",
+                "Add text, code files, or GitHub data to set a permanent context": "添加文本、程式碼文件或 GitHub 數據，以設置永久上下文",
+                "You've exceeded the size limit for this space. Remove some references to continue.": "您已超出此空間的大小限制。請移除一些引用以繼續操作。",
+
+                // 添加菜單
+                    "Add files, folders...": "文件（夾）...",
+                        "Select folders and files": "選擇文件（夾）",
+                        "Search for files or folders": "搜索文件（夾）",
+                        "Fetching files...": "獲取文件中...",
+                        "Up to": "一次最多添加",
+                        "files can be added at a time.": "個文件。",
+                        "One or more files can't be submitted:": "一個或多個文件不能提交：",
+                        ". Only supported file types are allowed.": "。只允許支持的文件類型。",
+                    "Add a text file": "文本文件",
+                        // 名稱
+                            "Give the file a title": "文件標題",
+                        "Content": "內容",
+                            "Enter content here": "在此鍵入內容",
+                
+                // 文件列表
+                "Size": "大小",
+                "Resource actions": "操作",
+        
+        // 空間 - 聊天
+            "Start a new conversation": "開始聊天",
+
+            "Ask anything": "詢問任何事",
+
+            "Start your first conversation using the field above": "用上面的輸入框開始您的第一次對話",
+            
+            // 右側
+                "Owned by": "所有者",
+
+                "View all attachments": "查看所有附件",
     },
     "regexp":[
         [/Using results for “([^ ]+)” in ([^ ]+)/, "使用 $2 中“$1”的結果"],
@@ -24834,6 +24983,8 @@ I18N["zh-TW"]["copilot"] = {
 
             return `${translatedDate}${hour}:${min}`;
         }],
+        // 空間
+        [/Total percent used: (\d+\%)/, "總使用率：$1"],
     ],
 };
 
