@@ -48,7 +48,7 @@ I18N.conf = {
     rePagePath: /^\/($|home|dashboard|copilot|signup|account_verifications|login\/oauth|login|logout|sessions?|password_reset|orgs|explore|topics|notifications\/subscriptions|notifications|watching|stars|issues|pulls|search|trending|showcases|new\/(import|project)|new|import|settings\/(profile|admin|appearance|accessibility|notifications|billing|emails|security_analysis|security-log|security|auth|sessions|keys|ssh|gpg|organizations|enterprises|blocked_users|interaction_limits|code_review_limits|repositories|codespaces|codespaces\/allow_permissions|deleted_repositories|packages|copilot|pages|replies|installations|apps\/authorizations|reminders|sponsors-log|apps|(?:personal-access-|)tokens|developers|applications\/new|applications|connections\/applications|education\/benefits)|settings|installations\/new|marketplace|apps|account\/(organizations\/new|choose|upgrade|billing\/history)|projects|redeem|discussions|events|collections|sponsors|sponsoring|github-copilot\/(signup|free_signup|code-review-waitlist)|codespaces|developer\/register|features|security|sitemap|education)|^\/users\/[^\/]+\/(projects|packages|succession\/invitation)/,
 
     // 倉庫路徑
-    rePagePathRepo: /^\/[^\/]+\/[^\/]+\/(issues|pulls|pull|tree|watchers|stargazers|new|edit|delete|upload|find|wiki|branches|discussions|activity|rules|releases|packages|tags|labels|milestones|compare|commit|blob|blame|actions(\/metrics\/(usage|performance))?|runs|deployments|security|pulse|community|forks|fork|import|graphs\/(contributors|community|traffic|commit-activity|code-frequency)|network$|network\/(dependencies|dependents|updates|members)|settings\/(access|code_review_limits|interaction_limits|branches|branch_protection_rules|tag_protection|rules|actions|hooks|environments|codespaces|pages|security_analysis|dependabot_rules|keys|secrets|variables|installations|notifications|key_links)|settings|transfer|projects\/new|pkgs|contribute|subscription|invitations|codespaces|attestations|custom-properties|reported_content)/,
+    rePagePathRepo: /^\/[^\/]+\/[^\/]+\/(issues|pulls|pull|tree|watchers|stargazers|new|edit|delete|upload|find|wiki|branches|discussions|activity|rules|releases|packages|tags|labels|milestones?|compare|commit|blob|blame|actions(\/metrics\/(usage|performance))?|runs|deployments|security|pulse|community|forks|fork|import|graphs\/(contributors|community|traffic|commit-activity|code-frequency)|network$|network\/(dependencies|dependents|updates|members)|settings\/(access|code_review_limits|interaction_limits|branches|branch_protection_rules|tag_protection|rules|actions|hooks|environments|codespaces|pages|security_analysis|dependabot_rules|keys|secrets|variables|installations|notifications|key_links)|settings|transfer|projects\/new|pkgs|contribute|subscription|invitations|codespaces|attestations|custom-properties|reported_content)/,
 
     // 組織路徑
     rePagePathOrg: /^\/[^\/]+\/[^\/]+\/(repositories\/new|repositories|sponsoring|discussions|projects|packages|teams|new-team|people|outside-collaborators|pending_collaborators|dashboard|billing_managers\/new|invitations?|settings\/(profile|billing|roles|member_privileges|teams|import-export|blocked_users|interaction_limits|code_review_limits|moderators|repository-defaults|rules|codespaces|copilot|actions|hooks|discussions|packages|pages|projects|security_analysis|security|dependabot_rules|domains|secrets|variables|oauth_application_policy|installations|personal-access-token|reminders|sponsors-log|audit-log|deleted_repositories|applications\/new|applications|apps\/new|apps|publisher)|topics|domain\/new|audit-log\/event_settings|billing\/(history|plans)|policies\/applications)|^\/[^\/]+\/(enterprise_plan|sponsoring)/,
@@ -697,6 +697,7 @@ I18N["zh-TW"]["public"] = { // 公共區域翻譯
                 "New conversation in": "新聊天",
                 "New conversation": "新聊天",
                     "Assistive": "小窗",
+                    "Spaces": "空間",
                     "Immersive": "全屏",
                 "Download for": "下載插件",
 
@@ -8266,6 +8267,7 @@ I18N["zh-TW"]["repository/milestones"] = { // 倉庫 - 里程碑頁面
                 "Least issues": "最少的議題",
 
             "No due date": "沒有截止日期",
+            "issues closed": "議題關閉",
             // [/Due by (.*)/, "截止日期 $1"], // 里程碑截止日期
             "Last updated": "最後更新",
             "(more)": "（更多）",
@@ -8283,14 +8285,29 @@ I18N["zh-TW"]["repository/milestones"] = { // 倉庫 - 里程碑頁面
             "Due date (optional)": "截止日期（可選）",
             "Description": "描述",
             "Create milestone": "創建里程碑",
+        
+        // 單個里程碑頁 /<user-name>/<repo-name>/milestones
+            "opened": "打開於",
+            "was closed": "關閉於",
+
+            "There are no open issues in this milestone": "此里程碑沒有打開議題",
+            "Add issues to milestones to help organize your work for a particular release or project. Find and add": "將議題添加到里程碑，有助於為特定的版本或專案組織您的工作。在此倉庫中查找並添加",
+            "issues with no milestones": "沒有里程碑的議題。",
+            "in this repo.": " ",
+
+            "There are no closed issues in this milestone": "此里程碑沒有已關閉議題",
+            "Issues will automatically be moved here when they are closed.": "議題在關閉後會自動移到這裡。",
 
     },
     "regexp": [ // 正則翻譯
         ...I18N["zh-TW"]["repository-public"]["regexp"],
         [/([\d,]+) Open/, "$1 打開"],
         [/([\d,]+) Closed/, "$1 已關閉"],
+        [/(\d+\%) completed/, "$1 已完成"],
     ],
 };
+
+I18N["zh-TW"]["repository/milestone"] = I18N["zh-TW"]["repository/milestones"]; // 倉庫 - 某里程碑
 
 I18N["zh-TW"]["repository/pull_issue_public"] = { // 倉庫 - 議題和拉取請求頁面公共部分
     "static": { // 靜態翻譯
@@ -8860,6 +8877,7 @@ I18N["zh-TW"]["repository/issues"] = { // 倉庫 - 議題頁面
             "added this to the": "添加到",
             "added this to": "添加到",
             "milestone": "里程碑",
+            "moved this to": "移動到",
             "closed this": "關閉了",
             "as": "因",
             "closed this as": "已關閉因",
@@ -15074,6 +15092,11 @@ I18N["zh-TW"]["repository/settings"] = { // 倉庫設置 - 通常 /<user-name>/<
 
                 // 提醒
                 "Must be a whole number between 2 and 1000": "必須是 2 到 1000 之間的整數",
+            
+            // 議題
+                "After merging a pull request, linked issues can be closed automatically.": "合併拉取請求後，可以自動關閉關聯議題。",
+                    "Auto-close issues with merged linked pull requests": "使用已合併的關聯拉取請求自動關閉議題",
+                        "Whenever linked pull requests have merged, auto-close the issue.": "當關聯的拉取請求被合併時，自動關閉該議題。",
 
             "Danger Zone": "危險區",
             "Change repository visibility": "更改倉庫可見性",
@@ -24856,6 +24879,25 @@ I18N["zh-TW"]["copilot"] = {
                         "model or start a new conversation": "模型或新建對話",
             "Send now": "發送",
 
+            // 預設欄
+                "Create issue": "創建議題",
+                // 文件
+                    "Profile README": "個人資料",
+                    "Simple calculator": "簡易計算器",
+                    "Pong game": "乒乓球遊戲",
+                    "Mermaid architecture overview": "Mermaid 架構概覽",
+                // 拉取請求
+                    "My open pull requests": "我打開的",
+                    "Summarize my latest PR": "總結最近",
+                // 議題
+                    "Issues assigned to me": "分配給我",
+                    "Create a new issue": "新建議題",
+                    "Summarize my latest issue": "總結最近",
+                // Git
+                    "Basic Git commands": "基本 Git 命令",
+                    "Git branching": "Git 分支",
+                    "Advanced Git commands": "高級 Git 命令",
+
         // 漏洞相關
             "Path Injection": "路徑注入",
                 "Unvalidated input in path value creation risks unintended file/directory access": "創建路徑值時輸入的無效信息可能會導致意外文件/目錄訪問",
@@ -24954,6 +24996,7 @@ I18N["zh-TW"]["copilot"] = {
             "Ask anything": "詢問任何事",
 
             "Start your first conversation using the field above": "用上面的輸入框開始您的第一次對話",
+            "Start your first conversation using the input above": "輸入文本開始您的第一次對話",
             
             // 右側
                 "Owned by": "所有者",
