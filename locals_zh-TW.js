@@ -48,7 +48,7 @@ I18N.conf = {
     rePagePath: /^\/($|home|dashboard|copilot|signup|account_verifications|login\/oauth|login|logout|sessions?|password_reset|orgs|explore|topics|notifications\/subscriptions|notifications|watching|stars|issues|pulls|search|trending|showcases|new\/(import|project)|new|import|settings\/(profile|admin|appearance|accessibility|notifications|billing|emails|security_analysis|security-log|security|auth|sessions|keys|ssh|gpg|organizations|enterprises|blocked_users|interaction_limits|code_review_limits|repositories|codespaces|codespaces\/allow_permissions|deleted_repositories|packages|copilot|pages|replies|installations|apps\/authorizations|reminders|sponsors-log|apps|(?:personal-access-|)tokens|developers|applications\/new|applications|connections\/applications|education\/benefits)|settings|installations\/new|marketplace|apps|account\/(organizations\/new|choose|upgrade|billing\/history)|projects|redeem|discussions|events|collections|sponsors|sponsoring|github-copilot\/(signup|free_signup|code-review-waitlist)|codespaces|developer\/register|features|security|sitemap|education)|^\/users\/[^\/]+\/(projects|packages|succession\/invitation)/,
 
     // 倉庫路徑
-    rePagePathRepo: /^\/[^\/]+\/[^\/]+\/(issues|pulls|pull|tree|watchers|stargazers|new|edit|delete|upload|find|wiki|branches|discussions|activity|rules|releases|packages|tags|labels|milestones?|compare|commit|blob|blame|actions(\/metrics\/(usage|performance))?|runs|deployments|security|pulse|community|forks|fork|import|graphs\/(contributors|community|traffic|commit-activity|code-frequency)|network$|network\/(dependencies|dependents|updates|members)|settings\/(access|code_review_limits|interaction_limits|branches|branch_protection_rules|tag_protection|rules|actions|hooks|environments|codespaces|pages|security_analysis|dependabot_rules|keys|secrets|variables|installations|notifications|key_links)|settings|transfer|projects\/new|pkgs|contribute|subscription|invitations|codespaces|attestations|custom-properties|reported_content)/,
+    rePagePathRepo: /^\/[^\/]+\/[^\/]+\/(issues|pulls|pull|tree|watchers|stargazers|new|edit|delete|upload|find|wiki|branches|discussions|activity|rules|releases|packages|tags|labels|milestones?|compare|commit|blob|blame|actions(\/metrics\/(usage|performance))?|runs|deployments|security|pulse|community|forks|fork|import|graphs\/(contributors|community|traffic|commit-activity|code-frequency)|network$|network\/(dependencies|dependents|updates|members)|settings\/(access|code_review_limits|interaction_limits|branches|branch_protection_rules|tag_protection|rules|actions|models\/access-policy|hooks|copilot\/coding_agent|environments|codespaces|pages|security_analysis|dependabot_rules|keys|secrets|variables|installations|notifications|key_links)|settings|transfer|projects\/new|pkgs|contribute|subscription|invitations|codespaces|attestations|custom-properties|reported_content)/,
 
     // 組織路徑
     rePagePathOrg: /^\/[^\/]+\/[^\/]+\/(repositories\/new|repositories|sponsoring|discussions|projects|packages|teams|new-team|people|outside-collaborators|pending_collaborators|dashboard|billing_managers\/new|invitations?|settings\/(profile|billing|roles|member_privileges|teams|import-export|blocked_users|interaction_limits|code_review_limits|moderators|repository-defaults|rules|codespaces|copilot|actions|hooks|discussions|packages|pages|projects|security_analysis|security|dependabot_rules|domains|secrets|variables|oauth_application_policy|installations|personal-access-token|reminders|sponsors-log|audit-log|deleted_repositories|applications\/new|applications|apps\/new|apps|publisher)|topics|domain\/new|audit-log\/event_settings|billing\/(history|plans)|policies\/applications)|^\/[^\/]+\/(enterprise_plan|sponsoring)/,
@@ -1448,6 +1448,7 @@ I18N["zh-TW"]["public"] = { // 公共區域翻譯
         [/Using the GitHub API to search for issues assigned to user ([^ ]+)/, "使用 GitHub API 搜索分配給用戶 $1 的議題"],
         [/Chatting with (\d+) attachments?/, "附件 $1 個"],
         [/Choose items from ([^ ]+) to chat about. Use fewer references for more accurate responses./, "從 $1 中選擇專案來進行交流。使用較少的引用以獲得更準確的回答。"],
+        [/Choose files, folders, and symbols from ([^ ]+) to chat about. Use fewer references for more accurate responses./, "選擇 $1 中的文件（夾）和符號進行聊天。引用越少，回覆越準確。"],
         [/Delete conversation: \"(.+)\"/, "刪除對話：“$1”"],
         /**
          * 匹配時間格式
@@ -5329,7 +5330,7 @@ I18N["zh-TW"]["settings/copilot"] = { // 設置 - GitHub Copilot
                         "You will have access to the feature": "您將能夠訪問此功能",
                         "You won’t have access to the feature": "您將不能訪問此功能",
                 "Anthropic Claude 3.7 Sonnet in Copilot": "Claude 3.7 模型",
-                    "You can use the latest Claude 3.7 Sonnet model.": "您可以使用最新 Claude 3.7 Sonnet 模型。",
+                    "You can use the latest Anthropic Claude 3.7 Sonnet model.": "您可以使用最新 Claude 3.7 Sonnet 模型。",
                 "Anthropic Claude Sonnet 4 in Copilot": "Claude Sonnet 4 模型",
                     "You can use the latest Anthropic Claude Sonnet 4 model.": "您可以使用最新 Claude Sonnet 4 模型。",
                     "Learn more about how GitHub Copilot serves Anthropic Claude Sonnet 4.": "瞭解更多關於 GitHub Copilot 如何為 Claude Sonnet 4 提供服務。",
@@ -5376,6 +5377,7 @@ I18N["zh-TW"]["settings/copilot"] = { // 設置 - GitHub Copilot
                 // "Copilot in github.com": "在 github.com 中使用 Copilot",
                     //"You can use Copilot Chat in Github.com, Copilot for pull requests, and all of the preview features.": "您可以在 Github.com 中使用 Copilot Chat，也可以使用 Copilot 拉取請求和所有預覽功能。",
                     "You can use Copilot Chat in GitHub.com, Copilot for pull requests, and all of the preview features.": "您可以在 GitHub.com 中使用 Copilot Chat，Copilot 拉取請求和所有預覽功能。",
+                    "You can use Copilot Chat in GitHub.com and Copilot for pull requests. Copilot code review and preview features are only available for paid licenses.": "你可以在 GitHub.com 上使用 Copilot Chat，也可以在拉取請求中使用 Copilot。Copilot 的程式碼審查和預覽功能僅對付費許可證用戶開放。",
                 // "Copilot in the CLI": "在終端中使用",
                     "You can use": "您可以",
                     "GitHub Copilot for assistance in terminal": "GitHub Copilot 終端輔助工具",
@@ -9061,6 +9063,7 @@ I18N["zh-TW"]["repository/issues"] = { // 倉庫 - 議題頁面
             // 評論框
             "edited by": "編輯者",
             "Hidden as": "隱藏因",
+                "abuse": "濫用",
                 "show comment": "顯示評論",
                 "hide comment": "隱藏評論",
             "Edits": "編輯",
@@ -9231,6 +9234,7 @@ I18N["zh-TW"]["repository/issues"] = { // 倉庫 - 議題頁面
         [/(\d+\%) completed/, "$1 完成"],
         [/Issue (#\d+) created/, "議題 $1 已創建"],
         [/Lines (\d+) to (\d+) in/, "第 $1 - $2 行，"],
+        [/mentioned this in (\d+) issues?/, "在 $1 個議題中提及"],
         ...I18N["zh-TW"]["repository-public"]["regexp"],
         ...I18N["zh-TW"]["repository/pull_issue_public"]["regexp"],
     ],
@@ -9575,6 +9579,8 @@ I18N["zh-TW"]["repository/pull"] = { // 倉庫 - 某個拉取請求頁面
             "Requested changes": "請求更改",
             "restored the": "恢復",
             "unlocked this conversation": "解鎖此對話",
+            "added this to the": "添加到",
+            "milestone": "里程碑",
 
             //
             "This branch has not been deployed": "該分支尚未部署",
@@ -10558,6 +10564,7 @@ I18N["zh-TW"]["repository/commit"] = { // 倉庫 - 提交頁面
             "Ignore whitespace": "忽略空白字符差異",
             "Unified": "同屏",
             "Split": "分屏",
+            "Minimize comments": "最小化評論",
 
             "Display the source diff": "顯示源差異",
             "Display the rich diff": "顯示富差異",
@@ -10814,9 +10821,9 @@ I18N["zh-TW"]["repository/commit"] = { // 倉庫 - 提交頁面
         [/View checks?/, "查看檢查"], // Android UA
         [/Add a comment on line (L|R)(\d+)/, "在 $1$2 行添加評論"], // 新版提交詳情頁
         [/Start conversation on line (L|R)(\d+)/, "在 $1$2 行開始討論"], // 新版提交詳情頁
-        [/expand all lines: ([^ ]+)/, "展開全部：$1"],
-        [/collapse file: ([^ ]+)/, "摺疊文件：$1"],
-        [/collapse non diff lines: ([^ ]+)/, "摺疊無差異行：$1"],
+        [/Expand all lines: ([^ ]+)/, "展開全部：$1"],
+        [/Collapse file: ([^ ]+)/, "摺疊文件：$1"],
+        [/Collapse non-diff lines: ([^ ]+)/, "摺疊無差異行：$1"],
         [/(\d+) tags?/, "$1 標籤"], // 出現位置：某提交所跨標籤數
     ],
 };
@@ -11571,6 +11578,11 @@ I18N["zh-TW"]["repository/discussions"] = { // 討論頁面
         // 反應相關
             "You can't vote on a locked discussion": "您不能在鎖定討論投票",
             "Uh oh! You can't vote right now.": "哎呀！您現在不能投票。",
+
+        // 投票
+            "Show Results": "顯示結果",
+            "Hide Results": "隱藏結果",
+            "Vote": "投票",
     },
     "regexp": [ // 正則翻譯
         ...I18N["zh-TW"]["repository-public"]["regexp"],
@@ -11609,6 +11621,7 @@ I18N["zh-TW"]["repository/discussions"] = { // 討論頁面
             return '篩選：' + statKey[stat];
         }],
         [/This user is sponsoring ([^ ]+)./, "該用戶正在贊助 $1。"],
+        [/(\d+) votes?/, "$1 投票"],
     ],
 };
 I18N["zh-TW"]["repository/orgs/discussions"] = I18N["zh-TW"]["repository/discussions"] ;
@@ -14880,7 +14893,10 @@ I18N["zh-TW"]["repository-settings-menu"] = { // 倉庫設置公共部分
                 // "Actions": "操作",
                     // "General": "通常",
                     "Runners": "運行器",
+                "Models": "模型",
                 "Webhooks": "Web 鉤子",
+                // Copilot
+                    "Coding agent": "編程助手",
                 "Environments": "環境",
                 "Pages": "GitHub Pages",
                 "Custom properties": "自定義屬性",  // 組織倉庫
@@ -15721,6 +15737,7 @@ I18N["zh-TW"]["repository/settings/rules"] = { // 倉庫設置 - 規則 - 規則
                 "New branch ruleset": "新建分支規則集",
                     "New tag ruleset": "新建標籤規則集",
                     "Import a ruleset": "導入規則集",
+                        "Choose a JSON file to upload": "選擇 JSON 文件上傳",
 
             "Ruleset": "規則集",
 
@@ -15764,6 +15781,7 @@ I18N["zh-TW"]["repository/settings/rules"] = { // 倉庫設置 - 規則 - 規則
                     "This ruleset will not be enforced": "規則將不被執行",
 
             "Bypass list": "旁路列表",
+                "Exempt roles, teams, and apps from this ruleset by adding them to the bypass list.": "通過將角色、團隊和應用程式添加到旁路列表，使其免受此規則集的約束。",
                 "Exempt roles, teams, or apps from this ruleset by adding them to the bypass list.": "通過將角色、團隊或應用程式添加到旁路列表，使其免受此規則集的約束。",
                 "Exempt roles or teams from this ruleset by adding them to the bypass list": "通過將角色或團隊添加到旁路列表，使其免受此規則集的約束", // 組織設置
                 "Add bypass": "添加旁路",
@@ -15948,6 +15966,17 @@ I18N["zh-TW"]["repository/settings/rules"] = { // 倉庫設置 - 規則 - 規則
                                 "Whether the most recent reviewable push must be approved by someone other than the person who pushed it.": "最新的可審核推送是否必須得到推送者以外的其他人批准。",
                             "Require conversation resolution before merging": "要求在合併前解決對話",
                                 "All conversations on code must be resolved before a pull request can be merged.": "在合併拉取請求之前，必須解決有關程式碼的所有對話。",
+                            "Request pull request review from Copilot": "請求 Copilot 進行拉取請求審查",
+                                "Automatically request review from Copilot for new pull requests, if the author has access to Copilot code review.": "如果作者有權訪問 Copilot 程式碼審查，則自動請求 Copilot 對新拉取請求進行審查。",
+
+                            "Allowed merge methods": "允許合併方法",
+                                "Merge": "合併",
+                                    "Add all commits from the head branch to the base branch with a merge commit.": "將所有來自頭部分支的提交通過一次合併提交添加到基礎分支。",
+                                "Squash": "壓縮",
+                                    "Combine all commits from the head branch into a single commit in the base branch.": "將頭部分支上的所有提交合併為一個提交，然後將其集成到基礎分支。",
+                                "Rebase": "變基",
+                                    "Add all commits from the head branch onto the base branch individually.": "將頭部分支中的所有提交逐個添加到基礎分支上。",
+                                "When merging pull requests, you can allow any combination of merge commits, squashing, or rebasing. At least one option must be enabled.": "在合併拉取請求時，您可以允許合併提交、壓縮或變基這三種方式中的任意組合。至少啟用其中一種選項。",
                     "Require status checks to pass": "要求通過狀態檢查",
                         "Choose which status checks must pass before the ref is updated. When enabled, commits must first be pushed to another ref where the checks pass.": "更新引用之前必須選擇通過哪些狀態檢查。啟用後，提交必須首先推送到檢查通過的另一個引用。",
                             "Require branches to be up to date before merging": "要求分支在合併前必須是最新的",
@@ -16249,6 +16278,21 @@ I18N["zh-TW"]["repository/settings/actions"] = { // 倉庫設置 - 操作 /<user
     ],
 };
 
+I18N["zh-TW"]["repository/settings/models/access-policy"] = { // 倉庫設置 - 模型 /<user-name>/<repo-name>/settings/models/access-policy
+    "static": {
+        ...I18N["zh-TW"]["repository-public"]["static"],
+        ...I18N["zh-TW"]["repository-settings-menu"]["static"],
+        ...I18N["zh-TW"]["orgs-settings-menu"]["static"],
+        
+        //"Models": "模型",
+
+        "Models in this repository": "此倉庫模型",
+            "If disabled, the Models tab will be hidden, and the prompt editor and comparison tooling evaluations will be unavailable.": "如果禁用，模型選項卡將被隱藏，提示編輯器和對比工具評估也將不可用。",
+            "Learn more about Models.": "瞭解更多。",
+    },
+    "regexp": [],
+};
+
 I18N["zh-TW"]["repository/settings/hooks"] = { // 倉庫設置 - Web 鉤子 /<user-name>/<repo-name>/settings/hooks
     "static": { // 靜態翻譯
         ...I18N["zh-TW"]["repository-public"]["static"],
@@ -16465,6 +16509,32 @@ I18N["zh-TW"]["repository/settings/hooks"] = { // 倉庫設置 - Web 鉤子 /<us
     ],
 };
 I18N["zh-TW"]["orgs/settings/hooks"] = I18N["zh-TW"]["repository/settings/hooks"];
+
+I18N["zh-TW"]["repository/settings/copilot/coding_agent"] = {
+    "static": {
+        ...I18N["zh-TW"]["repository-public"]["static"],
+        ...I18N["zh-TW"]["repository-settings-menu"]["static"],
+        ...I18N["zh-TW"]["orgs-settings-menu"]["static"],
+
+        "Copilot coding agent": "Copilot 編程助手",
+
+        "You can configure Copilot coding agent for other users with access to this repository, but you won't be able to assign tasks to Copilot because you don't have a Copilot Pro+ or Copilot Enterprise license.": "您可以為其他具有此倉庫訪問權限的用戶配置 Copilot 編程助手，但由於您沒有 Copilot Pro+ 或 Copilot 企業版許可證，因此無法向 Copilot 分配任務。",
+
+        "With Copilot coding agent, developers can delegate tasks to Copilot, freeing them to focus on the creative, complex, and high-impact work that matters most. Simply assign an issue to Copilot, wait for the agent to request review, then leave feedback on the pull request to iterate. To learn more, see the": "使用 Copilot 編程助手，開發者可以將任務委託給 Copilot，從而專注於更具創造性、複雜性和高影響力的重要工作。只需將議題分配給 Copilot，等待助手發起評審請求，然後在拉取請求上留下反饋進行迭代。更多信息請參閱",
+
+        "Model Context Protocol (MCP)": "模型上下文協議（MCP）",
+            "The MCP is an open standard that defines how applications share context with large language models (LLMs). MCP provides a standardized way to connect AI models to different data sources and tools, enabling them to work together more effectively.": "MCP 是一個開放標準，定義了應用程式如何與大型語言模型（LLM）共享上下文。MCP 提供了一種標準化的方法，將 AI 模型與不同的數據源和工具連接起來，使它們能夠更高效地協同工作。",
+            "You can use MCP to extend the capabilities of Copilot coding agent by connecting it to other tools and services. For information on how to write your JSON MCP configuration, see the": "您可以使用 MCP 通過將其連接到其他工具和服務，來擴展 Copilot 編程助手的功能。有關如何編寫您的 JSON MCP 配置的詳細信息，請參見",
+
+            "MCP configuration": "MCP 配置",
+
+            "Your configuration will be validated on save.": "您的配置將在保存時進行驗證。",
+
+            "Use of Copilot coding agent is subject to the": "使用 Copilot 編程助手需遵守",
+                "pre-release terms": "預發行條款",
+    },
+    "regexp": [],
+};
 
 I18N["zh-TW"]["repository/settings/environments"] = { // 倉庫設置 - 環境 /<user-name>/<repo-name>/settings/environment
     "static": { // 靜態翻譯
@@ -21032,7 +21102,7 @@ I18N["zh-TW"]["orgs"] = { // 組織頁面
         [/doesn't have any pinned public repositories yet./, "還沒有任何置頂的公共倉庫。"],
         [/You are viewing the README and pinned repositories as a member of the ([^ ]+) organization./, "您正在以 $1 組織成員的身份查看自述文件和置頂倉庫。"],
         [/Invite a member to/, "邀請成員加入"],
-        [/\((\d+) issues? need help\)/, "($1 個議題需要幫助)"],
+        [/\((\d+) issues? needs? help\)/, "($1 個議題需要幫助)"],
         [/([^ ]+)’s past year of commit activity/, "近幾年 $1 的提交活動"],
         // 用戶 - 浮動信息卡
         [/- (\d+)h (ahead|behind)/, function(all, num, compare){
