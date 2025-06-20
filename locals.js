@@ -16211,8 +16211,9 @@ I18N["zh-CN"]["repository/settings/actions"] = { // 仓库设置 - 操作 /<user
 
             "Artifact and log retention": "工件和日志保留",
                 "Choose the repository settings for artifacts and logs.": "选择工件和日志的仓库设置。",
+                "There is a maximum limit of": "最大限制为",
+                "days.": "天。",
                 "Your organization has set a maximum limit of": "您的组织已将上限设置为", //组织仓库
-                "days.": "天。", //组织仓库
                 "Learn more about the artifact and log retention policy.": "了解更多关于工件和日志保留政策的信息。",
 
                 // 输入框提示
@@ -16247,7 +16248,8 @@ I18N["zh-CN"]["repository/settings/actions"] = { // 仓库设置 - 操作 /<user
             "Require approval for all outside collaborators": "要求对所有外部协作者进行批准审查",
                 "All outside collaborators will always require approval to run workflows on their pull requests.": "所有外部协作者将始终需要批准才能在他们的拉取请求上运行工作流程。",
             "Require approval for all external contributors": "要求对所有外部贡献者进行批准审查",
-                "All users that are not a member or owner of this repository will require approval to run workflows.": "所有不是该仓库成员或所有者的用户都需要获得批准才能运行工作流。",
+                "All users that are not a member or owner of this repository will require approval to run workflows.": "所有不是该仓库成员或所有者的用户，均需获得批准才能运行工作流。",
+                // [/All users that are not a member or owner of this repository and not a member of the ([^ ]+) organization will require approval to run workflows./, "所有不是该仓库成员或所有者，且未加入 $1 组织的用户，均需获得批准才能运行工作流。"], // 组织
 
             "Workflow permissions": "工作流程权限",
                 "Choose the default permissions granted to the GITHUB_TOKEN when running workflows in this repository. You can specify more granular permissions in the workflow using YAML.": "在仓库中运行工作流程时，选择授予 GITHUB_TOKEN 的默认权限。您可以使用 YAML 在工作流程中指定更细化的权限。",
@@ -16292,6 +16294,7 @@ I18N["zh-CN"]["repository/settings/actions"] = { // 仓库设置 - 操作 /<user
         [/Any action or reusable workflow defined in a repository within ([^ ]+) can be used./, "可以使用在 $1 的仓库中定义的任何操作或可复用的工作流程。"], // 操作页面
         [/Allow ([^ ]+), and select non-([^ ]+), actions and reusable workflows/, "允许 $1，并选择非 $2、操作和可复用的工作流程"],
         [/Any action or reusable workflow that matches the specified criteria, plus those defined in a repository within ([^ ]+), can be used./, "可以使用符合指定条件的操作或工作流程，以及在 $1 的仓库中定义的操作或可复用的工作流程。"], // 操作页面
+        [/All users that are not a member or owner of this repository and not a member of the ([^ ]+) organization will require approval to run workflows./, "所有不是该仓库成员或所有者，且未加入 $1 组织的用户，均需获得批准才能运行工作流。"], // 组织
         ...I18N["zh-CN"]["repository-public"]["regexp"],
     ],
 };
