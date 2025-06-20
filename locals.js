@@ -54,7 +54,7 @@ I18N.conf = {
     rePagePathOrg: /^\/[^\/]+\/[^\/]+\/(repositories\/new|repositories|sponsoring|discussions|projects|packages|teams|new-team|people|outside-collaborators|pending_collaborators|dashboard|billing_managers\/new|invitations?|settings\/(profile|billing|roles|member_privileges|teams|import-export|blocked_users|interaction_limits|code_review_limits|moderators|repository-defaults|rules|codespaces|copilot|actions|hooks|discussions|packages|pages|projects|security_analysis|security|dependabot_rules|domains|secrets|variables|oauth_application_policy|installations|personal-access-token|reminders|sponsors-log|audit-log|deleted_repositories|applications\/new|applications|apps\/new|apps|publisher)|topics|domain\/new|audit-log\/event_settings|billing\/(history|plans)|policies\/applications)|^\/[^\/]+\/(enterprise_plan|sponsoring)/,
 
     // 特定页面，启用`字符数据`监测
-    characterDataPage: ['repository/new', 'repository/edit', 'new', 'new/import', 'orgs/repositories/new', 'repository/blob', 'marketplace', 'homepage', 'repository/issues', 'repository/commit'],
+    characterDataPage: ['repository/new', 'repository/edit', 'new', 'new/import', 'orgs/repositories/new', 'repository/blob', 'marketplace', 'homepage', 'repository/issues', 'repository/commit', 'repository/settings/rules'],
 
     // 特定页面，忽略突变元素规则
     ignoreMutationSelectorPage: {
@@ -15764,6 +15764,10 @@ I18N["zh-CN"]["repository/settings/rules"] = { // 仓库设置 - 规则 - 规则
             "Tag": "标签",
             "tags": "标签",
 
+            "Open additional options": "打开其他选项",
+            "Export": "导出",
+            "ruleset": "规则",
+
             "Name": "名称",
                 "Ruleset name cannot be empty": "规则集名称不能为空",
             "Enforcement status": "执行状态",
@@ -15950,7 +15954,7 @@ I18N["zh-CN"]["repository/settings/rules"] = { // 仓库设置 - 规则 - 规则
                         "Hide additional settings": "隐藏附加设置",
                         "Show additional settings": "显示附加设置",
                             "Search for deployment environments": "搜索部署环境",
-                            "No deployment environments found": "未找到部署环境",
+                            "No deployment environments have been added": "未添加部署环境",
                             "Learn more about deployment environments": "了解更多关于部署环境的信息",
                     "Require signed commits": "要求带签名的提交",
                         "Commits pushed to matching refs must have verified signatures.": "推送到匹配引用的提交必须带有经过验证的签名。",
@@ -15970,6 +15974,19 @@ I18N["zh-CN"]["repository/settings/rules"] = { // 仓库设置 - 规则 - 规则
                                 "Automatically request review from Copilot for new pull requests, if the author has access to Copilot code review.": "如果作者有权访问 Copilot 代码审查，则自动请求 Copilot 对新拉取请求进行审查。",
 
                             "Allowed merge methods": "允许合并方法",
+                                "Merge, Squash": "合并，压缩",
+                                "Merge, Squash, Rebase": "合并，压缩，变基",
+                                "Merge, Rebase, Squash": "合并，变基，压缩",
+                                "Merge, Rebase, Squash": "合并，变基，压缩",
+                                "Merge, Rebase": "合并，变基",
+                                "Squash, Rebase": "压缩，变基",
+                                "Squash, Rebase, Merge": "压缩，变基，合并",
+                                "Squash, Merge": "压缩，合并",
+                                "Squash, Merge, Rebase": "压缩，合并，变基",
+                                "Rebase, Merge": "变基，合并",
+                                "Rebase, Squash": "变基，压缩",
+                                "Rebase, Squash, Merge": "变基，压缩，合并",
+                                "Rebase, Merge, Squash": "变基，合并，压缩",
                                 "Merge": "合并",
                                     "Add all commits from the head branch to the base branch with a merge commit.": "将所有来自头部分支的提交通过一次合并提交添加到基础分支。",
                                 "Squash": "压缩",
@@ -16008,6 +16025,7 @@ I18N["zh-CN"]["repository/settings/rules"] = { // 仓库设置 - 规则 - 规则
                         "Alerts": "警报",
                             "Errors": "仅错误",
                             "Errors and Warnings": "错误和警告",
+                        "Delete Tool": "删除工具",
                         "Tools that must provide code scanning results for this rule to pass.": "必须提供代码扫描结果才能通过此规则的工具。",
                         "Learn more about enabling code scanning.": "了解更多关于启用代码扫描的信息。",
 
