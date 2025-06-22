@@ -662,7 +662,6 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
 
             "Filter repositories": "筛选仓库",
             "Close filter": "关闭筛选器",
-            "Show more": "显示更多",
 
         // 顶部提示横幅
             "Don't get locked out of your account.": "不要被锁定在您的账户之外。",
@@ -1160,6 +1159,9 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
             "Prev": "上一页",
             "Previous": "上一页",
             "Next": "下一页",
+
+            "Show more": "显示更多",
+            "Show less": "显示更少",
 
             // 名词
             "Public": "公共",
@@ -1782,7 +1784,6 @@ I18N["zh-CN"]["page-dashboard"] = { // 已登录的首页 - 仪表板（含组�
         "Top Repositories": "置顶仓库", // 安卓UA
         "New": "新建",
         "Find a repository…": "搜索仓库…",
-        "Show more": "显示更多",
         "Your teams": "您的团队",
             "You don’t belong to any teams yet!": "您还不属于任何团队！",
         "Find a team…": "搜索团队…",
@@ -1894,7 +1895,6 @@ I18N["zh-CN"]["page-dashboard"] = { // 已登录的首页 - 仪表板（含组�
             "Save": "保存",
 
         "Show all": "显示所有",
-        "Show less": "显示更少",
 
         "Uh oh!": "哎呀！",
         "There was an error in loading the activity feed.": "载入动态提要时发生错误。",
@@ -2339,7 +2339,6 @@ I18N["zh-CN"]["page-profile"] = { // 个人首页
             "Joined GitHub": "刚加入 GitHub",
             "Joined the": "加入",
             "organization": "组织",
-            //"Show more activity": "显示更多",
             "Show more activity": "加载更多动态",
             "Loading...": "载入中...",
 
@@ -7135,7 +7134,7 @@ I18N["zh-CN"]["repository-public"] = { // 仓库 - 公共部分
             "Sorry, that branch already exists.": "抱歉，该分支已存在。",
             "has invited you to collaborate on this repository": "邀请您成为该仓库协作者",
                 "View invitation": "查看",
-            
+
             // 存档
             "This repository has been archived by the owner. It is now read-only.": "此仓库已被所有者存档。它现在是只读的。",
 
@@ -8297,22 +8296,22 @@ I18N["zh-CN"]["repository/milestones"] = { // 仓库 - 里程碑页面
             "Create a Milestone": "创建里程碑",
 
             "Sort": "排序",
+            "Sort by": "排序",
                 "Recently updated": "最近更新",
                 "Furthest due date": "最迟到期日",
                 "Closest due date": "最近到期日",
                 "Least complete": "最不完整",
                 "Most complete": "最完整",
-                "Alphabetically": "按字母顺序",
-                "Reverse alphabetically": "按字母倒序",
+                "Alphabetical": "按字母顺序",
+                "Reverse alphabetical": "按字母倒序",
                 "Most issues": "最多的议题",
-                "Least issues": "最少的议题",
+                "Fewest issues": "最少的议题",
 
             "No due date": "没有截止日期",
             "issues closed": "议题关闭",
             // [/Due by (.*)/, "截止日期 $1"], // 里程碑截止日期
             "Last updated": "最后更新",
             "(more)": "（更多）",
-            "Show less": "显示更少",
             // 完成进度条
             "complete": "已完成",
             "open": "打开",
@@ -8326,7 +8325,7 @@ I18N["zh-CN"]["repository/milestones"] = { // 仓库 - 里程碑页面
             "Due date (optional)": "截止日期（可选）",
             "Description": "描述",
             "Create milestone": "创建里程碑",
-        
+
         // 单个里程碑页 /<user-name>/<repo-name>/milestones
             "opened": "打开于",
             "was closed": "关闭于",
@@ -9222,7 +9221,7 @@ I18N["zh-CN"]["repository/issues"] = { // 仓库 - 议题页面
 
         // Copilot 浮窗 独有词条
             "Ask about the issue:": "讨论此议题：",
-        
+
         // 底部提示栏（未登录
         "to join this conversation on GitHub.": "加入 GitHub 上的这个讨论。",
             "Already have an account?": "已经有账户？",
@@ -11042,8 +11041,6 @@ I18N["zh-CN"]["repository/blob"] = { // 仓库 - 浏览代码
                     "References": "引用",
                     "Reference": "引用",
                     "No definitions or references found": "未找到定义或引用",
-                    "Show more": "显示更多",
-                    "Show less": "显示更少",
                     "Search for this symbol": "搜索此符号",
 
         // 代码追溯页面 /<user-name>/<repo-name>/blame/<branch>/<file>
@@ -12050,8 +12047,6 @@ I18N["zh-CN"]["repository/actions"] = { // 仓库 - 操作页面
                     "This artifact has expired and you can no longer download it": "此附件已过期，您无法再下载",
             "Annotations": "说明",
                 // [/1 error/, "$1 个错误"],
-                "Show more": "显示更多",
-                "Show less": "显示更少",
 
         // /<user-name>/<repo-name>/actions/runs/<id>/job/<job-id>
             "The logs for this run have expired and are no longer available.": "此运行日志已过期，不再可用。",
@@ -15150,7 +15145,7 @@ I18N["zh-CN"]["repository/settings"] = { // 仓库设置 - 通常 /<user-name>/<
 
                 // 提醒
                 "Must be a whole number between 2 and 1000": "必须是 2 到 1000 之间的整数",
-            
+
             // 议题
                 "After merging a pull request, linked issues can be closed automatically.": "合并拉取请求后，可以自动关闭关联议题。",
                     "Auto-close issues with merged linked pull requests": "使用已合并的关联拉取请求自动关闭议题",
@@ -16347,7 +16342,7 @@ I18N["zh-CN"]["repository/settings/models/access-policy"] = { // 仓库设置 - 
         ...I18N["zh-CN"]["repository-public"]["static"],
         ...I18N["zh-CN"]["repository-settings-menu"]["static"],
         ...I18N["zh-CN"]["orgs-settings-menu"]["static"],
-        
+
         //"Models": "模型",
 
         "Models in this repository": "此仓库模型",
@@ -19045,7 +19040,6 @@ I18N["zh-CN"]["search"] = { // 搜索页面
 
             // &type=code
                 // [/Show ([\d,]+) more matches?/, "显示更多 $1 处匹配"],
-                "Show less": "显示更少",
                 "This file contains": "该文件还包含",
                 "more": "处",
                 "match": "匹配",
@@ -20399,7 +20393,7 @@ I18N["zh-CN"]["marketplace"] = { // GitHub 市场
                 "Recently added apps": "最近添加应用",
                 "Recently added actions": "最近添加操作",
                 "The latest tools that help you and your team build software better, together.": "最新的工具可帮助您和您的团队更好地共同构建软件。",
-            
+
             "Reporting": "报告",
                 "Reporting apps": "报告应用",
                 "Get insights into how your teams are developing software using GitHub.": "了解您的团队如何使用 GitHub 开发软件的深入见解。",
@@ -20422,7 +20416,7 @@ I18N["zh-CN"]["marketplace"] = { // GitHub 市场
                 "Testing apps": "测试应用",
                 "Testing actions": "测试操作",
                 "Eliminate bugs and ship with more confidence by adding these tools to your workflow.": "通过将这些工具添加到您的工作流程中，消除错误并更有信心地交付。",
-            
+
             "Time tracking": "时间跟踪",
                 "Time tracking apps": "时间追踪应用",
                 "Time tracking actions": "时间追踪操作",
@@ -23383,8 +23377,6 @@ I18N["zh-CN"]["projects"] = { // 项目页面(含仓库项目)
             "opened by": "打开者",
             "Opened in": "打开在",
             "commented": "评论于",
-            "Show less": "显示更少",
-            "Show more": "显示更多",
             "Assignees": "受理人",
                 "No one assigned": "无人受理",
             "Labels": "标签",
@@ -25122,11 +25114,11 @@ I18N["zh-CN"]["copilot"] = {
                             "Give the file a title": "文件标题",
                         "Content": "内容",
                             "Enter content here": "在此键入内容",
-                
+
                 // 文件列表
                 "Size": "大小",
                 "Resource actions": "操作",
-        
+
         // 空间 - 聊天
             "Start a new conversation": "开始聊天",
 
@@ -25134,7 +25126,7 @@ I18N["zh-CN"]["copilot"] = {
 
             "Start your first conversation using the field above": "用上面的输入框开始您的第一次对话",
             "Start your first conversation using the input above": "输入文本开始您的第一次对话",
-            
+
             // 右侧
                 "Owned by": "所有者",
 
