@@ -3537,6 +3537,15 @@ I18N["zh-CN"]["settings/accessibility"] = { // 设置 - 无障碍
                     // 顶部提醒
                     "Paste behavior preferences successfully saved.": "粘贴行为首选项已成功保存。",
 
+            "Assistive technology hints": "辅助技术提示",
+                "Add or remove instructions for how to operate complex controls.": "添加或删除如何操作复杂控件的说明。",
+                "preview information about other parts of GitHub.": "预览 GitHub 其他部分的信息。",
+                "Enable hint": "启用提示",
+                "Disable hint": "禁用提示",
+                "Save assistive technology hint preferences": "保存辅助技术提示首选项",
+                    // 顶部提醒
+                    "Hovercard assistive technology hint preferences successfully saved.": "悬浮卡辅助技术提示首选项已成功保存。",
+
     },
     "regexp": [ // 正则翻译
     ],
