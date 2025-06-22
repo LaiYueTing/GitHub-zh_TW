@@ -54,7 +54,7 @@ I18N.conf = {
     rePagePathOrg: /^\/[^\/]+\/[^\/]+\/(repositories\/new|repositories|sponsoring|discussions|projects|packages|teams|new-team|people|outside-collaborators|pending_collaborators|dashboard|billing_managers\/new|invitations?|settings\/(profile|billing|roles|member_privileges|teams|import-export|blocked_users|interaction_limits|code_review_limits|moderators|repository-defaults|rules|codespaces|copilot|actions|hooks|discussions|packages|pages|projects|security_analysis|security|dependabot_rules|domains|secrets|variables|oauth_application_policy|installations|personal-access-token|reminders|sponsors-log|audit-log|deleted_repositories|applications\/new|applications|apps\/new|apps|publisher)|topics|domain\/new|audit-log\/event_settings|billing\/(history|plans)|policies\/applications)|^\/[^\/]+\/(enterprise_plan|sponsoring)/,
 
     // 特定頁面，啟用`字符數據`監測
-    characterDataPage: ['repository/new', 'repository/edit', 'new', 'new/import', 'orgs/repositories/new', 'repository/blob', 'marketplace', 'homepage', 'repository/issues', 'repository/commit'],
+    characterDataPage: ['repository/new', 'repository/edit', 'new', 'new/import', 'orgs/repositories/new', 'repository/blob', 'marketplace', 'homepage', 'repository/issues', 'repository/commit', 'repository/settings/rules'],
 
     // 特定頁面，忽略突變元素規則
     ignoreMutationSelectorPage: {
@@ -662,7 +662,6 @@ I18N["zh-TW"]["public"] = { // 公共區域翻譯
 
             "Filter repositories": "篩選倉庫",
             "Close filter": "關閉篩選器",
-            "Show more": "顯示更多",
 
         // 頂部提示橫幅
             "Don't get locked out of your account.": "不要被鎖定在您的賬戶之外。",
@@ -1160,6 +1159,9 @@ I18N["zh-TW"]["public"] = { // 公共區域翻譯
             "Prev": "上一頁",
             "Previous": "上一頁",
             "Next": "下一頁",
+
+            "Show more": "顯示更多",
+            "Show less": "顯示更少",
 
             // 名詞
             "Public": "公共",
@@ -1782,7 +1784,6 @@ I18N["zh-TW"]["page-dashboard"] = { // 已登錄的首頁 - 儀表板（含組�
         "Top Repositories": "置頂倉庫", // 安卓UA
         "New": "新建",
         "Find a repository…": "搜索倉庫…",
-        "Show more": "顯示更多",
         "Your teams": "您的團隊",
             "You don’t belong to any teams yet!": "您還不屬於任何團隊！",
         "Find a team…": "搜索團隊…",
@@ -1894,7 +1895,6 @@ I18N["zh-TW"]["page-dashboard"] = { // 已登錄的首頁 - 儀表板（含組�
             "Save": "保存",
 
         "Show all": "顯示所有",
-        "Show less": "顯示更少",
 
         "Uh oh!": "哎呀！",
         "There was an error in loading the activity feed.": "載入動態提要時發生錯誤。",
@@ -2339,7 +2339,6 @@ I18N["zh-TW"]["page-profile"] = { // 個人首頁
             "Joined GitHub": "剛加入 GitHub",
             "Joined the": "加入",
             "organization": "組織",
-            //"Show more activity": "顯示更多",
             "Show more activity": "加載更多動態",
             "Loading...": "載入中...",
 
@@ -3434,20 +3433,26 @@ I18N["zh-TW"]["settings/appearance"] = { // 設置 - 外觀
                 "Sync with system": "與系統同步",
             "GitHub will use your selected theme": "GitHub 將使用您選擇的主題",
             "GitHub theme will match your system active settings": "GitHub 主題將匹配您的系統設置",
-            "Light default": "亮 - 默認",
-            "Light high contrast": "亮 - 高對比",
-            "Light Protanopia & Deuteranopia": "亮 - 紅綠色盲",
-            "Light Tritanopia": "亮 - 藍色盲",
-            "Dark default": "暗 - 默認",
-            "Dark high contrast": "暗 - 高對比",
-            "Dark Protanopia & Deuteranopia": "暗 - 紅綠色盲",
-            "Dark Tritanopia": "暗 - 藍色盲",
-            "Dark dimmed": "昏暗",
-            "Day theme": "日間主題",
-            "Night theme": "夜間主題",
+            "Light default": "淺色 - 默認",
+            "Light colorblind": "淺色 - 色盲",
+            "Light Tritanopia": "淺色 - 藍色盲",
+            "Dark default": "深色 - 默認",
+            "Dark colorblind": "深色 - 色盲",
+            "Dark Tritanopia": "深色 - 藍色盲",
+            "Soft dark": "深色 - 柔和",
+            "Light theme": "淺色主題",
+            "Dark theme": "深色主題",
             "Active": "激活",
             "This theme will be active when your system is set to “light mode”": "當您的系統設置為 “淺色模式” 時，該主題將被激活。",
             "This theme will be active when your system is set to “dark mode”": "當您的系統設置為 “深色模式” 時，該主題將被激活。",
+
+            "Contrast": "對比度",
+                "Increase contrast": "增加對比度",
+                    "Enable high contrast for light or dark mode (or both) based on your system settings": "根據您的系統設置啟用對淺色或深色模式（或兩者）的高對比度",
+                    "Light mode": "淺色模式",
+                    "Dark mode": "深色模式",
+                    "Off": "關閉",
+                    "On": "開啟",
 
             "Emoji skin tone preference": "表情符號膚色首選項",
             "Preferred default emoji skin tone": "默認的表情符號膚色",
@@ -3530,6 +3535,15 @@ I18N["zh-TW"]["settings/accessibility"] = { // 設置 - 無障礙
                 "Save editor settings": "保存編輯器設置",
                     // 頂部提醒
                     "Paste behavior preferences successfully saved.": "粘貼行為首選項已成功保存。",
+
+            "Assistive technology hints": "輔助技術提示",
+                "Add or remove instructions for how to operate complex controls.": "添加或刪除如何操作複雜控件的說明。",
+                "preview information about other parts of GitHub.": "預覽 GitHub 其他部分的信息。",
+                "Enable hint": "啟用提示",
+                "Disable hint": "禁用提示",
+                "Save assistive technology hint preferences": "保存輔助技術提示首選項",
+                    // 頂部提醒
+                    "Hovercard assistive technology hint preferences successfully saved.": "懸浮卡輔助技術提示首選項已成功保存。",
 
     },
     "regexp": [ // 正則翻譯
@@ -3635,75 +3649,87 @@ I18N["zh-TW"]["settings/billing"] = { // 設置 - 賬單和計劃
         ...I18N["zh-TW"]["settings-menu"]["static"],
         ...I18N["zh-TW"]["orgs-settings-menu"]["static"], // 組織設置
 
-        // 頂部提示
-            "Successfully updated billing information.": "成功更新支付信息。",
-            "For more information on using these billing pages": "有關使用這些賬單頁面的更多信息，",
-                "please refer to the docs content here": "請參閱此處的文檔內容",
+        // 概況 https://github.com/settings/billing
+            // 頂部提示
+                "Successfully updated billing information.": "成功更新支付信息。",
 
-        // 概況
-            "Current metered usage": "當前計費用量",
-                "Showing gross metered usage for your account.": "顯示您賬戶的總計費用量。",
-            "Current included usage": "當前包含用量",
-                "More details": "詳情",
-                "Showing currently applied discounts for your account.": "顯示您賬戶當前應用的折扣。",
-                "* As per current pricing": "* 根據當前定價方案",
+                "For more information on using these billing pages": "有關使用這些賬單頁面的更多信息，",
+                    "please refer to the docs content here": "請參閱此處的文檔內容",
 
-        "Subscriptions": "訂閱",
-            "Manage subscriptions": "管理訂閱",
-            "per": "/",
-            "month": "月",
+            // 概況
+                "Current metered usage": "當前計費用量",
+                    "Showing gross metered usage for your account.": "顯示您賬戶的總計費用量。",
 
-        "Metered usage": "計費用量",
-            // 時間段，這部分走正則
-                "Today": "今天",
-                "Current month": "這個月",
-                "Last month": "上個月",
-                // 後 2 項正則
-            "Chart options": "圖表選項",
-                "View as table": "以表格形式查看",
-                    "DateTime": "日期時間",
-                "Download CSV": "下載 CSV",
-                "Download PNG": "下載 PNG",
-            "All usage": "全部",
-                // 某單位
-                "Gross:": "總計：",
-                "Billed:": "計費：",
-                "Discount:": "優惠：",
-            "Usage by repository": "按倉庫統計",
-                "usage": "用量",
-                "Gross amount": "總計",
-                "All other repositories": "其他",
+                "Current included usage": "當前包含用量",
+                    "More details": "詳情",
+                    "Showing currently applied discounts for your account.": "顯示您賬戶當前應用的折扣。",
+                    "* As per current pricing": "* 根據當前定價方案",
 
-            "No usage found": "無數據",
+            "Subscriptions": "訂閱",
+                "Manage subscriptions": "管理訂閱",
+                "per": "/",
+                "month": "月",
 
-            // 底下計算部分
-                "More": "更多", // 小屏模式
-                "View details": "詳情",
-                "consumed usage -": "計費 -",
-                "in discounts =": "折扣 =",
-                "in billable usage": "計費",
-                "Usage for Actions and Actions Runners.": "操作（運行器）用量。", // 後半句走正則
-                "Copilot usage": "Copilot 用量",
-                    "Total spend on Copilot for the selected timeframe, excluding applicable discounts.": "所選時間段內 Copilot 的總支出，不含適用折扣。",
-                "Billable licenses": "計費許可數",
-                    "About billable licenses": "關於計費許可",
-                        "If a user stops consuming a license within the month, the adjustment will be reflected in your next month's bill.": "如果用戶在當月停止使用許可，相關調整將體現在您下個月的賬單中。",
-                        "Billable licenses are only available for the 'Current month' timeframe.": "計費許可僅適用於“當前月”時間段。",
-                    "Showing total unique licenses billed for your enterprise. Actual billed amount for each license is prorated based on when it is added during the billing cycle.": "顯示您企業所計費的唯一許可證總數。每個許可證的實際計費金額將根據其在計費週期內添加的時間按比例分攤。",
+            "Metered usage": "計費用量",
+                // 時間段，這部分走正則
+                    "Today": "今天",
+                    "Current month": "這個月",
+                    "Last month": "上個月",
+                    // 後 2 項正則
+                "Chart options": "圖表選項",
+                    "View as table": "以表格形式查看",
+                        "DateTime": "日期時間",
+                    "Download CSV": "下載 CSV",
+                    "Download PNG": "下載 PNG",
+                "All usage": "全部",
+                    // 某單位
+                    "Gross:": "總計：",
+                    "Billed:": "計費：",
+                    "Discount:": "優惠：",
+                "Usage by repository": "按倉庫統計",
+                    "Top three repositories today": "今日排名前三的倉庫",
+                    "Top three repositories this month": "本月排名前三的倉庫",
+                    "Top four repositories last month": "上月排名前四的倉庫",
+                    "Top four repositories this year": "今年排名前四的倉庫",
+                    "Top four repositories this month": "上年排名前四的倉庫",
 
-        // 程式碼空間超限
-        "You've used 90% of included services for GitHub Codespaces storage.": "您已使用 90% 程式碼空間存儲。",
-        "You've used 100% of included services for GitHub Codespaces storage.": "您已使用 100% 程式碼空間存儲。",
-            "When your allotment is exhausted, you won't be able to use Codespaces until you set up a spending limit or your free Codespaces allotment is reset next month. If you want to access your in progress work from a codespace, you can": "當您的額度耗盡後，您將無法使用程式碼空間，直到您設置支出上限或下月重置您的免費額度。如果您想訪問程式碼空間中正在進行的工作，您可以",
-            "export your unpushed work to a branch.": "將未推送的工作導出到分支。",
-            "To see a full list of your usage, obtain a copy of your": "要查看所有使用情況，請獲取您的",
-            "usage report": "使用報告",
-            "to see the codespaces and prebuilds created by your account. The usage report is the only place where prebuild usage is visible. If you see charges you'd like to stop going forward, you can delete a": "，以查看您的賬戶創建的程式碼空間和預構建。使用報告是唯一能顯示預構建使用情況的地方。如果您看到希望以後停止的費用，您可以刪除一個",
-            "codespace": "程式碼空間",
-            "delete prebuilds for a repository.": "刪除某個倉庫的預構建。",
-        "Update spending limit": "更新支出限額",
+                    "usage": "用量",
+                    "Gross amount": "總計",
+                    "All other repositories": "其他",
 
-        // 使用情況 https://github.com/settings/billing/usage
+                "No usage found": "無數據",
+
+                // 底下計算部分
+                    "More": "更多", // 小屏模式
+                    "View details": "詳情",
+                    "consumed usage -": "計費 -",
+                    "in discounts =": "折扣 =",
+                    "in billable usage": "計費",
+                    "Usage for Actions and Actions Runners.": "操作（運行器）用量。", // 後半句走正則
+                    "Copilot usage": "Copilot 用量",
+                        "Total spend on Copilot for the selected timeframe, excluding applicable discounts.": "所選時間段內 Copilot 的總支出，不含適用折扣。",
+                    "Billable licenses": "計費許可數",
+                        "Billable licenses info": "計費許可信息",
+                            "If a user stops consuming a license within the month, the adjustment will be reflected in your next month's bill.": "如果用戶在當月停止使用許可，相關調整將體現在您下個月的賬單中。",
+                            "Billable licenses are only available for the 'Current month' timeframe.": "計費許可僅適用於“當前月”時間段。",
+                        "Showing total unique licenses billed for your enterprise. Actual billed amount for each license is prorated based on when it is added during the billing cycle.": "顯示您企業所計費的唯一許可證總數。每個許可證的實際計費金額將根據其在計費週期內添加的時間按比例分攤。",
+                    "Copilot premium requests": "Copilot 高級版請求",
+                        "About Copilot premium requests": "關於 Copilot 高級版請求",
+                    // [/Cost calculated based on additional (\d+) premium requests/, "費用根據額外的 $1 項高級版請求計算"],
+
+            // 程式碼空間超限
+            "You've used 90% of included services for GitHub Codespaces storage.": "您已使用 90% 程式碼空間存儲。",
+            "You've used 100% of included services for GitHub Codespaces storage.": "您已使用 100% 程式碼空間存儲。",
+                "When your allotment is exhausted, you won't be able to use Codespaces until you set up a spending limit or your free Codespaces allotment is reset next month. If you want to access your in progress work from a codespace, you can": "當您的額度耗盡後，您將無法使用程式碼空間，直到您設置支出上限或下月重置您的免費額度。如果您想訪問程式碼空間中正在進行的工作，您可以",
+                "export your unpushed work to a branch.": "將未推送的工作導出到分支。",
+                "To see a full list of your usage, obtain a copy of your": "要查看所有使用情況，請獲取您的",
+                "usage report": "使用報告",
+                "to see the codespaces and prebuilds created by your account. The usage report is the only place where prebuild usage is visible. If you see charges you'd like to stop going forward, you can delete a": "，以查看您的賬戶創建的程式碼空間和預構建。使用報告是唯一能顯示預構建使用情況的地方。如果您看到希望以後停止的費用，您可以刪除一個",
+                "codespace": "程式碼空間",
+                "delete prebuilds for a repository.": "刪除某個倉庫的預構建。",
+            "Update spending limit": "更新支出限額",
+
+        // 計費用量 https://github.com/settings/billing/usage
             "Search or filter usage": "搜索或篩選",
 
             //"Group: None": "分組：無",
@@ -3711,7 +3737,7 @@ I18N["zh-TW"]["settings/billing"] = { // 設置 - 賬單和計劃
             //"Group: SKU": "分組：庫存單位",
             //"Group: Repository": "分組：倉庫",
                 "None": "無",
-                "SKU": "庫存單位",
+                // "SKU": "庫存單位",
             "Metered usage grouped by Product": "分組：產品",
                 "actions": "操作",
                 "codespaces": "程式碼空間",
@@ -3753,43 +3779,69 @@ I18N["zh-TW"]["settings/billing"] = { // 設置 - 賬單和計劃
         // 賬戶預算 https://github.com/settings/billing/budgets
            "Account budgets": "賬戶預算",
                 "New budget": "新建",
-                "On": "開",
-                "Off": "關",
+                // "On": "開",
+                // "Off": "關",
+                "Stop usage": "停止使用",
+                "Yes": "是",
                 "spent": "支出",
                 "budget": "預算",
 
-            // https://github.com/settings/billing/budgets/new
+        // 新建/更新預算 https://github.com/settings/billing/budgets/new
+        // https://github.com/settings/billing/budgets/<id>/edit
+            "Budgets and Alerts": "預算和警報",
             "New monthly budget": "新建月度預算",
+            "Edit monthly budget": "編輯每月預算", // edit
                 "Create a budget to track spending for a selected product and scope.": "創建預算以跟蹤選定產品和範圍的支出。",
             // 缺失支付方式
-                "You can’t increase the budget until you set up a valid payment method.": "在您設置有效的支付方式之前，無法增加預算。",
-            // 產品
-                "Select the product to include in this budget.": "選擇要包含在這個預算中的產品。",
+                "Please set up a valid payment method before creating or adjusting your budget.": "請在創建或調整預算前設置有效的付款方式。",
+
+            "Budget type": "預算類型",
+                "Set budget for either a product or individual SKU within a product.": "為產品或產品中的單個 SKU 設置預算。",
+                "Product-level budget": "產品級預算",
+                    "Select 1 product": "選擇產品",
+                "SKU-level budget": "SKU 級預算",
+                    "Select": "選擇",
+                    "Select an item": "選擇專案",
 
             "Budget scope": "預算範圍",
                 "Select the scope of spending for this budget.": "選擇此預算的支出範圍。",
-                // 賬戶
-                    "Spending for all repositories owned by your account": "賬戶擁有的所有倉庫的支出",
                 // 倉庫
-                    "Spending for a single repository": "單個倉庫支出",
+                    "Spending for a single repository.": "單個倉庫支出。",
+                        "Select repository": "選擇倉庫",
+                        "Select the": "選擇",
+                        "to include in this": "包含在此",
+                        ". You can only add/remove the": "您只能添加/刪除您可以訪問的",
+                        "that you have access to.": "。",
+                        "Search repository": "搜索倉庫",
+                        "Showing": "顯示",
+                        "of": "/",
+                        // [/(\d+) selected/, "$1 個選定"],
+                // 賬戶
+                    "Spending for all repositories owned by your account.": "賬戶擁有的所有倉庫的支出。",
+                    "Spending for all repositories owned by your account": "賬戶擁有的所有倉庫的支出。",
 
             "Budget": "預算",
                 "Set a budget amount to track your spending on a monthly basis.": "設置預算金額以按月跟蹤您的支出。",
                 "Usage before budget creation isn't counted in the current billing cycle.": "預算創建前的使用情況不會計入當前計費週期。",
                 "Budget amount": "預算金額",
                     "Stop usage when budget limit is reached": "達到預算上限時停止使用",
-                        "This will limit your spending to the budget amount set by you": "這將把您的支出限制在您設定的預算額度內",
+                        "Spending won't exceed your set budget": "支出不會超出您設定的預算",
 
             // 警示
                 "Get emails and GitHub notifications when your spending has reached 75%, 90%, and 100% of the budget threshold.": "當您的支出達到預算閾值的75%、90%和100%時，接收電子郵件和 GitHub 通知。",
 
                 "Receive budget threshold alerts": "接收預算閾值警報",
 
-            "Create budget": "創建",
+            "Create budget": "創建預算",
+            "Update budget": "更新預算", // edit
+
+            // 左下角提示
+                "Please add a payment method to use budgets.": "請添加付款方式，以便使用預算。",
 
         // 許可 https://github.com/settings/billing/licensing
 
         // 其他 https://github.com/settings/billing/subscriptions
+            // [/In addition to your personal account, you manage (\d+) organizations?./, "除個人賬戶外，您還可以管理 $1 個組織。"],
             "Marketplace apps": "市場應用",
             "Sponsorships": "贊助",
 
@@ -3976,6 +4028,7 @@ I18N["zh-TW"]["settings/billing"] = { // 設置 - 賬單和計劃
             "Please update your billing information in order to add a payment method.": "請更新您的賬單信息，以便添加支付方式。",
 
             "Billing information": "賬單信息",
+                "Add your information to show on every invoice": "在每張發票上添加您的信息",
                 "Remove": "移除",
                     "Remove your billing information?": "確定移除賬單信息？",
                     "You are about to remove the billing information for this account.": "您即將刪除此賬戶的賬單信息。",
@@ -4101,7 +4154,6 @@ I18N["zh-TW"]["settings/billing"] = { // 設置 - 賬單和計劃
             "Amounts shown in USD": "以美元顯示的金額",
 
         // 用戶計劃 https://github.com/account/billing/plans
-        // https://github.com/account/billing/plans
             "Compare plans": "比較計劃",
             "Free": "免費",
                 "All the basics": "所有基礎",
@@ -4167,29 +4219,14 @@ I18N["zh-TW"]["settings/billing"] = { // 設置 - 賬單和計劃
                     "GitHub organizations give you team-based access control and discussions.": "GitHub 組織為您提供基於團隊的訪問控制和討論。",
                         "Learn more about organizations": "瞭解更多關於組織的信息",
 
-                "Security and compliance": "安全性與合規性",
-                    "Code scanning": "程式碼掃描",
-                        "Integrate automated security review into your pull requests with CodeQL. Find, prioritize, and fix vulnerabilities in your repositories without disrupting your workflow.": "使用 CodeQL 將自動化安全審查集成到您的拉取請求中。在不中斷工作流程的情況下，發現、優先處理並修復倉庫中的漏洞。",
-                    "Secret scanning": "機密掃描",
-                        "Detect credentials exposed in your git history, comments, or discussions. Prevent further exposures with push protection, which proactively blocks secrets from being pushed into your code.": "檢測您的 git 歷史記錄、評論或討論中暴露的憑證。通過推送保護，主動阻止機密被推送到您的程式碼中，防止進一步的暴露。",
-                    "Dependency review": "依賴審查",
-                        "Understand the security impact of newly introduced dependencies during pull requests, before they get merged.": "在拉取請求合併之前，瞭解新引入的依賴關係對安全的影響。",
-                    "Security overview": "安全概述",
-                        "Get a centralized view of your organization's security risks. Know where security features have and haven’t yet been configured.": "集中查看組織的安全風險。瞭解哪些安全功能已經配置，哪些尚未配置。",
-                    "Dependabot alerts": "Dependabot 警報",
-                        "Get notified when there are new vulnerabilities affecting dependencies in your repositories.": "當您的倉庫中出現影響依賴項的新漏洞時，您會收到通知。",
-                    "Dependabot security updates": "Dependabot 安全更新",
-                        "Keep projects secure by automatically opening pull requests that update vulnerable dependencies to secure versions.": "通過自動打開拉取請求，更新易受攻擊的依賴項至安全版本，保持專案的安全性。",
-                    "Dependabot version updates": "Dependabot 版本更新",
-                        "Keep projects up-to-date by automatically opening pull requests that update out-of-date dependencies.": "通過自動打開拉取請求，更新過時的依賴項，保持專案的最新狀態。",
-                    "Repository rules": "倉庫規則",
-                        "Enforce branch and tag protections across repositories. Rule insights allow you to review rule enforcement and understand its impact.": "跨倉庫實施分支和標籤保護限制。規則洞察允許您審查規則執行並瞭解其影響。",
-                    "Required reviews": "批准審查",
-                        "Ensure that pull requests have a specific number of approving reviews before collaborators can make changes to a protected branch.": "確保拉取請求通過特定數量的批准審查後，協作者才能對受保護分支進行更改。",
-                    // 所需的狀態檢查
-                        "Ensure that all required CI tests are passing before collaborators can make changes to a protected branch.": "確保所有必要的 CI 測試通過後，協作者才能對受保護分支進行更改。",
+                "Platform security and compliance": "平臺安全性與合規性",
+                    "Repository rulesets": "倉庫規則集",
+                        "Enforce consistent code standards, security, and compliance across branches and tags.": "跨倉庫分支和標籤，一致的程式碼標準、安全性和合規性。",
+                    // SBOMs
+                        "Export a software bill of materials (SBOM) for your repository.": "為倉庫導出軟體物料清單 (SBOM)。",
+                    "Artifact attestations": "附件證明",
+                        "Ensure unfalsifiable provenance and integrity for your software.": "確保軟體的不可篡改性和完整性。",
                     "GitHub Security Advisories": "GitHub 安全公告",
-                        "Privately discuss, fix, and publish information about security vulnerabilities found in your repository.": "私人討論，修復和發佈倉庫程式碼中的安全漏洞的信息。",
                     "Role-based access control": "基於角色的訪問控制",
                         "Define users' level of access to your code, data and settings.": "定義用戶訪問程式碼、數據和設置的級別。",
                     "Required 2FA": "雙因素身份驗證（2FA）",
@@ -4216,16 +4253,16 @@ I18N["zh-TW"]["settings/billing"] = { // 設置 - 賬單和計劃
                        // "Learn more about GitHub Enterprise": "瞭解更多關於 GitHub 企業版的信息。",
 
                 // 表格中內容
-                "per user/month": "每人/月",
-                "Upgrade to Pro": "升級到專業版",
-                "Unlimited": "無限",
-                "$0 spend limit": "$0 支出限額",
-                    "With policies and controls": "帶策略及限制",
-                "180 core-hours compute/month and 20GB storage": "每月 180 個核心小時計算和 20GB 存儲",
-                "2,000 minutes/month": "2000 分鐘/月",
-                    "Free for public repositories": "免費用於公共倉庫",
-                "3,000 minutes/month": "3,000 分鐘/月",
-                "Public repositories": "公共倉庫",
+                    "per user/month": "每人/月",
+                    "Upgrade to Pro": "升級到專業版",
+                    "Unlimited": "無限",
+                    "$0 spend limit": "$0 支出限額",
+                        "With policies and controls": "帶策略及限制",
+                    "180 core-hours compute/month and 20GB storage": "每月 180 個核心小時計算和 20GB 存儲",
+                    "2,000 minutes/month": "2000 分鐘/月",
+                        "Free for public repositories": "免費用於公共倉庫",
+                    "3,000 minutes/month": "3,000 分鐘/月",
+                    "Public repositories": "公共倉庫",
 
         // 組織設置 邀請賬單管理員 '/organizations/<org-login>/billing_managers/new'
             "Billing": "賬單",
@@ -4264,121 +4301,122 @@ I18N["zh-TW"]["settings/billing"] = { // 設置 - 賬單和計劃
 
     },
     "regexp": [ // 正則翻譯
-        [/The plan change was successful. @([^ ]+) has been updated to the pro yearly plan./, "計劃變更成功。@$1 已更新為專業版年度計費。"],
-        [/The plan change was successful. @([^ ]+) has been updated to the pro monthly plan./, "計劃變更成功。@$1 已更新為專業版月度計費。"],
-        [/We're preparing your report! We’ll send an email to ([^@]+@[^\n]+) when it’s ready./, "我們正在準備您的報告！完成後，我們將發送電子郵件至 $1。"], //頂部提醒
-        [/Included minutes quota resets? in (\d+) days?./, "包含的分鐘配額將在 $1 天之內重置"],
-        [/Data transfer quota resets? in (\d+) days?./, "數據傳輸配額將在 $1 天之內重置"],
-        //[/Included minutes quota resets/, ""],
-        [/Included quotas resets? in (\d+) days?./, "包含的配額將在 $1 天之內重置"],
-        [/Bandwidth quota resets? in (\d+) days?./, "帶寬使用配額將在 $1 天之內重置"],
-        [/In addition to your personal account, you manage (\d+) organizations?./, "除了您的個人賬戶之外，您還管理 $1 個組織。"],
-        [/Leaving it at (\$\d+\.\d{2}) will avoid any extra expenses/, "將其限制在 $1 美元將避免任何額外的費用。"],
-        [/isn’t a GitHub member/, "不是 GitHub 成員"], // 組織設置
-        [/of ([\d,]+\.\d{2}) min included/, "/ $1 分鐘"],
-        [/(?:GB )?of ([^ ]+) GB(?: included)?/, "/ $1 GB"],
-        //[/of ([^ ]+) GB( included)?/, "/ $1 GB"],
-        [/of (\d+\.\d{2}) included core hours used/, "/ $1 核心小時數"],
-        [/of (\d+\.\d{2}) included GB-month used/, "/ $1 GB/每月"],
-        [/Last (\d+) days/, "最近 $1 天"],
-        [/([^ ]+) support/, "$1 支持"],
-        [/Included minutes quota only applies to Ubuntu 2-core, Windows 2-core and macOS 3-core runners\. Windows 2-core and macOS 3-core runners consume included minutes at higher rates\. Your (\d+\.\d+) included minutes used consists of (.*)/, "包含的分鐘配額僅適用於雙核 Ubuntu、雙核 Windows 和三核 macOS 運行器。雙核 Windows 和三核 macOS 運行器以更高的速度消耗包括的分鐘數。您已使用的 $1 分鐘包含分鐘數由 $2 組成。"],
-        [/(\$\d+\.\d{2}) off per month for (\d+) years/, "每月優惠 $1，為期 $2 年"],
-        [/(\$\d+\.\d{2})\/month/, "$1/月"],
-        [/(\$\d+\.\d{2}) off \/ month/, "-$1/月"],
-        [/(\$\d+\.\d{2})\/year/, "$1/年"],
-        [/(\$\d+\.\d{2}) off \/ year/, "-$1/年"],
-        [/(Due by|On|Expires) (.+)/, (match, opt, p1) => {
-            var optKey = {"Due by": "結算", "On": "開始", "Expires": "到期"};
-            const dateRegExp = I18N["zh-TW"]["public"]["time-regexp"];
-            const translatedDate = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
-            return `${translatedDate}` + optKey[opt];
-        }],
-        [/until (.+)./, (match, p1) => {
-            const dateRegExp = I18N["zh-TW"]["public"]["time-regexp"];
-            const translatedDate = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
-            return `直到 ${translatedDate}。`;
-        }],
-        [/(?:Usage for )?(.+) \(All times in UTC\).?/, (match, p1) => {
-            const dateRegExp = I18N["zh-TW"]["public"]["time-regexp"];
-            const translatedDate = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
-            return `${translatedDate}（UTC時間）`;
-        }],
-        [/(Usage|codespaces|actions|Codespaces storage|Codespaces compute 2-core|Actions Windows|Actions macOS 3-core|Actions Linux|Actions storage|All other) (?:[^ ]+), (.+)/, (match, s1, p1) => {
-            //const translatedP1 = I18N["zh-TW"]["public"]["time-regexp"][p1] || p1;
-            //const translatedP2 = I18N["zh-TW"]["public"]["time-regexp"][p2] || p2;
-            var s1Key = {'Usage': '用量','actions': '操作', 'codespaces': '程式碼空間', 'Codespaces storage': '程式碼空間存儲', 'Codespaces compute 2-core': '程式碼空間 - 雙核','Actions Windows': '操作 Windows', 'Actions Linux': '操作 Linux','Actions macOS 3-core': '操作 macOS 三核','Actions storage': "操作存儲",'All other': '其他'};
-            const dateRegExp = I18N["zh-TW"]["public"]["time-regexp"];
-            const translatedDate = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
-            return `${translatedDate}` + s1Key[s1];// 星期幾暫時省略
-        }],
-        // 計費用量 - 右上角時間選項
-        [/^Time Frame: (Today|Current month|Last month|This year \((\d+)\)|Last year \((\d+)\))$/, (match, p1, p2, p3) => {
-            switch (p1) {
-              case 'Today':
-                return '時間段：今天';
-              case 'Current month':
-                return '時間段：本月';
-              case 'Last month':
-                return '時間段：上個月';
-              case `This year (${p2})`:
-                return `時間段：今年（${p2}）`;
-              case `Last year (${p3})`:
-                return `時間段：去年（${p3}）`;
-              default:
-                return match;
-            }
-        }],
-        [/This year \((\d+)\)/, "今年（$1）"],
-        [/Last year \((\d+)\)/, "去年（$1）"],
-        [/(\d+)(AM|PM)/, (match, p1, p2) => {
-            // 運行規則：非12AM照搬，PM數字加12，12AM=0
-            let hour = parseInt(p1, 10);
-            if (p2 === "PM" && hour !== 12) {
-                hour += 12;
-            } else if (p2 === "AM" && hour === 12) {
-                hour = 0;
-            }
-            return `${hour}:00`;
-        }], // 計費用量 - 今天圖表下方時間
-        [/Top five repositories (today|this month|last month|this year|last year)/, function(all, time) {
-            var timeKey = {
-                'today': '今天',
-                'this month': '這個月',
-                'last month':'上個月',
-                'this year': '今年',
-                'last year': '去年'};
-            return timeKey[time] + "用量最高的 5 個倉庫";
-        }], // 按倉庫統計 - 下方
-        // 概況 - 底部，因詞條打架放到這裡
-        [/([\d,+]) included Actions minutes \(~(\$\d+\.\d+) off\*\)/, "$1 操作分鐘數（~$2 減免*）"],
-        [/\(~(\$\d+\.\d+) off\*\)/, "（~$1 減免*）"],
-        // 當前包含用量
-        [/([\d,+]) included Actions minutes/, "$1 操作分鐘數"],
-        [/(\d+) GB included Actions storage/, "$1 GB 操作存儲"],
-        [/(\d+) GB included Git LFS bandwidth/, "$1 GB Git LFS 帶寬"],
-        [/(\d+) GB included Git LFS storage/, "$1 GB Git LFS 存儲"],
-        [/(\d+) GB included Packages data transfer/, "$1 GB 軟體包數據傳輸"],
-        [/(\d+) GB included Packages storage/, "$1 GB 軟體包存儲"],
-        [/Discount for usage in public repositories \((\d+%) off\)/, "公共倉庫使用折扣（$1 減免）"],
-        [/(\d+) GB included Codespaces storage/, "$1 GB 程式碼空間存儲"],
-        [/(\d+) included Codespaces core hours/, "$1 程式碼空間核心小時數"],
 
-        // 使用情況
-        [/^Group: (None|Product|SKU|Repository)$/, function(all, group) {
-            var groupKey = {'None': '無','Product': '產品','SKU': '庫存單位','Repository': '倉庫'};
-            return '分組：' + groupKey[group];
-        }],
-        [/Usage for (.+)./, (match, p1) => {
-            const dateRegExp = I18N["zh-TW"]["public"]["time-regexp"];
-            const translatedDate = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
-            return `${translatedDate}`; // 有標題作為上下文，直接省略，只剩日期
-        }],
-        [/(\d+) min/, "$1 分"],
-        [/([\d,+]\.\d+|[\d,+]) GB-hr/, "$1 GB/時"],
-        [/(\d+\.\d+) hr/, "$1 小時"],
-        // 賬戶預算
-        [/(\d+) budgets?/, "$1 預算"],
+        // billing 概況頁面
+        // 當前包含用量 - 詳情 對話框
+            [/([\d,+]) included Actions minutes \(~(\$\d+\.\d+) off\*\)/, "$1 操作分鐘數（~$2 減免*）"],
+            [/\(~(\$\d+\.\d+) off\*\)/, "（~$1 減免*）"],
+
+            [/([\d,+]) included Actions minutes/, "$1 操作分鐘數"],
+            [/(\d+) GB included Actions storage/, "$1 GB 操作存儲"],
+            [/(\d+) GB included Git LFS bandwidth/, "$1 GB Git LFS 帶寬"],
+            [/(\d+) GB included Git LFS storage/, "$1 GB Git LFS 存儲"],
+            [/(\d+) GB included Packages data transfer/, "$1 GB 軟體包數據傳輸"],
+            [/(\d+) GB included Packages storage/, "$1 GB 軟體包存儲"],
+            [/Discount for usage in public repositories \((\d+%) off\)/, "公共倉庫使用折扣（$1 減免）"],
+            [/(\d+) GB included Codespaces storage/, "$1 GB 程式碼空間存儲"],
+            [/(\d+) included Codespaces core hours/, "$1 程式碼空間核心小時數"],
+
+        // 計費用量 - 右上角時間選項
+            [/^Time Frame: (Today|Current month|Last month|This year \((\d+)\)|Last year \((\d+)\))$/, (match, p1, p2, p3) => {
+                switch (p1) {
+                  case 'Today':
+                    return '時間段：今天';
+                  case 'Current month':
+                    return '時間段：本月';
+                  case 'Last month':
+                    return '時間段：上個月';
+                  case `This year (${p2})`:
+                    return `時間段：今年（${p2}）`;
+                  case `Last year (${p3})`:
+                    return `時間段：去年（${p3}）`;
+                  default:
+                    return match;
+                }
+            }],
+            [/This year \((\d+)\)/, "今年（$1）"],
+            [/Last year \((\d+)\)/, "去年（$1）"],
+        // 計費用量 - 今天 日期標題
+            [/(.+) \(All times in UTC\)/, (match, p1) => {
+                const dateRegExp = I18N["zh-TW"]["public"]["time-regexp"];
+                const translatedDate = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
+                return `${translatedDate}（UTC時間）`;
+            }],
+        // 計費用量圖表 數據卡
+            [/(Usage|codespaces|actions|Codespaces storage|Codespaces compute 2-core|Actions Windows|Actions macOS 3-core|Actions Linux|Actions storage|All other) (?:[^ ]+), (.+)/, (match, s1, p1) => {
+                //const translatedP1 = I18N["zh-TW"]["public"]["time-regexp"][p1] || p1;
+                //const translatedP2 = I18N["zh-TW"]["public"]["time-regexp"][p2] || p2;
+                var s1Key = {'Usage': '用量','actions': '操作', 'codespaces': '程式碼空間', 'Codespaces storage': '程式碼空間存儲', 'Codespaces compute 2-core': '程式碼空間 - 雙核','Actions Windows': '操作 Windows', 'Actions Linux': '操作 Linux','Actions macOS 3-core': '操作 macOS 三核','Actions storage': "操作存儲",'All other': '其他'};
+                const dateRegExp = I18N["zh-TW"]["public"]["time-regexp"];
+                const translatedDate = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
+                return `${translatedDate}` + s1Key[s1];// 星期幾暫時省略
+            }],
+        // 計費用量 - 今天 X軸
+            [/(\d+)(AM|PM)/, (match, p1, p2) => {
+                // 運行規則：非12AM照搬，PM數字加12，12AM=0
+                let hour = parseInt(p1, 10);
+                if (p2 === "PM" && hour !== 12) {
+                    hour += 12;
+                } else if (p2 === "AM" && hour === 12) {
+                    hour = 0;
+                }
+                return `${hour}:00`;
+            }],
+
+        // [/The plan change was successful. @([^ ]+) has been updated to the pro yearly plan./, "計劃變更成功。@$1 已更新為專業版年度計費。"],
+        // [/The plan change was successful. @([^ ]+) has been updated to the pro monthly plan./, "計劃變更成功。@$1 已更新為專業版月度計費。"],
+        // [/We're preparing your report! We’ll send an email to ([^@]+@[^\n]+) when it’s ready./, "我們正在準備您的報告！完成後，我們將發送電子郵件至 $1。"], //頂部提醒
+        // [/Included minutes quota resets? in (\d+) days?./, "包含的分鐘配額將在 $1 天之內重置"],
+        // [/Data transfer quota resets? in (\d+) days?./, "數據傳輸配額將在 $1 天之內重置"],
+        // //[/Included minutes quota resets/, ""],
+        // [/Included quotas resets? in (\d+) days?./, "包含的配額將在 $1 天之內重置"],
+        // [/Bandwidth quota resets? in (\d+) days?./, "帶寬使用配額將在 $1 天之內重置"],
+        // [/In addition to your personal account, you manage (\d+) organizations?./, "除了您的個人賬戶之外，您還管理 $1 個組織。"],
+        // [/Leaving it at (\$\d+\.\d{2}) will avoid any extra expenses/, "將其限制在 $1 美元將避免任何額外的費用。"],
+        // [/isn’t a GitHub member/, "不是 GitHub 成員"], // 組織設置
+        // [/of ([\d,]+\.\d{2}) min included/, "/ $1 分鐘"],
+        // [/(?:GB )?of ([^ ]+) GB(?: included)?/, "/ $1 GB"],
+        // //[/of ([^ ]+) GB( included)?/, "/ $1 GB"],
+        // [/of (\d+\.\d{2}) included core hours used/, "/ $1 核心小時數"],
+        // [/of (\d+\.\d{2}) included GB-month used/, "/ $1 GB/每月"],
+        // [/Last (\d+) days/, "最近 $1 天"],
+        // [/([^ ]+) support/, "$1 支持"],
+        // [/Included minutes quota only applies to Ubuntu 2-core, Windows 2-core and macOS 3-core runners\. Windows 2-core and macOS 3-core runners consume included minutes at higher rates\. Your (\d+\.\d+) included minutes used consists of (.*)/, "包含的分鐘配額僅適用於雙核 Ubuntu、雙核 Windows 和三核 macOS 運行器。雙核 Windows 和三核 macOS 運行器以更高的速度消耗包括的分鐘數。您已使用的 $1 分鐘包含分鐘數由 $2 組成。"],
+        // [/(\$\d+\.\d{2}) off per month for (\d+) years/, "每月優惠 $1，為期 $2 年"],
+        // [/(\$\d+\.\d{2})\/month/, "$1/月"],
+        // [/(\$\d+\.\d{2}) off \/ month/, "-$1/月"],
+        // [/(\$\d+\.\d{2})\/year/, "$1/年"],
+        // [/(\$\d+\.\d{2}) off \/ year/, "-$1/年"],
+        // [/(Due by|On|Expires) (.+)/, (match, opt, p1) => {
+        //     var optKey = {"Due by": "結算", "On": "開始", "Expires": "到期"};
+        //     const dateRegExp = I18N["zh-TW"]["public"]["time-regexp"];
+        //     const translatedDate = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
+        //     return `${translatedDate}` + optKey[opt];
+        // }],
+        // [/until (.+)./, (match, p1) => {
+        //     const dateRegExp = I18N["zh-TW"]["public"]["time-regexp"];
+        //     const translatedDate = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
+        //     return `直到 ${translatedDate}。`;
+        // }],
+
+
+
+        // 計費用量 https://github.com/settings/billing/usage
+            [/^Group: (None|Product|SKU|Repository)$/, function(all, group) {
+                var groupKey = {'None': '無','Product': '產品','SKU': 'SKU','Repository': '倉庫'};
+                return '分組：' + groupKey[group];
+            }],
+            [/Usage for (.+)./, (match, p1) => {
+                const dateRegExp = I18N["zh-TW"]["public"]["time-regexp"];
+                const translatedDate = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
+                return `${translatedDate}`; // 有標題作為上下文，直接省略，只剩日期
+            }],
+            [/(\d+) min/, "$1 分"],
+            [/([\d,+]\.\d+|[\d,+]) GB-hr/, "$1 GB/時"],
+            [/(\d+\.\d+) hr/, "$1 小時"],
+
+        // 賬戶預算 https://github.com/settings/billing/budgets
+            [/(\d+) budgets?/, "$1 預算"],
         ...I18N["zh-TW"]["orgs-public"]["regexp"],
     ],
 };
@@ -7096,7 +7134,7 @@ I18N["zh-TW"]["repository-public"] = { // 倉庫 - 公共部分
             "Sorry, that branch already exists.": "抱歉，該分支已存在。",
             "has invited you to collaborate on this repository": "邀請您成為該倉庫協作者",
                 "View invitation": "查看",
-            
+
             // 存檔
             "This repository has been archived by the owner. It is now read-only.": "此倉庫已被所有者存檔。它現在是只讀的。",
 
@@ -8258,22 +8296,22 @@ I18N["zh-TW"]["repository/milestones"] = { // 倉庫 - 里程碑頁面
             "Create a Milestone": "創建里程碑",
 
             "Sort": "排序",
+            "Sort by": "排序",
                 "Recently updated": "最近更新",
                 "Furthest due date": "最遲到期日",
                 "Closest due date": "最近到期日",
                 "Least complete": "最不完整",
                 "Most complete": "最完整",
-                "Alphabetically": "按字母順序",
-                "Reverse alphabetically": "按字母倒序",
+                "Alphabetical": "按字母順序",
+                "Reverse alphabetical": "按字母倒序",
                 "Most issues": "最多的議題",
-                "Least issues": "最少的議題",
+                "Fewest issues": "最少的議題",
 
             "No due date": "沒有截止日期",
             "issues closed": "議題關閉",
             // [/Due by (.*)/, "截止日期 $1"], // 里程碑截止日期
             "Last updated": "最後更新",
             "(more)": "（更多）",
-            "Show less": "顯示更少",
             // 完成進度條
             "complete": "已完成",
             "open": "打開",
@@ -8287,7 +8325,7 @@ I18N["zh-TW"]["repository/milestones"] = { // 倉庫 - 里程碑頁面
             "Due date (optional)": "截止日期（可選）",
             "Description": "描述",
             "Create milestone": "創建里程碑",
-        
+
         // 單個里程碑頁 /<user-name>/<repo-name>/milestones
             "opened": "打開於",
             "was closed": "關閉於",
@@ -8932,6 +8970,8 @@ I18N["zh-TW"]["repository/issues"] = { // 倉庫 - 議題頁面
             "added sub-issues": "添加子議題",
             "removed a parent issue": "移除父議題",
             "removed a sub-issue": "移除子議題",
+            "marked": "標記",
+                "as a duplicate of this issue": "議題同此重複", // 示例 https://github.com/maboloshi/github-chinese/issues/405
 
             // 右側欄 補充
             "Metadata": "元數據", // 小屏模式
@@ -9181,7 +9221,7 @@ I18N["zh-TW"]["repository/issues"] = { // 倉庫 - 議題頁面
 
         // Copilot 浮窗 獨有詞條
             "Ask about the issue:": "討論此議題：",
-        
+
         // 底部提示欄（未登錄
         "to join this conversation on GitHub.": "加入 GitHub 上的這個討論。",
             "Already have an account?": "已經有賬戶？",
@@ -9718,6 +9758,7 @@ I18N["zh-TW"]["repository/pull"] = { // 倉庫 - 某個拉取請求頁面
             "Merge pull request": "合併拉取請求",
                 "Merging is blocked due to failing merge requirements": "由於未滿足合併要求，合併已被阻止。",
             // 合併拉取請求 按鈕下拉
+            "Select merge method": "選擇合併方式",
                 "Create a merge commit": "創建合併提交",
                     "All commits from this branch will be added to the base branch via a merge commit.": "該分支的所有提交都將通過合併提交加入到基礎分支中。",
                     "Not enabled for this repository": "未為此倉庫啟用",
@@ -11000,8 +11041,6 @@ I18N["zh-TW"]["repository/blob"] = { // 倉庫 - 瀏覽程式碼
                     "References": "引用",
                     "Reference": "引用",
                     "No definitions or references found": "未找到定義或引用",
-                    "Show more": "顯示更多",
-                    "Show less": "顯示更少",
                     "Search for this symbol": "搜索此符號",
 
         // 程式碼追溯頁面 /<user-name>/<repo-name>/blame/<branch>/<file>
@@ -12008,8 +12047,6 @@ I18N["zh-TW"]["repository/actions"] = { // 倉庫 - 操作頁面
                     "This artifact has expired and you can no longer download it": "此附件已過期，您無法再下載",
             "Annotations": "說明",
                 // [/1 error/, "$1 個錯誤"],
-                "Show more": "顯示更多",
-                "Show less": "顯示更少",
 
         // /<user-name>/<repo-name>/actions/runs/<id>/job/<job-id>
             "The logs for this run have expired and are no longer available.": "此運行日誌已過期，不再可用。",
@@ -15108,7 +15145,7 @@ I18N["zh-TW"]["repository/settings"] = { // 倉庫設置 - 通常 /<user-name>/<
 
                 // 提醒
                 "Must be a whole number between 2 and 1000": "必須是 2 到 1000 之間的整數",
-            
+
             // 議題
                 "After merging a pull request, linked issues can be closed automatically.": "合併拉取請求後，可以自動關閉關聯議題。",
                     "Auto-close issues with merged linked pull requests": "使用已合併的關聯拉取請求自動關閉議題",
@@ -15764,6 +15801,10 @@ I18N["zh-TW"]["repository/settings/rules"] = { // 倉庫設置 - 規則 - 規則
             "Tag": "標籤",
             "tags": "標籤",
 
+            "Open additional options": "打開其他選項",
+            "Export": "導出",
+            "ruleset": "規則",
+
             "Name": "名稱",
                 "Ruleset name cannot be empty": "規則集名稱不能為空",
             "Enforcement status": "執行狀態",
@@ -15950,7 +15991,7 @@ I18N["zh-TW"]["repository/settings/rules"] = { // 倉庫設置 - 規則 - 規則
                         "Hide additional settings": "隱藏附加設置",
                         "Show additional settings": "顯示附加設置",
                             "Search for deployment environments": "搜索部署環境",
-                            "No deployment environments found": "未找到部署環境",
+                            "No deployment environments have been added": "未添加部署環境",
                             "Learn more about deployment environments": "瞭解更多關於部署環境的信息",
                     "Require signed commits": "要求帶簽名的提交",
                         "Commits pushed to matching refs must have verified signatures.": "推送到匹配引用的提交必須帶有經過驗證的簽名。",
@@ -15970,6 +16011,19 @@ I18N["zh-TW"]["repository/settings/rules"] = { // 倉庫設置 - 規則 - 規則
                                 "Automatically request review from Copilot for new pull requests, if the author has access to Copilot code review.": "如果作者有權訪問 Copilot 程式碼審查，則自動請求 Copilot 對新拉取請求進行審查。",
 
                             "Allowed merge methods": "允許合併方法",
+                                "Merge, Squash": "合併，壓縮",
+                                "Merge, Squash, Rebase": "合併，壓縮，變基",
+                                "Merge, Rebase, Squash": "合併，變基，壓縮",
+                                "Merge, Rebase, Squash": "合併，變基，壓縮",
+                                "Merge, Rebase": "合併，變基",
+                                "Squash, Rebase": "壓縮，變基",
+                                "Squash, Rebase, Merge": "壓縮，變基，合併",
+                                "Squash, Merge": "壓縮，合併",
+                                "Squash, Merge, Rebase": "壓縮，合併，變基",
+                                "Rebase, Merge": "變基，合併",
+                                "Rebase, Squash": "變基，壓縮",
+                                "Rebase, Squash, Merge": "變基，壓縮，合併",
+                                "Rebase, Merge, Squash": "變基，合併，壓縮",
                                 "Merge": "合併",
                                     "Add all commits from the head branch to the base branch with a merge commit.": "將所有來自頭部分支的提交通過一次合併提交添加到基礎分支。",
                                 "Squash": "壓縮",
@@ -16008,6 +16062,7 @@ I18N["zh-TW"]["repository/settings/rules"] = { // 倉庫設置 - 規則 - 規則
                         "Alerts": "警報",
                             "Errors": "僅錯誤",
                             "Errors and Warnings": "錯誤和警告",
+                        "Delete Tool": "刪除工具",
                         "Tools that must provide code scanning results for this rule to pass.": "必須提供程式碼掃描結果才能通過此規則的工具。",
                         "Learn more about enabling code scanning.": "瞭解更多關於啟用程式碼掃描的信息。",
 
@@ -16193,13 +16248,15 @@ I18N["zh-TW"]["repository/settings/actions"] = { // 倉庫設置 - 操作 /<user
 
             "Artifact and log retention": "工件和日誌保留",
                 "Choose the repository settings for artifacts and logs.": "選擇工件和日誌的倉庫設置。",
+                "There is a maximum limit of": "最大限制為",
+                "days.": "天。",
                 "Your organization has set a maximum limit of": "您的組織已將上限設置為", //組織倉庫
-                "days.": "天。", //組織倉庫
                 "Learn more about the artifact and log retention policy.": "瞭解更多關於工件和日誌保留政策的信息。",
 
                 // 輸入框提示
                 "Duration must be 1 or more.": "不能小於 1",
                 "Duration must be 90 or less": "不能大於 90",
+                "There is a maximum limit of": "最多",
 
                 "days": "天",
 
@@ -16229,7 +16286,8 @@ I18N["zh-TW"]["repository/settings/actions"] = { // 倉庫設置 - 操作 /<user
             "Require approval for all outside collaborators": "要求對所有外部協作者進行批准審查",
                 "All outside collaborators will always require approval to run workflows on their pull requests.": "所有外部協作者將始終需要批准才能在他們的拉取請求上運行工作流程。",
             "Require approval for all external contributors": "要求對所有外部貢獻者進行批准審查",
-                "All users that are not a member or owner of this repository will require approval to run workflows.": "所有不是該倉庫成員或所有者的用戶都需要獲得批准才能運行工作流。",
+                "All users that are not a member or owner of this repository will require approval to run workflows.": "所有不是該倉庫成員或所有者的用戶，均需獲得批准才能運行工作流。",
+                // [/All users that are not a member or owner of this repository and not a member of the ([^ ]+) organization will require approval to run workflows./, "所有不是該倉庫成員或所有者，且未加入 $1 組織的用戶，均需獲得批准才能運行工作流。"], // 組織
 
             "Workflow permissions": "工作流程權限",
                 "Choose the default permissions granted to the GITHUB_TOKEN when running workflows in this repository. You can specify more granular permissions in the workflow using YAML.": "在倉庫中運行工作流程時，選擇授予 GITHUB_TOKEN 的默認權限。您可以使用 YAML 在工作流程中指定更細化的權限。",
@@ -16274,6 +16332,7 @@ I18N["zh-TW"]["repository/settings/actions"] = { // 倉庫設置 - 操作 /<user
         [/Any action or reusable workflow defined in a repository within ([^ ]+) can be used./, "可以使用在 $1 的倉庫中定義的任何操作或可複用的工作流程。"], // 操作頁面
         [/Allow ([^ ]+), and select non-([^ ]+), actions and reusable workflows/, "允許 $1，並選擇非 $2、操作和可複用的工作流程"],
         [/Any action or reusable workflow that matches the specified criteria, plus those defined in a repository within ([^ ]+), can be used./, "可以使用符合指定條件的操作或工作流程，以及在 $1 的倉庫中定義的操作或可複用的工作流程。"], // 操作頁面
+        [/All users that are not a member or owner of this repository and not a member of the ([^ ]+) organization will require approval to run workflows./, "所有不是該倉庫成員或所有者，且未加入 $1 組織的用戶，均需獲得批准才能運行工作流。"], // 組織
         ...I18N["zh-TW"]["repository-public"]["regexp"],
     ],
 };
@@ -16283,7 +16342,7 @@ I18N["zh-TW"]["repository/settings/models/access-policy"] = { // 倉庫設置 - 
         ...I18N["zh-TW"]["repository-public"]["static"],
         ...I18N["zh-TW"]["repository-settings-menu"]["static"],
         ...I18N["zh-TW"]["orgs-settings-menu"]["static"],
-        
+
         //"Models": "模型",
 
         "Models in this repository": "此倉庫模型",
@@ -18981,7 +19040,6 @@ I18N["zh-TW"]["search"] = { // 搜索頁面
 
             // &type=code
                 // [/Show ([\d,]+) more matches?/, "顯示更多 $1 處匹配"],
-                "Show less": "顯示更少",
                 "This file contains": "該文件還包含",
                 "more": "處",
                 "match": "匹配",
@@ -20335,7 +20393,7 @@ I18N["zh-TW"]["marketplace"] = { // GitHub 市場
                 "Recently added apps": "最近添加應用",
                 "Recently added actions": "最近添加操作",
                 "The latest tools that help you and your team build software better, together.": "最新的工具可幫助您和您的團隊更好地共同構建軟體。",
-            
+
             "Reporting": "報告",
                 "Reporting apps": "報告應用",
                 "Get insights into how your teams are developing software using GitHub.": "瞭解您的團隊如何使用 GitHub 開發軟體的深入見解。",
@@ -20358,7 +20416,7 @@ I18N["zh-TW"]["marketplace"] = { // GitHub 市場
                 "Testing apps": "測試應用",
                 "Testing actions": "測試操作",
                 "Eliminate bugs and ship with more confidence by adding these tools to your workflow.": "通過將這些工具添加到您的工作流程中，消除錯誤並更有信心地交付。",
-            
+
             "Time tracking": "時間跟蹤",
                 "Time tracking apps": "時間追蹤應用",
                 "Time tracking actions": "時間追蹤操作",
@@ -23319,8 +23377,6 @@ I18N["zh-TW"]["projects"] = { // 專案頁面(含倉庫專案)
             "opened by": "打開者",
             "Opened in": "打開在",
             "commented": "評論於",
-            "Show less": "顯示更少",
-            "Show more": "顯示更多",
             "Assignees": "受理人",
                 "No one assigned": "無人受理",
             "Labels": "標籤",
@@ -24951,6 +25007,9 @@ I18N["zh-TW"]["copilot"] = {
 
             // 預設欄
                 "Create issue": "創建議題",
+                // 空間
+                    "Recent": "最近",
+                    "Create a space": "新建空間",
                 // 文件
                     "Profile README": "個人資料",
                     "Simple calculator": "簡易計算器",
@@ -25055,11 +25114,11 @@ I18N["zh-TW"]["copilot"] = {
                             "Give the file a title": "文件標題",
                         "Content": "內容",
                             "Enter content here": "在此鍵入內容",
-                
+
                 // 文件列表
                 "Size": "大小",
                 "Resource actions": "操作",
-        
+
         // 空間 - 聊天
             "Start a new conversation": "開始聊天",
 
@@ -25067,7 +25126,7 @@ I18N["zh-TW"]["copilot"] = {
 
             "Start your first conversation using the field above": "用上面的輸入框開始您的第一次對話",
             "Start your first conversation using the input above": "輸入文本開始您的第一次對話",
-            
+
             // 右側
                 "Owned by": "所有者",
 
