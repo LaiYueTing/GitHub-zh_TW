@@ -35,7 +35,7 @@
 - [🤝 参与贡献](#-参与贡献)
 - [🖼️ 效果预览](#-效果预览)
 - [🙏 特别鸣谢](#-特别鸣谢)
-- [📈 星标历史](#-星标历史)
+- [📈 项目统计](#-项目统计)
 - [🎁 欢迎打赏](#-欢迎打赏)
 
 ## 🌟 功能特性
@@ -354,7 +354,7 @@ GitHub 的 ajax 载入方式逐步从 [defunkt/jquery-pjax](https://github.com/d
 </div>
 
 
-## 📈 星标历史
+## 📈 项目统计
 
 <a href="https://star-history.com/#maboloshi/github-chinese&Timeline">
   <picture>
@@ -364,19 +364,20 @@ GitHub 的 ajax 载入方式逐步从 [defunkt/jquery-pjax](https://github.com/d
   </picture>
 </a>
 
+![Alt](https://repobeats.axiom.co/api/embed/ae4c378f0e6ec317654ec5c4e8b01218c734cd53.svg "Repobeats analytics image")
+
 <div align="right">
 
 [![][back-to-top]](#readme-top)
 
 </div>
 
+## 🎁 欢迎打赏
+[赞赏列表](https://github.com/maboloshi/maboloshi/issues/1)
+|                                        微信赞赏                                        |                                       支付宝赞赏                                       |
+| :--------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------: |
+| <img src="https://cdn.jsdelivr.net/gh/maboloshi/maboloshi/img/wechat.png?raw=true" alt="WeChat QRcode" width=200> <br><small>☕喝点咖啡继续干☕</small> | <img src="https://cdn.jsdelivr.net/gh/maboloshi/maboloshi/img/alipay-1.jpg?raw=true" alt="AliPay QRcode" width=200> <br><small>🌶️来包辣条吧~🍪</small> |
 
-<details>
-  <summary><h2>🎁 欢迎打赏</h2></summary>
-
-  <img src="https://cdn.jsdelivr.net/gh/maboloshi/maboloshi/img/weixin.jpg" alt="微信赞赏" width="30%">  <img src="https://cdn.jsdelivr.net/gh/maboloshi/maboloshi/img/alipay.jpg" alt="支付宝赞赏" width="30%">
-  
-</details>
 
 <!-- LINK GROUP -->
 
