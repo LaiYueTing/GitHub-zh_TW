@@ -9722,8 +9722,13 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
 
                 // 绕过规则合并
                 "Merge without waiting for requirements to be met (bypass rules)": "无需等待满足要求即可合并（绕过规则）",
-                "Bypass rules and merge": "绕过规则进行合并",
-                "Confirm bypass rules and merge": "确认绕过规则进行合并",
+                "Bypass rules and merge": "绕过规则合并",
+                    "Confirm bypass rules and merge": "确认绕过规则合并",
+                "Bypass rules and merge (squash)": "绕过规则合并（压缩）",
+                    "Confirm bypass rules and merge (squash)": "确认绕过规则合并（压缩）",
+                "Bypass rules and merge (rebase)": "绕过规则合并（变基）",
+                    "This will rebase your changes and merge them into": "将更改变基合并到",
+                    "Confirm bypass rules and merge (rebase)": "确认绕过规则合并（变基）",
 
             "Merging can be performed automatically once the requested changes are addressed.": "一旦请求的更改得到解决，合并就可以自动执行。",
             "This branch is out-of-date with the base branch": "此分支相比基础分支已过时",
@@ -9737,6 +9742,7 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
                             "This branch cannot be rebased due to conflicts.": "由于冲突，此分支不能变基。",
                             "This pull request will be rebased on top of the latest changes and then force pushed.": "此拉取请求将会在最新的更改之上进行变基，并且会使用强制推送的方式提交。",
                             "This branch cannot be rebased due to conflicts": "由于冲突，无法对此分支执行变基操作。",
+                // [/Merge the latest changes from ([^ ]+) into this branch. This merge commit will be associated with ([^ ]+)./, "将最新更改从 $1 分支合并到当前分支。该合并提交将与用户 $2 相关联。"],
 
             "The base branch restricts merging to authorized users.": "基础分支合并仅限于授权用户。",
             "Learn more about protected branches.": "了解更多关于受保护分支的信息。",
@@ -10253,6 +10259,7 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
         [/(\d+) of (\d+) checks? passed/, "$1/$2 次检查通过"],
         [/(\d+) checks? passed/, "$1 次检查通过"],
 
+        [/Merge the latest changes from ([^ ]+) into this branch. This merge commit will be associated with ([^ ]+)./, "将最新更改从 $1 分支合并到当前分支。该合并提交将与用户 $2 相关联。"],
         [/Merging can be performed automatically with (\d+) approving review./, "合并可以通过 $1 次批准审查自动执行。"],
         [/(\d+) workflow awaiting approval/, "$1 个工作流等待批准"],
         [/The ([^ ]+) branch requires linear history/, "$1 分支为要求线性历史记录"],
