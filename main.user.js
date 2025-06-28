@@ -240,6 +240,7 @@
                 case "A":
                 case "SPAN":
                     transElement(node, 'title'); // title 属性
+                    transElement(node.dataset, 'visibleText'); // 翻译 浏览器 提示对话框 ok
 
                 default:
                     // 仅当 元素存在'tooltipped'样式 aria-label 才起效果
