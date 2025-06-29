@@ -54,7 +54,7 @@ I18N.conf = {
     rePagePathOrg: /^\/[^\/]+\/[^\/]+\/(repositories\/new|repositories|sponsoring|discussions|projects|packages|teams|new-team|people|outside-collaborators|pending_collaborators|dashboard|billing_managers\/new|invitations?|settings\/(profile|billing|roles|member_privileges|teams|import-export|blocked_users|interaction_limits|code_review_limits|moderators|repository-defaults|rules|codespaces|copilot|actions|hooks|discussions|packages|pages|projects|security_analysis|security|dependabot_rules|domains|secrets|variables|oauth_application_policy|installations|personal-access-token|reminders|sponsors-log|audit-log|deleted_repositories|applications\/new|applications|apps\/new|apps|publisher)|topics|domain\/new|audit-log\/event_settings|billing\/(history|plans)|policies\/applications)|^\/[^\/]+\/(enterprise_plan|sponsoring)/,
 
     // 特定頁面，啟用`字符數據`監測
-    characterDataPage: ['repository/new', 'repository/edit', 'new', 'new/import', 'orgs/repositories/new', 'repository/blob', 'marketplace', 'homepage', 'repository/issues', 'repository/commit', 'repository/settings/rules'],
+    characterDataPage: ['repository/new', 'repository/edit', 'new', 'new/import', 'orgs/repositories/new', 'repository/blob', 'repository/pull', 'marketplace', 'homepage', 'repository/issues', 'repository/commit', 'copilot', 'repository/settings/rules'],
 
     // 特定頁面，忽略突變元素規則
     ignoreMutationSelectorPage: {
@@ -130,6 +130,7 @@ I18N.conf = {
         ],
         'repository/issues': [
             '.styled-input-container', // 篩選條
+            '.Box-sc-g0xbh4-0.markdown-body', // 評論正文
         ],
         'repository/commit': [
             'td.blob-code', // 程式碼差異 分屏/同屏
@@ -189,7 +190,7 @@ I18N.conf = {
             '.cm-line',
         ],
         '*': [
-            '.js-comment-body', '.js-preview-body',
+            '.comment-body', '.js-preview-body',
             '.markdown-title',
             'span.ActionListItem-label.text-normal', // 頂部搜索欄 關鍵詞被翻譯
             'CODE', 'SCRIPT', 'STYLE', 'LINK', 'IMG', 'MARKED-TEXT', 'PRE', 'KBD', 'SVG', 'MARK' // 特定元素標籤
@@ -389,6 +390,7 @@ I18N["zh-TW"]["title"] = { // 標題翻譯
         "Code Security": "程式碼安全性",
         "New Fine-grained Personal Access Token": "新建精細化個人訪問令牌",
         "Coding agent": "編程助手",
+        "Get Started With GitHub Discussions": "開始使用 GitHub 討論",
     },
     "regexp": [ // 正則翻譯
         [/Authorized OAuth Apps/, "授權的 OAuth 應用"],
@@ -3712,10 +3714,12 @@ I18N["zh-TW"]["settings/billing"] = { // 設置 - 賬單和計劃
                         "Billable licenses info": "計費許可信息",
                             "If a user stops consuming a license within the month, the adjustment will be reflected in your next month's bill.": "如果用戶在當月停止使用許可，相關調整將體現在您下個月的賬單中。",
                             "Billable licenses are only available for the 'Current month' timeframe.": "計費許可僅適用於“當前月”時間段。",
+                            "Learn more about billable licenses": "瞭解更多關於可計費許可證的信息",
                         "Showing total unique licenses billed for your enterprise. Actual billed amount for each license is prorated based on when it is added during the billing cycle.": "顯示您企業所計費的唯一許可證總數。每個許可證的實際計費金額將根據其在計費週期內添加的時間按比例分攤。",
                     "Copilot premium requests": "Copilot 高級版請求",
                         "About Copilot premium requests": "關於 Copilot 高級版請求",
-                    // [/Cost calculated based on additional (\d+) premium requests/, "費用根據額外的 $1 項高級版請求計算"],
+                        "If enabled, additional premium requests beyond the included amount for each license will be billed.": "若啟用此功能，每個許可證所包含額度之外的額外高級請求將另行計費。",
+                        "Manage Copilot policy": "管理 Copilot 策略",
 
             // 程式碼空間超限
             "You've used 90% of included services for GitHub Codespaces storage.": "您已使用 90% 程式碼空間存儲。",
@@ -4082,7 +4086,10 @@ I18N["zh-TW"]["settings/billing"] = { // 設置 - 賬單和計劃
             "Extra billing information": "額外的賬單信息",
             "This information will appear on all your receipts.": "此信息將出現在您的所有收據上。",
             "For your security, do not include any confidential or financial information (like credit card numbers).": "為了您的安全，請勿包含任何機密或財務信息（如信用卡號）。",
-            "To update the information that appears on invoices (if enabled), visit the": "要更新顯示在發票上的信息（如果已啟用），請訪問",
+            //"To update the information that appears on invoices (if enabled), visit the": "要更新顯示在發票上的信息（如果已啟用），請訪問",
+            "To update the information that appears on": "要更新顯示在",
+                "invoices": "發票",
+                "(if enabled), visit the": "上的信息（如果已啟用），請訪問",
             "Full business name or address of record": "企業全稱或記錄地址",
             "Save contact information": "保存聯繫信息",
 
@@ -4363,6 +4370,16 @@ I18N["zh-TW"]["settings/billing"] = { // 設置 - 賬單和計劃
                 return `${hour}:00`;
             }],
 
+        // 計費用量 - 按倉庫統計
+            [/Top (three|four|five) repositories (today|this month|last month|this year|)/, function(all , num, time) {
+                var numKey = {"three": "三", "four": "四", "five": "五"}
+                var timeKey = {"today": "今天","this month": "這個月","last month": "上個月","this year": "今年","last year": "去年"};
+                return timeKey[time] + "排名前" + numKey[num] + "的倉庫";
+            }],
+
+        // 計費用量 - 底下計算部分
+            [/Cost calculated based on additional (\d+) premium requests/, "費用根據額外的 $1 項高級版請求計算"],
+
         // [/The plan change was successful. @([^ ]+) has been updated to the pro yearly plan./, "計劃變更成功。@$1 已更新為專業版年度計費。"],
         // [/The plan change was successful. @([^ ]+) has been updated to the pro monthly plan./, "計劃變更成功。@$1 已更新為專業版月度計費。"],
         // [/We're preparing your report! We’ll send an email to ([^@]+@[^\n]+) when it’s ready./, "我們正在準備您的報告！完成後，我們將發送電子郵件至 $1。"], //頂部提醒
@@ -4380,9 +4397,7 @@ I18N["zh-TW"]["settings/billing"] = { // 設置 - 賬單和計劃
         // [/of (\d+\.\d{2}) included core hours used/, "/ $1 核心小時數"],
         // [/of (\d+\.\d{2}) included GB-month used/, "/ $1 GB/每月"],
         // [/Last (\d+) days/, "最近 $1 天"],
-        // [/([^ ]+) support/, "$1 支持"],
         // [/Included minutes quota only applies to Ubuntu 2-core, Windows 2-core and macOS 3-core runners\. Windows 2-core and macOS 3-core runners consume included minutes at higher rates\. Your (\d+\.\d+) included minutes used consists of (.*)/, "包含的分鐘配額僅適用於雙核 Ubuntu、雙核 Windows 和三核 macOS 運行器。雙核 Windows 和三核 macOS 運行器以更高的速度消耗包括的分鐘數。您已使用的 $1 分鐘包含分鐘數由 $2 組成。"],
-        // [/(\$\d+\.\d{2}) off per month for (\d+) years/, "每月優惠 $1，為期 $2 年"],
         // [/(\$\d+\.\d{2})\/month/, "$1/月"],
         // [/(\$\d+\.\d{2}) off \/ month/, "-$1/月"],
         // [/(\$\d+\.\d{2})\/year/, "$1/年"],
@@ -4393,13 +4408,6 @@ I18N["zh-TW"]["settings/billing"] = { // 設置 - 賬單和計劃
         //     const translatedDate = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
         //     return `${translatedDate}` + optKey[opt];
         // }],
-        // [/until (.+)./, (match, p1) => {
-        //     const dateRegExp = I18N["zh-TW"]["public"]["time-regexp"];
-        //     const translatedDate = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
-        //     return `直到 ${translatedDate}。`;
-        // }],
-
-
 
         // 計費用量 https://github.com/settings/billing/usage
             [/^Group: (None|Product|SKU|Repository)$/, function(all, group) {
@@ -4417,6 +4425,19 @@ I18N["zh-TW"]["settings/billing"] = { // 設置 - 賬單和計劃
 
         // 賬戶預算 https://github.com/settings/billing/budgets
             [/(\d+) budgets?/, "$1 預算"],
+
+        // 支付信息 https://github.com/settings/billing/payment_information
+            [/(\$\d+\.\d{2}) off per month for (\d+) years/, "每月優惠 $1，為期 $2 年"],
+            [/until (.+)./, (match, p1) => {
+                const dateRegExp = I18N["zh-TW"]["public"]["time-regexp"];
+                const translatedDate = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
+    
+                return `直到 ${translatedDate}。`;
+            }],
+
+        // 其他賬單 https://github.com/settings/billing/subscriptions
+            [/([^ ]+) support/, "$1 支持"],
+
         ...I18N["zh-TW"]["orgs-public"]["regexp"],
     ],
 };
@@ -9112,6 +9133,9 @@ I18N["zh-TW"]["repository/issues"] = { // 倉庫 - 議題頁面
                 "Delete revision": "刪除修訂",
             "Reopen Issue": "重新打開議題",
                 "You do not have permissions to reopen this issue": "您沒有權限重新打開此議題",
+            // 評論刪除對話框
+                "Delete comment": "刪除評論",
+                "Are you sure you'd like to delete this comment?": "您確定要刪除這條評論嗎？",
             // 關閉議題
                 "You do not have permissions to close this issue": "您沒有權限關閉此議題",
             "Comment can not be empty": "評論不能為空",
@@ -9698,8 +9722,13 @@ I18N["zh-TW"]["repository/pull"] = { // 倉庫 - 某個拉取請求頁面
 
                 // 繞過規則合併
                 "Merge without waiting for requirements to be met (bypass rules)": "無需等待滿足要求即可合併（繞過規則）",
-                "Bypass rules and merge": "繞過規則進行合併",
-                "Confirm bypass rules and merge": "確認繞過規則進行合併",
+                "Bypass rules and merge": "繞過規則合併",
+                    "Confirm bypass rules and merge": "確認繞過規則合併",
+                "Bypass rules and merge (squash)": "繞過規則合併（壓縮）",
+                    "Confirm bypass rules and merge (squash)": "確認繞過規則合併（壓縮）",
+                "Bypass rules and merge (rebase)": "繞過規則合併（變基）",
+                    "This will rebase your changes and merge them into": "將更改變基合併到",
+                    "Confirm bypass rules and merge (rebase)": "確認繞過規則合併（變基）",
 
             "Merging can be performed automatically once the requested changes are addressed.": "一旦請求的更改得到解決，合併就可以自動執行。",
             "This branch is out-of-date with the base branch": "此分支相比基礎分支已過時",
@@ -9713,6 +9742,7 @@ I18N["zh-TW"]["repository/pull"] = { // 倉庫 - 某個拉取請求頁面
                             "This branch cannot be rebased due to conflicts.": "由於衝突，此分支不能變基。",
                             "This pull request will be rebased on top of the latest changes and then force pushed.": "此拉取請求將會在最新的更改之上進行變基，並且會使用強制推送的方式提交。",
                             "This branch cannot be rebased due to conflicts": "由於衝突，無法對此分支執行變基操作。",
+                // [/Merge the latest changes from ([^ ]+) into this branch. This merge commit will be associated with ([^ ]+)./, "將最新更改從 $1 分支合併到當前分支。該合併提交將與用戶 $2 相關聯。"],
 
             "The base branch restricts merging to authorized users.": "基礎分支合併僅限於授權用戶。",
             "Learn more about protected branches.": "瞭解更多關於受保護分支的信息。",
@@ -10163,6 +10193,8 @@ I18N["zh-TW"]["repository/pull"] = { // 倉庫 - 某個拉取請求頁面
     "regexp": [ // 正則翻譯
         [/The (\d+) commits? from this branch will be rebased and added to the base branch./, "該分支的 $1 次提交將變基並添加到基本分支。"],
         [/([^ ]+):([^ ]+)% was force-pushed and no longer has any new commits./, "$1:$2 分支被強制推送，現在沒有新的提交。"], // 放這裡是因為跟現有詞條衝突
+        // 建議更改（詞條打架移動至此）
+        [/on this commit as ([^@]+@[^\n]+)/, "該提交以 $1 身份"],
         // Dependabot 打開的拉取請求
         [/This pull request resolved a Dependabot alert on ([^ ]+)./, "此拉取請求解決了 1 個 Dependabot 警報，在 $1 上。"],
         [/(\d+) Dependabot alerts?/, "$1 個 Dependabot 警報"],
@@ -10227,6 +10259,7 @@ I18N["zh-TW"]["repository/pull"] = { // 倉庫 - 某個拉取請求頁面
         [/(\d+) of (\d+) checks? passed/, "$1/$2 次檢查通過"],
         [/(\d+) checks? passed/, "$1 次檢查通過"],
 
+        [/Merge the latest changes from ([^ ]+) into this branch. This merge commit will be associated with ([^ ]+)./, "將最新更改從 $1 分支合併到當前分支。該合併提交將與用戶 $2 相關聯。"],
         [/Merging can be performed automatically with (\d+) approving review./, "合併可以通過 $1 次批准審查自動執行。"],
         [/(\d+) workflow awaiting approval/, "$1 個工作流等待批准"],
         [/The ([^ ]+) branch requires linear history/, "$1 分支為要求線性歷史記錄"],
@@ -10257,7 +10290,6 @@ I18N["zh-TW"]["repository/pull"] = { // 倉庫 - 某個拉取請求頁面
         [/(\d+) resolved conversations?/, "$1 條對話已解決"], // 拉取請求
         [/I understand, continue updating ([^ ]+)/, "我明白了，繼續更新 $1"],
         [/I understand, sign off and update/, "我明白了，依然簽署並更新"],
-        [/on this commit as ([^@]+@[^\n]+)/, "該提交以 $1 身份"],
         [/Notify someone on an issue with a mention, like: @([^ ]+)./, "在某個問題上通知並提及某人，例如：@$1。"], // 專業提示
         [/(\d+) conversations? must be resolved before merging./, "合併之前必須解決 $1 個對話。"],
         [/(\d+) hidden items?/, "$1 條隱藏專案"],
@@ -10269,13 +10301,16 @@ I18N["zh-TW"]["repository/pull"] = { // 倉庫 - 某個拉取請求頁面
         [/Copy (.+?) to clipboard/, "複製 $1 到剪切板"],
 
         // 文件差異過大 參考 https://github.com/maboloshi/github-chinese/pull/306/files
-        [/([\d,]+) additions, ([\d,]+) deletions not shown because the diff is too large. Please use a local Git client to view these changes./, "差異過大，不會顯示 $1 行添加以及 $1 行刪除。請使用本地 Git 客戶端查看更改。"],
+        [/([\d,]+) additions, ([\d,]+) deletions not shown because the diff is too large. Please use a local Git client to view these changes./, "差異過大，不會顯示 $1 行添加以及 $2 行刪除。請使用本地 Git 客戶端查看更改。"],
 
         // 任務
         [/(\d+) tasks?/, "$1 個任務"],
 
         // 評論
         [/Lines (\d+) to (\d+) in/, "第 $1 - $2 行，"],
+
+        // 建議更改
+        //[/on this commit as ([^@]+@[^\n]+)/, "提交，身份為 $1"],
 
         // 解決衝突編輯器（似乎又是 F12 才會翻譯）
         [/Search:/, "搜索："],
@@ -10786,6 +10821,7 @@ I18N["zh-TW"]["repository/commit"] = { // 倉庫 - 提交頁面
             "authored": "撰寫於",
 
             // 左側文件管理器
+            "Filter options": "篩選...",
             "Filter files…": "篩選文件...",
                 "File extensions": "文件擴展名",
                 "No extension": "無擴展名",
@@ -11126,6 +11162,43 @@ I18N["zh-TW"]["repository/discussions"] = { // 討論頁面
     "static": { // 靜態翻譯
         ...I18N["zh-TW"]["repository-public"]["static"],
         ...I18N["zh-TW"]["orgs-public"]["static"],
+
+        // 沒有任何討論時
+            "Get started with GitHub Discussions": "開始使用 GitHub 討論",
+                "Discussions is a central gathering space for your community to ask questions, share ideas, and build connections with each other—all right next to your code.": "討論是一個社區成員集中交流的空間，大家可以在這裡提問、分享想法，並彼此建立聯繫——而且這一切都在您的程式碼旁邊完成。",
+
+                "Get Started": "開始使用",
+                "Not now": "暫不",
+
+                "Only maintainers can see this page and enable Discussions": "只有維護者能看到此頁面並啟用討論",
+
+            // 用法介紹
+                // 自定義分類
+                    "Create custom categories and discussion types to suit your community's unique needs.": "創建自定義類別和討論類型，以滿足您社區的獨特需求。",
+                "Mark the most helpful answer": "標記答案",
+                    "Highlight quality responses and make the best answer super discoverable.": "突出優質回答，讓最佳答案易於被發現。",
+                "Pin big announcements": "置頂功能",
+                    "Direct the community’s attention to important announcements or popular discussions.": "將社區的注意力引導至重要公告或熱門討論。",
+                "Label your discussions": "標籤功能",
+                    "Organize and triage discussions to keep your space tidy and help contributors filter to areas of interest.": "組織和篩選討論內容，以保持社區空間整潔，並幫助參與者過濾到感興趣的領域。",
+                "Respond on-the-go with mobile": "通過移動端隨時響應",
+                    "Check in and respond to discussions whenever and wherever is convenient for you.": "隨時隨地在方便的時候查看並回復討論。",
+                "Connect to your apps": "鏈接應用",
+                    "Integrate with your existing workflows and GitHub Actions via the GraphQL API and webhooks.": "通過 GraphQL API 和 Web 鉤子與現有工作流程及 GitHub Actions 集成。",
+                "Thread your conversations": "串聯對話",
+                    "Keep conversations on track and encourage collaboration with threaded comments.": "通過串聯評論讓對話保持正軌並促進協作。",
+                "Monitor community insights": "社區數據看板",
+                    "Track the health and growth of your community with a dashboard full of actionable data.": "通過充滿可操作數據的儀表盤，追蹤社區的健康狀況與發展情況。",
+                "Ask your community with polls": "社區投票",
+                    "Gauge interest in a feature, vote on a meetup time, or learn more about your community with polls.": "通過投票來衡量對某項功能的興趣、對聚會時間進行表決，或進一步瞭解你的社區情況。",
+
+            "Communities using Discussions": "使用討論交流",
+
+            "Ready to try Discussions?": "準備嘗試討論？",
+                "Click “get started” to enable it for your community and start your first discussion. Now is not the right time? Click “not now” to dismiss this tab. You can always turn Discussions on in your repository settings later.": "點擊 “開始使用” 即可為您的社區啟用該功能，並發起您的首次討論。現在不方便操作？點擊 “暫不” 可關閉此標籤頁。您也可以稍後在倉庫設置中隨時開啟討論功能。",
+
+            "Read about best practices for setting up Discussions for your community.": "瞭解為社區設置討論功能的最佳實踐。",
+                "Visit the docs": "查看",
 
         // 討論頁面 /<user-name>/<repo-name>/discussions
         // 組織討論頁 /orgs/<orgs-name>/discussions
@@ -24843,18 +24916,21 @@ I18N["zh-TW"]["copilot"] = {
         // 中間
             // 模型選擇窗
                 "Models": "模型",
-                "Model capabilities": "模型限制",
-                    "Limited capabilities (o1)": "功能限制（o1）",
-                    "Limited capabilities (Claude 3.7 Sonnet Thinking)": "模型限制（Claude 3.7 Sonnet Thinking）",
-                        "This model has limited capabilities in retrieving external data. Learn more about selecting the right model": "該模型在檢索外部數據方面的能力有限。如需瞭解如何選擇合適的模型，請",
-                        "here": "此處",
-                        ". Here are a few of the common actions that are not supported:": "查看更多信息。以下是一些常見的不支持的操作：",
-                        "While this model is better at reasoning, it is generally slower for everyday tasks and has limited capabilities in retrieving external data. Here are a few of the common actions that are not supported:": "雖然這種模型的推理能力更強，但在執行日常任務時通常速度較慢，而且檢索外部數據的能力有限。以下是一些不支持的常見操作：",
-                        "Not supported": "不支持",
-                            "Using knowledge bases": "使用知識庫",
-                            "Retrieving issues": "檢索議題",
-                            "Retrieving pull requests": "檢索拉取請求",
-                            "Retrieving discussions": "檢索討論",
+                    "Fast and cost-efficient": "快速、經濟高效",
+                    "Versatile and highly intelligent": "多功能、高智能",
+                    "Most powerful at complex tasks": "執行複雜任務",
+                //"Model capabilities": "模型限制",
+                //    "Limited capabilities (o1)": "功能限制（o1）",
+                //    "Limited capabilities (Claude 3.7 Sonnet Thinking)": "模型限制（Claude 3.7 Sonnet Thinking）",
+                //        "This model has limited capabilities in retrieving external data. Learn more about selecting the right model": "該模型在檢索外部數據方面的能力有限。如需瞭解如何選擇合適的模型，請",
+                //        "here": "此處",
+                //        ". Here are a few of the common actions that are not supported:": "查看更多信息。以下是一些常見的不支持的操作：",
+                //        "While this model is better at reasoning, it is generally slower for everyday tasks and has limited capabilities in retrieving external data. Here are a few of the common actions that are not supported:": "雖然這種模型的推理能力更強，但在執行日常任務時通常速度較慢，而且檢索外部數據的能力有限。以下是一些不支持的常見操作：",
+                //        "Not supported": "不支持",
+                //            "Using knowledge bases": "使用知識庫",
+                //            "Retrieving issues": "檢索議題",
+                //            "Retrieving pull requests": "檢索拉取請求",
+                //            "Retrieving discussions": "檢索討論",
             "uses AI. Check for mistakes.": "使用 AI。請檢查錯誤。",
             "Get file": "獲取文件",
 
