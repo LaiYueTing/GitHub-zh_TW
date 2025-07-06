@@ -45,7 +45,7 @@ I18N.conf = {
      * 導入倉庫 /new/import
      * ...
      */
-    rePagePath: /^\/($|home|dashboard|copilot|signup|account_verifications|login\/oauth|login|logout|sessions?|password_reset|orgs|explore|topics|notifications\/subscriptions|notifications|watching|stars|issues|pulls|search|trending|showcases|new\/(import|project)|new|import|settings\/(profile|admin|appearance|accessibility|notifications|billing|emails|security_analysis|security-log|security|auth|sessions|keys|ssh|gpg|organizations|enterprises|blocked_users|interaction_limits|code_review_limits|repositories|codespaces|codespaces\/allow_permissions|deleted_repositories|packages|copilot|pages|replies|installations|apps\/authorizations|reminders|sponsors-log|apps|(?:personal-access-|)tokens|developers|applications\/new|applications|connections\/applications|education\/benefits)|settings|installations\/new|marketplace|apps|account\/(organizations\/new|choose|upgrade|billing\/history)|projects|redeem|discussions|events|collections|sponsors|sponsoring|github-copilot\/(signup|free_signup|code-review-waitlist)|codespaces|developer\/register|features|security|sitemap|education)|^\/users\/[^\/]+\/(projects|packages|succession\/invitation)/,
+    rePagePath: /^\/($|home|dashboard|copilot|signup|account_verifications|login\/oauth|login|logout|sessions?|password_reset|orgs|explore|topics|notifications\/subscriptions|notifications|watching|stars|issues|pulls|search|trending|showcases|new\/(import|project)|new|import|settings\/(profile|admin|appearance|accessibility|notifications|billing|emails|security_analysis|security-log|security|auth|sessions|keys|ssh|gpg|organizations|enterprises|blocked_users|interaction_limits|code_review_limits|repositories|codespaces|models|codespaces\/allow_permissions|deleted_repositories|packages|copilot|pages|replies|installations|apps\/authorizations|reminders|sponsors-log|apps|(?:personal-access-|)tokens|developers|applications\/new|applications|connections\/applications|education\/benefits)|settings|installations\/new|marketplace|apps|account\/(organizations\/new|choose|upgrade|billing\/history)|projects|redeem|discussions|collections|sponsors|sponsoring|github-copilot\/(signup|free_signup|code-review-waitlist)|codespaces|developer\/register|features|security|sitemap|education)|^\/users\/[^\/]+\/(projects|packages|succession\/invitation)/,
 
     // 倉庫路徑
     rePagePathRepo: /^\/[^\/]+\/[^\/]+\/(issues|pulls|pull|tree|watchers|stargazers|new|edit|delete|upload|find|wiki|branches|discussions|activity|rules|releases|packages|tags|labels|milestones?|compare|commit|blob|blame|actions(\/metrics\/(usage|performance))?|runs|deployments|security|pulse|community|forks|fork|import|graphs\/(contributors|community|traffic|commit-activity|code-frequency)|network$|network\/(dependencies|dependents|updates|members)|settings\/(access|code_review_limits|interaction_limits|branches|branch_protection_rules|tag_protection|rules|actions|models\/access-policy|hooks|copilot\/coding_agent|environments|codespaces|pages|security_analysis|dependabot_rules|keys|secrets|variables|installations|notifications|key_links)|settings|transfer|projects\/new|pkgs|contribute|subscription|invitations|codespaces|attestations|custom-properties|reported_content)/,
@@ -751,6 +751,8 @@ I18N["zh-TW"]["public"] = { // 公共區域翻譯
                 "Rich Jupyter Notebook Diffs": "Jupyter Notebook 的豐富差異視圖",
                     "Enables rich diffs of Jupyter Notebooks in pull requests": "在拉取請求中啟用 Jupyter Notebook 的豐富差異視圖",
                     "Note: commenting on rich diff views of notebooks is not yet supported": "注意：尚不支持對 Jupyter Notebook 的豐富差異視圖進行評論",
+                "New Files Changed Experience": "新版文件更改體驗",
+                    "Feature enabling the new Files Changed Page": "啟用新版更改的文件頁",
                 "Slash Commands": "斜槓命令",
                     "Slash commands make it easier to type more complex Markdown, such as tables, tasklists, and code blocks.": "斜線命令可以讓您更輕鬆地輸入更複雜的 Markdown，如表格、任務列表和程式碼塊。",
                     "Simply type": "只需在議題、拉取請求和討論中鍵入",
@@ -1373,6 +1375,7 @@ I18N["zh-TW"]["public"] = { // 公共區域翻譯
                         "Choose repositories to chat about.": "選擇以聊天",
                         "Choose a repository to chat about.": "選擇以聊天",
                 "Remove topic": "移除主題",
+                "Upload from computer": "上傳本機文件",
                 "Extension…": "擴展…",
                 "Extension": "擴展",
                     "Extensions": "擴展",
@@ -1381,6 +1384,7 @@ I18N["zh-TW"]["public"] = { // 公共區域翻譯
                         "Browse marketplace": "前往市場",
             "Add attachment": "添加附件",
             "Remove topic": "移除主題",
+            "Convert to file": "轉成文件",
             "Remove": "移除",
             "Attachments options": "附件選項",
                 "Remove attachments": "移除附件",
@@ -3052,6 +3056,7 @@ I18N["zh-TW"]["settings-menu"] = { // 設置 - 公共部分
 
         "Code, planning, and automation": "程式碼、規劃和自動化",
         // "Repository": "倉庫"
+        "Models": "模型",
         "Packages": "軟體包",
         "Copilot": "GitHub Copilot",
             "Features": "功能",
@@ -3720,6 +3725,11 @@ I18N["zh-TW"]["settings/billing"] = { // 設置 - 賬單和計劃
                         "About Copilot premium requests": "關於 Copilot 高級版請求",
                         "If enabled, additional premium requests beyond the included amount for each license will be billed.": "若啟用此功能，每個許可證所包含額度之外的額外高級請求將另行計費。",
                         "Manage Copilot policy": "管理 Copilot 策略",
+                    // 模型
+                        "About GitHub Models rate limits": "關於 GitHub 模型速率限制",
+                            "GitHub Models rate limits": "GitHub 模型速率限制",
+                                "The playground and free API usage are rate limited by requests per minute, requests per day, tokens per request, and concurrent requests.": "操場和免費 API 的使用受到以下限制：每分鐘請求數、每天請求數、每次請求的令牌數以及並發請求數。",
+                                "Learn more about GitHub Models rate limits": "瞭解更多", // 有上下文，故省略
 
             // 程式碼空間超限
             "You've used 90% of included services for GitHub Codespaces storage.": "您已使用 90% 程式碼空間存儲。",
@@ -4379,6 +4389,7 @@ I18N["zh-TW"]["settings/billing"] = { // 設置 - 賬單和計劃
 
         // 計費用量 - 底下計算部分
             [/Cost calculated based on additional (\d+) premium requests/, "費用根據額外的 $1 項高級版請求計算"],
+            [/Cost calculated based on additional (\d+) token units/, "費用根據額外的 $1 項令牌單位計算"],
 
         // [/The plan change was successful. @([^ ]+) has been updated to the pro yearly plan./, "計劃變更成功。@$1 已更新為專業版年度計費。"],
         // [/The plan change was successful. @([^ ]+) has been updated to the pro monthly plan./, "計劃變更成功。@$1 已更新為專業版月度計費。"],
@@ -5278,6 +5289,27 @@ I18N["zh-TW"]["settings/codespaces"] = { // 設置 - 程式碼空間
         [/Are you sure you want to delete ([^ ]+)\?/, "您確定要刪除 $1 嗎？"],
         [/Remove ([^ ]+)/, "移除 $1"],
     ],
+};
+
+I18N["zh-TW"]["settings/models"] = {
+    "static": {
+        ...I18N["zh-TW"]["settings-menu"]["static"],
+        ...I18N["zh-TW"]["orgs-settings-menu"]["static"], // 組織設置
+
+        "Billing": "賬單",
+
+        "Models paid usage": "使用付費模型",
+            "If enabled, usage beyond the free tier will be billed per token based on model pricing from your Models budget.": "如果啟用，超出免費額度的使用將根據您模型預算中的模型定價按令牌計費。",
+            "Models pricing": "模型價格",
+
+            "To enable Models paid usage, a payment method is needed.": "要啟用付費模型，需要添加支付方式。",
+                "Add payment method": "添加支付方式",
+
+            "You currently have": "您當前有",
+                "free rate limits": "免費額度",
+                ". Enable paid usage to avoid interruption and add tokens.": "。啟用付費使用以避免中斷並添加令牌。",
+    },
+    "regexp": [],
 };
 
 I18N["zh-TW"]["settings/packages"] = { // 設置 - 軟體包
@@ -9977,6 +10009,7 @@ I18N["zh-TW"]["repository/pull"] = { // 倉庫 - 某個拉取請求頁面
             "Loading branch information": "正在加載分支信息",
 
         // 拉取請求 --> 更改的文件 標籤卡 /<user-name>/<repo-name>/pull/<id>/files
+            "Try the new experience": "嘗試新體驗",
             // 工具條
             "Show file tree": "顯示文件樹",
             "Hide file tree": "隱藏文件樹",
@@ -10099,6 +10132,7 @@ I18N["zh-TW"]["repository/pull"] = { // 倉庫 - 某個拉取請求頁面
                     "Explain": "解釋",
                     "Attach to current thread": "附加到當前主題",
                     "Reference added to thread": "已附加至主題", // 左下角浮窗
+                    "Ask about this diff": "詢問此差異",
 
                 "Select files to discuss": "選擇文件討論",
                     "Copilot is not available for this file": "Copilot 不支持此文件",
@@ -10126,6 +10160,39 @@ I18N["zh-TW"]["repository/pull"] = { // 倉庫 - 某個拉取請求頁面
                 "Refresh and try again.": "刷新並重試。",
 
                 "Multiple suggested changes can be batched together in a single commit. Each suggestion author will be attributed in the commit as a co-author.": "多個建議更改可以在一次提交中批量處理。每個建議作者都將在提交中被歸為共同作者。",
+
+            // 新版
+                "Switch back": "返回舊版",
+                "Feedback": "反饋",
+
+                "Collapse file tree": "摺疊文件樹",
+                "Expand file tree": "展開文件樹",
+
+                "All changes": "所有更改",
+                "Specific commit…": "特定提交…",
+                    "Pick one or more commits": "選擇多個提交",
+                    "Clear selection": "清除選擇",
+                        "Picking a range will select commits in between.": "選擇一個範圍將會選中其間的提交。",
+
+                "viewed": "已審查",
+
+                "Comments": "評論",
+                "Submit": "提交",
+                    "review": "審查",
+
+                "Filter files…": "篩選文件…",
+                "Filter options": "選項",
+                    "File extensions": "文件擴展名",
+
+                "Layout": "結構",
+                "Minimize comments": "最小化評論",
+                "Compact line height": "緊湊行高",
+
+                "Copy": "複製",
+                "Select all": "全選",
+                "Expand above": "向上展開",
+                "Expand below": "向下展開",
+                "Go to next hunk": "下一塊",
 
         // 拉取請求 --> 更改的文件 標籤卡 /<user-name>/<repo-name>/pull/<id>/files/<full SHA>
             "You are viewing a condensed version of this merge commit. You can view the": "您正在查看該合併提交的濃縮版本。您可以查看",
@@ -10212,6 +10279,8 @@ I18N["zh-TW"]["repository/pull"] = { // 倉庫 - 某個拉取請求頁面
             const translatedDate = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
             return `提交於${translatedDate}`;
         }],
+        [/Add(?: a)? comment on line ((L|R)(\d+))/, "在 $1 行評論"],
+        [/Suggest change on line ((L|R)(\d+))/, "建議更改 $1 行"],
 
         // 具體某條拉取請求
         [/edited by ([^ ]+)/, "由 $1 編輯"],
@@ -19873,26 +19942,6 @@ I18N["zh-TW"]["collections"] = { // 集合頁面
         "Load more…": "載入更多...",
         "Loading more…": "載入中...",
 
-    },
-    "regexp": [ // 正則翻譯
-    ],
-};
-
-I18N["zh-TW"]["events"] = { // 活動頁面
-    "static": { // 靜態翻譯
-        "Signed in as": "登錄身份為",
-        "Help": "幫助",
-        "Explore": "探索",
-        "Topics": "主題",
-        "Trending": "熱門",
-        "Collections": "集合",
-        "Events": "活動",
-        "GitHub Sponsors": "GitHub 贊助",
-        "Get email updates": "獲取電子郵件更新",
-        "Change email updates": "更改電子郵件更新", // 已設置郵件更新通知
-        "Connect with the GitHub community at conferences, meetups, and hackathons around the world.": "在世界各地的會議、聚會和編程馬拉松上與 GitHub 社區建立聯繫。",
-        "GitHub Events": "GitHub 活動",
-        "Sponsored by GitHub": "由 GitHub 贊助",
     },
     "regexp": [ // 正則翻譯
     ],
