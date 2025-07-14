@@ -753,6 +753,8 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
                     "Note: commenting on rich diff views of notebooks is not yet supported": "注意：尚不支持对 Jupyter Notebook 的丰富差异视图进行评论",
                 "New Files Changed Experience": "新版文件更改体验",
                     "Feature enabling the new Files Changed Page": "启用新版更改的文件页",
+                "New repository creation page": "新版仓库创建页",
+                    "New version of the repository creation page that streamlines the configuration and validation of required custom property values and initialization options.": "新版仓库创建页面，简化了必填自定义属性值和初始化选项的配置与校验流程。",
                 "Slash Commands": "斜杠命令",
                     "Slash commands make it easier to type more complex Markdown, such as tables, tasklists, and code blocks.": "斜线命令可以让您更轻松地输入更复杂的 Markdown，如表格、任务列表和代码块。",
                     "Simply type": "只需在议题、拉取请求和讨论中键入",
@@ -5488,7 +5490,7 @@ I18N["zh-CN"]["settings/copilot"] = { // 设置 - GitHub Copilot
                     "Learn more about configuring automatic code reviews.": "了解如何配置自动代码审查。",
                 "Copilot coding agent": "Copilot 编程助手",
                     "Delegate tasks to Copilot coding agent in repositories where it is enabled": "在已启用 Copilot 编码代理的仓库中委派任务给 Copilot 编码代理",
-                "MCP servers on GitHub.com": "MCP 服务器功能",
+                "MCP servers in Copilot": "MCP 服务器功能",
                     "Configure and use third-party Model Context Protocol (MCP) servers for use on GitHub.com. See MCP docs for": "有关在 GitHub.com 上使用第三方模型上下文协议 (MCP) 服务器的配置和使用，请参阅 MCP 文档。",
                     "Coding Agent": "编程助手",
 
@@ -7529,6 +7531,8 @@ I18N["zh-CN"]["page-new-repo"] = {// 仓库 - 新建/导入/复刻仓库
                 "Already have a project repository elsewhere?": "在其他地方已有仓库？",
                 "Import a repository": "导入仓库",
                 "Required fields are marked with an asterisk (*).": "带星号 (*) 的为必填项。",
+            
+            "🎉 Try the new experience": "🎉 尝试新版页面",
 
             "Repository template": "仓库模板",
                 "Fetching templates…": "正在获取模板…",
@@ -7696,6 +7700,43 @@ I18N["zh-CN"]["page-new-repo"] = {// 仓库 - 新建/导入/复刻仓库
             "You are creating a fork in your personal account.": "您正在向您的个人账户中创建一个复刻。",
             "Create fork": "创建复刻",
 
+        // 新版新建仓库页
+            "Switch back to classic experience": "回到经典页面",
+            "Repositories contain a project's files and version history.": "仓库包含项目的文件和版本历史。",
+            "Have a project elsewhere?": "在其他地方已有仓库？",
+
+            "General": "通常",
+                "Great repository names are short and memorable. How about": "好的仓库名称应该简单且容易记忆。这个怎么样：",
+
+            "Configuration": "配置",
+                "Choose visibility": "选择可见性",
+                    "Choose who can see and commit to this repository": "选择谁可以查看并提交此仓库",
+                "Start with a template": "使用模板开始",
+                    "Templates pre-configure your repository with files.": "模板会用文件预先配置您的仓库。",
+                "Add README": "添加自述文件",
+                    "READMEs can be used as longer descriptions.": "自述文件可以用作更长的描述。",
+                    "About READMEs": "关于自述文件",
+                // gitignore
+                    ".gitignore tells git which files not to track.": ".gitignore 告诉 git 不追踪哪些文件。",
+                    "About ignoring files": "关于忽略文件",
+
+                    "Choose a .gitignore template": "选择 .gitignore 模板",
+                        "Search templates": "搜索模板",
+                        "No .gitignore": "无",
+                "Add license": "添加许可证",
+                    "Licenses explain how others can use your code.": "许可证解释其他人如何使用您的代码。",
+                    "About licenses": "关于许可证",
+
+                    "Search licenses": "选择许可证",
+                    "No license": "无",
+                "Connect GitHub Apps": "连接 GitHub 应用",
+                    "Connect this repository to apps": "将此仓库连接到", 
+                    "is subscribed to": "订阅的应用",   
+
+                    "Choose GitHub Apps": "选择 GitHub 应用",
+                    "Search apps": "搜索应用",
+                    "Cancel and close": "关闭",
+
     },
     "regexp": [ // 正则翻译
         // [/([^ ]+) is available\./,"$1 名称可用。"],
@@ -7705,6 +7746,9 @@ I18N["zh-CN"]["page-new-repo"] = {// 仓库 - 新建/导入/复刻仓库
         // [/\(repository already exists\)/, "（仓库已存在）"], // 复刻页面
         [/You are creating a fork in the ([^ ]+) organization./, "您正在 $1 组织中创建一个复刻。"], // 复刻页面
         [/Updating branches and (\d+) commit authors?…/, "更新分支和 $1 个提交者…"], // 仓库导入第二页
+        //[/Connect this repository to apps ([^ ]+) is subscribed to/, "将此仓库连接到 $1 订阅的应用程序"],
+        [/Auto-installed by ([^ ]+)/, "由 $1 自动安装"],
+        [/(\d+) apps? selected/, "已选择 $1 个应用"],
         ...I18N["zh-CN"]["repository-public"]["regexp"],
         // [/, and (\d+) more/, "，以及其他 $1 个组织"], // 用户 浮动信息卡
         // [/(\d+) repositor(y|ies)/, "$1 个仓库"], // 组织  浮动信息卡
@@ -9041,9 +9085,9 @@ I18N["zh-CN"]["repository/issues"] = { // 仓库 - 议题页面
             // 右侧栏 补充
             "Metadata": "元数据", // 小屏模式
                 // "Development": "进展",
-                    "Code with Copilot Agent Mode": "使用 Copilot 代理模式编写代码",
+                    "Code with agent mode": "使用代理模式编写代码",
                         "Select code repository": "选择仓库",
-                        "Start a Codespace with Copilot Agent Mode for this issue in another repository.": "为另一个仓库中的此议题启动使用 Copilot 代理模式的代码空间",
+                        "Start a codespace with Copilot agent mode for this issue in another repository.": "为另一个仓库中的此议题启动使用 Copilot 代理模式的代码空间。",
                     "No branches or pull requests": "没有分支或拉取请求",
                     "Shows branches and pull requests linked to this issue.": "显示与该议题相关的分支和拉取请求。",
                     "Create a branch": "创建分支",
@@ -25308,7 +25352,14 @@ I18N["zh-CN"]["copilot"] = {
             
             "Start task": "开始任务",
 
-            "Add a light/dark mode switcher": "添加浅色/深色模式切换器",
+            "Open": "打开",
+                "No open tasks yet. Start a new task to see it here.": "还没有打开的任务。开始一个新任务后即可在这里查看。",
+            "Closed": "关闭",
+                "· started": "· 开始于",
+                "ago ·": "之前",
+                "Merged": "已合并",
+
+            //"Add a light/dark mode switcher": "添加浅色/深色模式切换器",
 
             "revision": "修订",
 
@@ -25339,6 +25390,8 @@ I18N["zh-CN"]["copilot"] = {
         }],
         // 空间
         [/Total percent used: (\d+\%)/, "总使用率：$1"],
+        // 代理
+        [/(\d+) revisions?/, "$1 次修订"],
     ],
 };
 
