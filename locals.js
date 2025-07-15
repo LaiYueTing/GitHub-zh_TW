@@ -48,7 +48,7 @@ I18N.conf = {
     rePagePath: /^\/($|home|dashboard|copilot|signup|account_verifications|login\/oauth|login|logout|sessions?|password_reset|orgs|explore|topics|notifications\/subscriptions|notifications|watching|stars|issues|pulls|search|trending|showcases|new\/(import|project)|new|import|settings\/(profile|admin|appearance|accessibility|notifications|billing|emails|security_analysis|security-log|security|auth|sessions|keys|ssh|gpg|organizations|enterprises|blocked_users|interaction_limits|code_review_limits|repositories|codespaces|models|codespaces\/allow_permissions|deleted_repositories|packages|copilot|pages|replies|installations|apps\/authorizations|reminders|sponsors-log|apps|(?:personal-access-|)tokens|developers|applications\/new|applications|connections\/applications|education\/benefits)|settings|installations\/new|marketplace|apps|account\/(organizations\/new|choose|upgrade|billing\/history)|projects|redeem|discussions|collections|sponsors|sponsoring|github-copilot\/(signup|free_signup|code-review-waitlist)|codespaces|developer\/register|features|security|sitemap|education)|^\/users\/[^\/]+\/(projects|packages|succession\/invitation)/,
 
     // 仓库路径
-    rePagePathRepo: /^\/[^\/]+\/[^\/]+\/(issues|pulls|pull|tree|watchers|stargazers|new|edit|delete|upload|find|wiki|branches|discussions|activity|rules|releases|packages|tags|labels|milestones?|compare|commit|blob|blame|actions(\/metrics\/(usage|performance))?|runs|deployments|security|pulse|community|forks|fork|import|graphs\/(contributors|community|traffic|commit-activity|code-frequency)|network$|network\/(dependencies|dependents|updates|members)|settings\/(access|code_review_limits|interaction_limits|branches|branch_protection_rules|tag_protection|rules|actions|models\/access-policy|hooks|copilot\/coding_agent|environments|codespaces|pages|security_analysis|dependabot_rules|keys|secrets|variables|installations|notifications|key_links)|settings|transfer|projects\/new|pkgs|contribute|subscription|invitations|codespaces|attestations|custom-properties|reported_content)/,
+    rePagePathRepo: /^\/[^\/]+\/[^\/]+\/(issues|pulls|pull|tree|watchers|stargazers|new|edit|delete|upload|find|models|wiki|branches|discussions|activity|rules|releases|packages|tags|labels|milestones?|compare|commit|blob|blame|actions(\/metrics\/(usage|performance))?|runs|deployments|security|pulse|community|forks|fork|import|graphs\/(contributors|community|traffic|commit-activity|code-frequency)|network$|network\/(dependencies|dependents|updates|members)|settings\/(access|code_review_limits|interaction_limits|branches|branch_protection_rules|tag_protection|rules|actions|models\/access-policy|hooks|copilot\/coding_agent|environments|codespaces|pages|security_analysis|dependabot_rules|keys|secrets|variables|installations|notifications|key_links)|settings|transfer|projects\/new|pkgs|contribute|subscription|invitations|codespaces|attestations|custom-properties|reported_content)/,
 
     // 组织路径
     rePagePathOrg: /^\/[^\/]+\/[^\/]+\/(repositories\/new|repositories|sponsoring|discussions|projects|packages|teams|new-team|people|outside-collaborators|pending_collaborators|dashboard|billing_managers\/new|invitations?|settings\/(profile|billing|roles|member_privileges|teams|import-export|blocked_users|interaction_limits|code_review_limits|moderators|repository-defaults|rules|codespaces|copilot|actions|hooks|discussions|packages|pages|projects|security_analysis|security|dependabot_rules|domains|secrets|variables|oauth_application_policy|installations|personal-access-token|reminders|sponsors-log|audit-log|deleted_repositories|applications\/new|applications|apps\/new|apps|publisher)|topics|domain\/new|audit-log\/event_settings|billing\/(history|plans)|policies\/applications)|^\/[^\/]+\/(enterprise_plan|sponsoring)/,
@@ -7269,6 +7269,7 @@ I18N["zh-CN"]["repository-public"] = { // 仓库 - 公共部分
             "Discussions": "讨论",
             "Actions": "操作",
             "Projects": "项目",
+            "Models": "模型",
             "Security": "安全",
             "Insights": "洞察",
             "Settings": "设置",
@@ -8993,6 +8994,7 @@ I18N["zh-CN"]["repository/issues"] = { // 仓库 - 议题页面
             "Title": "标题",
             "Helpful resources": "帮助性资源",
             "Create more": "创建多个",
+            "Write with Copilot": "请 Copilot 编写",
 
         // 从讨论创建议题  /<user-name>/<repo-name>/issues/new?created_from_discussion_number=<id>
             "Documentation has changed since you last contributed": "自您上次贡献以来，文档已更改",
@@ -9825,6 +9827,9 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
                 "The base branch requires all commits to be signed.": "基础分支要求所有提交都经过签名。",
                 "Learn more about signing commits.": "了解更多关于签名提交的信息。",
                 "View rules": "查看规则",
+                // 无权提交
+                "You're not authorized to push to this branch. Visit": "您没有权限推送到此分支。请访问",
+                    "for more information.": "获取更多信息。",
                 // 新版合并界面
                 "Merge is not an allowed merge method in this repository.": "合并不是此仓库允许的合并方法。",
                 "Pull request cannot be merged because it has a merge conflict.": "由于存在合并冲突，无法合并拉取请求。",
@@ -12848,6 +12853,51 @@ I18N["zh-CN"]["repository/find"] = { //  仓库 - 查找文件页面
     ],
 };
 
+I18N["zh-CN"]["repository/models"] = { // 仓库 - 模型
+    "static": {
+        ...I18N["zh-CN"]["repository-public"]["static"],
+        "Public Preview": "公共预览",
+        "Expand menu": "展开目录",
+        "Collapse menu": "折叠目录",
+        "Catalog": "目录",
+        "Share feedback": "反馈",
+
+        // 概况
+            "Build your AI products—right inside GitHub. Create prompts, test models, and ship AI-powered features with built-in tools for model access, prompt collaboration, and lightweight evaluation.": "在 GitHub 内部构建您的 AI 产品。利用内置的模型接入、提示协作和轻量级评估工具，创建提示词、测试模型，并发布 AI 驱动的功能。",
+                "Read the docs": "阅读文档",
+                "to learn more.": "了解详情。",
+
+            "You do not have access to GitHub Models on this repository": "您无权访问此仓库上的 GitHub 模型",
+                "You need write permissions or higher for this repository to use GitHub Models.": "您需要拥有此仓库写入权限或更高权限，才能使用 GitHub 模型。",
+                "Learn more about GitHub Models.": "了解更多。",
+
+            "Prompts": "提示词",
+                "Create, evaluate, and iterate on prompts right inside your repo.": "在您的仓库内直接创建、评估和迭代提示词。",
+                "Get write permissions or higher for this repository to create and manage prompts.": "获得对此仓库的写入权限或更高权限，才能创建和管理提示词。",
+
+            "Add AI to your project now": "立即添加 AI 到您的项目",
+                "Drop this snippet into your code to start using AI instantly.": "将此代码片段插入您的代码中，即可立即开始使用 AI。",
+                "Get API Key": "获取 API 密钥",
+
+            "Explore 40+ models in the catalog": "在目录中探索 40+ 模型",
+                "Compare models in the playground—test parameters, token usage, and latency to find the right fit for your use case.": "在游乐场中对比模型——测试参数、令牌使用量和延迟，以找到最适合你用例的模型。",
+            "Power your prompt with the right model": "为您的提示词选择合适的模型",
+                "Test and compare models against your prompt to find the best fit, then commit it directly to your project when you're ready.": "针对您的提示词测试和对比不同模型，以找到最合适的模型，然后在准备好后将其直接提交到您的项目中。",
+            "Instrument your Actions workflow with models": "使用模型为您的 Actions 工作流提供支持",
+                "Set up a new GitHub Actions workflow using models.": "使用模型新建 Actions 工作流。",
+
+        // 提示词
+            "Manage": "管理",
+                "prompts stored in your repo using": "您仓库中的提示词，使用",
+                ".prompt.yml file": ".prompt.yml 文件",
+                "format.": "格式。",
+    },
+    "regexp": [
+        ...I18N["zh-CN"]["repository-public"]["regexp"],
+        [/(\d+) prompts? found/, "$1 条提示词"],
+    ],
+}
+
 I18N["zh-CN"]["repository/wiki"] = { // 仓库 - wiki 页面
     "static": { // 静态翻译
         ...I18N["zh-CN"]["repository-public"]["static"],
@@ -13322,6 +13372,9 @@ I18N["zh-CN"]["repository/releases"] = { // 仓库 - 发行版页面
             "This is a draft and won’t be seen by the public unless it’s published.": "这是一个草案，除非发布，否则不会被公众看到。",
             "Discard draft": "丢弃草案",
 
+            "Release notes": "发行版说明",
+                "Select a previous tag to create generated release notes": "选择一个先前的标签以生成发行说明",
+
             "Choose a tag": "选择标签",
                 "Find or create a new tag": "查找或创建新标签",
             "Target:": "目标：",
@@ -13351,6 +13404,7 @@ I18N["zh-CN"]["repository/releases"] = { // 仓库 - 发行版页面
             "Release title": "发行版标题",
 
             "Previous tag:": "上一个标签：",
+                "Auto": "自动",
                 "auto": "自动",
                 "Select previous tag to compare": "选择上一个标签进行比较",
                     "Find previous tag": "筛选上一个标签",
@@ -13494,6 +13548,7 @@ I18N["zh-CN"]["repository/releases"] = { // 仓库 - 发行版页面
         [/^([^ ]+) and ([^ ]+)/, "$1 和 $2"], // 发行版 - 贡献者（2位
         [/(\d+) (people|person) reacted/, "$1 人表达看法"],
         [/There are no releases containing \"([^ ]+)\"./, "没有发行版包含“$1”。"],
+        [/Edit (.+)/, "编辑 $1"],
         ...I18N["zh-CN"]["repository-public"]["regexp"],
     ],
 };
@@ -25222,6 +25277,7 @@ I18N["zh-CN"]["copilot"] = {
                         "aren't supported by this model": "不支持此模型",
                         "Switch back to the": "切回",
                         "model or start a new conversation": "模型或新建对话",
+            "Space": "空间",
             "Send now": "发送",
 
             // 预设栏
