@@ -3804,6 +3804,10 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
 
         // 新建/更新预算 https://github.com/settings/billing/budgets/new
         // https://github.com/settings/billing/budgets/<id>/edit
+            // 提醒栏
+                "Info": "信息",
+                "SKU level budgets are only available for products that have > 1 SKU.": "只有拥有大于 1个 SKU 的产品才有 SKU 级别的预算。",
+
             "Budgets and Alerts": "预算和警报",
             "New monthly budget": "新建月度预算",
             "Edit monthly budget": "编辑每月预算", // edit
@@ -3814,15 +3818,24 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
             "Budget type": "预算类型",
                 "Set budget for either a product or individual SKU within a product.": "为产品或产品中的单个 SKU 设置预算。",
                 "Product-level budget": "产品级预算",
+                    "Codespaces": "代码空间",
+                    "Actions": "操作",
+                    "Models": "模型",
+                        "Enable billing to set a budget. See": "启用计费以设置预算。查看",
+                        "Models policy configuration": "模型策略配置",
+                    "Packages": "软件包",
                     "Select 1 product": "选择产品",
                 "SKU-level budget": "SKU 级预算",
                     "Select": "选择",
                     "Select an item": "选择项目",
 
+            "Next: Configure budget": "下一步：配置预算",
+
             "Budget scope": "预算范围",
                 "Select the scope of spending for this budget.": "选择此预算的支出范围。",
                 // 仓库
-                    "Spending for a single repository.": "单个仓库支出。",
+                    "Scoped budgets track spending for a single repository": "范围预算跟踪单个仓库的支出",
+
                         "Select repository": "选择仓库",
                         "Select the": "选择",
                         "to include in this": "包含在此",
@@ -3833,8 +3846,8 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
                         "of": "/",
                         // [/(\d+) selected/, "$1 个选定"],
                 // 账户
-                    "Spending for all repositories owned by your account.": "账户拥有的所有仓库的支出。",
-                    "Spending for all repositories owned by your account": "账户拥有的所有仓库的支出。",
+                    "Scoped budgets track spending for all repositories owned by your account": "范围预算跟踪您账户下所有仓库的支出",
+                    "Scoped budgets track all spending for your account": "范围预算跟踪您账户的所有支出",
 
             "Budget": "预算",
                 "Set a budget amount to track your spending on a monthly basis.": "设置预算金额以按月跟踪您的支出。",
@@ -3844,7 +3857,7 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
                         "Spending won't exceed your set budget": "支出不会超出您设定的预算",
 
             // 警示
-                "Get emails and GitHub notifications when your spending has reached 75%, 90%, and 100% of the budget threshold.": "当您的支出达到预算阈值的75%、90%和100%时，接收电子邮件和 GitHub 通知。",
+                "Get emails and GitHub notifications when your spending has reached 75%, 90%, and 100% of the budget threshold.": "当您的支出达到预算阈值的 75%、90% 和 100% 时，接收电子邮件和 GitHub 通知。",
 
                 "Receive budget threshold alerts": "接收预算阈值警报",
 
