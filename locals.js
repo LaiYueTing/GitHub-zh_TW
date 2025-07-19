@@ -841,7 +841,7 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
             "Nothing to preview": "没有什么可预览",
             "This repository has been archived.": "此仓库已存档。", // 已存档仓库 某个提交的评论框
             "Add review comment": "添加审查意见", // 具体拉取请求 文件审查意见
-            "Start a review": "开始评论", // 具体拉取请求 文件审查意见
+            "Start a review": "开始审查", // 具体拉取请求 文件审查意见
             // 取消按钮 提醒信息
             "Are you sure you want to discard your unsaved changes?": "您确定要放弃未保存的更改吗？",
 
@@ -3366,8 +3366,8 @@ I18N["zh-CN"]["settings/admin"] = { // 设置 - 账户
                 "You must": "您必须先",
                 "remove yourself": "删除您自己",
                 "transfer ownership": "转让所有权",
-                "delete": "删除",
-                "these organizations before you can delete your user.": "这些组织，您才可以删除您的用户。",
+                "delete these organizations": "删除这些组织",
+                "before you can delete your user.": "，您才可以删除您的用户。",
             "Delete your account": "删除账户",
             "Are you sure you don’t want to just": "您确定不希望仅仅是",
             "downgrade your account": "降级您的账户",
@@ -4444,7 +4444,6 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
             [/until (.+)./, (match, p1) => {
                 const dateRegExp = I18N["zh-CN"]["public"]["time-regexp"];
                 const translatedDate = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
-    
                 return `直到 ${translatedDate}。`;
             }],
 
@@ -7544,7 +7543,7 @@ I18N["zh-CN"]["page-new-repo"] = {// 仓库 - 新建/导入/复刻仓库
                 "Already have a project repository elsewhere?": "在其他地方已有仓库？",
                 "Import a repository": "导入仓库",
                 "Required fields are marked with an asterisk (*).": "带星号 (*) 的为必填项。",
-            
+
             "🎉 Try the new experience": "🎉 尝试新版页面",
 
             "Repository template": "仓库模板",
@@ -7743,8 +7742,8 @@ I18N["zh-CN"]["page-new-repo"] = {// 仓库 - 新建/导入/复刻仓库
                     "Search licenses": "选择许可证",
                     "No license": "无",
                 "Connect GitHub Apps": "连接 GitHub 应用",
-                    "Connect this repository to apps": "将此仓库连接到", 
-                    "is subscribed to": "订阅的应用",   
+                    "Connect this repository to apps": "将此仓库连接到",
+                    "is subscribed to": "订阅的应用",
 
                     "Choose GitHub Apps": "选择 GitHub 应用",
                     "Search apps": "搜索应用",
@@ -11077,6 +11076,52 @@ I18N["zh-CN"]["repository/blob"] = { // 仓库 - 浏览代码
     "static": { // 静态翻译
         ...I18N["zh-CN"]["repository-public"]["static"],
 
+        // 公共部分
+            // 许可证文件 中间栏 顶部 权限信息
+                "the": "为：", // 上半句走正则
+
+                // 许可证类型
+                    "GNU General Public License v3.0": "GNU 通用公共许可证 v3.0",
+                    "GPL-3.0 License": "GPL-3.0 许可证",
+                    "AGPL-3.0 License": "AGPL-3.0 许可证",
+                    "LGPL-3.0 License": "LGPL-3.0 许可证",
+                    "MIT License": "MIT 许可证",
+                    "Apache License 2.0": "Apache-2.0 许可证",
+                    "OFL-1.1 License": "OFL-1.1 许可证",
+                    "0BSD License": "0BSD 许可证",
+                    "BSD-3-Clause License": "BSD-3-Clause 许可证",
+                    "BSD 3-Clause \"New\" or \"Revised\" License": "BSD-3-Clause 许可证",
+                    "CC0-1.0 License": "CC0-1.0 许可证",
+                    "WTFPL License": "WTFPL 许可证",
+                    "Unknown": "未知",
+
+                // 许可证概述 懒得翻译 O(∩_∩)O哈哈~
+
+                // 许可证范围, 限制, 条件
+                    "Permissions": "许可事项",
+                    "Limitations": "限制条件",
+                        "Commercial use": "商业用途",
+                        "Modification": "修改",
+                        "Distribution": "分布",
+                        "Patent use": "专利使用",
+                        "Private use": "私人使用",
+                        "Trademark use": "商标使用",
+                        "Liability": "责任",
+                        "Warranty": "担保",
+                        "Disclose source": "开源",
+                        "Same license": "相同的许可证",
+                    "Conditions": "条件",
+                        "License and copyright notice": "许可和版权声明",
+                        "State changes": "状态变化",
+                        "License and copyright notice for source": "来源许可和版权声明",
+                        "Network use is distribution": "网络使用即分发",
+                        "Same license (library)": "相同的许可证（库）",
+                        "Same license (file)": "相同的许可证（文件）",
+
+                "This is not legal advice.": "这并不是法律建议。",
+                "Learn more about repository licenses": "了解更多关于仓库许可证的信息",
+
+
         // 文件代码页面 /<user-name>/<repo-name>/blob/<brach>/<file>
             // 顶部提醒
                 "This commit does not belong to any branch on this repository, and may belong to a fork outside of the repository.": "此提交不属于该仓库上的任何分支，并且可能属于仓库的外部分支。",
@@ -11116,8 +11161,11 @@ I18N["zh-CN"]["repository/blob"] = { // 仓库 - 浏览代码
             // 工作流程文件 /blob/<brach>/.github/workflows/xxxx.yml
                 "View Runs": "查看运行情况",
             // 议题模板 /blob/<brach>/.github/ISSUE_TEMPLATE/xxxx.yml
-                "This file is used as an Issue Form template.": "该文件是议题表单模板",
+                "This file is used as an Issue Form template.": "该文件用作议题表单模板。",
                 "Give Feedback.": "提交反馈。",
+            // 议题模板 /blob/<brach>/.github/ISSUE_TEMPLATE/xxxx.md
+                "info": "信息",
+                "This file is used as a markdown issue template.": "该文件用作 Markdown 议题模板。",
             // 添加文件按钮, 文件夹模式下
                 "Add file": "添加文件",
             // 三个点
@@ -11172,6 +11220,7 @@ I18N["zh-CN"]["repository/blob"] = { // 仓库 - 浏览代码
                     "Download raw file": "下载原始文件",
                 // 文件编辑图标
                     "Edit this file": "编辑本文件",
+                        "More edit options": "更多编辑选项",
                     "Edit the file in your fork of this project": "在您的复刻中编辑文件",
                         "Edit file": "编辑文件",
                             "Edit in place": "就地编辑",
@@ -11222,12 +11271,14 @@ I18N["zh-CN"]["repository/blob"] = { // 仓库 - 浏览代码
 
             "More Pages": "更多页面",
 
-            // 右侧大纲面板
-                "Outline": "大纲", // md 文件
-                    "Filter headings": "筛选标题", // md 文件
+            // Markdown 文件右侧大纲面板
+                "Outline": "大纲",
+                    "Close outline": "关闭大纲",
+                    "Filter headings": "筛选标题",
 
             // 右侧符号面板
                 "Symbols": "符号",
+                    "Close symbols": "关闭符号面板",
                     "Symbol outline not available for this file": "大纲不适用于此文件",
                     "To inspect a symbol, try clicking on the symbol directly in the code view.": "要检查一个符号，可以尝试在代码视图中直接点击该符号。",
                     "Code navigation supports a limited number of languages.": "代码导航支持有限数量的语言。",
@@ -11264,47 +11315,6 @@ I18N["zh-CN"]["repository/blob"] = { // 仓库 - 浏览代码
                 "Explain": "解释",
                 "Suggest improvements": "提出优化建议",
                 "Attach to current thread": "附加至当前话题",
-
-        // 中间栏 顶部 权限信息
-        "the": "为：", // 上半句走正则
-
-        // 许可证
-            "GNU General Public License v3.0": "GNU 通用公共许可证 v3.0",
-            "GPL-3.0 License": "GPL-3.0 许可证",
-            "AGPL-3.0 License": "AGPL-3.0 许可证",
-            "LGPL-3.0 License": "LGPL-3.0 许可证",
-            "MIT License": "MIT 许可证",
-            "Apache License 2.0": "Apache-2.0 许可证",
-            "OFL-1.1 License": "OFL-1.1 许可证",
-            "0BSD License": "0BSD 许可证",
-            "BSD-3-Clause License": "BSD-3-Clause 许可证",
-            "BSD 3-Clause \"New\" or \"Revised\" License": "BSD-3-Clause 许可证",
-            "CC0-1.0 License": "CC0-1.0 许可证",
-            "WTFPL License": "WTFPL 许可证",
-            "Unknown": "未知",
-
-        "Permissions": "许可事项",
-        "Limitations": "限制条件",
-            "Commercial use": "商业用途",
-            "Modification": "修改",
-            "Distribution": "分布",
-            "Patent use": "专利使用",
-            "Private use": "私人使用",
-            "Trademark use": "商标使用",
-            "Liability": "责任",
-            "Warranty": "担保",
-            "Disclose source": "开源",
-            "Same license": "相同的许可证",
-        "Conditions": "条件",
-            "License and copyright notice": "许可和版权声明",
-            "State changes": "状态变化",
-            "License and copyright notice for source": "来源许可和版权声明",
-            "Network use is distribution": "网络使用即分发",
-            "Same license (library)": "相同的许可证（库）",
-            "Same license (file)": "相同的许可证（文件）",
-
-        "This is not legal advice.": "这并不是法律建议。",
-        "Learn more about repository licenses": "了解更多关于仓库许可证的信息",
 
     },
     "regexp": [ // 正则翻译
@@ -12012,7 +12022,7 @@ I18N["zh-CN"]["repository/actions"] = { // 仓库 - 操作页面
                 "This workflow does not exist.": "此工作流不存在。",
 
             "All workflows": "全部工作流程",
-                "Show more workflows...": "显示更多...",
+                "Show more workflows...": "显示更多工作流程...",
                 "Showing runs from all workflows": "显示所有工作流程的运行情况",
 
             "Codespaces Prebuilds": "代码空间预构建",
@@ -19470,7 +19480,7 @@ I18N["zh-CN"]["search"] = { // 搜索页面
             "With the reason": "原因",
                 "any reason": "任何原因",
                 "completed": "已完成",
-                "not planned": "未计划",
+                "not planned": "无计划",
                 "reopened": "重新打开",
             "With this many comments": "评论数量",
             "With the labels": "议题标签",
@@ -22710,7 +22720,7 @@ I18N["zh-CN"]["orgs/settings/projects"] = { // 组织设置 - 计划 - 项目
                 "If enabled, members with admin permissions on a project can make the project public or private. If disabled, only organization owners can make the project public or private. All projects are private by default.": "如果启用，在项目上有管理权限的成员可以将项目设为公开或私有。如果禁用，则只有组织所有者可以将项目设为公开或私有。默认情况下，所有项目都是私有的。",
 
             "Welcome to projects": "欢迎来到项目！",
-                "Built like a spreadsheet, project tables give you a live canvas to filter, sort, and group issues and pull requests. Tailor them to your needs with custom fields and saved views.": "项目表格的构造类似电子表格，为您提供了一个实时画布，可用于筛选、排序和分组问题及拉取请求。您可以使用自定义字段和保存的视图，根据自身需求对其进行定制。",    
+                "Built like a spreadsheet, project tables give you a live canvas to filter, sort, and group issues and pull requests. Tailor them to your needs with custom fields and saved views.": "项目表格的构造类似电子表格，为您提供了一个实时画布，可用于筛选、排序和分组问题及拉取请求。您可以使用自定义字段和保存的视图，根据自身需求对其进行定制。",
 
             "Recommended templates": "推荐模板",
                 "Customize a selection of recommended project templates for this organization. These templates will be surfaced first when a member of the organization creates a new project.": "为此组织定制一系列推荐的项目模板。当组织成员创建新项目时，这些模板将首先出现。",
@@ -25417,7 +25427,7 @@ I18N["zh-CN"]["copilot"] = {
             // 仓库选择
                 "Select an item": "选择一项",
                     "Repos": "仓库",
-            
+
             "Start task": "开始任务",
 
             "Open": "打开",
