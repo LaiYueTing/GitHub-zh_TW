@@ -20422,71 +20422,96 @@ I18N["zh-CN"]["account/choose"] = { // 账户升级选择
 
 I18N["zh-CN"]["account/upgrade"] = { // 账户
     "static": {
-        "Change how often your account is billed": "更改您账户的计费频率",
-
-        "Back to billing settings": "返回账单设置",
-
-        "Change duration to": "切换周期至",
-
-        "Pay yearly": "按年支付",
-        "/ year": "/年",
-        "Pay monthly": "按月支付",
-        "/ month": "/月",
-
-        "Payment frequency": "支付频率",
-            "Total amount": "总计",
-            "Due today": "今天到期",
-
-        "Billing information": "账单信息",
-            "Personal account": "个人账户",
-
-            "Change your account's billing cycle": "更改计费周期",
-
-        "By clicking “Change your account's billing cycle”, you agree to our": "通过点击“更改计费周期”，您同意我们的",
-        "Terms of Service": "服务条款",
-        ". We’ll occasionally send you account-related emails.": "我们会偶尔发送与账户相关的电子邮件。",
-
         // https://github.com/account/upgrade?plan=pro&source=account+compare+plans
             "Upgrade your account from GitHub Free to GitHub Pro": "从 GitHub 免费版升级到 GitHub 专业版",
+            "Back to billing settings": "返回账单设置",
+
             "Plan details": "计划详情",
+                "Pro": "Pro 专业版",
+                "Includes everything in": "包含所有",
+                "GitHub Free": "GitHub 免费版",
+                "plus:": "以及：",
+                "Required reviewers in private repos": "私有仓库的必需审查者",
+                "Protected branches in private repos": "私有仓库的受保护分支",
+                "Repository insights in private repos": "私有仓库的仓库洞察",
+                "Wikis in private repos": "私有仓库的 Wiki",
+                "Pages in private repos": "私有仓库的 GitHub Pages",
+                "Code owners in private repos": "私有仓库的代码所有者",
+                "3,000 minutes for GitHub Actions": "3,000 分钟的 GitHub Actions 使用时长",
+                "2GB of GitHub Packages storage": "2GB 的 GitHub Packages 存储空间",
+                "180 core-hours of Codespaces compute": "180 核心小时的代码空间计算时长",
+                "20GB of Codespaces storage": "20GB 的代码空间存储空间",
 
-            // "Billing information": "账单信息",
-            "Please confirm your billing details to continue. You only need to do this once.": "请确认您的账单详情以继续。您只需确认一次。",
-            // "Personal account": "个人账户",
+            "Payment frequency": "支付频率",
+                "Pay yearly": "按年支付",
+                "Pay monthly": "按月支付",
+                "/ year": "/年",
+                "/ month": "/月",
 
-            "First name": "名字",
-                "First name can't be blank.": "名字不能为空。",
-                "First name can't be blank": "名字不能为空",
-            "Last name": "姓氏",
-                "Last name can't be blank.": "姓氏不能为空。",
-                "Last name can't be blank": "姓氏不能为空",
-            "Address": "地址",
-            "(Street, P.O. box)": "（街道，邮政信箱）",
-                "Address can't be blank.": "地址不能为空。",
-                "Address can't be blank": "地址不能为空",
-            "Address line 2": "地址第 2 行",
-            "(Apartment, suite, unit)": "（公寓、套房、单元）",
-            "City": "城市",
-                "City can't be blank.": "城市不能为空。",
-                "City can't be blank": "城市不能为空",
-            "Country/Region": "国家/地区",
-                "Country code can't be blank.": "国家/地区不能为空。",
-                "Country code can't be blank": "国家/地区不能为空",
-                "Choose your country/region": "选择您所在的国家/地区",
-            "State/Province": "州/省",
-                "Required for certain countries": "某些国家/地区需要",
-            "Postal/Zip code": "邮政编码",
-                "(9-digit zip code for US)": "(美国为 9 位邮政编码）",
-            "VAT/GST ID": "增值税/消费税编号",
+                "Total amount": "总计",
+                "Due today": "今天到期",
 
-            "Save and continue": "保存并继续",
+            "Billing information": "账单信息",
+                "Personal account": "个人账户",
+
+            // 编辑账单信息
+                "First name": "名字",
+                    "First name can't be blank.": "名字不能为空。",
+                    "First name can't be blank": "名字不能为空",
+                "Last name": "姓氏",
+                    "Last name can't be blank.": "姓氏不能为空。",
+                    "Last name can't be blank": "姓氏不能为空",
+                "Address": "地址",
+                    "(Street, P.O. box)": "（街道，邮政信箱）",
+                    "Address can't be blank.": "地址不能为空。",
+                    "Address can't be blank": "地址不能为空",
+                "Address line 2": "地址第 2 行",
+                    "(Apartment, suite, unit)": "（公寓、套房、单元）",
+                "City": "城市",
+                    "City can't be blank.": "城市不能为空。",
+                    "City can't be blank": "城市不能为空",
+                "Country/Region": "国家/地区",
+                "State/Province": "州/省",
+                    "Required for certain countries": "某些国家/地区需要",
+                "Postal/Zip code": "邮政编码",
+                    "(9-digit zip code for US)": "（美国为 9 位邮政编码）",
+                "VAT/GST ID": "增值税/消费税编号",
+
+                "Save and continue": "保存并继续",
+                // 顶部提醒
+                    "An error occurred while saving billing information.": "保存账单信息时发生错误。",
+
+            "Payment information": "付款信息",
+                "Pay with": "支付方式：",
+                    "Loading payment information…": "正在加载支付信息…",
+
+                    "Credit or debit card": "信用卡或借记卡",
+                        "Card Number *": "卡号",
+                        "Expiration Date (YYYY) *": "终止日期 (YYYY) *",
+                            "- Select One -": "- 选择一个 -",
+                        "Save payment information": "保存付款信息",
+                        "You are currently paying with your PayPal account": "您目前正在使用您的 PayPal 账户支付",
+                        ", but you can switch to using a credit or debit card at any time.": "，但是您随时可以切换到使用信用卡或借记卡支付。",
+
+                    "PayPal account": "PayPal 账户",
+                        "Sign in to": "登录到",
+                        "Connecting to PayPal…": "正在连接到 PayPal…",
+                        "Charge to": "收费至",
+                        "Sign in to PayPal to use a different account.": "登录 PayPal 以使用其他账户。",
+                        // 顶部提醒
+                            "Your PayPal account has been successfully added.": "您的 PayPal 账户已成功添加。",
+
+                    "504 Gateway Time-out": "504 网关超时",
+                    "We may place a temporary hold on your payment method to verify its validity. This is not a charge, and it will be released automatically after verification.": "我们可能会暂时冻结您的支付方式以验证其有效性。这不是收费，验证后将会自动解除。",
+
+            "Upgrade to GitHub Pro": "更新到 GitHub Pro",
+            "By clicking “Upgrade to GitHub Pro”, you agree to our": "通过点击 “更新到 GitHub Pro”，您同意我们的",
+            "Terms of Service": "服务条款",
+            "Corporate Terms of Service": "企业服务条款",
+            ". We’ll occasionally send you account-related emails.": "。我们会偶尔发送与账户相关的电子邮件。",
+
     },
     "regexp": [
-        [/Payment due (.+)/, (match, p1) => {
-        const dateRegExp = I18N["zh-CN"]["public"]["time-regexp"];
-        const translatedDate = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
-        return `${translatedDate}结算`;
-        }],
     ],
 };
 
