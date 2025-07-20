@@ -3668,11 +3668,15 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
             // 概况
                 "Current metered usage": "当前计费用量",
                     "Showing gross metered usage for your account.": "显示您账户的总计费用量。",
+                    "Showing gross metered usage for your organization.": "显示您组织的总计费用量。", // 组织
 
                 "Current included usage": "当前包含用量",
                     "More details": "详情",
                     "Showing currently applied discounts for your account.": "显示您账户当前应用的折扣。",
+                    "Showing currently applied discounts for your organization.": "显示您组织当前应用的折扣。", // 组织
                     "* As per current pricing": "* 根据当前定价方案",
+
+            "Next payment due": "下一次应付款",
 
             "Subscriptions": "订阅",
                 "Manage subscriptions": "管理订阅",
@@ -3745,8 +3749,9 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
                 "delete prebuilds for a repository.": "删除某个仓库的预构建。",
             "Update spending limit": "更新支出限额",
 
-        // 计费用量 https://github.com/settings/billing/usage
-            "Search or filter usage": "搜索或筛选",
+        // 使用情况 https://github.com/settings/billing/usage
+            "Get usage report": "获取使用情况报告",
+            "Search or filter usage": "搜索或筛选使用情况",
 
             //"Group: None": "分组：无",
             //"Group: Product": "分组：产品",
@@ -3792,7 +3797,7 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
                 "Price/unit": "单价",
                 "Billed amount": "计费",
 
-        // 账户预算 https://github.com/settings/billing/budgets
+        // 预算和警报 https://github.com/settings/billing/budgets
            "Account budgets": "账户预算",
                 "New budget": "新建",
                 // "On": "开",
@@ -3868,36 +3873,15 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
                 "Please add a payment method to use budgets.": "请添加付款方式，以便使用预算。",
 
         // 许可 https://github.com/settings/billing/licensing
-
-        // 其他 https://github.com/settings/billing/subscriptions
-            // [/In addition to your personal account, you manage (\d+) organizations?./, "除个人账户外，您还可以管理 $1 个组织。"],
-            "Marketplace apps": "市场应用",
-            "Sponsorships": "赞助",
-
-        // 账单和计划 https://github.com/settings/billing/summary
-            "Billing summary": "账单摘要",
-            "Your next payment": "您的下一次应付款",
-            "This amount does not include the spend on usage of metered service. View your": "该金额不包括使用计量服务的支出。在下面查看您的",
-            "usage this month": "本月使用情况",
-            "below.": "。",
-
-            // 组织设置
-                "Current monthly bill": "当前月度账单",
-                "Switch to yearly billing and save": "切换到按年计费并保存",
-
-                "Next payment due": "下一次应付款",
-
-            "Payment information": "支付信息",
-            "Manage spending limit": "管理支出限额",
-            "View payment history": "查看支付记录",
-            "Switch to yearly billing": "切换到按年计费",
-            "Switch to monthly billing": "切换到月度计费",
+            // Github Copllot
+                "Your AI pair programmer": "您的 AI 编程助理",
+                    "You are eligible to use GitHub Copilot for free.": "您有资格免费使用 GitHub Copilot。",
 
             "Current plan": "当前计划",
                 "Compare all plans": "比较所有计划",
                     "per month": "每月",
 
-                "GitHub Free": "GitHub 免费",
+                "GitHub Free": "GitHub 免费版",
                 "The basics for all developers": "基础计划（所有开发者）",
                 //"GitHub Pro": "GitHub 专业",
 
@@ -3905,15 +3889,15 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
                 "Unlimited public/private repos": "无限的公共/私有仓库",
                 "Unlimited collaborators": "无限协作者",
                 "2,000 Actions minutes/month": "每月 2,000 分钟 GitHub Actions",
-                "500MB of Packages storage": "500MB 的包存储空间",
+                "500MB of Packages storage": "500MB 的 GitHub Packages 存储空间",
                 "120 core-hours of Codespaces compute per developer": "每位开发者拥有 120 个核心小时的代码空间计算能力",
                 "15GB of Codespaces storage per developer": "每位开发者拥有 15GB 的代码空间存储空间",
                 "Community support": "社区支持",
                 // pro
                     "Downgrade to Free": "降级至免费版",
                 "3,000 Actions minutes/month": "每月 3,000 分钟 GitHub Actions",
-                "2GB of Packages storage": "2GB 的包存储空间",
-                "180 core-hours of Codespaces compute": "180 个核心小时的代码空间计算能力",
+                "2GB of Packages storage": "2GB 的 GitHub Packages 存储空间",
+                "180 core-hours of Codespaces compute": "180 核心小时的代码空间计算时长",
                 "20GB of Codespaces storage": "20GB 的代码空间存储空间",
                 "Code owners, required reviewers, GitHub Pages,": "代码所有者、所需审核者、GitHub Pages，",
                 "and more": "以及更多",
@@ -3932,96 +3916,136 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
                 "Web-based support": "基于网络的支持",
                 "See all features and compare plans": "查看所有功能并比较计划",
 
-            "Start your first organization": "开设您的第一个组织账户",
-            "With CI/CD, Dependabot, and the world's largest developer community, GitHub gives your team everything they need to ship better software faster": "借助 CI/CD、Dependabot 和世界上最大的开发者社区，GitHub为您的团队提供了他们所需的一切，以更快地发布更好的软件。",
-            "Create an organization": "创建组织",
+        // 支付信息 https://github.com/settings/billing/payment_information
+            "Billing information": "账单信息",
+                "You have not added any billing information.": "您尚未添加账单信息。",
 
-            // [/In addition to your personal account, you manage (\d+) organizations?./, "除了您的个人账户之外，您还管理 $1 个组织。"],
+                // 添加账单信息
+                    "Add your information to show on every invoice": "在每张发票上添加您的信息",
+
+                    "First name": "名字",
+                        "First name can't be blank": "名字不能为空",
+                    "Last name": "姓氏",
+                        "Last name can't be blank": "姓氏不能为空",
+                    "Add your business information to show on every invoice": "添加您的企业信息，在每张发票上显示",
+                    "Address": "地址",
+                        "(Street, P.O. box)": "（街道，邮政信箱）",
+                        "Address can't be blank": "地址不能为空",
+                    "Address line 2": "地址第 2 行",
+                        "(Apartment, suite, unit)": "（公寓、套房、单元）",
+                    "City": "城市",
+                        "City can't be blank": "城市不能为空",
+                    "Country/Region": "国家/地区",
+                    "State/Province": "州/省",
+                        "Required for certain countries": "某些国家/地区需要",
+                    "Postal/Zip code": "邮政编码",
+                        "(9-digit zip code for US)": "（美国为 9 位邮政编码）",
+                    "VAT/GST ID": "增值税/消费税编号",
+                    "Save billing information": "保存账单信息",
+
+                    // 顶部提醒
+                        "An error occurred while saving billing information.": "保存账单信息时发生错误。",
+
+                // 组织设置
+                    "An organization owner or billing manager must link their personal billing information with this organization account. You can switch to a business account to use your business’ billing information by": "组织所有者或计费经理必须将他们的个人计费信息与该组织帐户关联。您可以通过",
+                    "signing": "签署",
+                    "the": " ",
+                    "GitHub Customer Agreement": "GitHub 客户协议",
+                    "Allow my billing information to be linked with this organization": "允许我的账单信息与该组织关联",
+
+                        "Confirm your details shown below. To make changes,": "确认以下显示的详细信息。要做出更改，",
+                        "edit your billing information": "请编辑您的账单信息",
+
+            "Payment method": "支付方式",
+                "You have not added a payment method.": "您尚未添加支付方式。",
+
+                // 添加支付方式
+                    "Pay with": "支付方式：",
+                        "Loading payment information…": "正在加载支付信息…",
+
+                        "Credit or debit card": "信用卡或借记卡",
+                            "Card Number *": "卡号",
+                            "Expiration Date (YYYY) *": "终止日期 (YYYY) *",
+                                "- Select One -": "- 选择一个 -",
+                            "Save payment information": "保存付款信息",
+                            "You are currently paying with your PayPal account": "您目前正在使用您的 PayPal 账户支付",
+                            ", but you can switch to using a credit or debit card at any time.": "，但是您随时可以切换到使用信用卡或借记卡支付。",
+
+                        "PayPal account": "PayPal 账户",
+                            "Sign in to": "登录到",
+                            "Connecting to PayPal…": "正在连接到 PayPal…",
+                            "Charge to": "收费至",
+                            "Sign in to PayPal to use a different account.": "登录 PayPal 以使用其他账户。",
+                            // 顶部提醒
+                                "Your PayPal account has been successfully added.": "您的 PayPal 账户已成功添加。",
+
+                        "504 Gateway Time-out": "504 网关超时",
+                        "We may place a temporary hold on your payment method to verify its validity. This is not a charge, and it will be released automatically after verification.": "我们可能会暂时冻结您的支付方式以验证其有效性。这不是收费，验证后将会自动解除。",
+
+            "Last payment": "最后一次支付",
+                "You have not made any payments.": "您尚未支付任何款项。",
+
+            "Coupon": "优惠劵",
+                "Redeem a coupon": "兑换优惠券",
+                "You don't have an active coupon.": "您没有有效的优惠券。",
+                "* Discount only applies for GitHub Pro": "* 优惠仅限 GitHub Pro。",
+
+            "Additional information": "附加信息",
+                "Add specific contact or tax information to your receipts, like your full business name, VAT/GST identification number, or address of record here. We’ll make sure it shows up on every receipt.": "在您的收据上添加具体的联系方式或税务信息，例如您的企业全称、VAT/GST 识别号码或记录地址。我们将确保它显示在每张收据上。",
+                "Add information": "添加信息",
+                "No additional information added to your receipts.": "您的收据上没有添加任何额外的信息。",
+                "Extra information": "附加信息",
+
+
+                // “额外账单信息” 对话框
+                    "Extra billing information": "额外的账单信息",
+                    "This information will appear on all your receipts.": "此信息将出现在您的所有收据上。",
+                    "For your security, do not include any confidential or financial information (like credit card numbers).": "为了您的安全，请勿包含任何机密或财务信息（如信用卡号）。",
+                    "To update the information that appears on": "要更新显示在",
+                        "invoices": "发票",
+                        "(if enabled), visit the": "上的信息（如果已启用），请访问",
+                    "Full business name or address of record": "企业全称或记录地址",
+                    "Save contact information": "保存联系信息",
+                    "Saving contact information…": "正在保存联系信息...",
+                    // 顶部提醒
+                        "Updated your optional contact information, it will show up on your next receipt.": "已更新您的可选联系信息，该信息将显示在您的下一张收据上。",
+
+            // 组织
+            "Invoice": "发票",
+                "Receive an invoice for your GitHub purchases": "接收 GitHub 购物发票",
+
+                "The data from Billing Information, such as your address and VAT/GST ID will appear on your invoices.": "账单信息中的数据，如您的地址和增值税/消费税 ID，将显示在您的发票上。",
+                "Update your information displayed on your invoices in the": "更新发票上显示信息中的",
+                "billing information section": "账单信息栏",
+
+                "Automatically receive an invoice alongside the payment receipt": "在收到付款收据的同时自动接收发票",
+                    "* Enables invoices for all NEW payments.": "* 为所有新付款启用发票。",
+                "Save invoice preference": "保存发票首选项",
+
+            // 组织
+            "Metered billing via Azure": "通过 Azure 计量计费",
+                "Add Azure Subscription": "添加 Azure 订阅",
+                "To manage metered billing for this account through Microsoft Azure an Azure Subscription ID must be added to your account.": "通过 Microsoft Azure 管理此账户的计量计费，必须将 Azure 订阅 ID 添加到您的账户中。",
+
+        // 支付历史 https://github.com/account/billing/history
+            "Amounts shown in USD": "以美元显示的金额",
+
+        // 其他账单 https://github.com/settings/billing/subscriptions
+            // [/In addition to your personal account, you manage (\d+) organizations?./, "除个人账户外，您还可以管理 $1 个组织。"],
             "Manage your organizations": "管理您的组织",
                 "Create a new organization": "创建新组织",
 
-            "Add-ons": "附加组件",
-                // "GitHub Copilot": "",
-                    "Your AI pair programmer": "您的人工智能助理程序员",
-                    "Your AI powered pair programmer": "您的人工智能助理程序员",
-                    "Upgrade to Copilot Pro": "升级至 Pro",
-                    "Active subscription": "已激活订阅",
-                        "Copilot Free": "免费版",
-                    "You can upgrade to Copilot Pro at any time. Check out this": "您可以随时升级到 Copilot Pro。详情请查看",
-                    "You are eligible to use GitHub Copilot for free.": "您有资格免费使用 GitHub Copilot。",
-                    "documentation": "文档",
-                    "for more details.": "。",
-                    //"Enable GitHub Copilot": "启用 GitHub Copilot",
-                    //"GitHub Copilot suggests code and entire functions in real-time, right from your editor": "GitHub Copilot 会在编辑器中实时建议代码和整个函数。",
-                    //"GitHub Copilot uses the GPT-3.5 Turbo model to suggest code and entire functions in real-time, right from your editor": "GitHub Copilot 使用 GPT-3.5 Turbo 模型实时在您的编辑器中提供代码和整个函数建议",
-
-                     // 组织设置
-                    "Learn more about Copilot Business": "了解更多关于 GitHub Copilot 商业版的信息",
-                    "Copilot Business": "GitHub Copilot 商业版",
-                    "GitHub Copilot uses the OpenAI large language models to suggest code and entire functions in real-time, right from your editor. You can set up a GitHub Copilot Business subscription for your organization.": "GitHub Copilot 使用 OpenAI 大型语言模型，可在编辑器中实时建议代码和整个函数。您可以为您的组织设置 GitHub Copilot 商业版订阅。",
-                    "Sign up for Copilot Business": "注册 GitHub Copilot 商业版",
-
-            "Usage this month": "本月使用情况",
-                "Get usage report": "获取使用报告",
-                    "A full detailed report will be generated including usage for all eligible": "我们将生成一份完整详细的报告，其中包括所有符合条件的",
-                    "products.": "产品使用情况。",
-                    "You’ll receive an email at": "一旦准备就绪，您将收到",
-                    "as soon as it’s ready (it may take up to a couple of hours).": "的电子邮件（可能需要几个小时）。",
-                    "Send report to email": "发送报告到邮箱",
-                "Included": "包含",
-                "Paid": "支出",
-                "Total": "总价",
-                // 操作
-                    "Usage minutes": "使用分钟数",
-                    "Price / minute": "单价 / 分钟",
-                    "Ubuntu 2-core": "双核 Ubuntu",
-                    "Windows 2-core": "双核 Windows",
-                    "macOS 3-core": "三核 macOS",
-                    "Included minutes quota only applies to Ubuntu 2-core, Windows 2-core and macOS 3-core runners. Windows 2-core and macOS 3-core runners consume included minutes at higher rates.": "包含的分钟配额仅适用于双核 Ubuntu、双核 Windows 和三核 macOS 运行器。双核 Windows 和三核 macOS 运行器以更高的速度消耗包括的分钟数。",
-                // 软件包
-                    "Data transfer out": "数据转出",
-                    "Data transfer out (rounded)": "数据转出（四舍五入）",
-                    "Price estimate / GB": "估算单价 / GB",
-                // 软件包与操作的存储空间
-                    "Storage for Actions and Packages": "软件包与操作的存储空间",
-                    "Shared storage consists of Actions artifacts and Packages usage. This graph shows the account's storage usage in GB-months. Removing stored artifacts will not reduce this number, but it will lower its rate of growth. To see your account's current storage, download a usage report.": "共享存储由操作产生的文件和软件包使用组成。此图以每月 GB 数为单位显示账户的存储使用情况。删除存储的文件不会减少这个数字，但会降低其增长率。若要查看您账户的当前存储空间，请下载使用情况报告。",
-                    "Storage": "存储空间",
-                    "Shared Storage": "共享存储空间",
-                // 代码空间
-                    "Usage hours": "使用小时数",
-                    "Core hours are calculated by multiplying the compute types by their per-hour rates, which can vary": "核心小时数是通过将计算类型乘以其每小时费率来计算的，该费率可能会有所不同",
-                    "Price / hour": "单价 / 小时",
-                    "2-core": "双核",
-                    "4-core": "四核",
-                    "8-core": "八核",
-                    "16-core": "十六核",
-                    "32-core": "三十二核",
-                    "Storage usage is updated daily and billed monthly": "存储使用情况每天更新，每月计费",
-                    "Price / GB": "单价 / GB",
-                    "Prebuild Storage": "预构建存储",
-                // Git LFS 数据
-                    "Git LFS Data": "Git LFS 数据",
-                    "Add more data": "添加更多数据",
-                    "Bandwidth": "带宽",
-                "See billing documentation": "查看计费政策",
-                "monthly spending limit": "每月支出限额",
-                "monthly spending limit |": "每月支出限额 |",  // 组织设置
-                "Set up a spending limit": "设置支出限额",
-
-            "GitHub Sponsors": "GitHub 赞助",
-                "Connect with the community that builds the tools you use": "与构建您使用的工具的社区联系",
-                "Start sponsoring": "开始赞助",
-                "You're currently not sponsoring anyone.": "您目前没有赞助任何人。",
-                "Learn more about GitHub Sponsors": "了解更多关于 GitHub 赞助的信息",
-                "Switch to invoiced billing": "切换到发票账单", // 组织
-
-            "GitHub Marketplace": "GitHub 市场",
+            "Marketplace apps": "市场应用",
                 "Change plan": "更改计划",
                 "Cancel plan": "取消计划",
+                    "Are you sure you want to cancel this integration?": "您确定要取消此集成吗？",
+                    // 顶部提醒
+                        // [/You've cancelled your subscription to (.*). This plan change will take effect on (.*)./, "您已取消对 $1 的订阅。此计划变更将于 $2 生效。"],
+                        "Dismiss": "忽略",
                 "Do you have any questions? Contact": "您有任何问题吗？请联系",
 
             // 组织设置
-            "Billing Management": "账单管理",
+            "Billing Contacts": "账单联系人",
                 "Receipts are sent to billing managers and email recipients.": "收据会被发送给账单管理员和邮件接收者。",
 
                 "Billing managers": "账单管理员",
@@ -4035,161 +4059,26 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
                     // 编辑账单电子邮箱对话框
                         "Edit billing email address": "编辑账单电子邮箱",
                         "Billing primary email": "账单主账户邮箱",
+                        "(Private)": "（私密）",
                         "Update": "更新",
 
                     // 添加账单接收者对话框
                         "Add billing recipient": "添加账单接收者",
                         "Add billing recipient email": "添加账单接收者邮箱",
 
-                "Metered billing via Azure": "通过 Azure 计量计费",
-                    "Add Azure Subscription": "添加 Azure 订阅",
-                    "To manage metered billing for this account through Microsoft Azure an Azure Subscription ID must be added to your account.": "通过 Microsoft Azure 管理此账户的计量计费，必须将 Azure 订阅 ID 添加到您的账户中。",
+            "Sponsorships": "赞助",
+                "GitHub Sponsors": "GitHub 赞助",
+                    "Connect with the community that builds the tools you use": "与构建您使用的工具的社区联系",
+                    "Start sponsoring": "开始赞助",
+                    "You're currently not sponsoring anyone.": "您目前没有赞助任何人。",
+                    "Learn more about GitHub Sponsors": "了解更多关于 GitHub 赞助的信息",
+                    "Switch to invoiced billing": "切换到发票账单", // 组织
 
-        // 支付信息 https://github.com/settings/billing/payment_information
-            // pro
-                "Your recurring charges & discounts": "您的定期费用和折扣",
-                    "GitHub Coupon": "GitHub 优惠券",
-                        "* Discount applies for GitHub Pro": "* 适用于 GitHub Pro 的折扣",
-
-            "Billing & plans": "账单和计划",
-            "/ Payment information": "/ 支付信息",
-
-            "Please update your billing information in order to add a payment method.": "请更新您的账单信息，以便添加支付方式。",
-
-            "Billing information": "账单信息",
-                "Add your information to show on every invoice": "在每张发票上添加您的信息",
-                "Remove": "移除",
-                    "Remove your billing information?": "确定移除账单信息？",
-                    "You are about to remove the billing information for this account.": "您即将删除此账户的账单信息。",
-                    "Are you sure you want to do this?": "您确定要这样做吗？",
-                    "Remove billing information": "移除账单信息",
-            // 组织设置
-            "An organization owner's personal billing information must be linked with this organization account.": "组织所有者的个人账单信息必须与该组织账户关联。",
-            "Update your billing information": "更新您的账单信息",
-            "to be able to link it with this organization.": "以便将其与该组织关联。",
-
-            "First name": "名字",
-            "Last name": "姓氏",
-            "Add your business information to show on every invoice": "添加您的企业信息，在每张发票上显示",
-            "Address": "地址",
-                "(Street, P.O. box)": "（街道，邮政信箱）",
-            "Address line 2": "地址第 2 行",
-                "(Apartment, suite, unit)": "（公寓、套房、单元）",
-            "City": "城市",
-            "Country/Region": "国家/地区",
-                "Choose your country/region": "选择您所在的国家/地区",
-            "State/Province": "州/省",
-            "Postal/Zip code": "邮政编码",
-                "Required for certain countries": "某些国家/地区需要",
-                "(9-digit zip code for US)": "(美国为 9 位邮政编码）",
-            "VAT/GST ID": "增值税/消费税编号",
-            "Save billing information": "保存账单信息",
-            "You have not added any billing information.": "您尚未添加账单方式。",
-
-            "Payment method": "支付方式",
-            "Add Information": "添加信息",
-            "You have not added a payment method.": "您尚未添加支付方式。",
-            "Credit or debit card": "信用卡或借记卡",
-                "504 Gateway Time-out": "504 网关超时",
-                "You may see an authorization hold on your provided payment method after accruing significant usage of metered services. Authorization holds are temporary and are released as quickly as possible.": "在您大量使用计量服务后，您可能会看到您提供的付款方式被授权暂停。授权暂停是暂时的，会尽快解除。",
-
-            "Last payment": "最后一次支付",
-            "You have not made any payments.": "您尚未支付任何款项。",
-
-            "Coupon": "优惠劵",
-            "Redeem a coupon": "兑换优惠券",
-            "You don't have an active coupon.": "您没有有效的优惠券。",
-            "* Discount only applies for GitHub Pro": "* 优惠仅限 GitHub Pro。",
-
-            //"Additional Information": "附加信息",
-            "Additional information": "附加信息",
-                "Add specific contact or tax information to your receipts, like your full business name, VAT/GST identification number, or address of record here. We’ll make sure it shows up on every receipt.": "在您的收据上添加具体的联系方式或税务信息，例如您的企业全称、VAT/GST 识别号码或记录地址。我们将确保它显示在每张收据上。",
-            "Add information": "添加信息",
-            "No additional information added to your receipts.": "您的收据上没有添加任何额外的信息。",
-
-            // 对话框
-            "Extra billing information": "额外的账单信息",
-            "This information will appear on all your receipts.": "此信息将出现在您的所有收据上。",
-            "For your security, do not include any confidential or financial information (like credit card numbers).": "为了您的安全，请勿包含任何机密或财务信息（如信用卡号）。",
-            //"To update the information that appears on invoices (if enabled), visit the": "要更新显示在发票上的信息（如果已启用），请访问",
-            "To update the information that appears on": "要更新显示在",
-                "invoices": "发票",
-                "(if enabled), visit the": "上的信息（如果已启用），请访问",
-            "Full business name or address of record": "企业全称或记录地址",
-            "Save contact information": "保存联系信息",
-
-            "Invoice": "发票",
-                "Receive an invoice for your GitHub purchases": "接收 GitHub 购物发票",
-
-                "The data from Billing Information, such as your address and VAT/GST ID will appear on your invoices.": "账单信息中的数据，如您的地址和增值税/消费税 ID，将显示在您的发票上。",
-                "Update your information displayed on your invoices in the": "更新发票上显示信息中的",
-                "billing information section": "账单信息栏",
-
-                "Automatically receive an invoice alongside the payment receipt": "在收到付款收据的同时自动接收发票",
-                    "* Enables invoices for all NEW payments.": "* 为所有新付款启用发票。",
-                "Save invoice preference": "保存发票首选项",
-
-        // 支付方式 https://github.com/settings/billing/payment
-            "/ Payment method": "/ 支付方式",
-            "Loading payment information…": "正在加载支付信息…",
-            "Pay with": "支付方式：",
-                "Credit card": "信用卡",
-                    "Card Number": "卡号",
-                    "Expiration Date": "终止日期",
-                        "- Select One -": "- 选择一个 -",
-                    "Address 1": "地址 1",
-                    "Address 2": "地址 2",
-                    "Country": "国家/地区",
-                    "City": "城市",
-                    "State": "州/省",
-                    "Postal Code": "邮政编码",
-                    "Submit": "提交",
-                "PayPal account": "PayPal 账户",
-                    "Sign in to": "登录到",
-                    "Connecting to PayPal…": "正在连接到 PayPal…",
-            "Back to billing settings": "返回账单设置",
-            "There are no upcoming charges to your account.": "您的账户没有即将发生的费用。",
-
-        // 支出限额 https://github.com/settings/billing/spending_limit
-            "/ Monthly spending limits": "/ 每月支付限额",
-            "/ Monthly spending limit": "/ 每月支付限额", // 组织设置
-            "Set up a monthly spending limit. You can adjust it at any time. Read more information about": "设置每月支出限额。您可以随时调整它。阅读更多关于",
-            "spending limits": "支付限额",
-            "Actions spending limits": "GitHub 操作支付限额", // 组织设置
-            "Packages spending limits": "软件包支付限额", // 组织设置
-
-            "Payment method is missing": "缺失支付方式",
-            "You can’t increase the spending limits until you set up a valid payment method.": "在您设置有效的支付方式之前，您无法提高支出限额。",
-                // 教育认证
-                "Coupons do not apply to any overages.": "优惠券不适用于任何超额部分。",
-                    "Any incurred overages will be paid in full by the added payment method.": "任何超额费用都将通过添加的付款方式全额支付。",
-            "Add payment method": "添加支付方式",
-
-            "Actions & Packages": "操作与软件包",
-            "Limit spending": "限制支出",
-                "Set up a spending limit on a monthly basis": "设置每月支出限额",
-                "Update limit": "更新限额",
-                // [/Leaving it at (\$\d+\.\d{2}) will avoid any extra expenses/, "将其限制在 $1 美元将避免任何额外的费用。"],
-            "Unlimited spending": "不限制支出",
-                "Pay as much as needed to keep Actions & Packages running": "按需支付，以保持操作和软件包的运行",
-
-            "Email alerts": "电子邮件提醒",
-            "Receive email notifications when usage reaches 75%, 90% and 100% thresholds.": "当使用率达到 75%、90% 和 100% 的阈值时，会收到电子邮件通知。",
-            "Included resources alerts": "包含资源提醒",
-            "Spending limit alerts": "支出限额提醒",
-
-            // 代码空间
-                "Pay as much as needed to keep Codespaces running": "按需支付，以保持代码空间的运行",
-
-        // 账单历史 https://github.com/account/billing/history
-            "/ Payment history": "/ 支付历史",
-            "Amounts shown in USD": "以美元显示的金额",
-
-        // 用户计划 https://github.com/account/billing/plans
+        // 比较计划 https://github.com/account/billing/plans
             "Compare plans": "比较计划",
-            "Free": "免费",
+            "Free": "免费版",
                 "All the basics": "所有基础",
-            "Pro": "专业",
+            "Pro": "专业版",
                 "Advanced tools for private repos": "用于私人仓库的高级工具",
             // 具体内容
                 "Code management": "代码管理",
@@ -4307,7 +4196,7 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
             "have the ability to:": "具备以下能力：",
                 "Change the billing plan": "更改账单计划",
                 "Add, update, or remove payment methods": "添加、更新或删除支付方式",
-                // "": "查看支付记录",
+                "View payment history": "查看支付记录",
                 "Download, and receive receipts": "下载并接收收据",
                 "View a list of billing managers": "查看账单管理员列表",
                 "Invite additional billing managers": "邀请其他账单管理员",
@@ -4403,7 +4292,7 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
             }],
 
         // 计费用量 - 底下计算部分
-            [/Cost calculated based on additional (\d+) premium requests/, "费用根据额外的 $1 项高级版请求计算"],
+            [/Cost calculated based on additional (\d+) premium requests for Copilot and Spark./, "费用计算基于 Copilot 和 Spark 的 $1 项额外高级请求。"],
             [/Cost calculated based on additional (\d+) token units/, "费用根据额外的 $1 项令牌单位计算"],
 
         // [/The plan change was successful. @([^ ]+) has been updated to the pro yearly plan./, "计划变更成功。@$1 已更新为专业版年度计费。"],
@@ -4461,7 +4350,9 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
             }],
 
         // 其他账单 https://github.com/settings/billing/subscriptions
+            [/In addition to your personal account, you manage (\d+) organizations?./, "除个人账户外，您还可以管理 $1 个组织。"],
             [/([^ ]+) support/, "$1 支持"],
+            [/You've cancelled your subscription to (.*). This plan change will take effect on (.*)./, "您已取消对 $1 的订阅。此计划变更将于 $2 生效。"],
 
         ...I18N["zh-CN"]["orgs-public"]["regexp"],
     ],
