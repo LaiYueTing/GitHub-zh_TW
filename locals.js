@@ -3956,6 +3956,9 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
                         "Confirm your details shown below. To make changes,": "确认以下显示的详细信息。要做出更改，",
                         "edit your billing information": "请编辑您的账单信息",
 
+                    "Update your billing information": "更新您的账单信息",
+                    "to be able to link it with this organization.": "以便与该组织关联。",
+
             "Payment method": "支付方式",
                 "You have not added a payment method.": "您尚未添加支付方式。",
 
