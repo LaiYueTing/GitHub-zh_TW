@@ -9054,6 +9054,10 @@ I18N["zh-CN"]["repository/issues"] = { // 仓库 - 议题页面
                         "Search for branches or pull requests": "搜索分支或拉取请求",
                         "no pull request": "无拉取请求",
 
+                "Duplicate issue": "复制议题",
+                    // [/Duplicate current issue in ([^ ]+\/[^ ]+)/, "在 $1 中复制当前议题"],
+                    "Changing the repository may remove Milestone, Labels, Type, and Assignees from the duplicate issue.": "更改仓库可能会从重复议题中移除里程碑、标签、类型和分配人员。",
+                    "This issue is being duplicated across repositories. The following metadata might not be copied: Milestone, Labels.": "该议题正跨仓库中被复制创建。以下元数据可能不会被复制：里程碑、标签。",
                 "Pin issue": "置顶议题",
                     "Up to 3 issues can be pinned and they will appear publicly at the top of the issues page": "最多可以置顶 3 个议题，它们将公开显示在议题页面的顶部",
                     "Up to 3 issues can be pinned to the top of the issues page": "最多可以在议题页面置顶 3 个议题",
@@ -9273,6 +9277,7 @@ I18N["zh-CN"]["repository/issues"] = { // 仓库 - 议题页面
         [/edited by ([^ ]+)/, "由 $1 编辑"],
         [/This issue will close when (#?\d+) is merged/, "此议题将在 $1 合并时关闭"],
         [/Opened this issue \(their first in ([^ ]+)\)/, "打开了这个议题（首次在 $1 发表）"],
+        [/Duplicate current issue in ([^ ]+\/[^ ]+)/, "在 $1 中复制当前议题"],
 
         // 标签页面
         [/open issues? and pull requests?/, "个打开的议题和拉取请求"],
