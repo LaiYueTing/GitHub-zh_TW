@@ -924,6 +924,7 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
             "Markdown is supported": "支持 Markdown 语法",
             "Styling with Markdown is supported.": "支持 Markdown 语法。",
             "Paste, drop, or click to add files": "粘贴、拖放或点击添加文件",
+            "Write with Copilot": "使用 Copilot 撰写",
             "Uploading your files…": "正在上传您的文件…",
             // 文件过大
                 "This video is too big.": "该影片过大。",
@@ -976,12 +977,14 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
                     "🔮 Future ideas": "🔮 超前想法",
                     "🚀 My stack": "🚀 技术栈",
                     "✨ Inspiration": "✨ 灵感",
+                    "No results found.": "未找到结果。",
                 "Create list": "创建清单",
                     "Create a list to organize your starred repositories.": "创建一个清单来组织您的星标仓库。",
                     "⭐️ Name this list": "⭐️ 清单名称",
                     "Write a description": "简单描述",
                     // 小贴士
-                        "type : to add emoji to the name or description.": "输入: 在名称或描述中添加表情符号",
+                        "type": "输入",
+                        "to add emoji to the name or description.": "在名称或描述中添加表情符号",
                     "Lists are currently in beta.": "清单目前处于测试阶段。",
                     "Share feedback and report bugs.": "分享反馈意见和报告错误。",
                     "Creating...": "创建中...",
@@ -7672,7 +7675,7 @@ I18N["zh-CN"]["orgs/repositories/new"] = I18N["zh-CN"]["page-new-repo"];
 
 I18N["zh-CN"]["repository"] = { // 仓库页面 /<user-name>/<repo-name>/
     "static": { // 静态翻译
-            ...I18N["zh-CN"]["repository-public"]["static"],
+        ...I18N["zh-CN"]["repository-public"]["static"],
 
         // 顶部
             "Help us improve GitHub Codespaces": "帮助我们改进 GitHub 代码空间",
@@ -9795,7 +9798,9 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
             "can be used to automatically catch bugs and enforce style.": "可用于自动捕获错误和强制执行样式。",
 
             "This branch has no conflicts with the base branch": "该分支与基础分支没有冲突",
+            "No conflicts with base branch": "与基本分支无冲突",
                 "Merging can be performed automatically.": "可以自动地执行合并。",
+                "Changes can be cleanly merged.": "可以干净地合并更改。",
 
             "This branch has no conflicts with the base branch when rebasing": "该分支基变时与基础分支没有冲突。",
                 "Rebase and merge can be performed automatically.": "可以自动执行变基和合并。",
@@ -9832,7 +9837,7 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
             "or view": "，或查看",
             "You can also merge this with the command line, view": "您也可以使用命令行合并，查看",
             "command line instructions": "命令行指令",
-            "You can also merge this with the command line.": "您也可以使用命令行合并，",
+            "You can also merge this with the command line.": "您也可以使用命令行合并。",
             "View command line instructions.": "查看命令行指令。",
 
             // "Merged": "已合并",
@@ -10088,11 +10093,13 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
             "No changes to show": "没有更改",
                 "This commit does not include any file changes": "此提交未包含文件更改",
 
-            "Load diff": "载入差异",
+            "Load diff": "载入差异", // old 待清理
+            "Load Diff": "载入差异", // new
             "This file was deleted.": "该文件已被删除",
             "Large diffs are not rendered by default.": "默认情况下，大的差异不会被呈现。",
             "Some generated files are not rendered by default. Learn more about": "某些生成的文件默认不呈现。了解更多信息关于",
-            "how customized files appear on GitHub": "更改文件在 GitHub 中的显示方式",
+            "how customized files appear on GitHub": "更改文件在 GitHub 中的显示方式", // old 待清理
+            "customizing how changed files appear on GitHub.": "自定义更改文件在 GitHub 中的显示方式。", // new
             "File renamed without changes.": "文件仅重命名，内容没有更改。",
             "File renamed without changes": "文件仅重命名，内容没有更改",
             "Binary file not shown.": "不显示二进制文件。",
@@ -12040,6 +12047,7 @@ I18N["zh-CN"]["repository/actions"] = { // 仓库 - 操作页面
                     "Workflow does not exist or does not have a": "工作流程不存在或没有",
                     "trigger in this branch.": "触发在此分支。",
                     "Learn more about manual workflows": "了解更多关于手工工作流程的信息",
+                "Running workflow...": "正在运行工作流程...",
                 // 顶部提醒
                     "Workflow run was successfully requested.": "工作流程已成功请求运行。",
 
@@ -20912,7 +20920,7 @@ I18N["zh-CN"]["marketplace"] = { // GitHub 市场
             "Tags": "标签",
 
             // 获取 API 密钥窗口（从“使用此模型”进入
-               
+
                 "1. Create a personal access token": "1. 创建个人访问令牌（PAT）",
                 "2. Install dependencies": "2. 安装依赖",
                 "3. Run a basic code sample": "3. 运行基本代码示例",
@@ -21031,7 +21039,7 @@ I18N["zh-CN"]["marketplace"] = { // GitHub 市场
                 ". Not intended for production/sensitive data.": "约束。不适用于生产/敏感数据。",
 
         // 提示词编辑器 https://github.com/marketplace/models/<user-name>/<model-name>/prompt
-            
+
             // 左侧
                 "Edit variables": "编辑变量",
                     "System": "系统",
@@ -24571,7 +24579,7 @@ I18N["zh-CN"]["status"] = { // GitHub Status
                 "Orchestration and Compute for GitHub Codespaces": "GitHub 代码空间的协调与计算",
             "For the status of GitHub Enterprise Cloud - EU, please visit:": "有关欧盟版 GitHub 企业云的状态，请访问",
             "For the status of GitHub Enterprise Cloud - Australia, please visit":"有关澳大利亚版 GitHub 企业云的状态，请访问",
-            "For the status of GitHub Enterprise Cloud - US, please visit":"有关美国版 GitHub 企业云的状态，请访问",            
+            "For the status of GitHub Enterprise Cloud - US, please visit":"有关美国版 GitHub 企业云的状态，请访问",
             "Current Status": "当前状态",
             "Incident History": "历史事故",
 
