@@ -5543,7 +5543,7 @@ I18N["zh-CN"]["settings/security_analysis"] = { // 设置 - 代码安全性与�
                             // [/Security settings updated for ([^ ]+)\'s repositories./, "更新了 $1 的仓库的安全设置。"],
 
             // 仓库
-                "Security and analysis features help keep your repositories secure and updated.": "安全和分析功能可帮助您确保仓库的安全和更新。",
+                "Advanced Security features help keep your repository secure and updated. By enabling these features, you're granting us permission to perform read-only analysis on your repository.": "安全和分析功能有助于确保您的仓库安全和更新。通过启用这些功能，您授予我们对您的仓库执行只读分析的权限。",
 
             "Disable all": "禁用全部",
             "Enable all": "启用全部",
@@ -17873,7 +17873,7 @@ I18N["zh-CN"]["homepage"] = { // 未登录的首页
         "Sign up for GitHub": "注册 GitHub",
         //"Start a free enterprise trial": "开始免费试用企业版",
 
-        "Try GitHub Copilot": "试用 GitHub Copilot",
+        "Try Copilot Free": "试用 GitHub Copilot",
             "30 days free": "30天免费",
         "Free Enterprise trial": "免费试用企业版", // 已登录
         "Explore upcoming releases": "探索即将发布的产品", // 已登录
@@ -17901,7 +17901,7 @@ I18N["zh-CN"]["homepage"] = { // 未登录的首页
               "Read customer story": "阅读客户故事",
 
             "2024 Gartner® Magic Quadrant™ for AI Code Assistants": "2024 年 Gartner® 人工智能代码助手魔力象限™",
-              "Read report": "阅读报告",
+              "Read industry report": "阅读行业报告",
 
         "Optimize your process with simple and secured CI/CD.": "使用简单、安全的 CI/CD 优化您的流程。",
             "Get up and running in seconds": "数秒内即可启动并运行",
@@ -17912,7 +17912,7 @@ I18N["zh-CN"]["homepage"] = { // 未登录的首页
                 "Sync with 17,000+ integrations and a growing library of Copilot Extensions.": "与 17,000 多个集成和不断增长的 Copilot 扩展库同步。",
                 "Visit GitHub Marketplace": "访问 GitHub 市场",
 
-        "Built-in application security": "内置应用程序安全性",
+        "Built-in application security": "内置的应用程序安全",
         "where found means fixed": "发现即修复",
             "Use AI to find and fix vulnerabilities—freeing your teams to ship more secure software faster.": "使用人工智能来查找和修复漏洞——让您的团队能够更快地交付更安全的软件。",
 
@@ -18716,6 +18716,8 @@ I18N["zh-CN"]["notifications"] = { // 通知页面
         "Notifications you save will appear here to read later.": "您保存的通知会出现在这里，以便以后阅读。",
         "Mark notifications as done so you can move on with your work.": "将通知标记为已完成，以便您可以继续工作。",
         "New activity appears in your inbox.": "新活动出现在您的收件箱中。",
+        "All done here!":"这里都完成了！",
+        "You're caught up on this filter.":"你已处理完当前筛选下的所有任务。",
 
         // /notifications?query=repo 某个仓库
         "We've noticed that you rarely interact with this repository, are you sure you need notifications?": "我们注意到您很少与此仓库交互，您确定需要通知吗？",
@@ -18978,6 +18980,8 @@ I18N["zh-CN"]["issues"] = { // 议题页面
         "all of GitHub": "所有 GitHub",
         "or try an": "或者尝试",
         "advanced search": "高级搜索",
+        "No results":"无结果",
+        "Try adjusting your search filters.":"尝试调整您的搜索筛选条件。",
 
         // "Use the links above to find what you’re looking for, or try": "使用上面的链接找到您要找的内容，或尝试",
         // "a new search query": "新的搜索查询",
@@ -19027,6 +19031,7 @@ I18N["zh-CN"]["issues"] = { // 议题页面
         [/(\d+) Closed/, "$1 已关闭"],
         [/(\d+) tasks? done/, "$1 个任务完成"],
         [/(\d+) of (\d+) tasks?/, "$1 / $2 个任务"],
+        [/(\d+) results?/, "$1 个结果"],
         [/(\d+) tasks?/, "$1 个任务"],
         [/(\d+) review approvals?/, "$1 次审查批准"],// 拉取请求页 "已批准' 浮动提示
         [/(\d+) review requesting changes?/, "$1 条请求更改评论"],
@@ -19034,8 +19039,9 @@ I18N["zh-CN"]["issues"] = { // 议题页面
         [/([\d,]+) linked pull requests?/, "$1 个关联拉取请求"],
         [/(\d+) \/ (\d+) checks? OK/, "$1 / $2 检查 OK"], // 对勾 的提醒 /pulls
         [/Assigned to ([^ ]+)/, "分配给 $1"],
-        // [/Updated/, "更新于"],
-        [/#(\d+) opened/, "#$1 打开于"],
+        [/Created by ([^ ]+)/, "由 $1 创建"],
+        [/Updated/, "更新于"],
+        [/#([^ ]+) opened/, "#$1 打开于"],
         [/#(\d+) by/, "#$1 打开者"],
         [/Notify someone on an issue with a mention, like: @([^ ]+)./, "在某个问题上通知并提及某人，例如：@$1。"], // 专业提示
     ],
@@ -24561,7 +24567,9 @@ I18N["zh-CN"]["status"] = { // GitHub Status
                 "Frontend application and API servers for Pages builds": "用于页面构建的前端应用程序和应用程序接口服务器",
             // 代码空间
                 "Orchestration and Compute for GitHub Codespaces": "GitHub 代码空间的协调与计算",
-            "For the status of GitHub Enterprise Cloud - EU, please visit:": "有关 GitHub 企业云的状态，请访问",
+            "For the status of GitHub Enterprise Cloud - EU, please visit:": "有关欧盟版 GitHub 企业云的状态，请访问",
+            "For the status of GitHub Enterprise Cloud - Australia, please visit":"有关澳大利亚版 GitHub 企业云的状态，请访问",
+            "For the status of GitHub Enterprise Cloud - US, please visit":"有关美国版 GitHub 企业云的状态，请访问",            
             "Current Status": "当前状态",
             "Incident History": "历史事故",
 
