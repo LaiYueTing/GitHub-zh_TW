@@ -2295,7 +2295,7 @@ I18N["zh-CN"]["page-profile"] = { // 个人首页
 
             "Pinned": "已置顶",
             "Top repositories": "置顶的仓库",
-            "Popular repositories": "流行的仓库",
+            "Popular repositories": "热门仓库",
 
             "Learn how we count contributions": "了解我们如何计算贡献",
             "Less": "更少",
@@ -11263,7 +11263,7 @@ I18N["zh-CN"]["repository/discussions"] = { // 讨论页面
                 "Mark the most helpful answer": "标记答案",
                     "Highlight quality responses and make the best answer super discoverable.": "突出优质回答，让最佳答案易于被发现。",
                 "Pin big announcements": "置顶功能",
-                    "Direct the community’s attention to important announcements or popular discussions.": "将社区的注意力引导至重要公告或热门讨论。",
+                    "Direct the community’s attention to important announcements or popular discussions.": "将社区的关注引导至重要公告或热门讨论。",
                 "Label your discussions": "标签功能",
                     "Organize and triage discussions to keep your space tidy and help contributors filter to areas of interest.": "组织和筛选讨论内容，以保持社区空间整洁，并帮助参与者过滤到感兴趣的领域。",
                 "Respond on-the-go with mobile": "通过移动端随时响应",
@@ -19334,7 +19334,7 @@ I18N["zh-CN"]["search"] = { // 搜索页面
                 "When you search within a repository for the first time, please note that the repository undergoes indexing.": "首次在仓库中搜索时，请注意仓库会进行索引。",
                 "This process may take a few minutes.": "这一过程可能需要几分钟。",
 
-                "The index currently includes more than 70 million popular public repositories, plus all private repositories that users search for.": "该索引目前包括超过 7000 万个流行的公共仓库，以及用户搜索的所有私有仓库。",
+                "The index currently includes more than 70 million popular public repositories, plus all private repositories that users search for.": "该索引目前包括超过 7000 万个热门公共仓库，以及用户搜索的所有私有仓库。",
                 "Beyond that, we also don't include all files in the search index:": "除此之外，我们也不会将所有文件都纳入搜索索引：",
                     "Vendored and generated code is excluded": "排除供应和生成的代码",
                     "Empty files and files over 350 kiB are excluded": "排除空文件和超过 350 kiB 的文件",
@@ -19366,7 +19366,7 @@ I18N["zh-CN"]["search"] = { // 搜索页面
             "Created on the dates": "创建日期",
             "Written in this language": "使用语言",
             "Any language": "任何语言",
-                "Popular": "流行的",
+                "Popular": "热门",
                 "Everything else": "其他语言",
 
             "Repositories options": "仓库选项",
@@ -24124,7 +24124,7 @@ I18N["zh-CN"]["github-copilot/signup"] = { // GitHub Copilot 个人版获取页�
 
            "Next: Confirm your payment details": "下一步：确认您的付款详细信息",
 
-           "GitHub Copilot is free for maintainers of popular open source software on GitHub and verified students. Check out the": "GitHub Copilot 对于在 GitHub 上维护流行开源软件的人员和经过验证的学生是免费的。您可以查看",
+           "GitHub Copilot is free for maintainers of popular open source software on GitHub and verified students. Check out the": "GitHub Copilot 对于在 GitHub 上维护流行开源软件的人员和经过验证的学生是免费的。查看",
            "free use FAQ": "免费使用常见问题解答（FAQ）",
            "for more details.": "以获取更多详细信息。",
 
