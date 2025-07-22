@@ -12878,8 +12878,25 @@ I18N["zh-CN"]["repository/wiki"] = { // 仓库 - wiki 页面
             "History": "历史",
             "Edit page": "编辑页面",
             "Revisions": "修订",
-            "Compare revisions": "对比差异",
+            "Compare revisions": "对比修订",
                 "Invalid or empty diff.": "无效或无差异。",
+        
+        // wiki修订间差异 /<user-name>/<repo-name>/wiki/<page name>/_compare
+            "Revert changes": "撤销更改",
+            "Back to top": "回到顶部",
+            "Showing": "显示",
+            "with": "包含",
+            "Unified": "同屏",
+            "Split": "分屏",
+            // 差异按钮
+                "Display the source diff": "显示源差异",
+                "Display the rich diff": "显示富差异",
+            // 修改的文件 右侧下拉
+                "Show comments": "显示评论",
+                "Show annotations": "显示注释",
+                "View file": "查看文件",
+                "Edit file": "编辑文件",
+                "Delete file": "删除文件",
 
         // wiki 编辑器（补全未翻译部分
             // 工具栏
@@ -12981,6 +12998,9 @@ I18N["zh-CN"]["repository/wiki"] = { // 仓库 - wiki 页面
         [/(\d+) revisions?/, "$1 次修订"], // wiki
         [/Editing/, "编辑"], //编辑 wiki
         [/Could not find version "([^ ]+)"/, "找不到版本 “$1”"],
+        [/Compare:/, "对比："],
+        [/(\d+) additions?/, "$1 处增加"],
+        [/(\d+) deletions?/, "$1 处删除"],
     ],
 };
 
