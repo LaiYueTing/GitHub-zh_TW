@@ -1129,8 +1129,8 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
         // 公共词 高频词
             "Follow": "关注",
             "Unfollow": "取消关注",
-            "Star": "星标",
-            "Stars": "星标",
+            "Star": "标星",
+            "Stars": "标星",
             "Unstar": "已加星标",
             "Starred": "已加星标",
             "Fork": "复刻",
@@ -1914,7 +1914,7 @@ I18N["zh-CN"]["page-dashboard"] = { // 已登录的首页 - 仪表板（含组�
         "Reload this page": "重载此页面",
 
         // 动态 状态词
-        "starred": "星标了",
+        "starred": "标星了",
         "created": "创建了",
         "forked from": "复刻自",
         "generated from": "创建自",
@@ -1972,8 +1972,8 @@ I18N["zh-CN"]["page-dashboard"] = { // 已登录的首页 - 仪表板（含组�
         "You're seeing this because of your activity.": "您看到这个是因为您的活动。",
         "Show less activity like this": "显示较少这类活动",
         // [/You're seeing this because you collaborated with ([^ ]+)/, "您看到这个是因为您与 $1 有过合作"],
-        // [/You're seeing this because you starred ([^ ]+)/, "您看到这个，是因为您星标了 $1"],
-        "Unstar this repository": "取消星标此仓库",
+        // [/You're seeing this because you starred ([^ ]+)/, "您看到这个，是因为您标星了 $1"],
+        "Unstar this repository": "取消标星此仓库",
         // [/You're seeing this because you follow ([^ ]+)/, "您看到这个，是因为您关注了 $1"],
         "Unfollow this user": "取消关注此用户",
 
@@ -2057,7 +2057,7 @@ I18N["zh-CN"]["page-dashboard"] = { // 已登录的首页 - 仪表板（含组�
         [/Check out ([^ ]+)’s public profile/, "查看 $1 的公开资料"], // 组织
         [/and (\d+) more/, "和另外 $1 个"],
         [/You're seeing this because you collaborated with ([^ ]+)/, "您看到这个是因为您与 $1 有过合作"],
-        [/You're seeing this because you starred ([^ ]+)/, "您看到这个，是因为您星标了 $1"],
+        [/You're seeing this because you starred ([^ ]+)/, "您看到这个，是因为您标星了 $1"],
         [/You're seeing this because you follow ([^ ]+)/, "您看到这个，是因为您关注了 $1"],
         [/You and/, "您和另外"],
         [/You reacted with (thumbs up|thumbs down|laugh|hooray|confused|heart|rocket|eyes)/,function (all, reacted) {
@@ -2457,7 +2457,7 @@ I18N["zh-CN"]["page-profile/repositories"] = { // 个人首页 - 仓库标签卡
                 // [/Your repository \"([^ ]+)\" was successfully deleted./, "您的仓库 “$1” 已成功删除。"],
 
             // "Search repositories…": "搜索这些查库…",
-            // "Search starred repositories…": "搜索点赞的仓库…",
+            // "Search starred repositories…": "搜索星标仓库…",
 
             // 搜索, 筛选 & 排序工具栏
             "Find a repository…": "搜索仓库…",
@@ -2969,7 +2969,7 @@ I18N["zh-CN"]["page-profile/stars"] = { // 个人首页 - 星标标签卡
                 "Save list": "保存清单",
                 "Saving...": "保存中...",
             "Add repositories to this list": "添加仓库到此清单",
-            "Star repositories on GitHub to keep track of your favorite projects and inspirational code.": "GitHub上的星标仓库可以跟踪您最喜欢的项目和鼓舞人心的代码。",
+            "Star repositories on GitHub to keep track of your favorite projects and inspirational code.": "GitHub 上的星标仓库可以跟踪您最喜欢的项目和鼓舞人心的代码。",
             "Explore repositories.": "探索仓库。",
     },
     "regexp": [ // 正则翻译
@@ -4914,7 +4914,7 @@ I18N["zh-CN"]["settings/blocked_users"] = { // 设置 - 黑名单
             "Block a user": "拉黑用户",
             "Blocking a user prevents the following on all your repositories:": "拉黑用户可以防止所有仓库中的以下操作：",
             "opening or commenting on issues or pull requests": "打开或评论议题或拉取请求",
-            "starring, forking, or watching": "加星标、复刻、关注",
+            "starring, forking, or watching": "标星、复刻、关注",
             "adding or editing wiki pages": "添加或编辑 Wiki 页面",
             "Additionally, blocked users are not able to:": "此外，被拉黑用户无法：",
             "invite you as a collaborator to their repositories": "邀请您作为其仓库的协作者",
@@ -6255,7 +6255,7 @@ I18N["zh-CN"]["settings/apps"] = { // 设置 - 开发者设置/GitHub 应用
                     "SSH signing keys": "SSH 签名密钥",
                         "View and manage a user's SSH signing keys.": "查看和管理用户的 SSH 签名密钥。",
                     "Starring": "星标",
-                        "List and manage repositories a user is starring.": "列出和管理用户已加星标的仓库。",
+                        "List and manage repositories a user is starring.": "列出和管理用户标星的仓库。",
                     "Watching": "关注",
                         "List and change repositories a user is subscribed to.": "列出和更改用户订阅的仓库。",
 
@@ -6378,7 +6378,7 @@ I18N["zh-CN"]["settings/apps"] = { // 设置 - 开发者设置/GitHub 应用
                 "Secret scanning scan": "机密扫描",
                     "Secrets scanning scan completed.": "机密扫描已完成",
                 // 星标
-                    "A star is created or deleted from a repository.": "星标或取消仓库星标。",
+                    "A star is created or deleted from a repository.": "标星或取消仓库星标。",
                 //"状态": "",
                     "Commit status updated from the API.": "通过 API 更新提交状态。",
                 //"团队": "",
@@ -6388,7 +6388,7 @@ I18N["zh-CN"]["settings/apps"] = { // 设置 - 开发者设置/GitHub 应用
                 "Team add": "团队添加",
                     "Team added or modified on a repository.": "仓库团队的添加或修改。",
                 "Watch": "关注",
-                    "User stars a repository.": "用户星标仓库。",
+                    "User stars a repository.": "用户标星仓库。",
                 "Workflow dispatch": "工作流程调度",
                     "A manual workflow run is requested.": "请求手动运行工作流程。",
                 "Workflow job": "工作流程作业",
@@ -6876,7 +6876,7 @@ I18N["zh-CN"]["settings/tokens"] = { // 设置 - 开发者设置/个人访问令
                     "SSH signing keys": "SSH 签名密钥",
                         "View and manage a user's SSH signing keys.": "查看和管理用户的 SSH 签名密钥。",
                     "Starring": "星标",
-                        "List and manage repositories a user is starring.": "列出和管理用户已加星标的仓库。",
+                        "List and manage repositories a user is starring.": "列出和管理用户标星的仓库。",
                     "Watching": "关注",
                         "List and change repositories a user is subscribed to.": "列出和更改用户订阅的仓库。",
 
@@ -7376,7 +7376,7 @@ I18N["zh-CN"]["repository-public"] = { // 仓库 - 公共部分
 
         // 未登录浮窗
             "You must be signed in to change notification settings": "您必须登录后才能更改通知设置",
-            "You must be signed in to star a repository": "您必须登录后才能星标仓库",
+            "You must be signed in to star a repository": "您必须登录后才能标星仓库",
             "You must be signed in to add this repository to a list": "您必须登录后才能将此仓库添加到列表中",
             "You must be logged in to vote": "您必须登录后才能投票",
     },
@@ -7770,7 +7770,7 @@ I18N["zh-CN"]["repository"] = { // 仓库页面 /<user-name>/<repo-name>/
                 "Create a new fork": "创建复刻",
 
                 //
-                "Star this repository": "星标仓库", //小屏模式
+                "Star this repository": "标星仓库", //小屏模式
                 "Unstar this repository": "取消仓库星标", //小屏模式
 
             // 仓库主页 分支保护
@@ -12448,13 +12448,13 @@ I18N["zh-CN"]["repository/stargazers"] = { // 仓库 - 追星者页面
             "Stargazers": "追星者",
             "All": "全部",
             "You know": "您关注的",
-            "Be the first to star this repository": "成为第一个为这个仓库加星标的人",
-            "about how starring works on GitHub.": "关于如何在 GitHub 上加注星标。",
-            "Be the first of your friends to star this repository.": "成为第一个为这个仓库加星标的朋友。",
+            "Be the first to star this repository": "成为第一个为这个仓库标星的人",
+            "about how starring works on GitHub.": "关于如何在 GitHub 上标星。",
+            "Be the first of your friends to star this repository.": "成为第一个为这个仓库标星的朋友。",
 
         // /<user-name>/<repo-name>/stargazers/you_know
-            "No one you follow has starred this repository yet.": "您关注的任何人都未星标此仓库。",
-            "Learn more about how starring works on GitHub.": "了解更多关于在 GitHub 上星标的工作原理。",
+            "No one you follow has starred this repository yet.": "您关注的任何人都未标星此仓库。",
+            "Learn more about how starring works on GitHub.": "了解更多关于在 GitHub 上标星的工作原理。",
     },
     "regexp": [ // 正则翻译
         ...I18N["zh-CN"]["repository-public"]["regexp"],
@@ -16760,7 +16760,7 @@ I18N["zh-CN"]["repository/settings/hooks"] = { // 仓库设置 - Web 钩子 /<us
                     "Secret scanning scans": "机密扫描",
                         "Secrets scanning scan completed.": "机密扫描已完成",
                     // "": "星标",
-                        "A star is created or deleted from a repository.": "星标或取消仓库星标。",
+                        "A star is created or deleted from a repository.": "标星或取消仓库星标。",
                     "Statuses": "状态",
                         "Commit status updated from the API.": "通过 API 更新提交状态。",
                     "Team adds": "团队添加",
@@ -16770,7 +16770,7 @@ I18N["zh-CN"]["repository/settings/hooks"] = { // 仓库设置 - Web 钩子 /<us
                     "Visibility changes": "可见性变化",
                         "Repository changes from private to public.": "仓库从私有更改为公共。",
                     "Watches": "关注",
-                        "User stars a repository.": "用户星标仓库。",
+                        "User stars a repository.": "用户标星仓库。",
                     "Wiki": "",
                         "Wiki page updated.": "Wiki 页面的更新。",
                     "Workflow jobs": "工作流程作业",
@@ -18932,7 +18932,7 @@ I18N["zh-CN"]["stars"] = { // 星标 https://github.com/stars/<user-name>
             "Sort options": "排序选项",
             "Recently starred": "最近标星",
             "Recently active": "最近活跃",
-            "Most stars": "最多标星",
+            "Most stars": "最多星标",
 
         "Sponsor": "赞助",
         "Unstar": "已加星标于",
@@ -18942,7 +18942,7 @@ I18N["zh-CN"]["stars"] = { // 星标 https://github.com/stars/<user-name>
         "You don’t have any starred topics, yet.": "您尚无任何的星标主题。",
         "As you": "如果您",
         "explore GitHub": "探索 GitHub",
-        ", star topics to save them for later and they’ll show up here.": " 时，将主题标星保存起来，它们会在这里显示出来。",
+        ", star topics to save them for later and they’ll show up here.": " 时，标星主题，它们会在这里显示出来。",
 
 
         // 右侧栏
@@ -19519,7 +19519,7 @@ I18N["zh-CN"]["gist"] = { // 代码片段页面
         // 右上角个人图标下拉菜单
             "Signed in as": "登录身份为",
             "Your gists": "我的代码片段",
-            "Starred gists": "我的标星代码片段",
+            "Starred gists": "我的星标代码片段",
             "Help": "帮助",
         "Your GitHub profile": "我的 GitHub 个人资料",
 
@@ -19591,9 +19591,9 @@ I18N["zh-CN"]["gist"] = { // 代码片段页面
                 "Gist deleted successfully.": "代码片段已成功删除。",
         "Subscribe": "订阅",
         // "Unsubscribe": "退订",
-        "Star": "星标",
-            "Star this gist": "星标该代码片段",
-            "You must be signed in to star a gist": "您必须登录才能星标代码片段",
+        "Star": "标星",
+            "Star this gist": "标星该代码片段",
+            "You must be signed in to star a gist": "您必须登录才能标星代码片段",
         "Unstar": "取消星标",
             "Unstar this gist": "取消该代码片段星标",
         "Forks": "复刻",
@@ -19659,7 +19659,7 @@ I18N["zh-CN"]["gist"] = { // 代码片段页面
 
         // 星标标签卡
         "Stargazers": "追星者",
-        "Be the first to star this gist.": "成为第一个该代码片段加注星标的人。",
+        "Be the first to star this gist.": "成为第一个为该代码片段标星的人。",
         "Learn more about starring Gists": "了解更多关于标星代码片段的信息",
 
         // 复刻标签卡
@@ -19687,7 +19687,7 @@ I18N["zh-CN"]["gist"] = { // 代码片段页面
         "Update secret gist": "更新私密片段",
 
         // 已加星标页面
-        "You don’t have any starred gists yet.": "您还没有标星任何片段。",
+        "You don’t have any starred gists yet.": "您还没有任何星标代码片段。",
 
         // 评论框
         "Owner": "所有者",
@@ -19863,8 +19863,8 @@ I18N["zh-CN"]["explore"] = { // 探索页面
             "Here's what we found based on your interests...": "以下是我们根据您的兴趣发现的内容...",
             "Here's what's popular on GitHub today...": "这是今天 GitHub 热门内容...", // 未登录
                 "This recommendation was generated by GitHub computers": "此推荐由 GitHub 计算机生成",
-                "Based on repositories you’ve starred": "基于您星标的仓库",
-                "Based on topics you've starred": "基于您星标的主题",
+                "Based on repositories you’ve starred": "基于您标星的仓库",
+                "Based on topics you've starred": "基于您标星的主题",
                 "Based on people you follow": "基于您关注的人",
                 "Based on repositories you’ve viewed": "基于您查看过的仓库",
                 "Based on your public repository contributions": "基于您对公共仓库的贡献",
@@ -19876,7 +19876,7 @@ I18N["zh-CN"]["explore"] = { // 探索页面
             "Trending repository": "热门仓库", // 未登录
             "Popular topic": "热门主题", // 未登录
 
-            "Star topics that interest you": "为您感兴趣的主题加注星标",
+            "Star topics that interest you": "标星您感兴趣的主题",
             "and we'll show you the latest from the octoverse.": "我们将向您展示来自八维空间的最新信息。",
             "Explore more topics": "探索更多主题",
 
@@ -19950,7 +19950,7 @@ I18N["zh-CN"]["topics"] = { // 探索-->主题页面
                 "All": "所有",
             "Sort:": "排序:",
                 "Sort options": "排序选项",
-                "Most stars": "最多标星",
+                "Most stars": "最多星标",
                 "Fewest stars": "最少星标",
                 "Most forks": "最多复刻",
                 "Fewest forks": "最少复刻",
@@ -21264,7 +21264,7 @@ I18N["zh-CN"]["orgs"] = { // 组织页面
                     "Select order": "选择排序",
                     "Last updated": "最近更新",
                     "Name": "仓库名",
-                    // "Recently starred": "最近星标",
+                    // "Recently starred": "最近标星",
                     // "Recently active": "最近活跃",
                     // "Most stars": "最多星标",
                     // "Unstar": "取消星标",
@@ -22193,7 +22193,7 @@ I18N["zh-CN"]["orgs/settings/blocked_users"] = { // 组织设置 - 黑名单
             "Block a user": "拉黑用户",
             "Blocking a user prevents the following on all your repositories:": "拉黑用户可以防止所有仓库中的以下操作：",
             "opening or commenting on issues or pull requests": "打开或评论议题或拉取请求",
-            "starring, forking, or watching": "加星标、复刻、关注",
+            "starring, forking, or watching": "标星、复刻、关注",
             "adding or editing wiki pages": "添加或编辑 Wiki 页面",
 
             "Search by username, full name or email address": "搜索用户名、全名、或电子邮箱",
@@ -23566,7 +23566,7 @@ I18N["zh-CN"]["projects"] = { // 项目页面(含仓库项目)
             "Watch": "关注",
             "Unwatch": "取消关注",
 
-            "Star": "星标",
+            "Star": "标星",
             "Unstar": "已加星标",
             "Fork": "复刻",
             "Unfork": "取消复刻",
