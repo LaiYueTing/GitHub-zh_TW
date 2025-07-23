@@ -45,7 +45,7 @@ I18N.conf = {
      * 导入仓库 /new/import
      * ...
      */
-    rePagePath: /^\/($|home|dashboard|copilot|signup|account_verifications|login\/oauth|login|logout|sessions?|password_reset|orgs|explore|topics|notifications\/subscriptions|notifications|watching|stars|issues|pulls|search|trending|showcases|new\/(import|project)|new|import|settings\/(profile|admin|appearance|accessibility|notifications|billing|emails|security_analysis|security-log|security|auth|sessions|keys|ssh|gpg|organizations|enterprises|blocked_users|interaction_limits|code_review_limits|repositories|codespaces|models|codespaces\/allow_permissions|deleted_repositories|packages|copilot|pages|replies|installations|apps\/authorizations|reminders|sponsors-log|apps|(?:personal-access-|)tokens|developers|applications\/new|applications|connections\/applications|education\/benefits)|settings|installations\/new|marketplace|apps|account\/(organizations\/new|choose|upgrade|billing\/history)|projects|redeem|discussions|collections|sponsors|sponsoring|github-copilot\/(signup|free_signup|code-review-waitlist)|codespaces|developer\/register|features|security|sitemap|education)|^\/users\/[^\/]+\/(projects|packages|succession\/invitation)/,
+    rePagePath: /^\/($|home|dashboard|copilot|signup|account_verifications|login\/oauth|login|logout|sessions?|password_reset|orgs|explore|topics|notifications\/subscriptions|notifications|watching|stars|issues|pulls|search|trending|showcases|new\/(import|project)|new|import|settings\/(profile|admin|appearance|accessibility|notifications|billing|emails|security_analysis|security-log|security|auth|sessions|keys|ssh|gpg|organizations|enterprises|blocked_users|interaction_limits|code_review_limits|repositories|codespaces|models|codespaces\/allow_permissions|deleted_repositories|packages|copilot|pages|replies|installations|apps\/authorizations|reminders|sponsors-log|apps|(?:personal-access-|)tokens|developers|applications\/new|applications|connections\/applications|education\/benefits)|settings|installations\/new|marketplace|apps|account\/(organizations\/new|choose|upgrade|billing\/history)|projects|redeem|discussions|collections|sponsors|sponsoring|github-copilot\/(signup|free_signup|code-review-waitlist|pro)|codespaces|developer\/register|features|security|sitemap|education)|^\/users\/[^\/]+\/(projects|packages|succession\/invitation)/,
 
     // 仓库路径
     rePagePathRepo: /^\/[^\/]+\/[^\/]+\/(issues|pulls|pull|tree|watchers|stargazers|new|edit|delete|upload|find|models|wiki|branches|discussions|activity|rules|releases|packages|tags|labels|milestones?|compare|commit|blob|blame|actions(\/metrics\/(usage|performance))?|runs|deployments|security|pulse|community|forks|fork|import|graphs\/(contributors|community|traffic|commit-activity|code-frequency)|network$|network\/(dependencies|dependents|updates|members)|settings\/(access|code_review_limits|interaction_limits|branches|branch_protection_rules|tag_protection|rules|actions|models\/access-policy|hooks|copilot\/coding_agent|environments|codespaces|pages|security_analysis|dependabot_rules|keys|secrets|variables|installations|notifications|key_links)|settings|transfer|projects\/new|pkgs|contribute|subscription|invitations|codespaces|attestations|custom-properties|reported_content)/,
@@ -1377,6 +1377,7 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
                         "Fetching repositories…": "正在获取仓库",
                     "Close": "关闭",
                 "Repository": "仓库",
+                "Repositories…": "仓库…",
                     "Select a repository": "选择仓库",
                     "Select repositories": "选择仓库",
                         "Choose repositories to chat about.": "选择以聊天",
@@ -5401,7 +5402,7 @@ I18N["zh-CN"]["settings/copilot"] = { // 设置 - GitHub Copilot
                 "Copilot coding agent": "Copilot 编程智能体",
                     "Delegate tasks to Copilot coding agent in repositories where it is enabled": "将任务委托给已启用 Copilot 编程智能体的仓库",
                 "MCP servers in Copilot": "Copilot 中的 MCP 服务器",
-                    "Connect MCP servers to Copilot in Visual Studio Code and Coding Agent. MCP support is GA in VS Code, while Coding Agent is in public preview. See MCP docs for": "将 MCP 服务器连接到 Visual Studio Code 和编程智能体中的 Copilot。MCP 支持在 VS Code 中已正式发布，而编程智能体 目前处于公开预览阶段。详情请参阅 MCP 文档：",
+                    "Connect MCP servers to Copilot in Visual Studio Code and Coding Agent. MCP support is GA in VS Code, while Coding Agent is in public preview. See MCP docs for": "将 MCP 服务器连接到 Visual Studio Code 和编程智能体中的 Copilot。MCP 支持在 VS Code 中已正式发布，而编程智能体目前处于公开预览阶段。详情请参阅 MCP 文档：",
 
         // 编程智能体(预览 https://github.com/settings/copilot/coding_agent
             // 顶部提示
@@ -9550,6 +9551,8 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
             "on behalf of": "代表",
                 "View session": "查看",
             "finished work on behalf of": "完工，代表",
+            "stopped work on behalf of": "停工，代表",
+                "due to an error": "因为错误",
 
             // 隐藏
             "Load more…": "加载更多…",
@@ -9590,7 +9593,9 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
                     "In progress": "进行中",
                     "started": "开始于",
                     "Copilot is done": "Copilot 已完成",
+                    "Copilot has failed": "Copilot 已失败",
                     "completed after": "总耗时", // 示例：总耗时 11分45秒
+                    "failed after": "失败于",
 
             // 讨论标签卡 主页
             "Refresh": "刷新",
@@ -10200,6 +10205,18 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
             "Sometimes commits can disappear after a force-push. Head back to the": "有时提交会在强推后消失。头部回到",
             "latest changes here": "最新的更改",
 
+            "Comment on line": "评论行",
+            "Expand comment": "展开评论",
+            "Collapse comment": "折叠评论",
+            "Unresolve comment": "取消解决评论",
+                "marked this comment as resolved": "标记为已解决",
+            "Resolve comment": "解决评论",
+                "Apply suggestion": "应用建议",
+                    "More suggestion batching options": "更多选项",
+                        "This feature is not supported yet.": "此功能尚未支持。",
+            "Return to code": "返回代码",
+            "Reference in a new issue": "在新议题中引用",
+
         // 拉取请求 --> 解决冲突 /<user-name>/<repo-name>/pull/<id>/conflicts
             "Resolving conflicts": "解决冲突",
             "between": " ",
@@ -10237,13 +10254,31 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
         // 拉取请求 - 由 Copilot 编写 https://github.com/用户名/仓库名/pull/编号/agent-sessions
             "Back to pull request #": "返回到拉取请求 #",
 
+            "Copilot coding agent now uses fewer premium requests!": "Copilot 编程智能体现在使用更少的高级请求！",
+                "From now on, each session uses just one premium request.": "从现在起，每个会话只会使用一次高级请求。",
+
+            // 状态
+                "Failed": "失败",
             "Sessions": "进度",
             "Duration": "总时长",
             "Premium requests": "高级请求",
                 "Learn more about premium requests": "关于高级请求",
 
+            "premium": "高级",
+            "request": "请求",
+            "requests": "请求",
+            "used in": "被用于",
+            "session": "任务",
+
+            "Stop session": "停止任务",
             "Open menu": "操作",
                 "View verbose logs": "查看日志",
+
+            "Copilot is working…": "Copilot 工作中…",
+
+            "Copilot stopped work due to an error": "Copilot 因错误停工",
+                "Copilot has encountered an error. See logs for additional details.": "Copilot 遇到错误。请查看日志以获取更多详细信息。",
+                "View detailed logs": "查看详细日志",
 
             // 进度
             "View repository": "查看仓库",
@@ -24204,6 +24239,24 @@ I18N["zh-CN"]["github-copilot/free_signup"] = { // GitHub Copilot 个人免费�
     ],
 };
 
+I18N["zh-CN"]["github-copilot/pro"] = { // GitHub Copilot 专业版适用页面
+    "static": {
+        "Try Copilot Pro for 30 days free": "免费试用 Copilot Pro 30 天",
+
+        "Everything in Copilot Free and:": "Copilot 免费版以及：",
+            "Unlimited agent mode and chat with GPT-4.1": "智能体无限用 • GPT-4.1 畅聊",
+            "Unlimited code completions": "无限代码补全",
+            "Access to Anthropic Claude 3.7/4 Sonnet, Gemini 2.5 Pro, and more": "访问 Claude 3.7/4 Sonnet, Gemini 2.5 Pro 等模型",
+            "300 premium requests to use the latest models and code review": "300 次高级请求，用于使用最新模型和代码审查",
+
+        "Try now": "立即试用",
+            "Part of an organization? Upgrade to": "属于某个组织吗？升级到",
+                "Copilot Business": "Copilot 商业版",
+                "to enable across teams.": "，以便在整个团队中启用。",
+    },
+    "regexp": [],
+};
+
 I18N["zh-CN"]["orgs/enterprise_plan"] = { // 企业版订阅页面
     "static": {
         // https://github.com/organizations/enterprise_plan
@@ -25416,6 +25469,7 @@ I18N["zh-CN"]["copilot"] = {
 
             "Open": "打开",
                 "No open tasks yet. Start a new task to see it here.": "还没有打开的任务。开始一个新任务后即可在这里查看。",
+                "Failed": "失败",
             "Closed": "关闭",
                 "· started": "· 开始于",
                 "ago ·": "之前",
