@@ -4393,9 +4393,16 @@ I18N["zh-CN"]["settings/education/benefits"] = {  // 设置 - 账单和计划（
                         "Student": "学生",
 
                         "What is the name of your school? *": "学校名称 *",
-                            "If your school is not listed, then enter the full school name and continue. You will be asked to provide further information about your school on the next page. A minimum of two characters is required to find your school.": "如果您的学校未列出，请输入完整的学校名称并继续。下一页您将被要求提供有关学校的更多信息。查找您的学校至少需要输入两个字符。",
+                            "If your school is not listed, then enter the full school name and continue. You will be asked to provide further information about your school on the next page. A minimum of two characters is required to find your school.": "如果您的学校未在列表中，请输入完整的学校名称并继续。下一页将要求您提供有关学校的更多信息。查找学校至少需要输入两个字符。",
+                            // 提醒设置学校邮箱
+                                "We require applicants of": "我们要求申请者",
+                                "to use one of these school-issues email addresses to apply:": "使用以下学校发放的电子邮箱地址进行申请：",
+                                "add and verify your": "添加并验证您的",
+                                "school-issued email address": "学校发放的电子邮箱地址",
+                                "in your account settings -- or a contact email if you do not have one. Once your email is verified, you can try applying again.": "在您的账户设置中——若未设置邮箱，请填写联系邮箱。邮箱验证通过后，即可重新尝试申请。",
+
                         "What is your school email address?": "教育邮箱地址",
-                            "Have a different email address you use with your school?": "您是否有一个与学校一起使用的不同电子邮件地址？",
+                            "Have a different email address you use with your school?": "您是否有其他在校使用的电子邮件地址？",
                             "Add it here.": "添加",
 
                         "You have verified the email address": "您已验证邮件",
