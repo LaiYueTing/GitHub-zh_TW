@@ -3682,11 +3682,13 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
 
             // 概况
                 "Current metered usage": "当前计费用量",
+                    "Gross metered usage for": " ",
                     "Showing gross metered usage for your account.": "显示您账户的总计费用量。",
                     "Showing gross metered usage for your organization.": "显示您组织的总计费用量。", // 组织
 
                 "Current included usage": "当前包含用量",
                     "More details": "详情",
+                    "Included usage discounts for": " ",
                     "Showing currently applied discounts for your account.": "显示您账户当前应用的折扣。",
                     "Showing currently applied discounts for your organization.": "显示您组织当前应用的折扣。", // 组织
                     "* As per current pricing": "* 根据当前定价方案",
@@ -4096,6 +4098,10 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
             "Manage your organizations": "管理您的组织",
                 "Create a new organization": "创建新组织",
 
+            "Start your first organization": "开始您的第一个组织",
+                "With CI/CD, Dependabot, and the world's largest developer community, GitHub gives your team everything they need to ship better software faster": "通过 CI/CD、Dependabot 以及全球最大的开发者社区，GitHub 为你的团队提供了交付更优质软件所需的一切，让开发更高效、更快捷。",
+                "Create an organization": "创建组织",
+
             "Marketplace apps": "市场应用",
                 "Change plan": "更改计划",
                 "Cancel plan": "取消计划",
@@ -4285,7 +4291,7 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
     "regexp": [ // 正则翻译
 
         // billing 概况页面
-        [/(?:Gross metered usage|Included usage discounts) for (.+)-(.+)./, (match, p1, p2) => { // 概况下方小字，过于啰嗦直接省略
+        [/(?:Gross metered usage|Included usage discounts) for (.+) - (.+)./, (match, p1, p2) => { // 概况下方小字，过于啰嗦直接省略
             //const translatedP1 = I18N["zh-CN"]["public"]["time-regexp"][p1] || p1;
             //const translatedP2 = I18N["zh-CN"]["public"]["time-regexp"][p2] || p2;
             const dateRegExp = I18N["zh-CN"]["public"]["time-regexp"];
@@ -7750,6 +7756,7 @@ I18N["zh-CN"]["page-new-repo"] = {// 仓库 - 新建/导入/复刻仓库
         //[/Connect this repository to apps ([^ ]+) is subscribed to/, "将此仓库连接到 $1 订阅的应用程序"],
         [/Auto-installed by ([^ ]+)/, "由 $1 自动安装"],
         [/(\d+) apps? selected/, "已选择 $1 个应用"],
+        [/The repository ([^ ]+) already exists on this account/, "仓库 $1 已存在于此账户"],
         ...I18N["zh-CN"]["repository-public"]["regexp"],
         // [/, and (\d+) more/, "，以及其他 $1 个组织"], // 用户 浮动信息卡
         // [/(\d+) repositor(y|ies)/, "$1 个仓库"], // 组织  浮动信息卡
@@ -13523,6 +13530,7 @@ I18N["zh-CN"]["repository/releases"] = { // 仓库 - 发行版页面
             // 附加文件
             "Attach binaries by dropping them here or selecting them.": "拖拽文件到这来或选择它们来附加文件。",
             "Uploading your release now…": "正在上传到您的发行版…",
+            "Uploading your file now…": "正在上传您的文件…",
             "An attachment with that filename already exists.": "同名附件已经存在。",
             "Try a different file.": "请尝试不同的文件。",
             "We don’t support that file type.  try zipping it.": "我们不支持该文件类型，请尝试压缩它。",
