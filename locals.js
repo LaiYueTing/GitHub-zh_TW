@@ -683,6 +683,7 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
 
         // 右上角新建按钮下拉菜单
             "Create new...": "新建...",
+            "Create new…": "新建…",
                 "New repository": "新建仓库",
                 "Import repository": "导入仓库",
                 "New agent task": "新建智能体任务",
@@ -695,7 +696,7 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
 
         // 右上角 Copilot 下拉菜单
             "Chat with Copilot": "与 Copilot 聊天",
-            "Open Copilot… (Alt+Shift+C)": "打开 Copilot… (Alt+Shift+C)",
+            "Open Copilot…": "打开 Copilot…",
                 "New conversation in": "新聊天",
                 "New conversation": "新聊天",
                     "Assistive": "小窗",
@@ -5444,6 +5445,9 @@ I18N["zh-CN"]["settings/copilot"] = { // 设置 - GitHub Copilot
                 "OpenAI GPT-4.1 in Copilot": "GPT-4.1 模型",
                     "You can use the latest OpenAI GPT-4.1 model.": "您可以使用 GPT-4.1 模型。",
                     "Learn more about how GitHub Copilot serves OpenAI GPT-4.1.": "了解更多关于 GitHub Copilot 如何为 GPT-4.1 提供服务。",
+                "OpenAI GPT-5 in Copilot": "GPT-5 模型",
+                    "You can use the latest OpenAI GPT-5 model.": "您可以使用 GPT-5 模型。",
+                    "Learn more about how GitHub Copilot serves OpenAI GPT-5.": "了解更多关于 GitHub Copilot 如何为 GPT-5 提供服务。",
                 "Dashboard entry point": "仪表板入口",
                     "Allows instant chatting when landing on GitHub.com": "允许登陆 GitHub.com 时即时聊天",
 
@@ -5474,6 +5478,8 @@ I18N["zh-CN"]["settings/copilot"] = { // 设置 - GitHub Copilot
             "Premium requests": "高级请求",
                 "Please note that there may be a delay in the displayed usage percentage. The premium request entitlement for your plan will reset at the start of next month. You can enable additional premium requests in the": "请注意，显示的使用百分比可能会有延迟。您计划的高级请求权限将在下个月初重置。您可以在以下位置启用额外的高级请求：",
                 "Billing settings": "账单设置",
+                "Please note that there may be a delay in the displayed usage percentage. The premium request entitlement for your plan will reset at the start of next month. To enable additional premium requests,": "请注意，显示的使用百分比可能会有延迟。您计划的高级请求权限将在下个月初重置。要启用额外的高级请求，请",
+                "update your Copilot premium request budget": "更新您的 Copilot 高级请求预算",
 
             "Features": "功能",
                 // "Copilot in github.com": "在 github.com 中使用 Copilot",
@@ -7625,6 +7631,8 @@ I18N["zh-CN"]["page-new-repo"] = {// 仓库 - 新建/导入/复刻仓库
                 "Copy all branches from": "复制所有",
                 "and not just the default branch.": "仓库分支，而不仅仅是默认分支。",
 
+                "If enabled, all branches from the template repository will be included.": "如果启用，将包含来自模板仓库的所有分支。",
+
         // 导入仓库 第一页 https://github.com/new/import
             "Import your project to GitHub": "将您的项目导入到 GitHub",
                 "Import all the files, including revision history, from another version control system.": "导入的所有文件，包括修订历史记录，来自其他版本控制系统。",
@@ -9604,6 +9612,7 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
                 // Copilot
                     "Describe a change you'd like to make to this pull request, such as adding tests or documentation...": "描述您想对此拉取请求进行的更改，例如添加测试或文档…",
                     "Start task": "开始任务",
+                    "You can ask Copilot to make changes to this pull request by mentioning @copilot in a comment.": "您可以在评论中提及 @copilot，让 Copilot 对此拉取请求进行更改。",
 
             // 自动修复漏洞 提示
                 "This automated pull request fixes a": "这个自动拉取请求将修复了一个",
@@ -20013,6 +20022,7 @@ I18N["zh-CN"]["explore"] = { // 探索页面
                 "Staff pick": "员工精选",
                 "This recommendation was created by GitHub staff": "此推荐由 GitHub 工作人员创建",
                 "Upcoming event recommended by GitHub": "GitHub 推荐的即将举行的活动",
+                "For the Love of Code submission": "代码之爱投稿", // 机翻
 
             "Trending repository": "热门仓库", // 未登录
             "Popular topic": "热门主题", // 未登录
@@ -25587,6 +25597,7 @@ I18N["zh-CN"]["copilot"] = {
                 "No open tasks yet. Start a new task to see it here.": "还没有打开的任务。开始一个新任务后即可在这里查看。",
                 "Failed": "失败",
                 "Ready for review": "准备审查",
+                "· Initializing pull request…": "· 初始化拉取请求…",
             "Closed": "关闭",
                 "· started": "· 开始于",
                 "ago ·": "之前",
