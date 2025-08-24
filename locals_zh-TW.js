@@ -662,6 +662,8 @@ I18N["zh-TW"]["public"] = { // 公共區域翻譯
             "Explore": "探索",
             "Marketplace": "市場",
 
+            "Download Copilot": "下載 Copilot", // 小屏模式
+
             "Filter repositories": "篩選倉庫",
             "Close filter": "關閉篩選器",
 
@@ -703,6 +705,17 @@ I18N["zh-TW"]["public"] = { // 公共區域翻譯
                     "Spaces": "空間",
                     "Immersive": "全屏",
                 "Download for": "下載插件",
+
+            "Open agents panel": "打開智能體面板",
+                "Start a task with Copilot coding agent": "使用 Copilot 編程智能體開始任務",
+                    "Describe your task in natural language. Copilot will work in the background and open a pull request for your review.": "請用自然語言描述您的任務。Copilot 會在後臺工作，並創建一個拉取請求供您審核。",
+
+                "Agent tasks": "智能體任務",
+                    "Switch branches": "切換分支",
+                        "Filter branches": "查找分支",
+                        "default": "默認",
+
+                "Recent tasks": "近期任務",
 
         // 右上角個人圖標下拉菜單
             "Account switcher": "賬戶切換",
@@ -4680,6 +4693,17 @@ I18N["zh-TW"]["settings/security"] = { // 設置 - 密碼和身份身份驗證
                     "You can now manage your two-factor authentication methods from this page.": "您現在可以從此頁面管理您的雙因素身份驗證方法。",
                     "Two-factor authentication successfully disabled.": "成功禁用雙因素身份驗證。",
                     "SMS/Text message successfully configured.": "短信/文本信息配置成功。",
+                    "Authenticator app successfully reconfigured.": "驗證器重配置成功。",
+
+            "Sign in methods": "登錄方式",
+                "Email": "電子郵件", // 下行內容走正則
+                    "Manage": "管理",
+                // 通行密鑰
+                    "Passwordless sign-in with biometrics or security keys": "使用生物識別或安全密鑰進行無密碼登錄",
+                    "Add passkey": "添加通行密鑰",
+                // Google
+                    "Sign in with your Google account": "使用 Google 賬戶登錄",
+                    "Connect": "連接",
 
             "Two-factor authentication": "雙因素身份驗證",
                 "Two-factor authentication is not enabled yet.": "尚未啟用雙因素身份驗證。",
@@ -4780,6 +4804,7 @@ I18N["zh-TW"]["settings/security"] = { // 設置 - 密碼和身份身份驗證
         [/You will receive one-time codes at this phone number:/, "您將通過以下電話號碼收到一次性驗證碼："], // 已設置短信/文字信息
         [/Delete `([^ ]+)` passkey/, "刪除 “$1” 通行密鑰"],
         [/Are you sure you want to delete your `([^ ]+)` passkey?/, "您確定要刪除您的 “$1” 通行密鑰嗎？"],
+        [/(\d+) verified emails? configured/, "已配置 $1 個已驗證的郵箱"],
     ],
 };
 
@@ -9028,9 +9053,10 @@ I18N["zh-TW"]["repository/issues"] = { // 倉庫 - 議題頁面
             "mentioned this": "提及此",
             "opened this": "打開了這個",
             "linked a pull request": "關聯了一個拉取請求",
-            "that will": "這將會",
-            "close": "關閉",
-            "this issue": "這個議題",
+            "linked a pull request that will close this issue": "關聯了一個關閉此議題的拉取請求",
+            //"that will": "這將會",
+            //"close": "關閉",
+            //"this issue": "這個議題",
             // "that will close this issue": "這將會關閉這個議題",
             // "Issue": "議題",
             "added a commit that closed this issue": "在提交時關閉了這個議題",
@@ -18291,6 +18317,7 @@ I18N["zh-TW"]["session-authentication"] = { // 登錄頁 包含(/login, /session
             "Want to create an account?": "想要新建一個賬戶嗎？", // 添加新賬號
 
             "Or": "或",
+            "Continue with Google": "使用 Google 繼續",
             // "This browser or device does not fully support passkeys.": "此瀏覽器或設備不完全支持通行密鑰。",
             "This browser or device is reporting partial passkey support.": "此瀏覽器或設備報告部分支持通行密鑰。",
             "Sign-in with a passkey": "使用通行密鑰登錄",
