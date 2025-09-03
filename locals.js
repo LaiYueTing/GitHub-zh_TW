@@ -7238,6 +7238,7 @@ I18N["zh-CN"]["repository-public"] = { // 仓库 - 公共部分
             "Sorry, that branch already exists.": "抱歉，该分支已存在。",
             "has invited you to collaborate on this repository": "邀请您成为该仓库协作者",
                 "View invitation": "查看",
+            "Updated issue templates for this repository": "已为此仓库更新议题模板",
 
             // 存档
             "This repository has been archived by the owner. It is now read-only.": "此仓库已被所有者存档。它现在是只读的。",
@@ -8876,6 +8877,7 @@ I18N["zh-CN"]["repository/issues"] = { // 仓库 - 议题页面
             "Welcome to issues!": "欢迎关注议题！",
             "Issues are used to track todos, bugs, feature requests, and more. As issues are created, they’ll appear here in a searchable and filterable list. To get started, you should": "议题用于跟踪待办事项、错误、功能请求等。创建议题后，它们将出现在可搜索和可筛选的列表中。要开始，您应该",
             "create an issue": "创建议题",
+                "Open issue creation in fullscreen": "全屏", // 有议题模板时
 
             "Label issues and pull requests for new contributors": "标记新贡献者的议题和拉取请求",
             "Now, GitHub will help potential first-time contributors": "现在，GitHub 将帮助潜在的首次贡献者",
@@ -9018,6 +9020,10 @@ I18N["zh-CN"]["repository/issues"] = { // 仓库 - 议题页面
 
             "View organization templates": "查看组织模板", // 组织仓库
 
+            // 警告
+                "Discard changes?": "丢弃更改？",
+                "Close and discard": "丢弃并关闭",
+
         // 新建空白议题  /<user-name>/<repo-name>/issues/new
             "Title": "标题",
             "Helpful resources": "帮助性资源",
@@ -9027,6 +9033,8 @@ I18N["zh-CN"]["repository/issues"] = { // 仓库 - 议题页面
                     "You have unsaved changes. Are you sure you want to discard them?": "您有未保存的更改。您确定要放弃它们吗？",
                     "Keep editing": "否", // 实际作用：返回编写页面
                     "Go to Copilot": "是", // 实际作用：前往 Copilot 页面
+
+            "Choose a different template": "切换模板",
 
         // 从讨论创建议题  /<user-name>/<repo-name>/issues/new?created_from_discussion_number=<id>
             "Documentation has changed since you last contributed": "自您上次贡献以来，文档已更改",
@@ -9378,9 +9386,25 @@ I18N["zh-CN"]["repository/issues"] = { // 仓库 - 议题页面
             "Template name": "模板名称",
             "This file lives in": "该文件位于",
             "Template content": "模板内容",
+                "Styling with Markdown is supported": "支持 Markdown 格式",
             "Optional additional items": "可选附加项目",
             "Issue default title": "议题默认标题",
             "This will be suggested as the issue title": "建议作为议题标题",
+                "Add a placeholder for issue title, ex. [BUG]": "设置默认议题标题，例如：[BUG]",
+
+            "Commit changes": "提交更改",
+                "Commit message": "提交信息",
+                "Extended commit message": "扩展描述",
+                    "Add an optional extended description": "添加描述... (可选)",
+                "Commit directly to the": "提交到",
+                "branch.": "分支。",
+
+                "Some rules will be bypassed by committing directly": "直接提交可以绕过一些规则",
+                "Bypass rules and commit changes": "绕过规则并提交更改",
+
+                "Create a": "创建",
+                "new branch": "新分支",
+                "for this commit and start a pull request.": "为这个提交，并且发起一个拉取请求。",
 
         // Copilot 浮窗 独有词条
             "Ask about the issue:": "讨论此议题：",
@@ -9439,6 +9463,7 @@ I18N["zh-CN"]["repository/issues"] = { // 仓库 - 议题页面
         [/Issue (#\d+) created/, "议题 $1 已创建"],
         [/Lines (\d+) to (\d+) in/, "第 $1 - $2 行，"],
         [/mentioned this in (\d+) issues?/, "在 $1 个议题中提及"],
+        [/Create new issue in (.+)/, "在 $1 新建议题"],
         ...I18N["zh-CN"]["repository-public"]["regexp"],
         ...I18N["zh-CN"]["repository/pull_issue_public"]["regexp"],
     ],
@@ -12695,6 +12720,9 @@ I18N["zh-CN"]["repository/new"] = { // 仓库 - 新建/编辑/上传/删除文�
                     "Commit message": "提交信息",
                     "Extended description": "扩展描述",
                         "Add an optional extended description...": "添加描述... (可选)",
+                    
+                    "Message and description suggested by Copilot.": "Copilot建议的消息和描述。",
+                        "Send feedback": "提交反馈",
 
                     "You are": "您将",
                     "signing off": "签署",
@@ -15447,6 +15475,10 @@ I18N["zh-CN"]["repository/settings"] = { // 仓库设置 - 通常 /<user-name>/<
                 "I understand, update the default branch.": "我明白了，依然更新默认分支",
                 // 顶部提醒
                     // [/Default branch changed to ([^ ])/, "默认分支更改为 $1"]
+
+            // 发行版
+                "Enable release immutability": "启用发行版不可修改",
+                    "Disallow assets and tags from being modified once a release is published.": "禁止在发布发行版后修改资产和标签。",
 
             "Social preview": "社交预览",
             // 关于私有库提醒
