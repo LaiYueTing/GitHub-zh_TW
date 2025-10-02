@@ -72,6 +72,11 @@ Via（Android）       | 内置管理器
 1. 刷新页面后，插件即可生效
 1. 必要时，重启浏览器
 
+> [!IMPORTANT]
+> **若无效，请检查 “扩展程序” 管理中的以下设置：**
+> 1.  “允许运行用户脚本” 是否开启
+> 1.  “有权访问的网站”
+
 [^1]: [Chrome 切换到 Manifest V3后，使用问题](https://github.com/maboloshi/github-chinese/issues/234)
 
 > [!NOTE]
@@ -92,6 +97,12 @@ Via（Android）       | 内置管理器
    // @require file:///D:/github-chinese/locals.js
    ```
 1. 刷新页面生效
+
+> [!IMPORTANT]
+> **若无效：**
+> 1. 进入 [Tampermonkey][Tampermonkey] 插件`设置页`
+> 1. 将 `通用 - 配置模式` 设置为`高级`，进入高级设置模式
+> 1. 找到 `安全 - 允许脚本访问本地文件` 并设置为 `外部(@require 和 @resource)`
 
 > [!TIP]
 > 💡 **温馨提示：** 您可以将词库文件拖拽至浏览器地址栏，复制路径直接使用。
