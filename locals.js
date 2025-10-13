@@ -74,7 +74,7 @@ I18N.conf = {
             '.cm-line',
         ],
         '*': [
-            'div.QueryBuilder-StyledInputContainer',  // 顶部搜索栏 关键词被翻译
+            '#qb-input-query',  // 顶部搜索栏 关键词被翻译
         ],
     },
 
@@ -192,7 +192,7 @@ I18N.conf = {
         '*': [
             '.comment-body', '.js-preview-body',
             '.markdown-title',
-            'span.ActionListItem-label.text-normal', // 顶部搜索栏 关键词被翻译
+            '#qb-input-query',  // 顶部搜索栏 关键词被翻译
             'CODE', 'SCRIPT', 'STYLE', 'LINK', 'IMG', 'MARKED-TEXT', 'PRE', 'KBD', 'SVG', 'MARK' // 特定元素标签
         ],
     },
