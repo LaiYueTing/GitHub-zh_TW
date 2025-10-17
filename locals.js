@@ -45,7 +45,7 @@ I18N.conf = {
      * 导入仓库 /new/import
      * ...
      */
-    rePagePath: /^\/($|home|dashboard|copilot|signup|account_verifications|login\/oauth|login|logout|sessions?|password_reset|orgs|explore|topics|notifications\/subscriptions|notifications|watching|stars|issues|pulls|search|trending|showcases|new\/(import|project)|new|import|settings\/(profile|admin|appearance|accessibility|notifications|billing|emails|security_analysis|security-log|security|auth|sessions|keys|ssh|gpg|organizations|enterprises|blocked_users|interaction_limits|code_review_limits|repositories|codespaces|models|codespaces\/allow_permissions|deleted_repositories|packages|copilot|pages|replies|installations|apps\/authorizations|reminders|sponsors-log|apps|(?:personal-access-|)tokens|developers|applications\/new|applications|connections\/applications|education\/benefits)|settings|installations\/new|marketplace|apps|account\/(organizations\/new|choose|upgrade|billing\/history)|projects|redeem|discussions|collections|sponsors|sponsoring|github-copilot\/(signup|free_signup|code-review-waitlist|pro)|codespaces|developer\/register|features|security|sitemap|education)|^\/users\/[^\/]+\/(projects|packages|succession\/invitation)/,
+    rePagePath: /^\/($|home|dashboard|copilot|signup|account_verifications|login\/oauth|login|logout|sessions?|password_reset|orgs|explore|topics|notifications\/subscriptions|notifications|watching|stars|issues|pulls|search|trending|showcases|new\/(import|project)|new|import|settings\/(profile|admin|appearance|accessibility|notifications|billing|emails|security_analysis|security-log|security|auth|sessions|keys|ssh|gpg|organizations|enterprises|blocked_users|interaction_limits|code_review_limits|repositories|codespaces|models|codespaces\/allow_permissions|deleted_repositories|packages|copilot|pages|replies|installations|apps\/authorizations|reminders|sponsors-log|apps|(?:personal-access-|)tokens|developers|applications\/new|applications|connections\/applications|education\/benefits)|settings|installations\/new|marketplace|apps|account\/(organizations\/new|choose|upgrade|billing\/history)|projects|redeem|discussions|collections|sponsors|sponsoring|github-copilot\/(signup|free_signup|code-review-waitlist|pro)|codespaces|developer\/register|features|security|sitemap|education|mcp)|^\/users\/[^\/]+\/(projects|packages|succession\/invitation)/,
 
     // 仓库路径
     rePagePathRepo: /^\/[^\/]+\/[^\/]+\/(issues|pulls|pull|tree|watchers|stargazers|new|edit|delete|upload|find|models|wiki|branches|discussions|activity|rules|releases|packages|tags|labels|milestones?|compare|commit|blob|blame|actions(\/metrics\/(usage|performance))?|runs|deployments|security|pulse|community|forks|fork|import|graphs\/(contributors|community|traffic|commit-activity|code-frequency)|network$|network\/(dependencies|dependents|updates|members)|settings\/(access|code_review_limits|interaction_limits|branches|branch_protection_rules|tag_protection|rules|actions|models\/access-policy|hooks|copilot\/(code_review|coding_agent)|environments|codespaces|pages|security_analysis|dependabot_rules|keys|secrets|variables|installations|notifications|key_links)|settings|transfer|projects\/new|pkgs|contribute|subscription|invitations|codespaces|attestations|custom-properties|reported_content)/,
@@ -269,7 +269,7 @@ I18N["zh-CN"]["title"] = { // 标题翻译
         "Forgot your password? · GitHub": "忘记您的密码了吗？· GitHub",
         "Forgot your password?": "忘记您的密码了吗？",
         "GitHub · Where software is built": "GitHub · 软件构建的地方",
-        "Create a New Repository": "创建新仓库",
+        "Create a New Repository": "新建仓库",
         "Import a Repository": "导入仓库",
         "New Project": "创建项目",
         "Your Repositories": "我的仓库",
@@ -391,6 +391,8 @@ I18N["zh-CN"]["title"] = { // 标题翻译
         "New Fine-grained Personal Access Token": "新建精细化个人访问令牌",
         "Coding agent": "编程智能体",
         "Get Started With GitHub Discussions": "开始使用 GitHub 讨论",
+        "SSH and GPG keys": "SSH 和 GPG 密钥",
+        "MCP Registry": "MCP 互联",
     },
     "regexp": [ // 正则翻译
         [/Authorized OAuth Apps/, "授权的 OAuth 应用"],
@@ -661,6 +663,7 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
             "Codespaces": "代码空间",
             "Explore": "探索",
             "Marketplace": "市场",
+            "MCP Registry": "MCP 互联",
 
             "Download Copilot": "下载 Copilot", // 小屏模式
 
@@ -4958,6 +4961,8 @@ I18N["zh-CN"]["settings/keys"] = { // 设置 - SSH 与 GPG 公钥
             "Authentication keys": "认证密钥",
             "There are no SSH keys associated with your account.": "没有与您的账户关联的 SSH 密钥。",
             "This is a list of SSH keys associated with your account. Remove any keys that you do not recognize.": "这是与您的账户相关的 SSH 密钥的列表。删除任何您无法识别的密钥。",
+            "Never used": "从未使用",
+                "— Read/write": "- 读写",
             "Last used within the last week": "上周内最后一次使用",
             "Check out our guide to": "请看我们的指南",
             "connecting to GitHub using SSH keys": "使用 SSH 密钥连接到 GitHub",
@@ -5004,6 +5009,7 @@ I18N["zh-CN"]["settings/keys"] = { // 设置 - SSH 与 GPG 公钥
 
     },
     "regexp": [ // 正则翻译
+        [/You have successfully added the key \'([^ ]+)\'./, "成功添加密钥 “$1”。"],
     ],
 };
 
@@ -7648,7 +7654,7 @@ I18N["zh-CN"]["page-new-repo"] = {// 仓库 - 新建/导入/复刻仓库
         ...I18N["zh-CN"]["repository-public"]["static"],
 
         // 新建仓库 https://github.com/new
-            "Create a new repository": "创建新仓库",
+            "Create a new repository": "新建仓库",
                 "A repository contains all project files, including the revision history.": "仓库包含项目中的所有文件，包括修订历史记录。",
                 "Already have a project repository elsewhere?": "在其他地方已有仓库？",
                 "Import a repository": "导入仓库",
@@ -8196,7 +8202,7 @@ I18N["zh-CN"]["repository"] = { // 仓库页面 /<user-name>/<repo-name>/
 
 
             "Use this template": "使用此模板",
-                "Create a new repository": "创建新仓库",
+                "Create a new repository": "新建仓库",
                 "Open in a codespace": "在代码空间中打开",
 
             // 个人仓库 当前分支状态
@@ -13665,6 +13671,7 @@ I18N["zh-CN"]["repository/releases"] = { // 仓库 - 发行版页面
                 "Search or create a new tag": "查找或新建标签",
             "Tag:": "标签：",
                 "Select tag": "选择标签",
+                "Create new tag": "新建标签",
             "Target:": "目标：",
                 "Pick a branch or recent commit": "选择分支或最近的提交",
                 "Filter branches…": "筛选分支…",
@@ -13839,6 +13846,8 @@ I18N["zh-CN"]["repository/releases"] = { // 仓库 - 发行版页面
         [/(\d+) (people|person) reacted/, "$1 人表达看法"],
         [/There are no releases containing \"([^ ]+)\"./, "没有发行版包含“$1”。"],
         [/Edit (.+)/, "编辑 $1"],
+        [/^([^ ]+) will be created on publish/, "$1 将在发布时创建"],
+        [/^([^ ]+) is used by another release/, "$1 已存在"], // 省略部分内容
         ...I18N["zh-CN"]["repository-public"]["regexp"],
     ],
 };
@@ -14813,6 +14822,13 @@ I18N["zh-CN"]["repository/pulse"] = { // 仓库 -> 洞察 - 统计
                     "Download CSV": "下载 CSV",
                     "Download PNG": "下载 PNG",
 
+                "Customization settings": "自定义设置",
+                    "Column & bar chart settings": "柱状图设置",
+                        "Increase Contrast": "增加对比度",
+                            "Adds gradients and outlines to increase contrast in charts.": "为图表添加渐变效果和轮廓，以增强对比度",
+                        "Show data labels": "显示数据标签",
+                            "Show labels for each data point in column and bar charts.": "在柱状图中显示每个数据点的标签",
+
             "Sometimes conversations happen on old items that aren't yet closed. Here is a list of all the Issues and Pull Requests with unresolved conversations.": "有时对尚未关闭的旧项目会有新的讨论。以下是所有有未解决讨论的议题和拉取请求列表。",
                 "commented on": "评论于",
                 "new comments": "新评论",
@@ -15141,6 +15157,13 @@ I18N["zh-CN"]["repository/graphs/traffic"] = { // 仓库 -> 洞察 - 流量
                 "View as table": "以表格形式查看",
                 "Download CSV": "下载 CSV",
                 "Download PNG": "下载 PNG",
+
+            "Customization settings": "自定义设置",
+                "Line chart settings": "折线图设置",
+                    "Differentiate by line style": "折线样式区分",
+                        "Use unique line styles (dashed, dotted, etc.) to differentiate lines in charts.": "使用独特的线条样式（如虚线、点线等）在图表中区分不同的线条。",
+                    "Show data labels": "显示数据标签",
+                        "Show labels for each data point in line chart.": "在折线图每个数据点显示标签。",
 
             // 表格
             "Category": "日期", // 实际上为日期
@@ -25754,6 +25777,9 @@ I18N["zh-CN"]["copilot"] = {
                 "Remove attachments": "移除附件",
 
             "Ask Copilot": "询问 Copilot",
+            "Add repositories, files and spaces": "添加仓库，文件和空间",
+                // 文件（夹）和符号
+                "Select folders and files in": "选择文件（夹）于",
             "Add attachment": "添加附件",
                 "Files and symbols…": "文件和符号…",
                     "First attach a repository": "请先附加仓库",
@@ -26327,4 +26353,25 @@ I18N["zh-CN"]["education"] = { // 教育页面，申请学生包会用到
         //[/Verified since (.+)/, "验证自 $1"],
         [/(\d+) views?/, "$1 次观看"],
     ],
+};
+
+I18N["zh-CN"]["mcp"] = {
+    "static": {
+        "Connect models to the real world": "连接模型至真实世界",
+            "Servers and tools from the community that connect models to files, APIs, databases, and more.": "来自社区的服务器和工具，可以将模型连接到文件、API、数据库等。",
+
+        "Search MCPs": "搜索 MCP",
+
+        "All MCP servers": "所有 MCP 服务器",
+            "Install": "安装",
+                "Install in VS Code": "安装到 VS Code",
+                "Install in VS Code Insiders": "安装到 VS Code 测试版",
+
+            "By": "作者",
+
+        // 具体页面
+            "Install MCP server": "安装 MCP 服务器",
+            "Contact support": "获取支持",
+    },
+    "regexp": [],
 };
