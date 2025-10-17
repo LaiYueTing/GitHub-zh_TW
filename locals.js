@@ -359,6 +359,7 @@ I18N["zh-CN"]["title"] = { // 标题翻译
         "Discover gists · GitHub": "探索代码片段 · GitHub",
         "Explore GitHub Sponsors": "探索 GitHub 赞助者",
         "Actions Usage Metrics": "操作使用情况",
+        "Actions usage metrics": "操作使用情况",
         "Fine-grained Personal Access Tokens": "精细化的个人访问令牌",
         "Import repository": "导入仓库",
         "Explore GitHub": "探索 GitHub",
@@ -370,6 +371,7 @@ I18N["zh-CN"]["title"] = { // 标题翻译
         "Code security": "代码安全",
         "Deploy keys": "部署密钥",
         "Actions Performance Metrics": "操作数据看板",
+        "Actions performance metrics": "操作数据看板",
         "GitHub Sitemap · GitHub": "GitHub 网站地图",
         "Code search results": "代码搜索结果",
         "Enterprises": "企业版",
@@ -701,6 +703,9 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
 
         // 右上角 Copilot 下拉菜单
             "Chat with Copilot": "与 Copilot 聊天",
+            "Learn more about Copilot coding agent": "了解有关 Copilot 编程智能体的更多信息",
+            "Start a new task with Copilot": "使用 Copilot 启动新任务",
+            "Describe a coding task to work on": "描述要完成的编程任务",
             "Open Copilot…": "打开 Copilot…",
                 "New conversation in": "新聊天",
                 "New conversation": "新聊天",
@@ -5495,7 +5500,7 @@ I18N["zh-CN"]["settings/copilot"] = { // 设置 - GitHub Copilot
             "Copilot policies": "Copilot 规则",
                 "Copilot in GitHub.com": "在 GitHub.com 中使用 Copilot",
                     "You can use Copilot Chat in GitHub.com. Copilot code review and preview features are only available for paid licenses.": "您可以在 GitHub.com 中使用 Copilot Chat。Copilot 代码审查和预览功能仅适用于付费版。",
-                    "You can use Copilot Chat in GitHub.com. Preview features are only available for paid licenses.": "您可以在 GitHub.com 中使用 Copilot Chat。预览功能仅适用于付费版。", 
+                    "You can use Copilot Chat in GitHub.com. Preview features are only available for paid licenses.": "您可以在 GitHub.com 中使用 Copilot Chat。预览功能仅适用于付费版。",
                     "Learn more about Copilot in GitHub.com": "了解更多关于在 GitHub.com 中使用 Copilot 的信息",
                 "Editor preview features": "编辑器预览功能",
                     "You can use preview features in your editor.": "您可以在编辑器中使用预览功能。",
@@ -7377,6 +7382,7 @@ I18N["zh-CN"]["repository-public"] = { // 仓库 - 公共部分
             "people": "人", // 提交
             "committed": "提交于", // 提交浮窗
             "authored": "撰写于",
+            "authored and": "撰写和", // 1 编写，由 2 提交
 
             // 标签栏
             "Code": "代码",
@@ -7476,6 +7482,7 @@ I18N["zh-CN"]["repository-public"] = { // 仓库 - 公共部分
                 "View all tags": "查看全部标签",
 
                 "Find or create a branch...": "查找或创建分支...",
+                "Search or create a new tag": "搜索或创建新标签",
                 "View all": "查看全部",
                 "branches": "分支",
                 "Find a tag...": "查找标签...",
@@ -9928,6 +9935,7 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
             "unlocked this conversation": "解锁此对话",
             "added this to the": "添加到",
             "milestone": "里程碑",
+            "review requested due to automatic review settings": "因设置自动审查",
 
             //
             "This branch has not been deployed": "该分支尚未部署",
@@ -11397,7 +11405,7 @@ I18N["zh-CN"]["repository/blob"] = { // 仓库 - 浏览代码
                         "No matches found": "未找到匹配项",
                         "Go to folder": "转到文件夹",
                         "See all results": "查看所有结果",
-            
+
             // Git LFS 托管的文件
                 "Stored with Git LFS": "Git LFS 托管",
 
@@ -12858,7 +12866,7 @@ I18N["zh-CN"]["repository/new"] = { // 仓库 - 新建/编辑/上传/删除文�
                     "Commit message": "提交信息",
                     "Extended description": "扩展描述",
                         "Add an optional extended description...": "添加描述... (可选)",
-                    
+
                     "Message and description suggested by Copilot.": "Copilot建议的消息和描述。",
                         "Send feedback": "提交反馈",
 
@@ -14707,6 +14715,7 @@ I18N["zh-CN"]["repository-insights-menu"] = { // 仓库 -> 洞察 - 公共部分
             "Contributors": "贡献者",
             "Community": "社区",
             "Community Standards": "社区准则",
+            "Community standards": "社区准则",
             "Traffic": "流量",
             "Commits": "提交",
             "Code frequency": "代码频率",
@@ -14717,6 +14726,8 @@ I18N["zh-CN"]["repository-insights-menu"] = { // 仓库 -> 洞察 - 公共部分
             "Forks": "复刻",
             "Actions Usage Metrics": "操作使用情况",
             "Actions Performance Metrics": "操作数据看板",
+            "Actions usage metrics": "操作使用情况",
+            "Actions performance metrics": "操作数据看板",
 
             "People": "成员", //组织仓库
 
@@ -15377,6 +15388,7 @@ I18N["zh-CN"]["repository/network/dependencies"] = { // 仓库 -> 洞察 - 依�
                 "Filter by ecosystem": "按生态系统筛选",
 
             "ProTip!": "专业提示！",
+            "What’s not been updated": "未更新内容",
                 "Supported ecosystems will have transitivity labels on their packages.": "受支持的生态系统将在其包上有传递性标签。",
 
     },
@@ -22055,6 +22067,7 @@ I18N["zh-CN"]["orgs/people"] = { // 组织 - 成员标签卡
 
             "Sort": "排序",
             "Sort Order": "排序方式",
+            "Order": "方式",
             "Newest": "最新的",
             "Oldest": "最早的",
 
