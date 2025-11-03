@@ -545,62 +545,68 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
             "replied": "已回复", // 讨论
 
         // 顶部栏 (未登录)
-            "Product": "产品",
+            "Platform": "平台",
+                // Copilot
+                    "Write better code with AI": "借助 AI 写出更好的代码",
+                // Spark
+                    "Build and deploy intelligent apps": "构建和部署智能应用",
+                "GitHub Models": "GitHub 模型",
+                    "Manage and compare prompts": "管理和比较提示词",
                 // 操作
                     "Automate any workflow": "自动化任何工作流程",
-                // 软件包
-                    "Host and manage packages": "托管和管理包",
                 "GitHub Advanced Security": "GitHub 高级安全",
                     "Find and fix vulnerabilities": "查找并修复漏洞",
                 // 代码空间
                     "Instant dev environments": "即时开发环境",
-                "Code Review": "代码审查",
-                    "Manage code changes": "管理代码更改",
-                // Copilot
-                    "Write better code with AI": "借助 AI 写出更好的代码",
-                "GitHub Models": "GitHub 模型",
-                    "Manage and compare prompts": "管理和比较提示词",
                 // 议题
                     "Plan and track work": "计划和追踪工作",
+                "Code Review": "代码审查",
+                    "Manage code changes": "管理代码更改",
                 // 讨论
                     "Collaborate outside of code": "代码之外的协作",
                 "Code Search": "代码搜索",
                     "Find more, search less": "查找更多，搜索更少",
 
-                // 右侧
-                "Why GitHub": "为什么选择 GitHub",
-                "All features": "所有功能",
+                // 右侧 搜索
+                    "Why GitHub": "为什么选择 GitHub",
                 "GitHub Skills": "GitHub 技能",
+                "Integrations": "集成",
+                    "GitHub Marketplace": "GitHub 市场",
+                    "MCP Registry": "MCP 注册",
+                "View all features": "查看所有功能",
+
             "Solutions": "解决方案",
                 "By company size": "企业规模",
-                "By size": "规模",
                     "Enterprises": "企业",
                     "Small and medium teams": "中小团队",
                     "Startups": "初创公司",
                     "Nonprofits": "非盈利组织",
+                "By use case": "使用案例",
+                    "App Modernization": "应用现代化",
+                    "DevSecOps": "开发安全运维",
+                    "DevOps": "开发运维",
+                    "CI/CD": "持续集成/持续部署",
+                    "View all use cases": "查看所有使用案例",
                 "By industry": "工业",
                     "Healthcare": "健康护理",
                     "Financial services": "金融服务",
                     "Manufacturing": "制造业",
                     "Government": "政府",
                     "View all industries": "查看所有工业",
-                "By use case": "使用案例",
-                    "CI/CD & Automation": "CI/CD & 自动化",
-                    "DevOps": "开发运维",
-                    "DevSecOps": "开发安全运维",
-                    "View all use cases": "查看所有使用案例",
                 "View all solutions": "查看所有解决方案",
+
             "Resources": "资源",
-                "Innersource": "内部源",
-                "Learning Pathways": "学习路径",
-                "Events & Webinars": "社区活动",
-                "Ebooks & Whitepapers": "资料库",
-                "White papers, Ebooks, Webinars": "白皮书、电子书、网络研讨会",
-                "Customer Stories": "客户案例",
-                "Software Development": "软件开发",
-                "Partners": "合作洽谈",
-                "Executive Insights": "高管洞察",
+                // 主题
+                    "Software Development": "软件开发",
+                // 探索
+                    "Learning Pathways": "学习路径",
+                    "Events & Webinars": "社区活动",
+                    "Ebooks & Whitepapers": "资料库",
+                    "Customer Stories": "客户案例",
+                    "Partners": "合作洽谈",
+                    "Executive Insights": "高管洞察",
                 "View all": "查看全部",
+
             "Open Source": "开源",
                 "GitHub Sponsors": "GitHub 赞助者",
                     "Fund open source developers": "资助开源开发人员",
@@ -610,22 +616,21 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
                     "Topics": "主题",
                     "Trending": "趋势",
                     "Collections": "集合",
-            "Pricing": "价格",
-            "Search": "搜索",
-            "Sign in": "登录",
-            "Sign up": "注册",
 
-            "Team": "团队",
             "Enterprise": "企业",
                 "Enterprise platform": "企业平台",
                     "AI-powered developer platform": "AI 驱动的开发者平台",
                 "Available add-ons": "可用扩展",
-                    "Advanced Security": "高级安全",
+                    // GitHub 高级安全
                         "Enterprise-grade security features": "企业级安全功能",
                     "Copilot for business": "Copilot 企业版",
                         "Enterprise-grade AI features": "企业级 AI 功能",
-                    // 高级支持
-                        "Enterprise-grade 24/7 support": "企业级24小时全天候支持",
+                    "Premium Support": "高级支持",
+                        "Enterprise-grade 24/7 support": "企业级 24 小时全天候支持",
+            "Pricing": "价格",
+            "Search": "搜索",
+            "Sign in": "登录",
+            "Sign up": "注册",
 
         // 搜索栏
             "Search or jump to...": "搜索或跳转到…",
