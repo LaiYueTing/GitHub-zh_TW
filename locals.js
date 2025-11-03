@@ -3191,6 +3191,95 @@ I18N["zh-CN"]["confirm-access"] = { // “授权访问” 对话框
     },
 };
 
+I18N["zh-CN"]["payment-module"] = { // 通用账单及支付信息模块
+    "static": { // 静态翻译
+        "Billing information": "账单信息",
+            "You have not added any billing information.": "您尚未添加账单信息。",
+
+            "Personal account": "个人账户",
+
+            // 添加/编辑账单信息
+               // "Add your information to show on every invoice": "在每张发票上添加您的信息",
+
+                "First name": "名字",
+                    "First name can't be blank.": "名字不能为空。",
+                    "First name can't be blank": "名字不能为空",
+                "Last name": "姓氏",
+                    "Last name can't be blank.": "姓氏不能为空。",
+                    "Last name can't be blank": "姓氏不能为空",
+                "Address": "地址",
+                    "(Street, P.O. box)": "（街道，邮政信箱）",
+                    "Address can't be blank.": "地址不能为空。",
+                    "Address can't be blank": "地址不能为空",
+                "Address line 2": "地址第 2 行",
+                    "(Apartment, suite, unit)": "（公寓、套房、单元）",
+                "City": "城市",
+                    "City can't be blank.": "城市不能为空。",
+                    "City can't be blank": "城市不能为空",
+                "Country/Region": "国家/地区",
+                "State/Province": "州/省",
+                    "Required for certain countries": "某些国家/地区需要",
+                "Postal/Zip code": "邮政编码",
+                    "(9-digit zip code for US)": "（美国为 9 位邮政编码）",
+                "VAT/GST ID": "增值税/消费税编号",
+
+                "Save billing information": "保存账单信息",
+                "Save and continue": "保存并继续",
+
+            // 顶部提醒
+                "You have not added any billing information.": "您尚未添加账单信息。",
+                "Successfully updated billing information.": "保存账单信息成功。",
+                "An error occurred while saving billing information.": "保存账单信息发生错误。",
+
+            // 其他
+                // 来自 https://github.com/marketplace/<app-name>/order/<order-id>?account=<account-name>
+                    "Please confirm your billing details to continue. You only need to do this once.": "请确认您的账单详情以继续。您只需确认一次。",
+
+            // 组织设置
+                "An organization owner or billing manager must link their personal billing information with this organization account. You can switch to a business account to use your business’ billing information by": "组织所有者或计费经理必须将他们的个人计费信息与该组织帐户关联。您可以通过",
+                "signing": "签署",
+                "the": " ",
+                "GitHub Customer Agreement": "GitHub 客户协议",
+                "Allow my billing information to be linked with this organization": "允许我的账单信息与该组织关联",
+
+                    "Confirm your details shown below. To make changes,": "确认以下显示的详细信息。要做出更改，",
+                    "edit your billing information": "请编辑您的账单信息",
+
+                "Update your billing information": "更新您的账单信息",
+                "to be able to link it with this organization.": "以便与该组织关联。",
+
+        "Payment method": "支付方式",
+        "Payment Method": "支付方式",
+            "You have not added a payment method.": "您尚未添加支付方式。",
+
+        "Payment information": "支付信息",
+            "Pay with": "支付方式：",
+                "Loading payment information…": "正在加载支付信息…",
+
+                "Credit or debit card": "信用卡或借记卡",
+                    "Card Number *": "卡号",
+                    "Expiration Date (YYYY) *": "终止日期 (YYYY) *",
+                        "- Select One -": "- 选择一个 -",
+                    "Save payment information": "保存付款信息",
+                    "You are currently paying with your PayPal account": "您目前正在使用您的 PayPal 账户支付",
+                    ", but you can switch to using a credit or debit card at any time.": "，但是您随时可以切换到使用信用卡或借记卡支付。",
+
+                "PayPal account": "PayPal 账户",
+                "Paypal account": "PayPal 账户",
+                    "Sign in to": "登录到",
+                    "Connecting to PayPal…": "正在连接到 PayPal…",
+                    "Charge to": "收费至",
+                    "Sign in to PayPal to use a different account.": "登录 PayPal 以使用其他账户。",
+
+                // 顶部提醒
+                    "An error occurred while saving payment information.": "保存支付信息时发生错误。",
+                    "Your PayPal account has been successfully added.": "您的 PayPal 账户已成功添加。",
+
+                "504 Gateway Time-out": "504 网关超时",
+                "We may place a temporary hold on your payment method to verify its validity. This is not a charge, and it will be released automatically after verification.": "我们可能会暂时冻结您的支付方式以验证其有效性。这不是收费，验证后将会自动解除。",
+    },
+};
+
 I18N["zh-CN"]["settings-menu"] = { // 设置 - 公共部分
     "static": { // 静态翻译
         "Settings": "设置", // 新版全局导航
@@ -4200,73 +4289,7 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
             "Cancel subscription": "取消订阅",
 
         // 支付信息 https://github.com/settings/billing/payment_information
-            "Billing information": "账单信息",
-                "You have not added any billing information.": "您尚未添加账单信息。",
-
-                // 添加账单信息
-                    "Add your information to show on every invoice": "在每张发票上添加您的信息",
-
-                    "First name": "名字",
-                        "First name can't be blank": "名字不能为空",
-                    "Last name": "姓氏",
-                        "Last name can't be blank": "姓氏不能为空",
-                    "Add your business information to show on every invoice": "添加您的企业信息，在每张发票上显示",
-                    "Address": "地址",
-                        "(Street, P.O. box)": "（街道，邮政信箱）",
-                        "Address can't be blank": "地址不能为空",
-                    "Address line 2": "地址第 2 行",
-                        "(Apartment, suite, unit)": "（公寓、套房、单元）",
-                    "City": "城市",
-                        "City can't be blank": "城市不能为空",
-                    "Country/Region": "国家/地区",
-                    "State/Province": "州/省",
-                        "Required for certain countries": "某些国家/地区需要",
-                    "Postal/Zip code": "邮政编码",
-                        "(9-digit zip code for US)": "（美国为 9 位邮政编码）",
-                    "VAT/GST ID": "增值税/消费税编号",
-                    "Save billing information": "保存账单信息",
-
-                    // 顶部提醒
-                        "An error occurred while saving billing information.": "保存账单信息时发生错误。",
-
-                // 组织设置
-                    "An organization owner or billing manager must link their personal billing information with this organization account. You can switch to a business account to use your business’ billing information by": "组织所有者或计费经理必须将他们的个人计费信息与该组织帐户关联。您可以通过",
-                    "signing": "签署",
-                    "the": " ",
-                    "GitHub Customer Agreement": "GitHub 客户协议",
-                    "Allow my billing information to be linked with this organization": "允许我的账单信息与该组织关联",
-
-                        "Confirm your details shown below. To make changes,": "确认以下显示的详细信息。要做出更改，",
-                        "edit your billing information": "请编辑您的账单信息",
-
-                    "Update your billing information": "更新您的账单信息",
-                    "to be able to link it with this organization.": "以便与该组织关联。",
-
-            "Payment method": "支付方式",
-                "You have not added a payment method.": "您尚未添加支付方式。",
-
-                // 添加支付方式
-                    "Pay with": "支付方式：",
-                        "Loading payment information…": "正在加载支付信息…",
-
-                        "Credit or debit card": "信用卡或借记卡",
-                            "Card Number *": "卡号 *",
-                            "Expiration Date (YYYY) *": "终止日期 (YYYY) *",
-                                "- Select One -": "- 选择一个 -",
-                            "Save payment information": "保存付款信息",
-                            "You are currently paying with your PayPal account": "您目前正在使用您的 PayPal 账户支付",
-                            ", but you can switch to using a credit or debit card at any time.": "，但是您随时可以切换到使用信用卡或借记卡支付。",
-
-                        "PayPal account": "PayPal 账户",
-                            "Sign in to": "登录到",
-                            "Connecting to PayPal…": "正在连接到 PayPal…",
-                            "Charge to": "收费至",
-                            "Sign in to PayPal to use a different account.": "登录 PayPal 以使用其他账户。",
-                            // 顶部提醒
-                                "Your PayPal account has been successfully added.": "您的 PayPal 账户已成功添加。",
-
-                        "504 Gateway Time-out": "504 网关超时",
-                        "We may place a temporary hold on your payment method to verify its validity. This is not a charge, and it will be released automatically after verification.": "我们可能会暂时冻结您的支付方式以验证其有效性。这不是收费，验证后将会自动解除。",
+            ...I18N["zh-CN"]["payment-module"]["static"], // 调用通用账单及支付信息模块
 
             "Last payment": "最后一次支付",
                 "You have not made any payments.": "您尚未支付任何款项。",
@@ -21285,59 +21308,7 @@ I18N["zh-CN"]["account/upgrade"] = { // 账户
                 // [/Payment due/, "付款截止日期为"],
                 // 示例 Payment due Nov 19, 2025
 
-            "Billing information": "账单信息",
-                "Personal account": "个人账户",
-
-            // 编辑账单信息
-                "First name": "名字",
-                    "First name can't be blank.": "名字不能为空。",
-                    "First name can't be blank": "名字不能为空",
-                "Last name": "姓氏",
-                    "Last name can't be blank.": "姓氏不能为空。",
-                    "Last name can't be blank": "姓氏不能为空",
-                "Address": "地址",
-                    "(Street, P.O. box)": "（街道，邮政信箱）",
-                    "Address can't be blank.": "地址不能为空。",
-                    "Address can't be blank": "地址不能为空",
-                "Address line 2": "地址第 2 行",
-                    "(Apartment, suite, unit)": "（公寓、套房、单元）",
-                "City": "城市",
-                    "City can't be blank.": "城市不能为空。",
-                    "City can't be blank": "城市不能为空",
-                "Country/Region": "国家/地区",
-                "State/Province": "州/省",
-                    "Required for certain countries": "某些国家/地区需要",
-                "Postal/Zip code": "邮政编码",
-                    "(9-digit zip code for US)": "（美国为 9 位邮政编码）",
-                "VAT/GST ID": "增值税/消费税编号",
-
-                "Save and continue": "保存并继续",
-                // 顶部提醒
-                    "An error occurred while saving billing information.": "保存账单信息时发生错误。",
-
-            "Payment information": "付款信息",
-                "Pay with": "支付方式：",
-                    "Loading payment information…": "正在加载支付信息…",
-
-                    "Credit or debit card": "信用卡或借记卡",
-                        "Card Number *": "卡号",
-                        "Expiration Date (YYYY) *": "终止日期 (YYYY) *",
-                            "- Select One -": "- 选择一个 -",
-                        "Save payment information": "保存付款信息",
-                        "You are currently paying with your PayPal account": "您目前正在使用您的 PayPal 账户支付",
-                        ", but you can switch to using a credit or debit card at any time.": "，但是您随时可以切换到使用信用卡或借记卡支付。",
-
-                    "PayPal account": "PayPal 账户",
-                    "Paypal account": "PayPal 账户",
-                        "Sign in to": "登录到",
-                        "Connecting to PayPal…": "正在连接到 PayPal…",
-                        "Charge to": "收费至",
-                        "Sign in to PayPal to use a different account.": "登录 PayPal 以使用其他账户。",
-                        // 顶部提醒
-                            "Your PayPal account has been successfully added.": "您的 PayPal 账户已成功添加。",
-
-                    "504 Gateway Time-out": "504 网关超时",
-                    "We may place a temporary hold on your payment method to verify its validity. This is not a charge, and it will be released automatically after verification.": "我们可能会暂时冻结您的支付方式以验证其有效性。这不是收费，验证后将会自动解除。",
+            ...I18N["zh-CN"]["payment-module"]["static"], // 调用通用账单及支付信息模块
 
             "Upgrade to GitHub Pro": "更新到 GitHub Pro",
             "By clicking “Upgrade to GitHub Pro”, you agree to our": "通过点击 “更新到 GitHub Pro”，您同意我们的",
@@ -21703,42 +21674,7 @@ I18N["zh-CN"]["marketplace"] = { // GitHub 市场
                 "Due today": "截止到今天",
                 // [/Prorated for/, "按比例计算"],
 
-            "Billing information": "账单信息",
-            "Please confirm your billing details to continue. You only need to do this once.": "请确认您的账单详情以继续。您只需确认一次。",
-            "Personal account": "个人账户",
-
-            "First name": "名字",
-                "First name can't be blank.": "名字不能为空。",
-                "First name can't be blank": "名字不能为空",
-            "Last name": "姓氏",
-                "Last name can't be blank.": "姓氏不能为空。",
-                "Last name can't be blank": "姓氏不能为空",
-            "Address": "地址",
-            "(Street, P.O. box)": "（街道，邮政信箱）",
-                "Address can't be blank.": "地址不能为空。",
-                "Address can't be blank": "地址不能为空",
-            "Address line 2": "地址第 2 行",
-            "(Apartment, suite, unit)": "（公寓、套房、单元）",
-            "City": "城市",
-                "City can't be blank.": "城市不能为空。",
-                "City can't be blank": "城市不能为空",
-            "Country/Region": "国家/地区",
-                "Country code can't be blank.": "国家/地区不能为空。",
-                "Country code can't be blank": "国家/地区不能为空",
-                "Choose your country/region": "选择您所在的国家/地区",
-            "State/Province": "州/省",
-                "Required for certain countries": "某些国家/地区需要",
-            "Postal/Zip code": "邮政编码",
-                "(9-digit zip code for US)": "(美国为 9 位邮政编码）",
-            "VAT/GST ID": "增值税/消费税编号",
-
-            "Save billing information": "保存账单信息",
-
-            "You have not added any billing information.": "您尚未添加账单方式。",
-
-            // 顶部提醒
-                "An error occurred while saving payment information.": "保存支付信息时发生错误。",
-                "Successfully updated billing information.": "保存账单信息成功。",
+            ...I18N["zh-CN"]["payment-module"]["static"], // 调用通用账单及支付信息模块
 
         // 组织 应用示例: https://github.com/marketplace/gitlocalize/order/MDIyOk1hcmtldHBsYWNlTGlzdGluZ1BsYW4zOTg=?account=maboloshi
             "Review your order": "审查您的订单",
