@@ -3553,8 +3553,9 @@ I18N["zh-CN"]["settings/admin"] = { // 设置 - 账户
             "downgrade your account": "降级您的账户",
             "to a": "为",
             "FREE": "免费",
-            "account? We won’t charge your credit card anymore.": "账户吗？我们不会再向您的信用卡收费。",
-            "account? We won’t charge your payment information anymore.": "账户吗？我们不会再收取您的支付信息。",
+            "account? We won’t charge your credit card anymore.": "账户吗？我们不会再向您信用卡账户扣款。",
+            "account? We won’t charge your payment information anymore.": "账户吗？我们不会再向您支付账户扣款。",
+            "account? We won’t charge your PayPal account anymore.": "账户吗？我们将不再向您 PayPal 账户扣款。",
                 "Are you sure you want to do this?": "您确定要这么做吗？",
                 "This is extremely important.": "这是极其重要的。",
                 "We will": "我们将",
@@ -11486,18 +11487,25 @@ I18N["zh-CN"]["repository/commit"] = { // 仓库 - 提交页面
                 "s": " ",
                 "changed": "更改",
 
-            "Collapse file tree": "收起文件树",
-            "Expand file tree": "展开文件树",
-            "Copy file name to clipboard": "复制文件名到剪切板",
+            // 展开/收起文件树按钮
+                "Collapse file tree": "收起文件树",
+                "Expand file tree": "展开文件树",
+
+            // 展开/收起文件按钮
+                "Collapse file": "收起文件",
+                "Expand file": "展开文件",
+            // 复制文件按钮
+                "Copy file name to clipboard": "复制文件名到剪切板",
 
             "There are no files selected for viewing": "没有更改",
 
             // 右侧
             "Search within code": "在代码中搜索",
             "Top": "顶部",
-            "Layout": "布局",
-                "Hide whitespace": "隐藏空白",
-                "Compact line height": "自定义行高",
+            "Open diff view settings": "打开差异视图设置",
+                "Layout": "布局",
+                    "Hide whitespace": "隐藏空白",
+                    "Compact line height": "自定义行高",
 
                 "View comments": "查看评论",
                     "Loading comments": "加载评论中",
@@ -19017,6 +19025,9 @@ I18N["zh-CN"]["session-authentication"] = { // 登录页 包含(/login, /session
 
             "Or": "或",
             "Continue with Google": "使用 Google 继续",
+                "Continuing with Google...": "使用 Google 继续...",
+            "Continue with Apple": "使用 Apple 继续",
+                "Continuing with Apple...": "使用 Apple 继续...",
             // "This browser or device does not fully support passkeys.": "此浏览器或设备不完全支持通行密钥。",
             "This browser or device is reporting partial passkey support.": "此浏览器或设备报告部分支持通行密钥。",
             "Sign-in with a passkey": "使用通行密钥登录",
@@ -21263,11 +21274,16 @@ I18N["zh-CN"]["account/upgrade"] = { // 账户
             "Payment frequency": "支付频率",
                 "Pay yearly": "按年支付",
                 "Pay monthly": "按月支付",
+
+                "Note: Switching from monthly to yearly billing will also impact your other active subscriptions. Any necessary adjustments will be reflected on your invoice.": "注意：从月度计费转换为年度计费也会影响您的其他活跃订阅。任何必要的调整将反映在您的账单上。",
+
                 "/ year": "/年",
                 "/ month": "/月",
 
                 "Total amount": "总计",
                 "Due today": "今天到期",
+                // [/Payment due/, "付款截止日期为"],
+                // 示例 Payment due Nov 19, 2025
 
             "Billing information": "账单信息",
                 "Personal account": "个人账户",
@@ -21312,6 +21328,7 @@ I18N["zh-CN"]["account/upgrade"] = { // 账户
                         ", but you can switch to using a credit or debit card at any time.": "，但是您随时可以切换到使用信用卡或借记卡支付。",
 
                     "PayPal account": "PayPal 账户",
+                    "Paypal account": "PayPal 账户",
                         "Sign in to": "登录到",
                         "Connecting to PayPal…": "正在连接到 PayPal…",
                         "Charge to": "收费至",
@@ -21330,6 +21347,7 @@ I18N["zh-CN"]["account/upgrade"] = { // 账户
 
     },
     "regexp": [
+        [/Payment due/, "付款截止日期为"],
     ],
 };
 
