@@ -2244,6 +2244,7 @@ I18N["zh-CN"]["page-dashboard"] = { // 已登录的首页 - 仪表板（含组�
         [/merged (\d+) commits?/, "合并 $1 个提交"],
         // 新版首页
         [/Good morning, ([^ ]+)!/, "早上好，$1！"],
+        [/Good afternoon, ([^ ]+)!/, "下午好，$1！"],
         [/Good evening, ([^ ]+)!/, "晚上好，$1！"],
         [/Switch dashboard: ([^ ]+)/, "切换仪表板：$1"],
         [/(.+)\#(\d+) · Opened by ([^ ]+) ·/, "$1#$2 · 打开者 $3"],
@@ -10031,6 +10032,8 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
                     "Describe a change you'd like to make to this pull request, such as adding tests or documentation...": "描述您想对此拉取请求进行的更改，例如添加测试或文档…",
                     "Start task": "开始任务",
                     "You can ask Copilot to make changes to this pull request by mentioning @copilot in a comment.": "您可以在评论中提及 @copilot，让 Copilot 对此拉取请求进行更改。",
+                    "Copilot generated this review using guidance from": "Copilot 生成此次审查，使用",
+                        "repository custom instructions": "仓库自定义指令",
 
             // 自动修复漏洞 提示
                 "This automated pull request fixes a": "这个自动拉取请求将修复了一个",
@@ -10779,6 +10782,14 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
             // [/(\d+) conflicting files?/, "$1 个冲突文件"],
             // [/(\d+) conflicts?/, "$1 处冲突"],
 
+            "Keyboard hints": "快捷键",
+                "How to interact with code conflict editor via keyboard": "如何通过键盘与代码冲突编辑器交互",
+                    "Toggle between edit mode and tab focus mode": "切换编辑模式和标签焦点模式",
+                    "Navigation between elements with tab focus mode on": "在 Tab 焦点模式下在元素之间导航",
+                    "Move to next conflict control after accepting suggestion": "接受建议后移动到下一个冲突控件",
+                    "Exit editor": "退出编辑器",
+                        "then": "以及",
+
             "Mark as resolved": "标记为已解决",
                 "Remove all conflict markers to resolve this file": "删除所有冲突标记以解决此文件冲突",
             "Indent mode": "缩进模式",
@@ -10805,6 +10816,10 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
 
                 "conflict": "冲突",
                 "conflicts": "冲突",
+
+            "Accept current change": "接受当前更改",
+            "Accept incoming change": "接受传入更改",
+            "Accept both changes": "接受全部更改",
 
         // 拉取请求 - 由 Copilot 编写 https://github.com/用户名/仓库名/pull/编号/agent-sessions
             "Back to pull request #": "返回到拉取请求 #",
