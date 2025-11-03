@@ -25156,20 +25156,24 @@ I18N["zh-CN"]["github-copilot/free_signup"] = { // GitHub Copilot 个人免费�
 
 I18N["zh-CN"]["github-copilot/pro"] = { // GitHub Copilot 专业版适用页面
     "static": {
-        "Try Copilot Pro for 30 days free": "免费试用 Copilot Pro 30 天",
+        // https://github.com/github-copilot/pro
+            "Try Copilot Pro for 30 days free": "免费试用 Copilot Pro 30 天",
 
-        "Everything in Copilot Free and:": "Copilot 免费版以及：",
-            "Unlimited agent mode and chat with GPT-4.1": "智能体无限用 • GPT-4.1 畅聊",
-            "Unlimited code completions": "无限代码补全",
-            "Access to Anthropic Claude 3.7/4 Sonnet, Gemini 2.5 Pro, and more": "访问 Claude 3.7/4 Sonnet, Gemini 2.5 Pro 等模型",
-            "300 premium requests to use the latest models and code review": "300 次高级请求，用于使用最新模型和代码审查",
+            "Everything in Copilot Free and:": "Copilot 免费版的所有功能以及：",
+                "Unlimited agent mode and chat with GPT-4.1": "无限智能体 GPT-4.1 畅聊",
+                "Unlimited code completions": "无限代码补全",
+                "Access to Anthropic Claude Sonnet 4, GPT-5, Gemini 2.5 Pro, and more": "可访问 Anthropic Claude Sonnet 4、GPT-5、Gemini 2.5 Pro 等模型",
+                "300 premium requests to use the latest models and code review": "300 次高级请求，用于使用最新模型和代码审查",
 
-        "Try now": "立即试用",
-            "Part of an organization? Upgrade to": "属于某个组织吗？升级到",
-                "Copilot Business": "Copilot 商业版",
-                "to enable across teams.": "，以便在整个团队中启用。",
+            "Try now": "立即试用",
+                "Part of an organization? Upgrade to": "属于某个组织吗？升级到",
+                    "Copilot Business": "Copilot 商业版",
+                    "to enable across teams.": "，以便在整个团队中启用。",
 
-        "Upgrade now": "现在升级",
+            "Upgrade now": "现在升级",
+
+    // https://github.com/github-copilot/pro/signup?
+
     },
     "regexp": [],
 };
