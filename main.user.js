@@ -167,8 +167,11 @@
             })
             // 过滤需要忽略的突变节点
             .filter(node =>
-                // 剔除节点在忽略选择器的父元素内
-                !node.parentElement?.closest(pageConfig.ignoreMutationSelectors)
+                // 剔除节点元素所在 DOM 树中匹配忽略选择器
+                !(node.closest
+                  ? node.closest(pageConfig.ignoreMutationSelectors)
+                  : node.parentElement?.closest(pageConfig.ignoreMutationSelectors)
+                )
             )
             // 处理每个变化
             .forEach(node =>
