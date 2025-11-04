@@ -19510,7 +19510,12 @@ I18N["zh-CN"]["signup"] = { // 注册页
         "Already have an account?": "已经有账户吗？",
         "Sign in →": "登录 →",
 
-        "Sign up to GitHub": "注册 GitHub",
+        "Sign up for GitHub": "注册 GitHub",
+            "Continue with Google": "使用 Google 继续",
+                "Continuing with Google...": "使用 Google 继续...",
+            "Continue with Apple": "使用 Apple 继续",
+                "Continuing with Apple...": "使用 Apple 继续...",
+
             "Email": "电子邮件",
                 "Email is invalid or already taken": "电子邮箱地址无效或已被占用",
                 "Email cannot be blank": "电子邮件不能为空",
@@ -19532,7 +19537,10 @@ I18N["zh-CN"]["signup"] = { // 注册页
                 "Select Country/Region": "选择国家/地区",
                 "For compliance reasons, we're required to collect country information to send you occasional updates and announcements.": "根据合规要求，我们需要收集您所在的国家/地区信息，以便向您发送最新的更新和公告。",
 
-                "Continue": "继续",
+            "Email preferences": "电子邮件偏好设置",
+                "Receive occasional product updates and announcements": "偶尔接收产品更新和公告",
+
+            "Create account": "创建账户",
                 "By creating an account, you agree to the": "创建账户即表示您同意",
                 "Terms of Service": "服务条款",
                 ". For more information about GitHub's privacy practices, see the": "。更多关于 GitHub 隐私条款的信息，请参见",
