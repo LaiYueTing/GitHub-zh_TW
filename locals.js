@@ -671,9 +671,11 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
             "Marketplace": "市场",
             "MCP registry": "MCP 互联",
 
-            "Search for repositories": "搜索仓库",
-            "Search for teams": "搜索仓库",
-            "Close search": "关闭搜索",
+            "Top repositories": "热门仓库",
+                "Search for repositories": "搜索仓库",
+                "Close search": "关闭搜索",
+                // 团队
+                "Search for teams": "搜索团队",
 
         // 顶部提示横幅
             "Don't get locked out of your account.": "不要被锁定在您的账户之外。",
@@ -2191,6 +2193,8 @@ I18N["zh-CN"]["page-dashboard"] = { // 已登录的首页 - 仪表板（含组�
             "Your personal account": "我的个人账户",
 
             "Completed": "完成于",
+
+            "Unable to load agent tasks, try again later.": "无法加载智能体任务，请稍后重试。",
 
             "Ready for review": "准备审查",
             "Assigned to Copilot": "分配给 Copilot",
@@ -3960,6 +3964,19 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
                     "Download your Copilot premium request usage report": "下载您的 Copilot 高级请求使用报告：",
                         "here": "下载",
 
+                // 当前包含用量详情
+                    "Included usage and credits": "包含用量和额度",
+                        "Showing currently applied usage and credits for your account.": "显示您账户当前的使用情况和额度。", // 后续走正则
+
+                        "Included usage*": "包含用量*",
+                            "Included premium requests": "包含高级请求",
+                            "Free usage**": "免费使用**",
+                                "100% off per month": "100%减免/每月",
+
+                        "* Included usage is an approximate amount based on current pricing.": "* 所包含的用量是基于当前定价的预估值。",
+                        "** GitHub Packages usage is free for public packages. For details on free Actions usage, see": "** GitHub 软件包对公共包的使用是免费的。有关 GitHub Actions 免费使用的详细信息，请参阅",
+                        "Free use of GitHub Actions": "Github Actions 的免费使用",
+
             "Next payment due": "下一次应付款",
 
             "Subscriptions": "订阅",
@@ -4041,6 +4058,9 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
                             "GitHub Models rate limits": "GitHub 模型速率限制",
                                 "The playground and free API usage are rate limited by requests per minute, requests per day, tokens per request, and concurrent requests.": "操场和免费 API 的使用受到以下限制：每分钟请求数、每天请求数、每次请求的令牌数以及并发请求数。",
                                 "Learn more about GitHub Models rate limits": "了解更多", // 有上下文，故省略
+
+                    // Spark
+                        "Spark premium requests": "Spark 高级请求",
 
             // 代码空间超限
             "You've used 90% of included services for GitHub Codespaces storage.": "您已使用 90% 代码空间存储。",
@@ -4568,8 +4588,15 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
         //(\d+) min used \/ ([\d,+]) min included
         [/(\d+) GB used \/ (\d+) GB included/, "$1/$2 GB"],
         // 当前包含用量 - 详情 对话框
+            [/Current usage for (.+) - (.+). Monthly quota resets in (\d+) day\(s\)./, (match, p1, p2, p3) => {
+                const dateRegExp = I18N["zh-CN"]["public"]["time-regexp"];
+                const translatedP1 = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
+                const translatedP2 = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p2);
+                return `统计时间段：${translatedP1}-${translatedP2}。本月配额将在${p3}天内重置。`;
+            }],
             [/([\d,+]) included Actions minutes \(~(\$\d+\.\d+) off\*\)/, "$1 操作分钟数（~$2 减免*）"],
-            [/\(~(\$\d+\.\d+) off\*\)/, "（~$1 减免*）"],
+            [/~(\$\d+\.\d+) off\*/, "~$1 减免*"],
+            [/~(\$\d+(\.\d+)?) off/, "~$1 减免"],
 
             [/([\d,+]) included Actions minutes/, "$1 操作分钟数"],
             [/(\d+) GB included Actions storage/, "$1 GB 操作存储"],
@@ -4581,6 +4608,7 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
             [/(\d+) GB included Codespaces storage/, "$1 GB 代码空间存储"],
             [/(\d+) included Codespaces core hours/, "$1 代码空间核心小时数"],
             [/(\d+) requests/, "$1 请求"],
+            [/Cost calculated based on (\d+) Spark premium requests? that exceed the premium request usage included with your Copilot licenses./, "根据您的 Copilot 许可证中包含的高级请求使用量，计算出 $1 个超出部分的 Spark 高级请求费用。"],
 
         // 计费用量 - 右上角时间选项
             [/^Timeframe: (Today|Current month|Last month|This year \((\d+)\)|Last year \((\d+)\))$/, (match, p1, p2, p3) => {
@@ -5123,6 +5151,8 @@ I18N["zh-CN"]["settings/sessions"] = {
             "See more": "查看更多",
             "Your current session": "您当前的会话",
             "Last accessed on": "最后访问日期：",
+            "active": "激活",
+            "stale": "闲置",
 
             "GitHub Mobile sessions": "GitHub Mobile 会话",
             "This is a list of devices that have logged into your account via the GitHub Mobile app. Revoke any session that you do not recognize or you can": "这是已通过 GitHub Mobile 应用登录到您账户的设备列表。撤销任何您不认识的会话，或者您可以",
@@ -10178,6 +10208,9 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
             "Add more commits by pushing to the": "添加更多提交，通过推送到",
             "branch on": "分支在",
             "requested review from": "请求审查",
+                "a team": "团队",
+                "as a": "作为",
+                "code owner": "代码所有者",
             "This pull request was": "此拉取请求已",
             "Compare": "比较",
             "deleted the": "删除",
@@ -10257,6 +10290,9 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
                 "Hide all checks": "隐藏所有检查",
                 "Details": "细节",
                 "Required": "必须",
+                "Checks settings": "检查设置",
+                    "Group by status": "按状态分组",
+                    "No grouping": "不分组",
             "Unresolved conversations": "未解决的讨论",
                 // [/(\d+) conversations? must be resolved before merging./, "合并之前必须解决 $1 个对话。"],
             "No conflicts with base branch": "与基础分支没有冲突",
@@ -10321,8 +10357,8 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
             // [/The ([^ ]+) branch requires linear history/, "$1 分支为要求线性历史记录"],
             "Learn more about required linear history.": "了解更多关于要求线性历史记录的信息。",
 
-            "Checking for ability to merge automatically…": "检测自动合并的能力…",
-            "Hang in there while we check the branch’s status.": "请等待，我们正在检查该分支的状态",
+            "Checking for the ability to merge automatically...": "检测自动合并的能力...",
+            "Hang in there while we check the branch's status.": "请等待，我们正在检查该分支的状态",
 
             "Required statuses must pass before merging": "合并前必须通过所需的状态",
             "All required": "所有必需",
@@ -11423,6 +11459,7 @@ I18N["zh-CN"]["repository/commit"] = { // 仓库 - 提交页面
                 "Reply…": "回复…",
 
             "commented on": "评论于",
+            "Comment on line": "评论行",
 
             "Paste, drop, or click to add files": "粘贴、拖放或点击添加文件",
 
@@ -19901,6 +19938,9 @@ I18N["zh-CN"]["issues"] = { // 议题页面
     "static": { // 静态翻译
         "Pull Requests": "拉取请求", // pulls
 
+        "Assigned to me": "分配给您",
+        "Created by me": "由您创建",
+
         "Created": "已创建",
         "Assigned": "已分配",
         "Mentioned": "提到的",
@@ -19941,6 +19981,10 @@ I18N["zh-CN"]["issues"] = { // 议题页面
         "Changes requested": "请求更改",
         "outdated": "陈旧的",
         "Draft": "草案",
+        "Open": "打开",
+        "Closed": "已关闭",
+        "Merged": "已合并",
+        "opened": "打开于",
 
         "This issue was": "此议题已",
             "closed": "关闭",
@@ -25264,6 +25308,8 @@ I18N["zh-CN"]["codespaces"] = { // 代码空间页面
             "this announcement": "此公告",
 
         // https://github.com/codespaces
+            "Your codespaces": "您的代码空间",
+
             "All": "所有",
             "Templates": "模版",
             "By repository": "按仓库",
