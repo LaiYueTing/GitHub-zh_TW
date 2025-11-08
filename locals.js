@@ -3243,15 +3243,14 @@ I18N["zh-CN"]["payment-module"] = { // 通用账单及支付信息模块
                 "Successfully updated billing information.": "保存账单信息成功。",
                 "An error occurred while saving billing information.": "保存账单信息发生错误。",
 
-            // 其他
-                // 来自 https://github.com/marketplace/<app-name>/order/<order-id>?account=<account-name>
-                    "Please confirm your billing details to continue. You only need to do this once.": "请确认您的账单详情以继续。您只需确认一次。",
-
             // 组织设置
-                "An organization owner or billing manager must link their personal billing information with this organization account. You can switch to a business account to use your business’ billing information by": "组织所有者或计费经理必须将他们的个人计费信息与该组织帐户关联。您可以通过",
+                "This organization is linked with your billing information:": "该组织与您的账单信息相关联：",
+
+                "An organization owner or billing manager must link their personal billing information with this organization account. You can switch to a business account to use your business’ billing information by": "组织所有者或账单管理者必须将其个人账单信息与该组织账户关联。您可以切换到企业账户，以使用企业的账单信息通过",
                 "signing": "签署",
                 "the": " ",
                 "GitHub Customer Agreement": "GitHub 客户协议",
+
                 "Allow my billing information to be linked with this organization": "允许我的账单信息与该组织关联",
 
                     "Confirm your details shown below. To make changes,": "确认以下显示的详细信息。要做出更改，",
@@ -3259,7 +3258,22 @@ I18N["zh-CN"]["payment-module"] = { // 通用账单及支付信息模块
 
                 "Update your billing information": "更新您的账单信息",
                 "to be able to link it with this organization.": "以便与该组织关联。",
+                    // 顶部提醒
+                        "You have successfully linked your billing information with this organization.": "您已成功将您的账单信息与该组织关联。",
 
+                // 移除对话框
+                    "Remove": "移除",
+                    "Remove your billing information?": "确定移除您的账单信息？",
+                        "You are about to remove the billing information for this organization. Are you sure you want to do this?": "您即将移除此组织的账单信息。确定要继续此操作吗？",
+                    "Remove billing information": "移除账单信息",
+                    // 顶部提醒
+                        "Successfully removed billing information.": "已成功移除账单信息。",
+
+            // 其他
+                // 来自 https://github.com/marketplace/<app-name>/order/<order-id>?account=<account-name>
+                    "Please confirm your billing details to continue. You only need to do this once.": "请确认您的账单详情以继续。您只需确认一次。",
+
+        "payment method": "支付方式",
         "Payment method": "支付方式",
         "Payment Method": "支付方式",
             "You have not added a payment method.": "您尚未添加支付方式。",
@@ -3280,6 +3294,8 @@ I18N["zh-CN"]["payment-module"] = { // 通用账单及支付信息模块
                 "Paypal account": "PayPal 账户",
                     "Sign in to": "登录到",
                     "Connecting to PayPal…": "正在连接到 PayPal…",
+                    "Sorry, we’re having trouble with PayPal right now, please try again a bit later.": "抱歉，我们目前与 PayPal 的连接遇到问题，请稍后再试。",
+                    "PayPal update": "",
                     "Charge to": "收费至",
                     "Sign in to PayPal to use a different account.": "登录 PayPal 以使用其他账户。",
 
