@@ -436,7 +436,7 @@ I18N["zh-CN"]["title"] = { // 标题翻译
         [/Commit Activity/, "提交活动"],
         [/Code frequency/, "代码频率"],
         [/Created/, "已创建"],
-        [/Dependencies/, "依赖关系"],
+        [/Dependencies/, "依赖项"],
         [/Network Dependents/, "网络依赖者"],
         [/Network Graph/, "网络图"],
         [/Revisions/,"修订"],
@@ -3919,7 +3919,7 @@ I18N["zh-CN"]["settings/notifications"] = { // 设置 - 通知
             "Dependabot alerts: New vulnerabilities": "Dependabot 警报：新漏洞",
                 "When you're given access to": "当您获得",
                 "Dependabot alerts": "Dependabot 警报",
-                "automatically receive notifications when a new vulnerability is found in one of your dependencies.": " 访问权限时，当您的某个依赖关系中发现新的漏洞时，就会自动收到通知。",
+                "automatically receive notifications when a new vulnerability is found in one of your dependencies.": " 访问权限时，当您的某个依赖项中发现新的漏洞时，就会自动收到通知。",
 
             "Dependabot alerts: Email digest": "Dependabot 警报：电子邮件摘要",
                 "Email a regular summary of Dependabot alerts for up to 10 of your repositories.": "通过电子邮件发送最多 10 个仓库库的 Dependabot 警报定期摘要。",
@@ -6036,30 +6036,30 @@ I18N["zh-CN"]["settings/security_analysis"] = { // 设置 - 代码安全性与�
                     "Enable private vulnerability reporting": "启用私下漏洞报告",
                         // [/You're about to enable private vulnerability reporting on all public repositories in ([^ ]+)./, "您即将在 $1 的所有公共仓库中启用私下漏洞报告。"],
 
-            "Dependency graph": "依赖关系图",
+            "Dependency graph": "依赖项关系图",
                 "Understand your dependencies.": "了解您的依赖项。",
                 "Automatically enable for new private repositories": "为新私有仓库自动启用",
 
                 // 对话框
-                    "Enable dependency graph": "启用依赖关系图",
-                        "You're about to enable dependency graph on all your private repositories.": "您即将启用您所有私有仓库上的依赖关系图。",
+                    "Enable dependency graph": "启用依赖项关系图",
+                        "You're about to enable dependency graph on all your private repositories.": "您即将启用您所有私有仓库上的依赖项关系图。",
                         "Enable by default for new private repositories": "默认为新私有仓库启用",
 
-                    "Disable dependency graph": "禁用依赖关系图",
-                        "You're about to disable dependency graph on all your private repositories. This will also disable Dependabot alerts and Dependabot security updates on those repositories.": "您即将禁用您所有私有仓库上的依赖关系图。这也将禁用这些仓库的 Dependabot 警报和 Dependabot 安全更新。",
+                    "Disable dependency graph": "禁用依赖项关系图",
+                        "You're about to disable dependency graph on all your private repositories. This will also disable Dependabot alerts and Dependabot security updates on those repositories.": "您即将禁用您所有私有仓库上的依赖项关系图。这也将禁用这些仓库的 Dependabot 警报和 Dependabot 安全更新。",
 
             // Dependabot
-                "Keep your dependencies secure and up-to-date.": "保持您的依赖关系的安全和最新",
+                "Keep your dependencies secure and up-to-date.": "保持您的依赖项的安全和最新",
                 "Learn more about Dependabot": "了解更多关于 Dependabot 的信息",
 
                 "Dependabot alerts": "Dependabot 警报",
-                    "Receive alerts for vulnerabilities that affect your dependencies and manually generate Dependabot pull requests to resolve these vulnerabilities.": "接收影响您的依赖关系的漏洞警报，并手动生成 Dependabot 拉取请求以解决这些漏洞。",
+                    "Receive alerts for vulnerabilities that affect your dependencies and manually generate Dependabot pull requests to resolve these vulnerabilities.": "接收影响您的依赖项的漏洞警报，并手动生成 Dependabot 拉取请求以解决这些漏洞。",
                         "Configure alert notifications": "配置警报通知",
                     "Automatically enable for new repositories": "为新仓库自动启用",
 
                     // 对话框
                         "Enable Dependabot alerts": "启用 Dependabot 警报",
-                            "You're about to enable Dependabot alerts on all your repositories. Alerts require the dependency graph, so we'll also turn that on for all repositories. No notifications will be sent while Dependabot alerts are being enabled.": "您即将启用您所有仓库上的 Dependabot 警报。Dependabot 警报需要依赖关系图，因此我们还将为所有仓库开启它。启用 Dependabot 警报时不会发送任何通知。",
+                            "You're about to enable Dependabot alerts on all your repositories. Alerts require the dependency graph, so we'll also turn that on for all repositories. No notifications will be sent while Dependabot alerts are being enabled.": "您即将启用您所有仓库上的 Dependabot 警报。Dependabot 警报需要依赖项关系图，因此我们还将为所有仓库开启它。启用 Dependabot 警报时不会发送任何通知。",
                                 "Enable by default for new repositories": "默认为新仓库启用",
 
                         "Disable Dependabot alerts": "禁用 Dependabot 警报",
@@ -6071,7 +6071,7 @@ I18N["zh-CN"]["settings/security_analysis"] = { // 设置 - 代码安全性与�
 
                     // 对话框
                         "Enable Dependabot security updates": "启用 Dependabot 安全更新",
-                            "You're about to enable Dependabot security updates on all your repositories. Dependabot security updates require the dependency graph and Dependabot alerts, so we'll also turn that on for all repositories.": "您即将启用您所有仓库上的 Dependabot 安全更新。Dependabot 安全更新需要依赖关系图和 Dependabot 警报，因此我们也将为所有仓库启用他们。",
+                            "You're about to enable Dependabot security updates on all your repositories. Dependabot security updates require the dependency graph and Dependabot alerts, so we'll also turn that on for all repositories.": "您即将启用您所有仓库上的 Dependabot 安全更新。Dependabot 安全更新需要依赖项关系图和 Dependabot 警报，因此我们也将为所有仓库启用他们。",
 
                         "Disable Dependabot security updates": "禁用 Dependabot 安全更新",
                             "You're about to disable Dependabot security updates on all your repositories.": "您即将禁用您所有仓库上的 Dependabot 安全更新。",
@@ -6082,7 +6082,7 @@ I18N["zh-CN"]["settings/security_analysis"] = { // 设置 - 代码安全性与�
 
                     // 对话框
                         "Enable grouped security updates": "启用分组安全更新",
-                            "You're about to enable grouped security updates on all your repositories. Grouped security updates require the dependency graph, Dependabot alerts and Dependabot security updates, so we'll also turn that on for all repositories.": "您即将启用您所有仓库上的分组安全更新。分组安全更新需要依赖关系图、Dependabot 警报和Dependabot 安全更新，因此我们也将为所有仓库启用他们。",
+                            "You're about to enable grouped security updates on all your repositories. Grouped security updates require the dependency graph, Dependabot alerts and Dependabot security updates, so we'll also turn that on for all repositories.": "您即将启用您所有仓库上的分组安全更新。分组安全更新需要依赖项关系图、Dependabot 警报和 Dependabot 安全更新，因此我们也将为所有仓库启用他们。",
 
                         "Disable grouped security updates": "禁用分组安全更新",
                             "You're about to disable grouped security updates on all your repositories.": "您即将禁用您所有仓库上的分组安全更新。",
@@ -9110,7 +9110,7 @@ I18N["zh-CN"]["repository/pull_issue_public"] = { // 仓库 - 议题和拉取请
                     "Edit labels": "编辑标签",
 
                     // 拉取请求
-                    "dependencies": "依赖关系",
+                    "dependencies": "依赖项",
                         "Pull requests that update a dependency file": "更新依赖文件的拉取请求",
 
                 // 项目
@@ -11250,7 +11250,7 @@ I18N["zh-CN"]["repository/compare"] = { // 仓库 - 比较并创建拉取请求
                 "Apply labels to this pull request": "应用标签", // 拉取请求
                 "Edit labels": "编辑标签",
 
-                "dependencies": "依赖关系",
+                "dependencies": "依赖项",
                     "Pull requests that update a dependency file": "更新依赖文件的拉取请求",
                 "Recent": "最近",
                 "User": "用户",
@@ -12761,7 +12761,7 @@ I18N["zh-CN"]["repository/actions"] = { // 仓库 - 操作页面
             "No caches": "尚无缓存",
             "Nothing has been cached by workflows running in this repository.": "在此仓库中运行的工作流程尚未缓存任何内容。",
             "Learn more about caching": "了解更多关于缓存的信息",
-            "dependencies and build outputs to improve workflow execution time.": "依赖关系和构建输出以缩短工作流执行时间。",
+            "dependencies and build outputs to improve workflow execution time.": "依赖项和构建输出以缩短工作流执行时间。",
             "Last used": "最近使用",
 
             // [/(\d+) cache results?/, "$1 个缓存结果"],
@@ -14582,7 +14582,7 @@ I18N["zh-CN"]["repository/security"] = { // 仓库 - 安全页面
                 "Manage Dependabot rules": "管理 Dependabot 规则",
                 "Manage account notification settings": "管理账户通知设置",
                 "Refresh Dependabot alerts": "刷新 Dependabot 警报",
-                    "Reprocess your project's current dependency files.": "重新处理项目当前的依赖关系文件。",
+                    "Reprocess your project's current dependency files.": "重新处理项目当前的依赖项文件。",
                     // 顶部提醒
                         "Refresh queued, it may take several minutes to see changes reflected in your alerts.": "刷新队列后，可能需要几分钟才能看到警报中反映的更改。",
                         "Refreshed recently, available again in about 1 hour.": "最近刷新，约 1 小时后可再次使用。",
@@ -14660,8 +14660,8 @@ I18N["zh-CN"]["repository/security"] = { // 仓库 - 安全页面
 
             // [/Dependabot cannot update ([^ ]+) to a non-vulnerable version/, "Dependabot 无法将 $1 更新为无漏洞的版本"],
             "The latest possible version that can be installed is": "最新可以安装版本是",
-            "because of the following conflicting dependency:": "，但是存在以下冲突的依赖关系：",
-            "because of the following conflicting dependencies:": "，但是存在以下冲突的依赖关系：",
+            "because of the following conflicting dependency:": "，但是存在以下冲突的依赖项：",
+            "because of the following conflicting dependencies:": "，但是存在以下冲突的依赖项：",
             "The earliest fixed version is": "最早修复版本为",
             "Try again": "再试一次",
             "View logs": "查看日志",
@@ -15087,7 +15087,7 @@ I18N["zh-CN"]["repository-insights-menu"] = { // 仓库 -> 洞察 - 公共部分
             "Traffic": "流量",
             "Commits": "提交",
             "Code frequency": "代码频率",
-            "Dependency graph": "依赖关系图",
+            "Dependency graph": "依赖项关系图",
             // "Punch card": "时刻",
             "Network": "网络",
             // "Members": "成员",
@@ -15698,36 +15698,36 @@ I18N["zh-CN"]["repository/graphs/code-frequency"] = { // 仓库 -> 洞察 - 代�
     ],
 };
 
-I18N["zh-CN"]["repository/network/dependencies"] = { // 仓库 -> 洞察 - 依赖关系图 - 依赖关系
+I18N["zh-CN"]["repository/network/dependencies"] = { // 仓库 -> 洞察 - 依赖项关系图 - 依赖项
     "static": { // 静态翻译
         ...I18N["zh-CN"]["repository-public"]["static"],
         ...I18N["zh-CN"]["repository-insights-menu"]["static"],
 
-        "Dependencies": "依赖关系",
+        "Dependencies": "依赖项",
         "Dependents": "依赖者",
-        // 依赖关系图 - 依赖关系 /network/dependencies
-            "Tell us how to make the Dependency Graph work better for you with a few quick questions.": "请通过几个简单的问题告诉我们，如何使 “依赖关系图” 更好地为您工作。",
+        // 依赖项关系图 - 依赖项 /network/dependencies
+            "Tell us how to make the Dependency Graph work better for you with a few quick questions.": "请通过几个简单的问题告诉我们，如何使 “依赖项关系图” 更好地为您工作。",
 
-            "Dependency graph is disabled": "依赖关系图未启用",
-            "The owner of this repository has not yet enabled the dependency graph. Once enabled, you can": "此仓库的所有者尚未启用依赖关系图。一旦启用，您可以", //个人仓库
-            "Dependency graph has not been enabled by an organization owner or a user with admin permissions for this repository. Once enabled, you can": "依赖关系图还没有被组织所有者或具有该仓库管理权限的用户启用。一旦启用，您可以", // 组织仓库
-            "track this repository’s dependencies": "追踪此仓库的依赖关系",
+            "Dependency graph is disabled": "依赖项关系图未启用",
+            "The owner of this repository has not yet enabled the dependency graph. Once enabled, you can": "此仓库的所有者尚未启用依赖项关系图。一旦启用，您可以", //个人仓库
+            "Dependency graph has not been enabled by an organization owner or a user with admin permissions for this repository. Once enabled, you can": "依赖项关系图还没有被组织所有者或具有该仓库管理权限的用户启用。一旦启用，您可以", // 组织仓库
+            "track this repository’s dependencies": "追踪此仓库的依赖项",
             "Learn more about how we use your data.":"深入了解我们对您数据的使用方式。",
 
-            "Enable the dependency graph": "启用依赖关系图",
+            "Enable the dependency graph": "启用依赖项关系图",
             "Track this repository’s": "追踪该仓库的",
-            "dependencies and sub-dependencies": "依赖关系和子依赖关系",
+            "dependencies and sub-dependencies": "依赖项和子依赖项",
             "The": " ",
-            "is not enabled for this repository. Click on \"Enable the dependency graph\" below to enable it.": "暂未启用。单击下面的 “启用依赖关系图” 以启用它。",
+            "is not enabled for this repository. Click on \"Enable the dependency graph\" below to enable it.": "暂未启用。单击下面的 “启用依赖项关系图” 以启用它。",
             "If you’d like to enable the": "如果您想启用",
-            "dependency graph": "依赖关系图",
+            "dependency graph": "依赖项关系图",
             "vulnerability alerting": "漏洞警报",
             "click on \"Allow access\" below to enable it.": "点击下面的 “允许访问” 来启用它。",
             "Learn more about how we use your data": "了解更多关于我们如何使用您的数据的信息",
             "Allow access": "允许访问",
 
             "No dependencies found.": "未找到依赖项",
-            "To view your dependency graph, your repository must define dependencies in": "要查看依赖关系图，您的仓库必须定义依赖关系存在",
+            "To view your dependency graph, your repository must define dependencies in": "要查看依赖项关系图，您的仓库必须定义依赖项存在",
             "one of the supported manifest file types": "一个支持的清单文件",
             ", like": "，例如",
             ", and": "，和",
@@ -15741,13 +15741,13 @@ I18N["zh-CN"]["repository/network/dependencies"] = { // 仓库 -> 洞察 - 依�
                 "so you can receive Dependabot alerts for known vulnerabilities.": "添加您的依赖项，这样您就可以收到有关已知漏洞的 Dependabot 警报。",
             "View in Marketplace": "去市场查看",
 
-            // "Dependencies": "依赖关系",
+            // "Dependencies": "依赖项",
             "Search all dependencies": "搜索所有依赖项",
                 "Suggested filters": "建议筛选",
 
-            "These dependencies are defined in": "这些依赖关系被定义在",
+            "These dependencies are defined in": "这些依赖项被定义在",
             "’s manifest files, such as": "的清单文件，例如",
-            "Dependencies defined in": "依赖关系被定义在",
+            "Dependencies defined in": "依赖项被定义在",
 
             // 发现已知漏洞
             "Dependencies defined in these manifest files have known security vulnerabilities and should be updated:": "这些清单文件中定义的依赖项具有已知的安全漏洞，应更新：",
@@ -15793,14 +15793,14 @@ I18N["zh-CN"]["repository/network/dependencies"] = { // 仓库 -> 洞察 - 依�
     ],
 };
 
-I18N["zh-CN"]["repository/network/dependents"] = { // 仓库 -> 洞察 - 依赖关系图 - 依赖者
+I18N["zh-CN"]["repository/network/dependents"] = { // 仓库 -> 洞察 - 依赖项关系图 - 依赖者
     "static": { // 静态翻译
         ...I18N["zh-CN"]["repository-public"]["static"],
         ...I18N["zh-CN"]["repository-insights-menu"]["static"],
 
-        "Dependencies": "依赖关系",
+        "Dependencies": "依赖项",
         "Dependents": "依赖者",
-        // 依赖关系图 - 依赖者 /network/dependents
+        // 依赖项关系图 - 依赖者 /network/dependents
             "GitHub does not currently determine the dependents of private repositories": "GitHub 目前无法确定私有仓库的依赖者",
 
             "Export SBOM": "导出 SBOM",
@@ -15824,16 +15824,16 @@ I18N["zh-CN"]["repository/network/dependents"] = { // 仓库 -> 洞察 - 依赖�
     ],
 };
 
-I18N["zh-CN"]["repository/network/updates"] = { // 仓库 -> 洞察 - 依赖关系图 - Dependabot
+I18N["zh-CN"]["repository/network/updates"] = { // 仓库 -> 洞察 - 依赖项关系图 - Dependabot
     "static": { // 静态翻译
         ...I18N["zh-CN"]["repository-public"]["static"],
         ...I18N["zh-CN"]["repository-insights-menu"]["static"],
 
-        "Dependencies": "依赖关系",
+        "Dependencies": "依赖项",
         "Dependents": "依赖者",
 
         "Export SBOM": "导出 SBOM",
-        // 依赖关系图 - Dependabot /network/updates
+        // 依赖项关系图 - Dependabot /network/updates
             "Enable Dependabot": "启用 Dependabot",
             "Dependabot isn't enabled": "未启用 Dependabot",
             "Dependabot isn't enabled on forks by default": "默认情况下，Dependabot 不会在复刻上启用。",
@@ -16259,8 +16259,8 @@ I18N["zh-CN"]["repository/settings"] = { // 仓库设置 - 通常 /<user-name>/<
                     "watcher": "关注者",
                     "watchers": "关注者",
                 "If you decide to make this repository public in the future, it will not be possible to restore these stars and watchers and this will affect its repository rankings.": "即使您决定将来公开此仓库，也无法恢复这些星标者和关注者，这将影响其仓库排名。",
-                "Dependency graph and Dependabot alerts will remain enabled with permission to perform read-only analysis on this repository.": "依赖关系图和 Dependabot 警报将保持启用，并有权限对该仓库进行只读分析。",
-                "Dependency graph and Dependabot alerts will remain enabled with permission to perform read-only analysis on this repository. Any custom Dependabot alert rules will be disabled unless GitHub Advanced Security is enabled for this repository.": "依赖关系图和 Dependabot 警报将继续启用，并允许对该仓库执行只读分析。除非为该仓库启用了 GitHub 高级安全功能，否则任何自定义的 Dependabot 警报规则都将被禁用。",
+                "Dependency graph and Dependabot alerts will remain enabled with permission to perform read-only analysis on this repository.": "依赖项关系图和 Dependabot 警报将保持启用，并有权限对该仓库进行只读分析。",
+                "Dependency graph and Dependabot alerts will remain enabled with permission to perform read-only analysis on this repository. Any custom Dependabot alert rules will be disabled unless GitHub Advanced Security is enabled for this repository.": "依赖项关系图和 Dependabot 警报将继续启用，并允许对该仓库执行只读分析。除非为该仓库启用了 GitHub 高级安全功能，否则任何自定义的 Dependabot 警报规则都将被禁用。",
                 "Code scanning will become unavailable.": "代码扫描将变得不可用。",
                 "Current forks will remain public and will be detached from this repository.": "当前的复刻将保持公开，并将从该仓库中分离出来。",
                 "Make this repository private": "将此仓库设为私有",
@@ -23679,7 +23679,7 @@ I18N["zh-CN"]["orgs/settings/security_analysis"] = { // 组织设置 - 代码安
 
                 // 对话框
                     "Enable Dependabot security updates": "启用 Dependabot 安全更新",
-                        // [/You're about to enable Dependabot security updates on all repositories in ([^ ]+). Dependabot security updates require the dependency graph and Dependabot alerts, so we'll also turn that on for all repositories./, "您即将启用 $1 组织中的所有仓库上的 Dependabot 安全更新。Dependabot 安全更新需要依赖关系图和 Dependabot 警报，因此我们还将为所有仓库开启他们。"],
+                        // [/You're about to enable Dependabot security updates on all repositories in ([^ ]+). Dependabot security updates require the dependency graph and Dependabot alerts, so we'll also turn that on for all repositories./, "您即将启用 $1 组织中的所有仓库上的 Dependabot 安全更新。Dependabot 安全更新需要依赖项关系图和 Dependabot 警报，因此我们还将为所有仓库开启他们。"],
 
                     "Disable Dependabot security updates": "禁用 Dependabot 安全更新",
                         // [/You're about to disable Dependabot security updates on all repositories in ([^ ]+)./, "您即将禁用 $1 组织中的所有仓库上的 Dependabot 安全更新。"],
@@ -23690,7 +23690,7 @@ I18N["zh-CN"]["orgs/settings/security_analysis"] = { // 组织设置 - 代码安
 
                 // 对话框
                     "Enable grouped security updates": "启用分组安全更新",
-                        // [/You're about to enable grouped security updates on all repositories in ([^ ]+). Grouped security updates require the dependency graph, Dependabot alerts, Dependabot security updates and Dependabot security updates, so we'll also turn that on for all repositories./, "您即将启用 $1 组织中的所有仓库上的分组安全更新。分组安全更新需要依赖关系图、Dependabot警报、Dependabot安全更新和 Dependabot安全更新，因此我们还将为所有仓库开启他们。"],
+                        // [/You're about to enable grouped security updates on all repositories in ([^ ]+). Grouped security updates require the dependency graph, Dependabot alerts, Dependabot security updates and Dependabot security updates, so we'll also turn that on for all repositories./, "您即将启用 $1 组织中的所有仓库上的分组安全更新。分组安全更新需要依赖项关系图、Dependabot警报、Dependabot安全更新和 Dependabot安全更新，因此我们还将为所有仓库开启他们。"],
 
                     "Disable grouped security updates": "禁用分组安全更新",
                         // [/You're about to disable grouped security updates on all repositories in ([^ ]+)./, "您即将禁用 $1 组织中的所有仓库上的分组安全更新。"],
@@ -23771,13 +23771,13 @@ I18N["zh-CN"]["orgs/settings/security_analysis"] = { // 组织设置 - 代码安
     "regexp": [ // 正则翻译
         [/You're about to enable private vulnerability reporting on all public repositories in ([^ ]+)./, "您即将启用 $1 组织中的所有私有仓库上的私下漏洞报告。"],
         [/You're about to disable private vulnerability reporting on all public repositories in ([^ ]+)./, "您即将禁用 $1 组织中的所有私有仓库上的私下漏洞报告。"],
-        [/You're about to enable dependency graph on all private repositories in ([^ ]+)./, "您即将启用 $1 组织中的所有私有仓库上的依赖关系图。"],
-        [/You're about to disable dependency graph on all private repositories in ([^ ]+). This will also disable Dependabot alerts and Dependabot security updates on those repositories./, "您即将禁用 $1 组织中所有私有仓库上的依赖关系图。这也将禁用这些仓库的 Dependabot 警报和 Dependabot 安全更新。"],
-        [/You're about to enable Dependabot alerts on all repositories in ([^ ]+). Alerts require the dependency graph, so we'll also turn that on for all repositories. No notifications will be sent while Dependabot alerts are being enabled./, "您即将启用 $1 组织中所有仓库上的 Dependabot 警报。Dependabot 警报需要依赖关系图，因此我们还将为所有仓库开启它。启用 Dependabot 警报时不会发送任何通知。"],
+        [/You're about to enable dependency graph on all private repositories in ([^ ]+)./, "您即将启用 $1 组织中的所有私有仓库上的依赖项关系图。"],
+        [/You're about to disable dependency graph on all private repositories in ([^ ]+). This will also disable Dependabot alerts and Dependabot security updates on those repositories./, "您即将禁用 $1 组织中所有私有仓库上的依赖项关系图。这也将禁用这些仓库的 Dependabot 警报和 Dependabot 安全更新。"],
+        [/You're about to enable Dependabot alerts on all repositories in ([^ ]+). Alerts require the dependency graph, so we'll also turn that on for all repositories. No notifications will be sent while Dependabot alerts are being enabled./, "您即将启用 $1 组织中所有仓库上的 Dependabot 警报。Dependabot 警报需要依赖项关系图，因此我们还将为所有仓库开启它。启用 Dependabot 警报时不会发送任何通知。"],
         [/You're about to disable Dependabot alerts on all repositories in ([^ ]+). This will also disable Dependabot security updates on those repositories./, "您即将禁用 $1 组织中所有仓库上的 Dependabot 警报。这也将禁用这些仓库的 Dependabot 安全更新。"],
-        [/You're about to enable Dependabot security updates on all repositories in ([^ ]+). Dependabot security updates require the dependency graph and Dependabot alerts, so we'll also turn that on for all repositories./, "您即将启用 $1 组织中的所有仓库上的 Dependabot 安全更新。Dependabot 安全更新需要依赖关系图和 Dependabot 警报，因此我们还将为所有仓库开启他们。"],
+        [/You're about to enable Dependabot security updates on all repositories in ([^ ]+). Dependabot security updates require the dependency graph and Dependabot alerts, so we'll also turn that on for all repositories./, "您即将启用 $1 组织中的所有仓库上的 Dependabot 安全更新。Dependabot 安全更新需要依赖项关系图和 Dependabot 警报，因此我们还将为所有仓库开启他们。"],
         [/You're about to disable Dependabot security updates on all repositories in ([^ ]+)./, "您即将禁用 $1 组织中的所有仓库上的 Dependabot 安全更新。"],
-        [/You're about to enable grouped security updates on all repositories in ([^ ]+). Grouped security updates require the dependency graph, Dependabot alerts, Dependabot security updates and Dependabot security updates, so we'll also turn that on for all repositories./, "您即将启用 $1 组织中的所有仓库上的分组安全更新。分组安全更新需要依赖关系图、Dependabot警报、Dependabot安全更新和 Dependabot安全更新，因此我们还将为所有仓库开启他们。"],
+        [/You're about to enable grouped security updates on all repositories in ([^ ]+). Grouped security updates require the dependency graph, Dependabot alerts, Dependabot security updates and Dependabot security updates, so we'll also turn that on for all repositories./, "您即将启用 $1 组织中的所有仓库上的分组安全更新。分组安全更新需要依赖项关系图、Dependabot警报、Dependabot安全更新和 Dependabot安全更新，因此我们还将为所有仓库开启他们。"],
         [/You're about to disable grouped security updates on all repositories in ([^ ]+)./, "您即将禁用 $1 组织中的所有仓库上的分组安全更新。"],
         [/This will disable push protection on (\d+) repositori(y|es) where it is enabled./, "这将在已启用推送保护的 $1 个仓库中禁用推送保护。"],
         [/(\d+) rules? enabled/, "$1 条规则启用"],
@@ -23805,7 +23805,7 @@ I18N["zh-CN"]["orgs/settings/dependabot_rules"] = { // 组织设置 - Dependabot
                 "Managed by GitHub": "由 GitHub 管理",
                 "Edit curated rule": "编辑策划规则",
                 "Edit rule": "编辑规则",  // 仓库规则
-                "Dismiss low-impact alerts for development-scoped dependencies": "解除开发范围下依赖关系的低影响警报",
+                "Dismiss low-impact alerts for development-scoped dependencies": "解除开发范围下依赖项的低影响警报",
                     "In a developer (non-production or runtime) environment, these alerts are unlikely to be exploitable or have limited effect like slow builds or long-running tests.": "在开发人员（非生产或运行时）环境中，这些警报不太可能被利用，或者影响有限，例如缓慢的构建或长时间运行的测试。",
                     "Learn more about this methodology.": "了解更多关于此方式的信息。",
             "Repository rules": "仓库规则", // 仓库规则
