@@ -18170,53 +18170,45 @@ I18N["zh-CN"]["repository/settings/pages"] = { // 仓库设置页面(含组织�
     ],
 };
 
-I18N["zh-CN"]["repository/settings/security_analysis"] = { // 仓库设置 - 代码安全性与分析 /<user-name>/<repo-name>/settings/security_analysis
+I18N["zh-CN"]["repository/settings/security_analysis"] = { // 仓库设置 - 高级安全 /<user-name>/<repo-name>/settings/security_analysis
     "static": { // 静态翻译
         ...I18N["zh-CN"]["repository-public"]["static"],
         ...I18N["zh-CN"]["repository-settings-menu"]["static"],
 
-        // 代码安全性与分析 /<user-name>/<repo-name>/settings/security_analysis
-            "Security and analysis features help keep your repository secure and updated. By enabling these features, you're granting us permission to perform read-only analysis on your repository. Unarchive your repository to access additional features.": "安全和分析功能有助于确保您的仓库安全和更新。通过启用这些功能，您授予我们对您的仓库执行只读分析的权限。解除您仓库的存档以访问其他功能。", //存档仓库
-            "Security and analysis features help keep your repository secure and updated. By enabling these features, you're granting us permission to perform read-only analysis on your repository.": "安全和分析功能有助于确保您的仓库安全和更新。通过启用这些功能，您授予我们对您的仓库执行只读分析的权限。",
-            "Code Security features help keep your repository secure and updated. By enabling these features, you're granting us permission to perform read-only analysis on your repository.": "代码安全功能有助于保持仓库的安全和更新。启用这些功能即表示您授予我们对仓库执行只读分析的权限。",
-            "Advanced Security features help keep your repository secure and updated. By enabling these features, you're granting us permission to perform read-only analysis on your repository.":"高级安全功能有助于保持您的仓库安全并及时更新。启用这些功能后，您将授权我们对您的仓库进行只读分析。",
+        // 高级安全 /<user-name>/<repo-name>/settings/security_analysis
+            "Advanced Security features help keep your repository secure and updated. By enabling these features, you're granting us permission to perform read-only analysis on your repository. Unarchive your repository to access additional features.": "高级安全功能有助于保护您的仓库安全并及时更新。启用这些功能，即表示您授权我们对您的代码库执行只读分析。请解除仓库的归档状态以使用更多功能。", // 存档仓库
+            "Advanced Security features help keep your repository secure and updated. By enabling these features, you're granting us permission to perform read-only analysis on your repository.": "高级安全功能有助于保护您的仓库安全并保持更新。启用这些功能，即表示您授权我们对您的仓库执行只读分析。",
 
             "Private vulnerability reporting": "私下漏洞报告",
                 "Allow your community to privately report potential security vulnerabilities to maintainers and repository owners.": "允许您的社区向维护者和仓库所有者私下报告潜在的安全漏洞。",
                 "Learn more about private vulnerability reporting": "了解更多关于私下漏洞报告的信息",
 
-            "Dependency graph": "依赖关系图",
+            "Dependency graph": "依赖项关系图",
                 "Understand your dependencies.": "了解您的依赖项。",
-                "Dependency graph is always enabled for public repos.": "公共仓库始终启用依赖关系图。",
 
                 // 禁用对话框
-                    "Disable dependency graph": "禁用依赖关系图",
-                        "Disabling the dependency graph will also disable Dependabot alerts and Dependabot security updates.": "禁用依赖关系图也将同时禁用 Dependabot 警报和 Dependabot 安全更新。", // Dependabot 警报和 Dependabot 安全更新启用时
-                        "Disabling the dependency graph will also disable Dependabot alerts.": "禁用依赖关系图也将同时禁用 Dependabot 警报。", // Dependabot 警报启用, Dependabot 安全更新未启用时
+                    "Disable dependency graph": "禁用依赖项关系图",
+                        "Disabling the dependency graph will also disable Dependabot alerts and Dependabot security updates.": "禁用依赖项关系图也将同时禁用 Dependabot 警报和 Dependabot 安全更新。", // Dependabot 警报和 Dependabot 安全更新启用时
+                        "Disabling the dependency graph will also disable Dependabot alerts.": "禁用依赖项关系图也将同时禁用 Dependabot 警报。", // Dependabot 警报启用, Dependabot 安全更新未启用时
 
-            "Automatic dependency submission": "自动提交依赖关系",
-                "Automatically detect and report build-time dependencies for select ecosystems.": "自动检测和报告所选生态系统的构建时间依赖性。",
-                "Use standard GitHub runners": "使用标准 GitHub 运行器",
-                "Enabled for labeled runners": "为有标签的运行器启用",
-                    "Use runners labeled with 'dependency-submission'": "使用带 “dependency-submission” 标签的运行器",
-                    "No runners with this label assigned to repository": "没有为仓库分配带有此标签的运行器",
+                // 启用时
+                "Automatic dependency submission": "自动提交依赖项",
+                    "Automatically detect and report build-time dependencies for select ecosystems.": "自动检测并报告选定生态系统的构建时依赖项。",
+                    // 启用
+                        "Use standard GitHub runners": "使用标准 GitHub 运行器",
+                    "Enabled for labeled runners": "为有标签的运行器启用",
+                        "Use runners labeled with 'dependency-submission'": "使用带 “dependency-submission” 标签的运行器",
+                        "No runners with this label assigned to repository": "没有为仓库分配带有此标签的运行器",
 
             // Dependabot
-                "Keep your dependencies secure and up-to-date.": "保持您的依赖关系的安全和最新",
+                "Keep your dependencies secure and up-to-date.": "保持您的依赖项的安全和最新。",
                 "Learn more about Dependabot": "了解更多关于 Dependabot 的信息",
 
                 "Dependabot alerts": "Dependabot 警报",
-                    "Receive alerts for vulnerabilities that affect your dependencies and manually generate Dependabot pull requests to resolve these vulnerabilities.": "接收影响您的依赖关系的漏洞警报，并手动生成 Dependabot 拉取请求以解决这些漏洞。",
+                    "Receive alerts for vulnerabilities that affect your dependencies and manually generate Dependabot pull requests to resolve these vulnerabilities.": "接收影响您的依赖项的漏洞警报，并手动生成 Dependabot 拉取请求以解决这些漏洞。",
                     "Configure alert notifications": "配置警报通知",
 
-                    // 启用对话框
-                        "Enable Dependabot alerts": "启用 Dependabot 警报",
-                            "Dependabot alerts needs the dependency graph to be enabled, so we'll turn that on too.": "Dependabot 警报需要启用依赖关系图，因此我们也将启用它。", // 依赖关系图未启用时
-
-                    // 禁用对话框
-                        "Disable Dependabot alerts": "禁用 Dependabot 警报",
-                            "Disabling Dependabot alerts will also disable Dependabot security updates.": "禁用 Dependabot 警报也将同时禁用 Dependabot 安全更新。", // Dependabot 安全更新启用时
-
+                    // 启用时
                     "Dependabot rules": "Dependabot 规则",
                         "Create your own custom rules and manage alert presets.": "创建您自己的自定义规则并管理警报预设。",
                         "Review and manage alert presets.": "查看和管理警报预设。", //私有库
@@ -18236,36 +18228,37 @@ I18N["zh-CN"]["repository/settings/security_analysis"] = { // 仓库设置 - 代
                     "Groups all available updates that resolve a Dependabot alert into one pull request (per package manager and directory of requirement manifests). This option may be overridden by group rules specified in dependabot.yml -": "将解决可靠警报的所有可用更新分组为一个拉取请求（每个包管理器和需求清单目录）。该选项可被 dependabot.yml 中指定的组规则覆盖 -",
                     "learn more here": "在此了解更多",
 
-                    // 对话框
-                        "Grouped security updates needs the dependency graph, Dependabot alerts and Dependabot security updates to be enabled, so we'll turn them on too": "分组安全更新需要启用依赖关系图、Dependabot 警报和 Dependabot 安全更新，因此我们也将启用他们。",
+                    // 启用对话框
+                        "Grouped security updates needs the dependency graph, Dependabot alerts and Dependabot security updates to be enabled, so we'll turn them on too": "分组安全更新需要启用依赖项关系图、Dependabot 警报和 Dependabot 安全更新，因此我们也将启用他们。",
                         "Grouped security updates needs Dependabot alerts and Dependabot security updates to be enabled, so we'll turn them on too.": "分组安全更新需要启用 Dependabot 警报和 Dependabot 安全更新，因此我们也将启用他们。",
                         "Grouped security updates needs Dependabot security updates to be enabled, so we'll turn that on too.": "分组安全更新需要启用 Dependabot 安全更新，因此我们也将启用它。",
 
                 "Dependabot version updates": "Dependabot 版本更新",
-                    "Enable Dependabot version updates": "启用 Dependabot 版本更新",
-                    "Disable Dependabot version updates": "禁用 Dependabot 版本更新",
-                    "Allow Dependabot to open pull requests automatically to keep your dependencies up-to-date when new versions are available.": "允许 Dependabot 自动打开拉取请求，以便在有新版本时保持您的依赖关系是最新的。",
+                    "Allow Dependabot to open pull requests automatically to keep your dependencies up-to-date when new versions are available.": "允许 Dependabot 自动打开拉取请求，以便在有新版本时保持您的依赖项是最新的。",
                     "Learn more about configuring a dependabot.yml file": "了解更多关于配置 dependabot.yml 文件的信息",
                     "Configure": "配置",
-                    "― Create a config file": "― 创建配置文件",
-                    "― Disabled": "― 禁用",
 
-                "Dependabot on Actions runners": "Dependabot 应用于操作运行器",
-                    "Run Dependabot security and version updates on Actions runners.": "在操作运行器上运行 Dependabot 安全和版本更新。",
+                // "Dependabot on Actions runners": "Dependabot 应用于操作运行器",
+                //     "Run Dependabot security and version updates on Actions runners.": "在操作运行器上运行 Dependabot 安全和版本更新。",
 
-                "Dependabot on self-hosted runners": "Dependabot 应用于自托管运行器",
-                    "Run Dependabot security and version updates on self-hosted Actions runners.": "在自托管运行程序上运行 Dependabot 安全和版本更新。",
+                // "Dependabot on self-hosted runners": "Dependabot 应用于自托管运行器",
+                //     "Run Dependabot security and version updates on self-hosted Actions runners.": "在自托管运行程序上运行 Dependabot 安全和版本更新。",
 
             "Code scanning": "代码扫描",
                 "Automatically detect common vulnerabilities and coding errors.": "自动检测常见漏洞和编码错误。",
 
                 // 组织仓库
-                    "Code scanning with GitHub Actions is not available for this repository.": "使用 GitHub Actions 进行代码扫描不适用于该仓库。",
+                    // 提示区
+                        "Code scanning with GitHub Actions is not available for this repository.": "使用 GitHub Actions 进行代码扫描不适用于该仓库。",
 
-                    "GitHub Actions is disabled on this repository because it is a fork. To use code scanning please": "GitHub 操作已在此仓库禁用，因为它是一个复刻。要使用代码扫描，请",
-                    "enable it": "启用它",
-                    "GitHub Actions is disabled on this repostiory by an enterprise or organization policy. To use code scanning, please ask your organization administrator to enable Actions, or": "企业或组织策略在此仓库上禁用了 GitHub Actions。要使用代码扫描，请要求您的组织管理员启用 GitHub Actions，或者",
-                    "submit code scanning results externally using the API": "使用 API 在代码扫描外部结果",
+                        "GitHub Actions is disabled on this repository because it is a fork. To use code scanning please": "GitHub 操作已在此仓库禁用，因为它是一个复刻。要使用代码扫描，请",
+                        "enable it": "启用它",
+
+                        "GitHub Actions is disabled on this repository by an enterprise or organization policy. To use code scanning, please ask your organization administrator to enable Actions, or": "由于企业或组织策略，此仓库中禁用了 GitHub Actions。要使用代码扫描，请请求您的组织管理员启用 GitHub Actions，或者",
+                        "submit code scanning results externally using the API": "使用 API 在代码扫描外部结果",
+
+                    "Prevent direct alert dismissals": "防止直接解除警报",
+                        "Actors must submit requests to dismiss an alert. This can impact pull requests requiring code scanning dismissal to merge.": "参与者必须提交解除警报的请求。这可能会影响需要解除代码扫描警报才能合并的拉取请求。",
 
                 "Tools": "工具",
                     "CodeQL analysis": "CodeQL 分析",
@@ -18273,8 +18266,11 @@ I18N["zh-CN"]["repository/settings/security_analysis"] = { // 仓库设置 - 代
                         "for": "为",
                         "eligible": "符合条件的",
                         "repositories.": "仓库。",
+
+                        "Default setup": "默认设置",
                         "Last scan": "最后一次扫描",
 
+                        //未启用时
                         "Set up": "设置",
                             "Default": "默认",
                                 "CodeQL will automatically find the best configuration for your repository.": "CodeQL 将自动给您的仓库找到最佳配置。",
@@ -18285,16 +18281,20 @@ I18N["zh-CN"]["repository/settings/security_analysis"] = { // 仓库设置 - 代
                             // "Languages on this repository are not compatible with this feature. Learn more about": "该仓库上的语言与此功能不兼容。了解更多关于",
                             // "supported languages and frameworks": "所支持的语言和框架",
 
-                            // CodeQL 默认设置
+                            // CodeQL 默认设置对话框
                                 "CodeQL default configuration": "CodeQL 默认设置",
                                 "These languages were detected on the default branch of this repository.": "这些语言是在该仓库的默认分支上检测到的。",
+                                //1 of 1 languages selected
                                 "Query suites": "查询套件",
                                     "Group of queries": "查询套件",
                                     "to run against your code.": "针对您的代码运行。",
 
-                                    "Default": "默认",
+                                    // "默认
                                         "Recommended": "推荐",
                                         "CodeQL high-precision queries.": "CodeQL 高精度查询。",
+                                "Runner type": "运行器类型",
+                                    "This is the runner default setup will use to run": "这是运行器默认设置将用于运行",
+                                    "Standard GitHub runner": "标准 GitHub 运行器",
                                 "Scan events": "扫描事件",
                                     "These events will trigger a new scan.": "这些事件将触发新的扫描。",
                                     "On push and pull requests to": "推送和拉取请求到",
@@ -18308,20 +18308,21 @@ I18N["zh-CN"]["repository/settings/security_analysis"] = { // 仓库设置 - 代
 
                                 // 顶部提醒
                                     "Repository settings saved. This initial setup might take a while because CodeQL will perform a full scan of the repository.": "仓库设置已保存。此初始设置可能需要一段时间，因为 CodeQL 将对仓库执行完整扫描。",
-                            // 开启后三个点菜单
-                                "View last scan log": "查看最近一次扫描日志",
-                                "View Code Scanning alerts": "查看代码扫描警报",
-                                "View CodeQL configuration": "查看 CodeQL 设置",
-                                "Switch to advanced": "切换到高级",
-                                // 切换到 CodeQL 工作流程对话框
-                                    "Switch to a CodeQL workflow?": "切换到 CodeQL 工作流程？",
-                                        "To switch to a workflow-based configuration, we must disable CodeQL first. CodeQL will stop analyzing code and resume once a valid workflow file is committed to the repository.": "要切换到基于工作流的配置，我们必须先禁用 CodeQL。CodeQL 将停止分析代码，并在有效的工作流文件提交到仓库后恢复分析。",
-                                "Disable CodeQL": "禁用 CodeQL",
+
+                        // 启用后, 三个点菜单
+                            "View last scan log": "查看最近一次扫描日志",
+                            "View Code Scanning alerts": "查看代码扫描警报",
+                            "View CodeQL configuration": "查看 CodeQL 设置",
+                            "Switch to advanced": "切换到高级",
+                            // 切换到 CodeQL 工作流程对话框
+                                "Switch to a CodeQL workflow?": "切换到 CodeQL 工作流程？",
+                                    "To switch to a workflow-based configuration, we must disable CodeQL first. CodeQL will stop analyzing code and resume once a valid workflow file is committed to the repository.": "要切换到基于工作流的配置，我们必须先禁用 CodeQL。CodeQL 将停止分析代码，并在有效的工作流文件提交到仓库后恢复分析。",
+                            "Disable CodeQL": "禁用 CodeQL",
                                 // 禁用对话框
                                     "Disable CodeQL?": "禁用 CodeQL？",
                                     "CodeQL will stop analyzing code from this repository. Existing alerts will remain open; you can dismiss them but not close them as fixed, as CodeQL needs to be enabled for that to happen. Existing CodeQL Actions workflows on this repository must be": "CodeQL 将停止分析该仓库中的代码。现有的警报将保持打开；您可以忽略它们，但不能关闭它们，因为 CodeQL 需要启用才能关闭。要",
                                     "manually re-enabled to resume previous analyses": "恢复先前的分析，必须手动重新启用",
-                                    "": "",
+
                     "Other tools": "其他工具",
                         "Add any third-party code scanning tool.": "添加任意第三方代码扫描工具。",
                         "Explore workflows": "探索工作流程",
@@ -18332,55 +18333,58 @@ I18N["zh-CN"]["repository/settings/security_analysis"] = { // 仓库设置 - 代
                         "On": "开",
                         "Off": "关",
 
-                    "Copilot Autofix for third-party tools": "适用于第三方工具的 Copilot 自动修复",
-                        "Suggest fixes for third-party alerts using AI. Ensure that these tools are properly configured or that an analysis is uploaded for this feature to work. Learn more about the": "使用人工智能对第三方警报提出修复建议。确保这些工具已正确配置或已上传分析，以便此功能正常工作。了解更多关于",
-                        "limitations of autofix code suggestions for third party tools": "第三方工具自动修复代码建议的限制",
+                    // 组织设置
+                    // "Copilot Autofix for third-party tools": "适用于第三方工具的 Copilot 自动修复",
+                    //     "Suggest fixes for third-party alerts using AI. Ensure that these tools are properly configured or that an analysis is uploaded for this feature to work. Learn more about the": "使用人工智能对第三方警报提出修复建议。确保这些工具已正确配置或已上传分析，以便此功能正常工作。了解更多关于",
+                    //     "limitations of autofix code suggestions for third party tools": "第三方工具自动修复代码建议的限制",
 
                 "Protection rules": "保护规则",
-                    "Pull request check failure": "拉取请求检查失败",
-                        "Define which code scanning alert severity should cause a pull request check to fail. This also applies to analysis results uploaded via the API.": "定义哪种代码扫描警报严重程度会导致拉取请求检查失败。这也适用于通过 API 上传的分析结果。",
-
-                        "None": "无",
-                        "Only critical": "仅关键风险",
-                        "High or higher": "高风险及以上",
-                        "Medium or higher": "中风险及以上",
-                        "Any": "任何",
-                        "Other": "其他",
-                            "Only errors": "仅错误",
-                            "Errors and warnings": "错误和警告",
-
                     "Check runs failure threshold": "检查运行失败阀值",
                         "Select the alert severity level for code scanning check runs to fail.": "选择代码扫描检查运行失败的警报严重性级别。",
                         "Create a branch ruleset": "创建分支规则集",
                         "to prevent a branch from merging when these checks fail.": "以防止分支在这些检查失败时被合并。",
 
                         "Security alert severity level:": "安全警报级别：",
+                            "None": "无",
+                            "Only critical": "仅关键风险",
+                            "High or higher": "高风险及以上",
+                            "Medium or higher": "中风险及以上",
+                            "Any": "任何",
                         "Standard alert severity level:": "标准警报级别：",
-
-                        "Security:": "风险：",
-                        "Other:": "其他：",
+                            "Only errors": "仅错误",
+                            "Errors and warnings": "错误和警告",
 
                 // 顶部提醒
                 "Code Scanning alert severity settings saved.": "代码扫描警报严重性设置已保存。",
 
             "Secret Protection": "机密保护",
-                "Receive alerts on GitHub for detected secrets, keys, or other tokens.": "在 GitHub 上接收有关检测到的机密、密钥或其他令牌的警报。",
                 "GitHub will always send alerts to partners for detected secrets in public repositories.": "GitHub 会始终向合作伙伴发送检测到公共仓库中机密的警报。",
                 "Learn more about partner patterns": "了解更多关于合作伙伴模式的信息",
+
+                // 开启对话框
+                    "Enable Secret Protection": "启用机密保护",
+                        "This will enable Secret Protection for your repository.": "这将为您的仓库启用机密保护。",
+                        "Enable secret scanning alerts": "启用机密扫描警报",
+                        "No additional licenses will be consumed.": "不会消耗额外的许可。",
+
+                //开启后
                     "Push protection": "推送保护",
                     "Block commits that contain": "阻止推送包含",
                     "supported secrets": "支持的机密",
 
             // 组织仓库
-            "Access to alerts": "访问警报",
-            "Admins, users, and teams in the list below have permission to view and manage code scanning, Dependabot, or secret scanning alerts. These users may be notified when a new vulnerability is found in one of this repository's dependencies and when a secret or key is checked in. They will also see additional details when viewing Dependabot security updates. Individuals can manage how they receive these alerts in their": "以下列表中的管理员、用户和团队有权限查看和管理代码扫描、Dependabot 或机密扫描警报。当在此仓库的依赖项之一中发现新的漏洞，以及当机密或令牌被嵌入时，可能会通知这些用户。在查看 Dependabot 安全更新时，他们还会看到其他详细信息。用户可以管理他们如何接收这些警报，在他们的",
-            "notification settings": "通知设置",
+                "Access to alerts": "访问警报",
+                "Admins, users, and teams in the list below have permission to view and manage code scanning, Dependabot, or secret scanning alerts. These users may be notified when a new vulnerability is found in one of this repository's dependencies and when a secret or key is checked in. They will also see additional details when viewing Dependabot security updates. Individuals can manage how they receive these alerts in their": "以下列表中的管理员、用户和团队有权限查看和管理代码扫描、Dependabot 或机密扫描警报。当在此仓库的依赖项之一中发现新的漏洞，以及当机密或令牌被嵌入时，可能会通知这些用户。在查看 Dependabot 安全更新时，他们还会看到其他详细信息。用户可以管理他们如何接收这些警报，在他们的",
+                "notification settings": "通知设置",
 
-            "Choose the people or teams you would like to grant access": "选择您要授予访问权限的人员或团队",
-            "Search for people or teams": "搜索人员或团队",
-            "People and teams with access": "具有访问权限的人员和团队",
-            "Organization administrators, repository administrators, and teams with the security manager role": "具有安全管理员角色的组织管理员、仓库管理员和团队",
-            "These members always see code scanning, Dependabot, and secret scanning alerts.": "这些成员总是能看到代码扫描、Dependabot 和机密扫描警报。",
+                "Choose the people or teams you would like to grant access": "选择您希望授予访问权限的人员或团队",
+                    "Search for people or teams": "搜索人员或团队",
+                        "You have reached the maximum number of people and teams you can add.": "您已达到可添加的人员和团队数量上限。",
+                        "Remove one or more to continue adding others.": "请移除一个或多个以继续添加其他成员。",
+                "People and teams with access": "拥有访问权限的人员和团队",
+                "Organization administrators, repository administrators, and teams with the security manager role": "具有安全管理员角色的组织管理员、仓库管理员和团队",
+                "These members always see code scanning, Dependabot, and secret scanning alerts.": "这些成员始终能够查看代码扫描、Dependabot 和机密扫描警报。",
+
     },
     "regexp": [ // 正则翻译
         ...I18N["zh-CN"]["repository-public"]["regexp"],
