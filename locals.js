@@ -26517,20 +26517,6 @@ I18N["zh-CN"]["copilot"] = {
                 "request": "请求",
                 "requests": "请求",
                 "· Last updated": "· 最后更新于",
-
-        // spark https://github.com/spark
-            "Dream it.": "梦想它。",
-            "See it.": "看到它。",
-            "Ship it.": "交付它。",
-
-            "Transform ideas into full-stack intelligent apps in a snap. Publish with a click.": "将想法转化为全栈智能应用，一键发布。",
-            "Spark is currently only available to Copilot Pro+ and Enterprise users.": "Spark 目前仅适用于 Copilot Pro+ 和企业版用户。",
-                "Upgrade now to access Spark": "立即升级以访问 Spark",
-
-            "Create web apps with React and TypeScript to prototype ideas, build tools, and more": "使用 React 和 TypeScript 创建 Web 应用，原型化想法，构建工具等",
-                "Submit prompt": "提交提示词",
-
-            "Terms of service": "服务条款",
     },
     "regexp":[
         [/Using results for “([^ ]+)” in ([^ ]+)/, "使用 $2 中“$1”的结果"],
@@ -26579,6 +26565,26 @@ I18N["zh-CN"]["github-copilot/code-review-waitlist"] = {
     "regexp":[
         [/Thank you! ([^ ]+) is now on the waitlist/, "感谢！$1 已加入候补名单"],
     ],
+};
+
+I18N["zh-CN"]["spark"] = {
+    "static": {
+        // spark https://github.com/spark
+            "Dream it.": "梦想它。",
+            "See it.": "看到它。",
+            "Ship it.": "交付它。",
+
+            "Transform ideas into full-stack intelligent apps in a snap. Publish with a click.": "将想法转化为全栈智能应用，一键发布。",
+            "Spark is currently only available to Copilot Pro+ and Enterprise users.": "Spark 目前仅适用于 Copilot Pro+ 和企业版用户。",
+                "Upgrade now to access Spark": "立即升级以访问 Spark",
+
+            "Create web apps with React and TypeScript to prototype ideas, build tools, and more": "使用 React 和 TypeScript 创建 Web 应用，原型化想法，构建工具等",
+                "Submit prompt": "提交提示词",
+
+            "uses AI. Check for mistakes.": "使用 AI。请检查错误。",
+            "Terms of service": "服务条款",
+
+    }
 };
 
 I18N["zh-CN"]["sitemap"] = { // 网站地图页，仅匹配公共部分
@@ -26931,6 +26937,3 @@ I18N["zh-CN"]["mcp"] = {
     },
     "regexp": [],
 };
-
-// 页面别名：让 /spark 复用 Copilot 的翻译
-I18N["zh-CN"]["spark"] = I18N["zh-CN"]["copilot"];
