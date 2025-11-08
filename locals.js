@@ -5047,7 +5047,7 @@ I18N["zh-CN"]["settings/security"] = { // 设置 - 密码和身份身份验证
                 "Configured": "已配置",
 
                 "Authenticator app": "身份验证器应用",
-                    "Use an authentication app or browser extension to get two-factor authentication codes when prompted.": "在出现提示时，使用身份验证应用或浏览器扩展获取双因素身份验证码。",
+                    "Use an authentication app or browser extension to get two-factor authentication codes when prompted.": "在出现提示时，使用身份验证器应用或浏览器扩展获取双因素身份验证码。",
                     "Use an authentication app or browser extension to generate one-time codes.": "使用身份验证应用或浏览器扩展生成一次性代码。",
 
                     "Manage Authenticator app": "管理身份验证器应用",
@@ -5072,7 +5072,7 @@ I18N["zh-CN"]["settings/security"] = { // 设置 - 密码和身份身份验证
                     "Manage SMS/Text message": "管理短信/文字信息",
                     "Less secure": "不安全",
 
-                    "Get one-time codes sent to your phone via SMS to complete authentication requests. We strongly advise against using SMS because it is susceptible to interception, does not provide resistance against phishing attacks, and deliverability can be unreliable. It is recommended to use an Authenticator app instead of SMS.": "通过短信向您的手机发送一次性代码，以完成认证请求。我们强烈建议不要使用短信，因为它容易受到拦截，无法抵抗钓鱼攻击，且送达可靠性可能不稳定。建议使用身份验证器应用而不是短信。",
+                    "Get one-time codes sent to your phone via SMS to complete authentication requests. We strongly advise against using SMS because it is susceptible to interception, does not provide resistance against phishing attacks, and deliverability can be unreliable. It is recommended to use an Authenticator app instead of SMS.": "通过短信向您的手机送达一次性验证码，以完成身份验证请求。我们强烈建议不要使用短信，因为短信容易受到拦截，无法抵御钓鱼攻击，且送达率可能不可靠。建议使用身份验证器应用代替短信。",
 
                     "Get authentication codes by SMS on your mobile phone when signing into GitHub. Make sure that": "登录 GitHub 时通过手机短信获取验证码。确保",
                     "your country or region is supported": "支持您的国家/地区",
@@ -5081,13 +5081,17 @@ I18N["zh-CN"]["settings/security"] = { // 设置 - 密码和身份身份验证
                     "Verify account": "验证账户",
                     "Before setting up SMS, please verify that you're a human.": "在设置短信之前，请验证您是人类。",
 
-                    "Country code": "国家代码",
+                    "Country or region code": "国家/地区代码",
                     "Your phone number": "您的手机号码",
                     "Send authentication code": "发送验证码",
+
                     "Sent. It may take a minute for the SMS to arrive.": "已发送。短信可能需要一分钟时间才能送达。",
                     "Verify the code sent to your phone": "验证发送到您手机的验证码",
 
-                    // [/You will receive one-time codes at this phone number:/, "您将通过以下电话号码收到一次性验证码："], // 已设置短信/文字信息
+                    // [/We strongly advise against using SMS because it is susceptible to interception, does not provide resistance against phishing attacks, and deliverability can be unreliable. Instead, we recommend configuring an authenticator app and disabling SMS as a 2FA method. You will receive one-time codes at this phone number:/, "我们强烈建议不要使用短信，因为短信容易受到拦截，无法抵御钓鱼攻击，而且送达率可能不可靠。相反，我们建议配置一个身份验证器应用，并禁用短信作为双因素身份验证。您将通过以下电话号码收到一次性验证码："], // 已设置短信/文字信息
+
+                    // 顶部提醒
+                        "SMS/Text message successfully disabled.": "短信/文字消息已成功禁用。",
 
                 "Security keys": "安全密钥",
                     "Security keys are webauthn credentials that can only be used as a second factor of authentication.": "安全密钥是 WebAuthn 凭证，只能用作第二验证因素。",
@@ -5117,7 +5121,7 @@ I18N["zh-CN"]["settings/security"] = { // 设置 - 密码和身份身份验证
     },
     "regexp": [ // 正则翻译
         [/(\d+) devices?/, "$1 个设备"], // 设置--> 密码和身份验证页
-        [/You will receive one-time codes at this phone number:/, "您将通过以下电话号码收到一次性验证码："], // 已设置短信/文字信息
+        [/We strongly advise against using SMS because it is susceptible to interception, does not provide resistance against phishing attacks, and deliverability can be unreliable. Instead, we recommend configuring an authenticator app and disabling SMS as a 2FA method. You will receive one-time codes at this phone number:/, "我们强烈建议不要使用短信，因为短信容易受到拦截，无法抵御钓鱼攻击，而且送达率可能不可靠。相反，我们建议配置一个身份验证器应用，并禁用短信作为双因素身份验证。您将通过以下电话号码收到一次性验证码："], // 已设置短信/文字信息
         [/Delete `([^ ]+)` passkey/, "删除 “$1” 通行密钥"],
         [/Are you sure you want to delete your `([^ ]+)` passkey?/, "您确定要删除您的 “$1” 通行密钥吗？"],
         [/(\d+) verified emails? configured/, "已配置 $1 个已验证的邮箱"],
