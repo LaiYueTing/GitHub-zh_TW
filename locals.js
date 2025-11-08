@@ -3766,7 +3766,6 @@ I18N["zh-CN"]["settings/accessibility"] = { // 设置 - 无障碍
         ...I18N["zh-CN"]["settings-menu"]["static"],
 
         // Accessibility 无障碍 https://github.com/settings/accessibility
-            "GitHub keyboard shortcuts": "GitHub 键盘快捷键",
             "General": "通常",
             "Character keys": "字符键",
                 "GitHub shortcuts": "GitHub 快捷键",
@@ -3774,6 +3773,10 @@ I18N["zh-CN"]["settings/accessibility"] = { // 设置 - 无障碍
                 "shortcut to navigate notifications, or": "快捷键来导航到通知，或",
                 "to view context relevant shortcuts.": "查看与上下文相关的快捷键。",
                 "Learn more about character key shortcuts": "了解更多关于字符快捷键的信息",
+                "Save keyboard shortcut preferences": "保存键盘快捷键首选项",
+
+            // 顶部提醒
+                "Keyboard shortcut preference successfully saved.": "键盘快捷键首选项已成功保存。",
 
             "Command palette": "命令面板",
                 "Modify the shortcuts to trigger the Command Palette for the default search mode and the command mode": "修改快捷键以触发默认搜索模式和命令模式的命令面板",
@@ -3782,38 +3785,39 @@ I18N["zh-CN"]["settings/accessibility"] = { // 设置 - 无障碍
                     "Disabled": "禁用",
                 "Command mode": "命令模式",
                     "control + shift + k (default)": "control + shift + k (默认)",
-                "Save keyboard shortcut preferences": "保存键盘快捷键首选项",
                 "Save command palette preferences": "保存命令面板首选项",
 
-            // 顶部提醒
-            "Keyboard shortcut preference successfully saved.": "键盘快捷键首选项已成功保存。",
-
             "Motion": "动态",
-            "Autoplay animated images": "自动播放动态图片",
-            "Select whether animated images should play automatically.": "选择是否需要自动播放动态图片。",
-            "Sync with system": "与系统同步",
-            "Adopts your system preference for reduced motion": "采用您的系统偏好以减少运动",
-            "Enabled": "启用",
-            "Automatically plays animated images": "自动播放动态图片",
-            "Prevents animated images from playing automatically": "防止自动播放动态图片",
-            "Save motion preferences": "保存动态首选项",
+                "Autoplay animated images": "自动播放动态图片",
+                    "Select whether animated images should play automatically.": "选择是否需要自动播放动态图片。",
+                "Sync with system": "与系统同步",
+                    "Adopts your system preference for reduced motion": "采用您的系统偏好以减少运动",
+                "Enabled": "启用",
+                    "Automatically plays animated images": "自动播放动态图片",
+                // 禁用
+                    "Prevents animated images from playing automatically": "防止自动播放动态图片",
+                "Save motion preferences": "保存动态首选项",
 
             // 顶部提醒
-            "Motion preferences successfully saved.": "动态首选项已成功保存。",
+                "Motion preferences successfully saved.": "动态首选项已成功保存。",
 
             "Content": "内容",
-            "Link underlines": "链接下划线",
-            "Toggle the visibility of underlines on links that are adjacent to text.": "切换文本相邻链接上下划线的可见性。",
-            "Hide link underlines": "隐藏链接下划线",
-            "Show link underlines": "显示链接下划线",
-            "Save content preferences": "保存内容首选项",
-
-            "Hovercards": "悬浮卡",
-                "Enable previewing link content via mouse hover or keyboard focus before navigation. Move focus to hovercard content using": "在导航之前，可通过鼠标悬停或键盘聚焦预览链接内容。使用以下方法将焦点移至悬停卡片内容",
-                "Save hovercard preferences": "保存悬浮卡偏好设置",
+                "Link underlines": "链接下划线",
+                    "Toggle the visibility of underlines on links that are adjacent to text.": "切换文本相邻链接上下划线的可见性。",
+                "Hide link underlines": "隐藏链接下划线",
+                "Show link underlines": "显示链接下划线",
+                "Save content preferences": "保存内容首选项",
 
             // 顶部提醒
-            "Link underline preferences successfully saved.": "链接下划线首选项已成功保存。",
+                "Link underline preferences successfully saved.": "链接下划线首选项已成功保存。",
+
+            "Hovercards": "悬浮卡",
+                "preview information about other parts of GitHub.": "预览 GitHub 其他部分的信息。",
+                "Show hovercards": "显示悬浮卡",
+                    "Enable previewing link content via mouse hover or keyboard focus before navigation. Move focus to hovercard content using": "在导航之前，可通过鼠标悬停或键盘聚焦预览链接内容。使用以下方法将焦点移至悬停卡片内容",
+                "Save hovercard preferences": "保存悬浮卡偏好设置",
+            // 顶部提醒
+                "Hovercard preferences successfully saved.": "悬浮卡首选项已成功保存。",
 
             "Editor settings": "编辑器设置",
                 "URL paste behavior": "URL 粘贴行为",
@@ -3824,18 +3828,17 @@ I18N["zh-CN"]["settings/accessibility"] = { // 设置 - 无障碍
                 "Plain text": "纯文本",
                     "Pasting a URL while having text selected will replace the text": "在选择了文本的情况下，粘贴 URL 将替换文本",
                 "Save editor settings": "保存编辑器设置",
-                    // 顶部提醒
+            // 顶部提醒
                     "Paste behavior preferences successfully saved.": "粘贴行为首选项已成功保存。",
 
             "Assistive technology hints": "辅助技术提示",
                 "Add or remove instructions for how to operate complex controls.": "添加或删除如何操作复杂控件的说明。",
-                "preview information about other parts of GitHub.": "预览 GitHub 其他部分的信息。",
-                "Enable hint": "启用提示",
-                "Disable hint": "禁用提示",
+                // 悬浮卡
+                    "Enable screen reader hint": "启用屏幕阅读器提示",
+                    "Disable screen reader hint": "禁用屏幕阅读器提示",
                 "Save assistive technology hint preferences": "保存辅助技术提示首选项",
-                    // 顶部提醒
-                    "Hovercard assistive technology hint preferences successfully saved.": "悬浮卡辅助技术提示首选项已成功保存。",
-
+            // 顶部提醒
+                "Hovercard assistive technology hint preferences successfully saved.": "悬浮卡辅助技术提示首选项已成功保存。",
     },
     "regexp": [ // 正则翻译
     ],
