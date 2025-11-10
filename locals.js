@@ -64,7 +64,10 @@ I18N.conf = {
             "td.blob-code", // 代码差异 分屏/同屏
             '.js-full-logs-container', // 工作流运行日志
         ],
-        'repository/compare': ["tbody"], // 代码差异
+        'repository/compare': [
+            "tbody", // 代码差异
+            ".js-preview-body", // 新建拉取请求 - 正文编辑器预览
+        ],
         'repository/commit': ["td.blob-code"], // 代码差异 分屏/同屏
         'repository/blob': ["#highlighted-line-menu-positioner"], // 代码视图 存在
         'repository/blame': ["#highlighted-line-menu-positioner"], // 代码视图
