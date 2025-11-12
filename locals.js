@@ -1284,6 +1284,7 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
             "Verified": "已验证",
             "Expired": "已过期",
             "Partially verified": "部分验证",
+                "We cannot verify signatures from co-authors, and some of the co-authors attributed to this commit require their commits to be signed.": "我们无法验证来自共同作者的签名，并且此提交的某些共同作者要求对其提交进行签名。",
             "Unverified": "未验证",
                 "Upload your public signing GPG key": "上传您的公共签名 GPG 密钥",
                 "to verify your signature.": "以验证您的签名。",
@@ -9284,6 +9285,7 @@ I18N["zh-CN"]["repository/pull_issue_public"] = { // 仓库 - 议题和拉取请
     },
     "regexp": [ // 正则翻译
         // [/At least (\d+) approving reviews? is required by reviewers with write access./, "具有写入权限的审查者至少需要 $1 次批准审查。"],
+        [/(\+\d+) more reviewers?/, "$1 个审查者"],
         [/(\d+) linked issues?/, "链接 $1 个议题"],
         [/Assigned to (.*)/, "分配给 $1"],
         [/Edited (\d+) times?/, "编辑 $1 次"],
@@ -10159,6 +10161,8 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
               "authored": "撰写于",
 
             // 右侧栏 补充
+                // 审查者
+                "Reviewers whose approvals may not affect merge requirements": "审查者的批准可能不影响合并要求。",
 
                 "Allow edits by maintainers": "允许维护者进行编辑",
                     "Allowing edits by maintainers": "允许维护者进行编辑",
@@ -10653,7 +10657,11 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
                 "Hide whitespace": "隐藏空白",
                 "Apply and reload": "应用并重新加载",
             "Show whitespace": "显示空白",
+            "Expand file": "展开文件",
+            "Collapse file": "折叠文件",
             // "Refresh": "刷新",
+            // 复制文件按钮
+                "Copy file name to clipboard": "复制文件名到剪切板",
 
             "files viewed": "查看过的文件",
                 "Marking files as viewed can help keep track of your progress, but will not affect your submitted review": "将文件标记为已查看可以帮助您跟踪进度，但不会纠正您提交的审查",
@@ -10690,6 +10698,7 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
 
             "Viewed": "已查看",
             "Comment on this file": "评论此文件",
+            "Comment on file": "评论此文件",
 
             "No changes to show": "没有更改",
                 "This commit does not include any file changes": "此提交未包含文件更改",
@@ -10968,6 +10977,10 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
         }],
         [/Add(?: a)? comment on line ((L|R)(\d+))/, "在 $1 行评论"],
         [/Suggest change on line ((L|R)(\d+))/, "建议更改 $1 行"],
+        [/Expand all lines: (.+)/, "展开所有行：$1"],
+        [/Collapse non-diff lines: (.+)/, "折叠未更改行：$1"],
+        // CODEOWNERS 文件指定所有者
+        [/Owned by (\@.+) \(from CODEOWNERS line (\d+)\)/, "由 $1 拥有（来自 CODEOWNERS 第 $2 行）"],
 
         // 具体某条拉取请求
         [/edited by ([^ ]+)/, "由 $1 编辑"],
