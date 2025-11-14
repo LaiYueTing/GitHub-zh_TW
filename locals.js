@@ -177,7 +177,7 @@ I18N.conf = {
             '.js-full-logs-container', // 工作流运行日志
         ],
         'repository/releases': [
-            'div.markdown-body', // 发布版正文
+            'div.Box-body>div.markdown-body', // 发布版正文
         ],
         'repository/wiki': [
             '#wiki-body', // wiki 正文
