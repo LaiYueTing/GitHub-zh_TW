@@ -9877,6 +9877,7 @@ I18N["zh-CN"]["repository/issues"] = { // 仓库 - 议题页面
         [/Opened this issue \(their first in ([^ ]+)\)/, "打开了这个议题（首次在 $1 发表）"],
         [/Duplicate current issue in ([^ ]+\/[^ ]+)/, "在 $1 中复制当前议题"],
         [/added (\d+) commits? that reference this issue/, "添加 $1 个引用此议题的提交"],
+        [/This issue will close once commit ([a-f0-9]{7}) is merged into the \'([^ ]+)\' branch./, "此议题将在提交 $1 合并到 '$2' 分支后关闭。"],
 
         // 标签页面
         [/open issues? and pull requests?/, "个打开的议题和拉取请求"],
@@ -26188,14 +26189,15 @@ I18N["zh-CN"]["copilot"] = {
         // 高级请求数已用完
             "You have reached your monthly limit for premium requests. Enable additional requests or switch to the default model. Limit resets on.": "您已达到本月高级请求的额度上限。请启用额外请求或切换到默认模型。额度将重置。",
         // 左侧边栏
-            "Open sidebar": "打开侧边栏",
-            "Close sidebar": "关闭侧边栏",
             "New conversation": "新聊天",
             "Close conversations": "关闭侧边栏",
             "Open conversations": "打开侧边栏",
             "New chat": "新聊天",
+            "Collapse": "折叠",
+            "Expand sidebar": "展开侧边栏",
 
             "Agent sessions": "智能体任务",
+            "Agent sessions and chats": "智能体任务及聊天",
                 "No agents running": "无智能体运行",
                     "You can now ask Copilot to work on a task for you in the background, creating a pull request which you can review.": "您现在可以让 Copilot 在后台为您处理任务，创建一个供您审核的拉取请求。",
 
@@ -26210,13 +26212,13 @@ I18N["zh-CN"]["copilot"] = {
             "Ask Copilot anything on the right to start your first conversation.": "向 Copilot 提出任何问题，开始第一次对话。",
 
             // 某条对话
-                "Manage conversation": "管理",
+                "Manage chat": "管理",
                     "Rename": "重命名",
-                        "Rename conversation": "重命名对话",
+                        "Rename chat": "重命名",
                     "Share": "分享",
                     // 删除
-                        "Delete conversation": "删除对话",
-                        "Are you sure you want to delete this conversation? This action cannot be undone.": "您确定要删除这段对话吗？此操作无法撤销。",
+                        "Delete chat": "删除聊天",
+                        "Are you sure you want to delete this chat? This action cannot be undone.": "您确定要删除该聊天吗？此操作无法撤销。",
 
         // 中间
             // 模型选择窗
@@ -26562,6 +26564,40 @@ I18N["zh-CN"]["copilot"] = {
 
             "In progress": "进行中",
 
+            // 评论框
+                "Steer active session while Copilot is working": "在 Copilot 工作时引导活动任务",
+
+                "Copilot stopped work due to an error": "Copilot 因错误停工",
+                    "View detailed logs": "查看详细日志",
+                    "Copilot encountered an unknown Git error. If the problem persists, please contact GitHub Support. To retry, leave a comment on this pull request asking Copilot to try again.": "Copilot 遇到未知的 Git 错误。如果问题仍然存在，请联系 GitHub 支持。要重试，请在此拉取请求上留言，要求 Copilot 再试一次。",
+
+                "Submitting will post a pull request comment": "提交后将发布一个拉取请求评论",
+
+            // 文件框
+                "Filter files…": "筛选文件…",
+                    "Filter options": "筛选选项",
+                    "File extensions": "文件扩展名",
+                    "No extension": "无扩展名",
+                    "Vendored files": "引入的文件",
+                    "Viewed files": "已查看文件",
+
+                "Files changed": "更改的文件",
+                "Copilot is still working. Changes will automatically appear once they have been committed to the branch.": "Copilot 仍在工作中。更改将在提交到分支后自动显示。",
+
+                "Expand file tree": "展开文件树",
+                "Collapse file tree": "折叠文件树",
+                "Previous file (K)": "上一个文件（K）",
+                "Next file (J)": "下一个文件（J）",
+                "Open diff view settings": "打开差异视图设置",
+                    "Compact line height": "自定义行高",
+
+                "Copy file name to clipboard": "复制文件名到剪切板",
+                "viewed": "已查看",
+                "Viewed": "已查看",
+                "Comment on this file": "评论此文件",
+                "View file": "查看文件",
+                "Due to the large number of changes in this pull request, only one file is being shown at a time.": "由于此拉取请求中更改的文件数量较多，因此仅显示一个文件。",
+
             // 智能体总结页
                 "session": "任务",
                 "sessions": "任务",
@@ -26596,8 +26632,12 @@ I18N["zh-CN"]["copilot"] = {
         }],
         // 空间
         [/Total percent used: (\d+\%)/, "总使用率：$1"],
-        // 代理
+        // 智能体
         [/(\d+) revisions?/, "$1 次修订"],
+        [/No extension \((\d+)\)/, "无扩展名($1)"],
+        [/Expand all lines: (.+)/, "展开所有行：$1"],
+        [/Collapse non-diff lines: (.+)/, "折叠未更改行：$1"],
+
     ],
 };
 
