@@ -5262,6 +5262,8 @@ I18N["zh-CN"]["settings/keys"] = { // 设置 - SSH 与 GPG 公钥
             "SSH keys": "SSH 密钥",
             "New SSH key": "新建 SSH 密钥",
             "Authentication keys": "认证密钥",
+            "Signing keys": "签名密钥",
+            "Signing": "签名",
             "There are no SSH keys associated with your account.": "没有与您的账户关联的 SSH 密钥。",
             "This is a list of SSH keys associated with your account. Remove any keys that you do not recognize.": "这是与您的账户相关的 SSH 密钥的列表。删除任何您无法识别的密钥。",
             "Never used": "从未使用",
@@ -5302,8 +5304,11 @@ I18N["zh-CN"]["settings/keys"] = { // 设置 - SSH 与 GPG 公钥
             "Are you sure you want to delete this GPG key?": "您确定要删除此 GPG 密钥吗？",
             "be undone. This will permanently delete the GPG key, and if you’d like to use it in the future, you will need to upload it again.": "被撤销。这将永久地删除 GPG 密钥，如果您想在未来使用它，您将需要再次上传它。",
             "Any commits you signed with this key will become unverified after removing it.": "删除后，您使用此密钥签名的任何提交都将变成未验证。",
+            "Commits you signed with this key may become unverified after removing it.": "移除此密钥后，您使用它签署的提交可能会变为未验证状态。",
+            "Learn more about persistent commit signature verification.": "了解更多关于持久性提交签名验证的信息。",
             "I understand, delete this GPG key": "我明白了，删除此 GPG 密钥",
             "Okay, you have successfully deleted that key.": "好的，您已成功删除该密钥。",
+            "cannot": "不能",
 
             // 顶部提醒
             "Key is invalid. You must supply a key in OpenSSH public key format": "密钥无效。您必须提供 OpenSSH 公钥格式的密钥",
