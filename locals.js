@@ -1890,6 +1890,13 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
             return count + ' ' + suffixKey[suffix] + '之前';
         }],
     ],
+    "title": {
+        "static": {
+            "GitHub · Where software is built": "GitHub · 软件构建的地方",
+            "Page not found · GitHub": "找不到页面 · GitHub",
+        },
+        "regexp": [],
+    },
 };
 
 I18N["zh-CN"]["orgs-public"] = { // 组织公共部分
@@ -2295,6 +2302,12 @@ I18N["zh-CN"]["page-dashboard"] = { // 已登录的首页 - 仪表板（含组�
         [/Switch dashboard: ([^ ]+)/, "切换仪表板：$1"],
         [/(.+)\#(\d+) · Opened by ([^ ]+) ·/, "$1#$2 · 打开者 $3"],
     ],
+    "title": {
+        "static": {
+            "GitHub Dashboard": "GitHub 仪表盘",
+            "Feed": "动态",
+        },
+    },
 };
 I18N["zh-CN"]["dashboard"] = I18N["zh-CN"]["page-dashboard"];
 I18N["zh-CN"]["feed"] = I18N["zh-CN"]["page-dashboard"];
@@ -2475,6 +2488,17 @@ I18N["zh-CN"]["page-profile-public"] = { // 个人首页（含组织）
             return '- ' + compareKey[compare] + num + '小时';
         }],
     ],
+    "title": {
+        "static": {
+            "Your Followers": "我的关注者",
+            "Who You’re Following": "我关注的人",
+        },
+        "regexp": [
+            [/Achievements/, "成就"],
+            [/Followers/, "关注者"],
+            [/Following/, "关注"],
+        ],
+    },
 };
 I18N["zh-CN"]["page-profile/achievements"] = I18N["zh-CN"]["page-profile-public"]; // ?tab=achievements
 I18N["zh-CN"]["page-profile/followers"] = I18N["zh-CN"]["page-profile-public"]; // ?tab=followers
@@ -2838,6 +2862,14 @@ I18N["zh-CN"]["page-profile/repositories"] = { // 个人首页 - 仓库标签卡
     "selector": [ // 元素筛选器规则
         ["#type-options > summary > span:nth-child(1)", "类型"], // 个人主页 --> 仓库标签页-->类型筛选器 Type
     ],
+    "title": {
+        "static": {
+            "Your Repositories": "我的仓库",
+        },
+        "regexp": [
+            [/(R|r)epositories/, "仓库"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["page-profile/projects"] = { // 个人首页- 项目标签卡
@@ -2995,6 +3027,14 @@ I18N["zh-CN"]["page-profile/projects"] = { // 个人首页- 项目标签卡
         [/([\d,]+) Closed/, "$1 已关闭"],
         ...I18N["zh-CN"]["orgs-public"]["regexp"],
     ],
+    "title": {
+        "static": {
+            "Your Projects": "我的项目",
+        },
+        "regexp": [
+            [/Projects/, "项目"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["page-profile/sponsoring"] = { // 个人首页- 赞助标签卡
@@ -3017,6 +3057,11 @@ I18N["zh-CN"]["page-profile/sponsoring"] = { // 个人首页- 赞助标签卡
         [/(\d+) repositor(y|ies)/, "$1 个仓库"],
         [/(\d+) members?/, "$1 成员"], // 组织 浮动信息卡
     ],
+    "title": {
+        "regexp": [
+            [/Sponsoring/, "赞助"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["page-profile/packages"] = { // 个人首页 - 软件包标签卡
@@ -3064,6 +3109,14 @@ I18N["zh-CN"]["page-profile/packages"] = { // 个人首页 - 软件包标签卡
         [/(\d+) members?/, "$1 成员"], // 组织 浮动信息卡
         ...I18N["zh-CN"]["orgs-public"]["regexp"],
     ],
+    "title": {
+        "static": {
+            "Your Packages": "我的软件包",
+        },
+        "regexp": [
+            [/Packages/, "软件包"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["page-profile/sponsors"] = { // 个人首页 - 赞助标签卡
@@ -3192,6 +3245,16 @@ I18N["zh-CN"]["page-profile/stars"] = { // 个人首页 - 星标标签卡
         [/(\d+) members?/, "$1 成员"], // 组织 浮动信息卡
         [/Language: /, "语言："],
     ],
+    "title": {
+        "static": {
+            "Your Stars": "我的星标",
+        },
+        "regexp": [
+            [/Your list/, "我的清单"],
+            [/Starred/, "星标"],
+            [/'s list/, " 的清单"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["confirm-access"] = { // “授权访问” 对话框
@@ -3626,6 +3689,11 @@ I18N["zh-CN"]["settings/profile"] = { // 设置 - 个人资料
     },
     "regexp": [ // 正则翻译
     ],
+    "title": {
+        "static": {
+            "Your profile": "个人资料",
+        },
+    },
 };
 I18N["zh-CN"]["settings"] = I18N["zh-CN"]["settings/profile"];
 
@@ -3743,6 +3811,11 @@ I18N["zh-CN"]["settings/admin"] = { // 设置 - 账户
         [/You have revoked the successor invitation to ([^ ]+)./, "您已经撤销了对 $1 的继任者邀请。"],
         [/You have canceled the invitation to ([^ ]+) to be your designated successor./, "您已经取消了让 $1 成为您的指定继任者的邀请。"],
     ],
+    "title": {
+        "static": {
+            "Account settings": "账户设置",
+        },
+    },
 };
 
 I18N["zh-CN"]["succession/invitation"] = { // 账户继任者邀请  users/<邀请者的 user-name>/succession/invitation
@@ -3817,6 +3890,11 @@ I18N["zh-CN"]["settings/appearance"] = { // 设置 - 外观
     },
     "regexp": [ // 正则翻译
     ],
+    "title": {
+        "static": {
+            "Appearance": "外观",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/accessibility"] = { // 设置 - 无障碍
@@ -3900,6 +3978,11 @@ I18N["zh-CN"]["settings/accessibility"] = { // 设置 - 无障碍
     },
     "regexp": [ // 正则翻译
     ],
+    "title": {
+        "static": {
+            "Accessibility": "无障碍",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/notifications"] = { // 设置 - 通知
@@ -3996,6 +4079,11 @@ I18N["zh-CN"]["settings/notifications"] = { // 设置 - 通知
     },
     "regexp": [ // 正则翻译
     ],
+    "title": {
+        "static": {
+            "Notification settings": "通知设置",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
@@ -4811,6 +4899,17 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
 
         ...I18N["zh-CN"]["orgs-public"]["regexp"],
     ],
+    "title": {
+        "static": {
+            "Billing Overview": "账单概览",
+            "Billing Usage": "计费用量",
+            "Premium request analytics": "高级请求分析",
+            "Budgets": "预算",
+            "Billing": "账单",
+            "Payment Information": "支付信息",
+            "Payment history": "支付历史",
+        },
+    },
 };
 I18N["zh-CN"]["account/billing/history"] = I18N["zh-CN"]["settings/billing"];
 I18N["zh-CN"]["orgs/settings/billing"] = I18N["zh-CN"]["settings/billing"];
@@ -4993,6 +5092,11 @@ I18N["zh-CN"]["settings/emails"] = { // 设置 - 电子邮箱
         [/Subscription preferences for ([^@]+@[^\n]+)/, "$1 的订阅偏好"],
         [/Removed email ([^@]+@[^\n]+) from your account./, "已将邮箱 $1 从您的账户中移除。"],
     ],
+    "title": {
+        "static": {
+            "Email settings": "邮箱设置",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/security"] = { // 设置 - 密码和身份身份验证
@@ -5183,6 +5287,11 @@ I18N["zh-CN"]["settings/security"] = { // 设置 - 密码和身份身份验证
             return `添加于 ${dateAdded} | 最后使用 ${dateLastUsed}`;
         }]
     ],
+    "title": {
+        "static": {
+            "Account security": "账户安全",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/auth"] = {
@@ -5255,6 +5364,11 @@ I18N["zh-CN"]["settings/sessions"] = {
     "regexp": [ // 正则翻译
         [/Seen in/, "登录于"],
     ],
+    "title": {
+        "static": {
+            "Sessions": "会话",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/keys"] = { // 设置 - SSH 与 GPG 公钥
@@ -5323,6 +5437,11 @@ I18N["zh-CN"]["settings/keys"] = { // 设置 - SSH 与 GPG 公钥
         [/You have successfully added the key \'([^ ]+)\'./, "成功添加密钥 “$1”。"],
         [/Last used within the last (\d+) weeks?/, "$1 周内最后一次使用"],
     ],
+    "title": {
+        "static": {
+            "SSH and GPG keys": "SSH 和 GPG 密钥",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/ssh"] = { // 设置 - SSH 与 GPG 公钥 - 添加 SSH 公钥
@@ -5393,6 +5512,11 @@ I18N["zh-CN"]["settings/organizations"] = { // 设置 - 组织
         [/Are you positive you want to leave ([^ ]+)\? You will lose access to all repositories and teams./, "您确定要离开 $1 吗？您将失去对所有仓库和团队的访问权。"], // 设置 - 组织 离开按钮 提醒
         [/Are you positive you want to leave ([^ ]+)\? You will lose access to all repositories./, "您确定要离开 $1 吗？您将失去对所有仓库的访问权。"], // 设置 - 组织 离开按钮 提醒
     ],
+    "title": {
+        "static": {
+            "Organizations": "组织",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/enterprises"] = { // 设置 - 企业版
@@ -5410,6 +5534,11 @@ I18N["zh-CN"]["settings/enterprises"] = { // 设置 - 企业版
     },
     "regexp": [ // 正则翻译
     ],
+    "title": {
+        "static": {
+            "Enterprises": "企业版",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/blocked_users"] = { // 设置 - 黑名单
@@ -5440,6 +5569,11 @@ I18N["zh-CN"]["settings/blocked_users"] = { // 设置 - 黑名单
     },
     "regexp": [ // 正则翻译
     ],
+    "title": {
+        "static": {
+            "Blocked users": "黑名单",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/interaction_limits"] = { // 设置 - 互动限制
@@ -5477,6 +5611,11 @@ I18N["zh-CN"]["settings/interaction_limits"] = { // 设置 - 互动限制
     "regexp": [ // 正则翻译
         [/Enabled with (.+) remaining./, "已启用，还剩 $1。"],
     ],
+    "title": {
+        "static": {
+            "Temporary interaction limits": "临时互动限制",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/code_review_limits"] = { // 设置 - 代码审查限制
@@ -5502,6 +5641,11 @@ I18N["zh-CN"]["settings/code_review_limits"] = { // 设置 - 代码审查限制
     },
     "regexp": [ // 正则翻译
     ],
+    "title": {
+        "static": {
+            "Code review limits": "代码审查限制",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/repositories"] = { // 设置 - 仓库
@@ -5519,6 +5663,11 @@ I18N["zh-CN"]["settings/repositories"] = { // 设置 - 仓库
     "regexp": [ // 正则翻译
         [/(\d+) collaborators?/, "$1 位协作者"]
     ],
+    "title": {
+        "static": {
+            "Repositorys": "仓库",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/deleted_repositories"] = { // 设置 - 仓库 - 删除的仓库
@@ -5695,6 +5844,11 @@ I18N["zh-CN"]["settings/codespaces"] = { // 设置 - 代码空间
         [/Are you sure you want to delete ([^ ]+)\?/, "您确定要删除 $1 吗？"],
         [/Remove ([^ ]+)/, "移除 $1"],
     ],
+    "title": {
+        "static": {
+            "Codespaces": "代码空间",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/models"] = {
@@ -5716,6 +5870,11 @@ I18N["zh-CN"]["settings/models"] = {
                 ". Enable paid usage to avoid interruption and add tokens.": "。启用付费使用以避免中断并添加令牌。",
     },
     "regexp": [],
+    "title": {
+        "static": {
+            "Models": "模型",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/packages"] = { // 设置 - 软件包
@@ -5753,6 +5912,11 @@ I18N["zh-CN"]["settings/packages"] = { // 设置 - 软件包
         [/No recoverable packages were found for ([^ ]+)./, "没有找到 $1 的可恢复包。"],
         ...I18N["zh-CN"]["orgs-public"]["regexp"],
     ],
+    "title": {
+        "static": {
+            "Packages": "软件包",
+        },
+    },
 };
 I18N["zh-CN"]["orgs/settings/packages"] = I18N["zh-CN"]["settings/packages"];
 
@@ -5987,6 +6151,11 @@ I18N["zh-CN"]["settings/copilot"] = { // 设置 - GitHub Copilot
         [/Member and collaborator on (\d+) repositor(y|ies)/, "$1 个仓库的成员和协作者"],
         [/Upgrade for higher limits, premium models, AI reviews. Free responses reset in (\d+) days?/, "升级以获取更高的限制、高级模型和 AI 审核。免费额度将在 $1 天内重置。"], // 免费版额度
     ],
+    "title": {
+        "static": {
+            "Copilot coding agent": "Copilot 编程智能体",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/pages"] = { // 设置 - GitHub Pages
@@ -6056,6 +6225,11 @@ I18N["zh-CN"]["settings/replies"] = { // 设置 - 快捷回复
     },
     "regexp": [ // 正则翻译
     ],
+    "title": {
+        "static": {
+            "Saved replies": "快捷回复",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/security_analysis"] = { // 设置 - 代码安全性与分析
@@ -6212,6 +6386,11 @@ I18N["zh-CN"]["settings/security_analysis"] = { // 设置 - 代码安全性与�
         [/You're about to enable private vulnerability reporting on all public repositories in ([^ ]+)./, "您即将在 $1 的所有公共仓库中启用私下漏洞报告。"],
         [/Security settings updated for ([^ ]+)\'s repositories./, "更新了$1 的仓库的安全设置。"],
     ],
+    "title": {
+        "static": {
+            "Security & analysis": "安全与分析",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/installations"] = { // 设置 - 应用/安装的 GitHub 应用
@@ -6419,6 +6598,13 @@ I18N["zh-CN"]["settings/installations"] = { // 设置 - 应用/安装的 GitHub 
         [/(.*) is denied access this organization’s resources/, "$1 被拒绝访问该组织的资源"],
         ...I18N["zh-CN"]["orgs-public"]["regexp"],
     ],
+    "title": {
+        "static": {
+            "Installed GitHub Apps": "已安装的 GitHub 应用",
+            "Authorized GitHub Apps": "授权的 GitHub 应用",
+            "Authorized OAuth Apps": "授权的 OAuth 应用",
+        },
+    },
 };
 I18N["zh-CN"]["settings/apps/authorizations"] = I18N["zh-CN"]["settings/installations"];
 I18N["zh-CN"]["settings/applications"] = I18N["zh-CN"]["settings/installations"];
@@ -6469,6 +6655,11 @@ I18N["zh-CN"]["settings/reminders"] = { // 设置 - 定时提醒
     },
     "regexp": [ // 正则翻译
     ],
+    "title": {
+        "static": {
+            "Scheduled reminders": "定时提醒",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/security-log"] = { // 设置 - 安全日志
@@ -6536,6 +6727,11 @@ I18N["zh-CN"]["settings/security-log"] = { // 设置 - 安全日志
         [/Found (\d+) events?/, "发现 $1 个活动"],
         [/View ([^ ]+)'s profile/, "查看 $1 的资料"],
     ],
+    "title": {
+        "static": {
+            "Security log": "安全日志",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/sponsors-log"] = { // 设置 - 赞助日志
@@ -6558,6 +6754,11 @@ I18N["zh-CN"]["settings/sponsors-log"] = { // 设置 - 赞助日志
     },
     "regexp": [ // 正则翻译
     ],
+    "title": {
+        "static": {
+            "Sponsorship Log": "赞助日志",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/apps"] = { // 设置 - 开发者设置/GitHub 应用
@@ -7150,6 +7351,12 @@ I18N["zh-CN"]["settings/apps"] = { // 设置 - 开发者设置/GitHub 应用
         [/Choose a feature to activate for (.*):/, "选择要为 $1 激活的功能："],
         ...I18N["zh-CN"]["orgs-public"]["regexp"],
     ],
+    "title": {
+        "static": {
+            "GitHub Apps": "GitHub 应用",
+            "New OAuth Application": "新 OAuth 应用",
+        },
+    },
 };
 I18N["zh-CN"]["orgs/settings/apps/new"] = I18N["zh-CN"]["settings/apps"];
 
@@ -7178,6 +7385,11 @@ I18N["zh-CN"]["settings/developers"] = { // 设置 - 开发者设置/OAuth 应�
     },
     "regexp": [ // 正则翻译
     ],
+    "title": {
+        "static": {
+            "Developer applications": "开发者应用",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/applications/new"] = { // 设置 - 开发者设置/OAuth 应用
@@ -7678,6 +7890,14 @@ I18N["zh-CN"]["settings/personal-access-tokens"] = { // 设置 - 开发者设置
             [/(\d+) permissions? for (\d+) repositori(y|es):/, "$1 个仓库的 $2 项权限"],
             [/(\d+) organization permissions?/, "$1 项组织权限"],
     ],
+    "title": {
+        "static": {
+            "Fine-grained Personal Access Tokens": "精细化的个人访问令牌",
+            "New Fine-grained Personal Access Token": "新建精细化个人访问令牌",
+            "Personal Access Tokens (Classic)": "个人访问令牌（经典）",
+            "New Personal Access Token (Classic)": "新建个人访问令牌（经典）",
+        },
+    },
 };
 I18N["zh-CN"]["settings/tokens"] = I18N["zh-CN"]["settings/personal-access-tokens"];
 
@@ -8272,6 +8492,15 @@ I18N["zh-CN"]["page-new-repo"] = {// 仓库 - 新建/导入/复刻仓库
         // [/(\d+) members?/, "$1 个成员"], // 组织  浮动信息卡
         ...I18N["zh-CN"]["orgs-public"]["regexp"],
     ],
+    "title": {
+        "static": {
+            "New repository": "新建仓库",
+            "Import repository": "导入仓库",
+        },
+        "regexp": [
+            [/Fork/, "复刻"],
+        ],
+    },
 };
 I18N["zh-CN"]["new"] = I18N["zh-CN"]["page-new-repo"];
 I18N["zh-CN"]["new/import"] = I18N["zh-CN"]["page-new-repo"];
@@ -8904,6 +9133,12 @@ I18N["zh-CN"]["repository"] = { // 仓库页面 /<user-name>/<repo-name>/
         [/(\d+) changes?/, "$1 个更改"],
         [/(.+) has unpushed changes, are you sure you want to delete\?/, "$1 有未提交更改，您确定要删除吗？"],
     ],
+    "title": {
+        "regexp": [
+            [/(.+) at (.+?) · (.+)/, "$1 在分支 $2 · $3"],
+            [/(.+) at (.+)/, "$1 在分支 $2"],
+        ],
+    },
 };
 I18N["zh-CN"]["repository/tree"] = I18N["zh-CN"]["repository"];
 
@@ -10148,6 +10383,14 @@ I18N["zh-CN"]["repository/issues"] = { // 仓库 - 议题页面
         ...I18N["zh-CN"]["repository-public"]["regexp"],
         ...I18N["zh-CN"]["repository/pull_issue_public"]["regexp"],
     ],
+    "title": {
+        "static": {
+            "New Issue": "创建议题",
+        },
+        "regexp": [
+            [/Issues?/, "议题"],
+        ],
+    },
 };
 I18N["zh-CN"]["repository/labels"] = I18N["zh-CN"]["repository/issues"];
 
@@ -10227,6 +10470,11 @@ I18N["zh-CN"]["repository/pulls"] = { // 仓库 - 拉取请求页面
         [/Ears burning\? Get\@([^ ]+) mentions with/, "烧脑吗？使用 @$1 提及"], // 专业提示
         [/Notify someone on an issue with a mention, like: \@([^ ]+)/, "通知某人在议题上使用提及，例如：@$1"],
     ],
+    "title": {
+        "regexp": [
+            [/Pull requests/, "拉取请求"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
@@ -11359,6 +11607,11 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
     "selector": [ // 元素筛选器规则
         ["span[data-message='Review changes']", "审查更改"], // 拉取请求 --> 更改的文件
     ],
+    "title": {
+        "regexp": [
+            [/(.+) by (.+) · Pull Request #(\d+) · (.+)/, "$1 作者：$2 · 拉取请求 #$3 · $4"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/compare"] = { // 仓库 - 比较并创建拉取请求
@@ -11647,6 +11900,11 @@ I18N["zh-CN"]["repository/compare"] = { // 仓库 - 比较并创建拉取请求
         [/(\d+) deletions?/, "$1 处删除"],
         [/At least (\d+) approving reviews? are required to merge this pull request./, "至少需要 $1 次批准审查才能合并此拉取请求。"], // 创建拉取请求
     ],
+    "title": {
+        "regexp": [
+            [/Compare/, "比较"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/commit"] = { // 仓库 - 提交页面
@@ -11951,6 +12209,11 @@ I18N["zh-CN"]["repository/commit"] = { // 仓库 - 提交页面
         [/Collapse non-diff lines: ([^ ]+)/, "折叠无差异行：$1"],
         [/(\d+) tags?/, "$1 标签"], // 出现位置：某提交所跨标签数
     ],
+    "title": {
+        "regexp": [
+            [/Commits/, "提交"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/blob"] = { // 仓库 - 浏览代码
@@ -12222,6 +12485,11 @@ I18N["zh-CN"]["repository/blob"] = { // 仓库 - 浏览代码
 
         ...I18N["zh-CN"]["repository-public"]["regexp"],
     ],
+    "title": {
+        "regexp": [
+            [/(.+) at (.+?) · (.+)/, "$1 在分支 $2 · $3"],
+        ],
+    },
 };
 I18N["zh-CN"]["repository/blame"] = I18N["zh-CN"]["repository/blob"];
 
@@ -12798,6 +13066,12 @@ I18N["zh-CN"]["repository/discussions"] = { // 讨论页面
         [/This user is sponsoring ([^ ]+)./, "该用户正在赞助 $1。"],
         [/(\d+) votes?/, "$1 投票"],
     ],
+    "title": {
+        "regexp": [
+            [/Discussions/, "讨论"],
+            [/New Discussion · (.+) · Category selection/, "新讨论 · $1 · 分类选择"],
+        ],
+    },
 };
 I18N["zh-CN"]["repository/orgs/discussions"] = I18N["zh-CN"]["repository/discussions"] ;
 
@@ -13295,6 +13569,12 @@ I18N["zh-CN"]["repository/actions"] = { // 仓库 - 操作页面
         [/(\d+)h (\d+)m (\d+)s/, "$1时$2分$3秒"],
         [/(\d+)h (\d+)m/, "$1时$2分"],
     ],
+    "title": {
+        "regexp": [
+            [/Workflow runs/, "工作流程运行"],
+            [/Caches/, "缓存"],
+        ],
+    },
 };
 I18N["zh-CN"]["repository/runs"] = I18N["zh-CN"]["repository/actions"];
 
@@ -13388,6 +13668,11 @@ I18N["zh-CN"]["repository/deployments"] = { // 仓库 - 部署页面
         [/Filter contains (\d+) issues?:/, "过滤器包含 $1 个问题："], // 过滤器报错窗口
         [/via/, "通过"],
     ],
+    "title": {
+        "regexp": [
+            [/Deployments/, "部署"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/attestations"] = { // 仓库 - 证书页面
@@ -13434,6 +13719,11 @@ I18N["zh-CN"]["repository/attestations"] = { // 仓库 - 证书页面
                 "Select items": "请选择项目",
                 "Select an item": "请选择一个项目",
                 "Filter values": "筛选值",
+    },
+    "title": {
+        "regexp": [
+            [/Attestations/, "证书"],
+        ],
     },
 };
 
@@ -13772,6 +14062,12 @@ I18N["zh-CN"]["repository/new"] = { // 仓库 - 新建/编辑/上传/删除文�
         [/([^ ]+) has committed since you started editing./, "$1 自您开始编辑以来已提交。"],
         ...I18N["zh-CN"]["repository-public"]["regexp"],
     ],
+    "title": {
+        "regexp": [
+            [/New File at/, "新建文件在"],
+            [/Editing (.+) at (.+) · (.+)/, "编辑文件 $1 在分支 $2 · $3"],
+        ],
+    },
 };
 I18N["zh-CN"]["repository/edit"] = I18N["zh-CN"]["repository/new"];
 I18N["zh-CN"]["repository/delete"] = I18N["zh-CN"]["repository/new"];
@@ -13850,6 +14146,12 @@ I18N["zh-CN"]["repository/models"] = { // 仓库 - 模型
         ...I18N["zh-CN"]["repository-public"]["regexp"],
         [/(\d+) prompts? found/, "$1 条提示词"],
     ],
+    "title": {
+        "regexp": [
+            [/Models/, "模型"],
+            [/Prompts/, "提示词"],
+        ],
+    },
 }
 
 I18N["zh-CN"]["repository/wiki"] = { // 仓库 - wiki 页面
@@ -14180,6 +14482,11 @@ I18N["zh-CN"]["repository/branches"] = { // 仓库 - 分支页面
     "selector": [ // 元素筛选器规则
         ["a[data-target='branch-filter.allFilter']", "所有分支"],
     ],
+    "title": {
+        "regexp": [
+            [/Branches/, "分支"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/activity"] = { // 仓库 - 活动页面
@@ -14536,6 +14843,13 @@ I18N["zh-CN"]["repository/releases"] = { // 仓库 - 发行版页面
         [/^([^ ]+) is used by another release/, "$1 已存在"], // 省略部分内容
         ...I18N["zh-CN"]["repository-public"]["regexp"],
     ],
+    "title": {
+        "regexp": [
+            [/Releases?/, "发行版"],
+            [/Tags/, "标签"],
+            [/New release/, "新建发行版"],
+        ],
+    },
 };
 I18N["zh-CN"]["repository/tags"] = I18N["zh-CN"]["repository/releases"];
 
@@ -15313,6 +15627,16 @@ I18N["zh-CN"]["repository/security"] = { // 仓库 - 安全页面
         //[/Copy ([^/]\/(?:[^/]+\/)*[^/]+$) to clipboard/, "复制 $1 到剪切板"],
         [/Prototype Pollution in ([^ ]+)/, "$1 上游污染"],
     ],
+    "title": {
+        "regexp": [
+            [/Security Overview/, "安全概述"],
+            [/Security Policy/, "安全政策"],
+            [/Security Advisories/, "安全咨询"],
+            [/Dependabot alerts?/, "Dependabot 警报"],
+            [/Code scanning alerts?/, "代码扫描警报"],
+            [/Secret scanning/, "机密扫描"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/contribute"] = { // 仓库 - 贡献页面
@@ -15543,6 +15867,11 @@ I18N["zh-CN"]["repository/pulse"] = { // 仓库 -> 洞察 - 统计
         [/issues? closed/, "议题关闭"],
         [/(\d+) commits? authored by ([^ ]+)/, "$2 提交 $1 次"],
     ],
+    "title": {
+        "regexp": [
+            [/Pulse/, "洞察"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/graphs/contributors"] = { // 仓库 -> 洞察 - 贡献者
@@ -15650,6 +15979,11 @@ I18N["zh-CN"]["repository/graphs/contributors"] = { // 仓库 -> 洞察 - 贡献
         }],
         ...I18N["zh-CN"]["repository-public"]["regexp"],
     ],
+    "title": {
+        "regexp": [
+            [/Contributors to (.+)/, "$1 的贡献者"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/graphs/community"] = { // 仓库 -> 洞察 - 社区
@@ -15795,6 +16129,11 @@ I18N["zh-CN"]["repository/community"] = { // 仓库 -> 洞察 - 社区准则
     "regexp": [ // 正则翻译
         ...I18N["zh-CN"]["repository-public"]["regexp"],
     ],
+    "title": {
+        "static": {
+            "Community Standards": "社区准则",
+        },
+    },
 };
 
 I18N["zh-CN"]["repository/graphs/traffic"] = { // 仓库 -> 洞察 - 流量
@@ -15932,6 +16271,11 @@ I18N["zh-CN"]["repository/graphs/commit-activity"] = { // 仓库 -> 洞察 - 提
             return `${translatedDate}当周` ; // 这里写翻译结果
         }],
     ],
+    "title": {
+        "regexp": [
+            [/Commits/, "提交"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/graphs/code-frequency"] = { // 仓库 -> 洞察 - 代码频率
@@ -16007,6 +16351,11 @@ I18N["zh-CN"]["repository/graphs/code-frequency"] = { // 仓库 -> 洞察 - 代�
             return mKey[m] + d + "日";
         }],
     ],
+    "title": {
+        "regexp": [
+            [/Code frequency/, "代码频率"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/network/dependencies"] = { // 仓库 -> 洞察 - 依赖项关系图 - 依赖项
@@ -16102,6 +16451,11 @@ I18N["zh-CN"]["repository/network/dependencies"] = { // 仓库 -> 洞察 - 依�
         [/(\d+) moderate/, "$1 中风险"],
         [/Load (\d+) more…/, "加载更多 $1个…"],
     ],
+    "title": {
+        "regexp": [
+            [/Dependencies/, "依赖项"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/network/dependents"] = { // 仓库 -> 洞察 - 依赖项关系图 - 依赖者
@@ -16133,6 +16487,11 @@ I18N["zh-CN"]["repository/network/dependents"] = { // 仓库 -> 洞察 - 依赖�
         [/(\d+) Repositor(y|ies)/, "$1 仓库"],
         [/(\d+) Packages?/, "$1 软件包"],
     ],
+    "title": {
+        "regexp": [
+            [/Network Dependents/, "网络依赖者"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/network/updates"] = { // 仓库 -> 洞察 - 依赖项关系图 - Dependabot
@@ -16202,6 +16561,11 @@ I18N["zh-CN"]["repository/network"] = { // 仓库 -> 洞察 - 网络图
     "regexp": [ // 正则翻译
         ...I18N["zh-CN"]["repository-public"]["regexp"],
     ],
+    "title": {
+        "regexp": [
+            [/Network Graph/, "网络图"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/network/members"] = { // 仓库 -> 洞察 - 复刻
@@ -16287,6 +16651,11 @@ I18N["zh-CN"]["repository/forks"] = { // 仓库 -> 洞察 - 复刻
             return typeKey[type] + ' ' + num;
         }],
     ],
+    "title": {
+        "regexp": [
+            [/Forks/, "复刻"],
+        ],
+    },
 };
 
 // 洞察 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -16697,6 +17066,11 @@ I18N["zh-CN"]["repository/settings"] = { // 仓库设置 - 通常 /<user-name>/<
         // 离开复刻网络
         [/Forked from ([^ ])/, "复刻自 $1"],
     ],
+    "title": {
+        "static": {
+            "General": "通常",
+        },
+    },
 };
 
 I18N["zh-CN"]["repository/settings/access"] = { // 仓库设置 - 协作者/(组织仓库 协作者和团队) /<user-name>/<repo-name>/settings/access
@@ -16815,6 +17189,11 @@ I18N["zh-CN"]["repository/settings/access"] = { // 仓库设置 - 协作者/(组
         [/Removed ([^ ]+) as a collaborator of ([^ ]+\/[^ ]+)/, "删除 $1 为 $2 的协作者"],
         ...I18N["zh-CN"]["repository-public"]["regexp"],
     ],
+    "title": {
+        "static": {
+            "Manage access": "访问管理",
+        },
+    },
 };
 
 I18N["zh-CN"]["repository/settings/interaction_limits"] = { // 仓库设置 - 互动限制 /<user-name>/<repo-name>/settings/interaction_limits
@@ -16869,6 +17248,11 @@ I18N["zh-CN"]["repository/settings/interaction_limits"] = { // 仓库设置 - �
             [/You can restrict repository interactions across the ([^ ]+) organization in your/, "您可以在您的 $1 组织中限制仓库交互"],
             [/to the ([^ ]+) branch of this repository will be unable to interact with the repository./, "到该仓库的 $1 分支的用户将无法与该仓库互动。"],
     ],
+    "title": {
+        "static": {
+            "Temporary interaction limits": "临时互动限制",
+        },
+    },
 };
 
 I18N["zh-CN"]["repository/settings/code_review_limits"] = { // 仓库设置 - 代码审查限制 /<user-name>/<repo-name>/settings/code_review_limits
@@ -16889,6 +17273,11 @@ I18N["zh-CN"]["repository/settings/code_review_limits"] = { // 仓库设置 - �
     "regexp": [ // 正则翻译
         ...I18N["zh-CN"]["repository-public"]["regexp"],
     ],
+    "title": {
+        "static": {
+            "Code review limits": "代码审查限制",
+        },
+    },
 };
 
 I18N["zh-CN"]["repository/settings/branches"] = { // 仓库设置 - 分支 /<user-name>/<repo-name>/settings/branches
@@ -16940,6 +17329,11 @@ I18N["zh-CN"]["repository/settings/branches"] = { // 仓库设置 - 分支 /<use
         ...I18N["zh-CN"]["repository-public"]["regexp"],
         [/Currently applies to (\d+) branch(?:es|)/, "目前适用于 $1 个分支"], // 仓库设置-->分支-->分支保护规则
     ],
+    "title": {
+        "regexp": [
+            [/Settings · Branches/, "设置 · 分支"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/settings/branch_protection_rules"] = { // 仓库设置 - 分支/分支保护 /<user-name>/<repo-name>/settings/branch_protection_rules
@@ -17077,6 +17471,11 @@ I18N["zh-CN"]["repository/settings/branch_protection_rules"] = { // 仓库设置
         ...I18N["zh-CN"]["repository-public"]["regexp"],
         [/Applies to (\d+) branch(?:es|)/, "应用于 $1 个分支"], //仓库设置-->分支-->分支保护规则-->编辑
     ],
+    "title": {
+        "regexp": [
+            [/Settings · Branches · New branch protection rule/, "设置 · 分支 · 新建分支保护规则"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/settings/tag_protection"] = { // 仓库设置 - 标签 /<user-name>/<repo-name>/settings/tag_protection
@@ -17139,6 +17538,11 @@ I18N["zh-CN"]["repository/settings/tag_protection"] = { // 仓库设置 - 标签
         [/(\d+) rules?/, "$1 条规则"],
         ...I18N["zh-CN"]["repository-public"]["regexp"],
     ],
+    "title": {
+        "regexp": [
+            [/Settings · Tags/, "设置 · 标签"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/settings/rules"] = { // 仓库设置 - 规则 - 规则集 /<user-name>/<repo-name>/settings/rules
@@ -17623,6 +18027,11 @@ I18N["zh-CN"]["repository/settings/rules"] = { // 仓库设置 - 规则 - 规则
         [/Branch name must not match a given regex pattern/, "分支名称不得匹配给定的正则表达式规则"],
         ...I18N["zh-CN"]["orgs-public"]["regexp"],
     ],
+    "title": {
+        "regexp": [
+            [/Settings · Rulesets?/, "设置 · 规则集"],
+        ],
+    },
 };
 I18N["zh-CN"]["orgs/settings/rules"] = I18N["zh-CN"]["repository/settings/rules"];
 I18N["zh-CN"]["repository/rules"] = I18N["zh-CN"]["repository/settings/rules"];
@@ -17754,6 +18163,13 @@ I18N["zh-CN"]["repository/settings/actions"] = { // 仓库设置 - 操作 /<user
         [/Add new self-hosted runner · (.+)/, "添加自托管运行器 · $1"],
         ...I18N["zh-CN"]["repository-public"]["regexp"],
     ],
+    "title": {
+        "regexp": [
+            [/Actions settings/, "操作设置"],
+            [/Runners/, "运行器"],
+            [/Add new self-hosted runner/, "添加自托管运行器"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/settings/models/access-policy"] = { // 仓库设置 - 模型 /<user-name>/<repo-name>/settings/models/access-policy
@@ -17769,6 +18185,11 @@ I18N["zh-CN"]["repository/settings/models/access-policy"] = { // 仓库设置 - 
             "Learn more about Models.": "了解更多。",
     },
     "regexp": [],
+    "title": {
+        "regexp": [
+            [/settings · GitHub Models access policy/, "设置 · GitHub 模型访问政策"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/settings/hooks"] = { // 仓库设置 - Web 钩子 /<user-name>/<repo-name>/settings/hooks
@@ -17985,6 +18406,14 @@ I18N["zh-CN"]["repository/settings/hooks"] = { // 仓库设置 - Web 钩子 /<us
         ...I18N["zh-CN"]["repository-public"]["regexp"],
         [/Completed in (\d+(\.\d+)) seconds?./, "在 $1 秒内完成。"],
     ],
+    "title": {
+        "static": {
+            "Add webhook": "添加 Web 钩子",
+        },
+        "regexp": [
+            [/Webhooks · Settings/, "Web 钩子 · 设置"],
+        ],
+    },
 };
 I18N["zh-CN"]["orgs/settings/hooks"] = I18N["zh-CN"]["repository/settings/hooks"];
 
@@ -18024,6 +18453,11 @@ I18N["zh-CN"]["repository/settings/copilot/code_review"] = {
         // 3 branch rules • targeting 1 branch
         [/(\d+) branch rules? • targeting (\d+) branch(?:es)?/, "$1 分支规则 • 针对 $2 分支"],
     ],
+    "title": {
+        "regexp": [
+            [/Settings · Code review/, "设置 · 代码审查"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/settings/copilot/coding_agent"] = {
@@ -18090,6 +18524,11 @@ I18N["zh-CN"]["repository/settings/copilot/coding_agent"] = {
     "regexp": [
         [/(\d+) rules?/, "$1 规则"],
     ],
+    "title": {
+        "static": {
+            "Copilot coding agent": "Copilot 编程智能体",
+        },
+    },
 };
 
 I18N["zh-CN"]["repository/settings/environments"] = { // 仓库设置 - 环境 /<user-name>/<repo-name>/settings/environment
@@ -18243,6 +18682,13 @@ I18N["zh-CN"]["repository/settings/environments"] = { // 仓库设置 - 环境 /
         [/Deployment branch rule \"([^ ]+)\" saved successfully./ ,"部署分支规则 “$1” 已成功保存。"],
         [/Deployment branch rule \"([^ ]+)\" removed./, "部署分支规则 “$1” 已删除。",]
     ],
+    "title": {
+        "regexp": [
+            [/Environments/, "环境"],
+            [/Create environment/, "创建环境"],
+            [/Configure environment/, "配置环境"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/settings/codespaces"] = { // 仓库设置 - 代码空间 /<user-name>/<repo-name>/settings/codespaces
@@ -18349,6 +18795,11 @@ I18N["zh-CN"]["repository/settings/codespaces"] = { // 仓库设置 - 代码空�
     "regexp": [ // 正则翻译
         ...I18N["zh-CN"]["repository-public"]["regexp"],
     ],
+    "title": {
+        "static": {
+            "Codespaces": "代码空间",
+        },
+    },
 };
 
 I18N["zh-CN"]["repository/settings/pages"] = { // 仓库设置页面(含组织仓库) /<user-name>/<repo-name>/settings
@@ -18701,6 +19152,11 @@ I18N["zh-CN"]["repository/settings/security_analysis"] = { // 仓库设置 - 高
         ...I18N["zh-CN"]["repository-public"]["regexp"],
         [/(\d+) rules? enabled/, "已启用 $1 条规则"],
     ],
+    "title": {
+        "regexp": [
+            [/Settings · Advanced Security/, "设置 · 高级安全"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/settings/keys"] = { // 仓库设置 - 部署密钥 /<user-name>/<repo-name>/settings/keys
@@ -18753,6 +19209,12 @@ I18N["zh-CN"]["repository/settings/keys"] = { // 仓库设置 - 部署密钥 /<u
         [/Last used within the last (\d+) weeks?/, "最后一次使用是最近 $1 周之内"], // /keys
         [/Last used within the last (\d+) months?/, "最后一次使用是最近 $1 个月之内"], // /keys
     ],
+    "title": {
+        "static": {
+            "Deploy keys": "部署密钥",
+            "Add deploy key": "添加部署密钥",
+        },
+    },
 };
 
 I18N["zh-CN"]["repository/settings/secrets"] = { // 仓库设置 - 机密 /<user-name>/<repo-name>/settings/secrets
@@ -18889,6 +19351,16 @@ I18N["zh-CN"]["repository/settings/secrets"] = { // 仓库设置 - 机密 /<user
         ...I18N["zh-CN"]["repository-public"]["regexp"],
         [/Organization secrets for ([^ ]+) can be managed within/, "$1  的组织机密可以管理，在"], // /secrets/dependabot
     ],
+    "title": {
+        "regexp": [
+            [/Actions secrets/, "操作机密"],
+            [/Add Actions secret/, "新建操作机密"],
+            [/Actions variables/, "操作变量"],
+            [/Add Actions variable/, "新建操作变量"],
+            [/Codespaces secrets/, "代码空间机密"],
+            [/Add Codespaces secret/, "新建代码空间机密"],
+        ],
+    },
 };
 I18N["zh-CN"]["repository/settings/variables"] = I18N["zh-CN"]["repository/settings/secrets"];
 
@@ -18911,6 +19383,11 @@ I18N["zh-CN"]["repository/settings/installations"] = { // 仓库设置 - GitHub 
     "regexp": [ // 正则翻译
         ...I18N["zh-CN"]["repository-public"]["regexp"],
     ],
+    "title": {
+        "static": {
+            "GitHub Apps": "GitHub 应用",
+        },
+    },
 };
 
 I18N["zh-CN"]["repository/settings/notifications"] = { // 仓库设置 - 邮件通知 /<user-name>/<repo-name>/settings/notifications/edit
@@ -18935,6 +19412,11 @@ I18N["zh-CN"]["repository/settings/notifications"] = { // 仓库设置 - 邮件�
     "regexp": [ // 正则翻译
         ...I18N["zh-CN"]["repository-public"]["regexp"],
     ],
+    "title": {
+        "static": {
+            "Configure email notifications": "配置电子邮件通知",
+        },
+    },
 };
 
 I18N["zh-CN"]["repository/settings/key_links"] = { // 仓库设置 - 自动链接引用（注：只有专业版有） /<user-name>/<repo-name>/settings/key_links
@@ -18966,6 +19448,12 @@ I18N["zh-CN"]["repository/settings/key_links"] = { // 仓库设置 - 自动链�
                     "for the reference number.": "作为引用编号。",
     },
     "regexp": [],
+    "title": {
+        "static": {
+            "Autolink references": "自动链接引用",
+            "Add autolink reference": "添加自动链接引用",
+        },
+    },
 };
 
 I18N["zh-CN"]["repository/transfer"] = { // 转让仓库
@@ -19370,6 +19858,11 @@ I18N["zh-CN"]["homepage"] = { // 未登录的首页
     },
     "regexp": [ // 正则翻译
     ],
+    "title": {
+        "static": {
+            "GitHub · Change is constant. GitHub keeps you ahead. · GitHub": "GitHub · 变化是常态，GitHub 让你始终领先 · GitHub",
+        },
+    },
 };
 
 I18N["zh-CN"]["home"] = I18N["zh-CN"]["homepage"];
@@ -19813,6 +20306,13 @@ I18N["zh-CN"]["session-authentication"] = { // 登录页 包含(/login, /session
         // 设备验证 https://github.com/sessions/verified-device
         [/We just sent your authentication code via email to (.*)\. The code will expire at (.*)\./, "我们刚刚通过电子邮件将您的验证码发送给 $1。验证码将于 $2 过期。"],
     ],
+    "title": {
+        "static": {
+            "Confirm access": "授权访问",
+            "Forgot your password?": "忘记您的密码了吗？",
+            "Sign in to GitHub · GitHub": "登录 GitHub · GitHub",
+        },
+    },
 };
 I18N["zh-CN"].login = I18N["zh-CN"]["session-authentication"];
 I18N["zh-CN"].logout = I18N["zh-CN"]["session-authentication"];
@@ -19881,6 +20381,11 @@ I18N["zh-CN"]["signup"] = { // 注册页
         [/Username ([^ ]+) is not available./, "用户名 $1 不可用。"],
         [/([^ ]+) is available./, "用户名 $1 可用。"],
     ],
+    "title": {
+        "static": {
+            "Sign up for GitHub · GitHub": "注册 GitHub · GitHub",
+        },
+    },
 };
 
 I18N["zh-CN"]["account_verifications"] = {
@@ -20056,6 +20561,11 @@ I18N["zh-CN"]["notifications"] = { // 通知页面
         [/of (\d+)/, " 共 $1 条"],
         [/workflow run failed for ([^ ]+) branch/, "工作流程运行失败，$1 分支"], // F12 才翻译
     ],
+    "title": {
+        "static": {
+            "Notifications": "通知",
+        },
+    },
 };
 
 I18N["zh-CN"]["watching"] = { // 关注的仓库页面
@@ -20223,6 +20733,11 @@ I18N["zh-CN"]["stars"] = { // 星标 https://github.com/stars/<user-name>
     },
     "regexp": [ // 正则翻译
     ],
+    "title": {
+        "static": {
+            "Your starred topics": "我的星标主题",
+        },
+    },
 };
 
 I18N["zh-CN"]["issues"] = { // 议题页面
@@ -20572,6 +21087,22 @@ I18N["zh-CN"]["issues"] = { // 议题页面
         [/Are you sure you want to delete view (.*)\?/, "您确定要删除视图 $1 吗？"],
         [/Filter contains (\d+) issues?:/, "过滤器包含 $1 个问题："]
     ],
+    "title": {
+        "static": {
+            // issues
+            "Assigned to me": "分配给您",
+            "Created by me": "由您创建",
+            "Mentioned": "提到的",
+            "Recent Activity": "最近活动",
+            "View": "视图",
+
+            // pulls
+            "Pull requests - Created": "拉取请求 - 已创建",
+            "Pull requests - Assigned": "拉取请求 - 已分配",
+            "Pull requests - Mentioned": "拉取请求 - 提到的",
+            "Pull requests - Review requests": "拉取请求 - 审查请求",
+        },
+    },
 };
 I18N["zh-CN"].pulls = I18N["zh-CN"].issues;
 
@@ -20954,6 +21485,21 @@ I18N["zh-CN"]["search"] = { // 搜索页面
         ["#search_form > div.container-lg.p-responsive.advanced-search-form > fieldset:nth-child(2) > label > select > option:nth-child(2)", "要"],
         ["#search_form > div.container-lg.p-responsive.advanced-search-form > fieldset:nth-child(3) > label > select > option:nth-child(2)", "要"],
     ],
+    "title": {
+        "static": {
+            "Repository search results": "仓库搜索结果",
+            "Code search results": "代码搜索结果",
+            "Issue search results": "议题搜索结果",
+            "Pull request search results": "拉取请求搜索结果",
+            "Discussion search results": "讨论搜索结果",
+            "User search results": "用户搜索结果",
+            "Commit search results": "提交搜索结果",
+            "Package search results": "软件包搜索结果",
+            "Wiki search results": "Wiki 搜索结果",
+            "Topic search results": "主题搜索结果",
+            "Marketplace search results": "市场搜索结果",
+        },
+    },
 };
 I18N["zh-CN"]["repository/search"] = I18N["zh-CN"]["search"];
 
@@ -20974,6 +21520,11 @@ I18N["zh-CN"]["discussions"] = {
     },
     "regexp": [ // 正则翻译
     ],
+    "title": {
+        "static": {
+            "Discussions": "讨论",
+        },
+    },
 };
 
 I18N["zh-CN"]["gist"] = { // 代码片段页面
@@ -21247,6 +21798,16 @@ I18N["zh-CN"]["gist"] = { // 代码片段页面
         [/([\d,]+) gist results?/, "$1 个片段结果"],
         [/Sort:/, "排序："],
     ],
+    "title": {
+        "static": {
+            "Create a new Gist": "新建代码片段",
+            "Discover gists": "探索代码片段",
+        },
+        "regexp": [
+            [/’s gists/, " 的代码片段"],
+            [/Search/, "搜索"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["login/oauth"] = { // 应用授权
@@ -21405,6 +21966,11 @@ I18N["zh-CN"]["explore"] = { // 探索页面
         [/See the ([\d,]+) items? in this collection/, "查看该系列中的 $1 个项目"],
         [/Topic: ([^ ]+)/, "主题：$1"],
     ],
+    "title": {
+        "static": {
+            "Explore GitHub": "探索 GitHub",
+        },
+    },
 };
 
 I18N["zh-CN"]["topics"] = { // 探索-->主题页面
@@ -21466,6 +22032,14 @@ I18N["zh-CN"]["topics"] = { // 探索-->主题页面
         [/Here are ([\d,]+) public repositories? matching this topic.../, "有 $1 个公共仓库与此主题相匹配"],
         [/Topic: ([^ ]+)/, "主题：$1"],
     ],
+    "title": {
+        "static": {
+            "Topics on GitHub": "GitHub 上的主题",
+        },
+        "regexp": [
+            [/GitHub Topics/, "GitHub 主题"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["trending"] = { // 热门页面
@@ -21529,6 +22103,16 @@ I18N["zh-CN"]["trending"] = { // 热门页面
         [/([\d,]+) stars? this week/, "本周 $1 星标"],
         [/([\d,]+) stars? this month/, "本月 $1 星标"],
     ],
+    "title": {
+        "static": {
+            "Trending repositories on GitHub today": "今日热门仓库",
+            "Trending repositories on GitHub this week": "本周热门仓库",
+            "Trending repositories on GitHub this month": "本月热门仓库",
+            "Trending developers on GitHub today": "今日热门开发者",
+            "Trending developers on GitHub this week": "本周热门开发者",
+            "Trending developers on GitHub this month": "本月热门开发者",
+        },
+    },
 };
 
 I18N["zh-CN"]["collections"] = { // 集合页面
@@ -21547,6 +22131,14 @@ I18N["zh-CN"]["collections"] = { // 集合页面
     },
     "regexp": [ // 正则翻译
     ],
+    "title": {
+        "static": {
+            "Collections": "集合",
+        },
+        "regexp": [
+            [/Collection: /, "集合："],
+        ],
+    },
 };
 
 I18N["zh-CN"]["sponsors"] = { // 赞助界面
@@ -21765,6 +22357,18 @@ I18N["zh-CN"]["sponsors"] = { // 赞助界面
         [/and (\d+) others sponsor this goal/, "和另外 $1 人赞助此目标"],
         [/(\d+) of your repositories depends? on this/, "您有 $1 个仓库依赖此"],
     ],
+    "title": {
+        "static": {
+            "Explore GitHub Sponsors": "探索 GitHub 赞助者",
+            "GitHub Sponsors accounts": "GitHub 赞助者账户",
+            "GitHub Sponsors · Get sponsored": "GitHub 赞助者 · 获得赞助",
+            "Choose frequency to bulk sponsor": "选择批量赞助的频率",
+            "Create sponsorships in bulk via file import": "通过文件导入批量创建赞助",
+        },
+        "regexp": [
+            [/Sponsor @(.+) on GitHub Sponsors/, "GitHub 赞助上赞助者 @$1"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["showcases"] = { // 展示页面
@@ -21836,6 +22440,11 @@ I18N["zh-CN"]["account/organizations/new"] = { // 创建组织
         [/Organization name \'([^ ]+)\' is unavailable./, "组织名称 '$1' 不可用。"],
         [/I.e.,/, "即："],
     ],
+    "title": {
+        "static": {
+            "Set up your organization": "设置您的组织",
+        },
+    },
 };
 
 I18N["zh-CN"]["account/choose"] = { // 账户升级选择
@@ -22544,6 +23153,18 @@ I18N["zh-CN"]["marketplace"] = { // GitHub 市场
 
         [/Thank you! ([^ ]+) is now on the waitlist for GitHub Models./, "谢谢！$1 现已进入 GitHub 模型等待名单。"],
     ],
+    "title": {
+        "static": {
+            "Marketplace": "市场",
+            "Marketplace · Tools to improve your workflow": "市场 · 改进工作流程的工具",
+            "GitHub Models": "GitHub 模型",
+            "Models · GitHub Marketplace": "模型 · GitHub 市场",
+            "New Marketplace Listing · GitHub Marketplace": "新建市场 · GitHub 市场",
+        },
+        "regexp": [
+            [/Models/, "模型"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["apps"] = { // GitHub 应用
@@ -22844,6 +23465,11 @@ I18N["zh-CN"]["orgs"] = { // 组织页面
     "selector": [ // 元素筛选器规则
         ["#type-options > summary > span:nth-child(1)", "类型"], // 组织主页 --> 仓库标签页-->类型筛选器 Type
     ],
+    "title": {
+        "static": {
+            "Choose a plan": "选择一个计划",
+        },
+    },
 };
 
 I18N["zh-CN"]["orgs/repositories"] = I18N["zh-CN"]["page-profile/repositories"];
@@ -23002,6 +23628,11 @@ I18N["zh-CN"]["orgs/people"] = { // 组织 - 成员标签卡
         }],
         ...I18N["zh-CN"]["orgs-public"]["regexp"],
    ],
+    "title": {
+        "regexp": [
+            [/Members · People/, "成员 · 人"],
+        ],
+    },
 };
 I18N["zh-CN"]["orgs/outside-collaborators"] = I18N["zh-CN"]["orgs/people"];
 I18N["zh-CN"]["orgs/pending_collaborators"] = I18N["zh-CN"]["orgs/people"];
@@ -25640,6 +26271,11 @@ I18N["zh-CN"]["projects"] = { // 项目页面(含仓库项目)
         // Showing 1 most recent item that has not been added to this project
         [/Showing (\d+) most recent item that has not been added to this project/, "显示 $1 个最近的项目，尚未添加到此项目"],
     ],
+    "title": {
+        "regexp": [
+            [/Projects/, "项目"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["new/project"] = I18N["zh-CN"]["projects"];
@@ -25993,6 +26629,13 @@ I18N["zh-CN"]["codespaces"] = { // 代码空间页面
         }],
         [/This codespace is (\d+) commits? ahead of remote/, "此代码空间 $1 条提交领先远端"],
     ],
+    "title": {
+        "static": {
+            "Codespaces": "代码空间",
+            "Codespace templates": "代码空间模版",
+            "Create new codespace": "创建代码空间",
+        },
+    },
 };
 
 I18N["zh-CN"]["codespaces/allow_permissions"] = { // 代码空间申请额外权限页面，似乎不可用
@@ -26104,6 +26747,11 @@ I18N["zh-CN"]["features"] = {
     },
     "regexp": [
     ],
+    "title": {
+        "static": {
+            "GitHub Features · GitHub": "GitHub 特点 · GitHub",
+        },
+    },
 };
 
 I18N["zh-CN"]["status"] = { // GitHub Status
@@ -26482,6 +27130,11 @@ I18N["zh-CN"]["orgs/sponsoring"] = { // https://github.com/orgs/<org-name>/spons
         [/([^ ]+) hasn’t sponsored any users yet./, "$1 尚未赞助任何人。"],
         ...I18N["zh-CN"]["orgs-public"]["regexp"],
     ],
+    "title": {
+        "regexp": [
+            [/Sponsoring/, "赞助"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["organizations/plan"] = {
@@ -26627,6 +27280,11 @@ I18N["zh-CN"]["repository/actions/metrics/usage"] = {
     "regexp": [
         ...I18N["zh-CN"]["repo-actions-merics-public"]["regexp"],
     ],
+    "title": {
+        "static": {
+            "Actions usage metrics": "操作使用情况",
+        },
+    },
 };
 
 I18N["zh-CN"]["repository/actions/metrics/performance"] = {
@@ -26670,6 +27328,11 @@ I18N["zh-CN"]["repository/actions/metrics/performance"] = {
         [/(\d+)m (\d+)s/, "$1分$2秒"],
         [/(\d+)m/, "$1分钟"],
     ],
+    "title": {
+        "static": {
+            "Actions performance metrics": "操作数据看板",
+        },
+    },
 };
 
 I18N["zh-CN"]["copilot"] = {
@@ -27138,6 +27801,13 @@ I18N["zh-CN"]["copilot"] = {
         [/Collapse non-diff lines: (.+)/, "折叠未更改行：$1"],
 
     ],
+    "title": {
+        "static": {
+            "Agents · GitHub Copilot": "智能体 · GitHub Copilot",
+            "New chat · GitHub Copilot": "新聊天 · GitHub Copilot",
+            "Spaces · GitHub Copilot": "空间 · GitHub Copilot",
+        },
+    },
 };
 
 I18N["zh-CN"]["github-copilot/code-review-waitlist"] = {
@@ -27507,6 +28177,14 @@ I18N["zh-CN"]["education"] = { // 教育页面，申请学生包会用到
         //[/Verified since (.+)/, "验证自 $1"],
         [/(\d+) views?/, "$1 次观看"],
     ],
+    "title": {
+        "static": {
+            "GitHub Education": "GitHub 教育",
+            "GitHub Student Developer Pack - GitHub Education": "GitHub 学生开发者包 - GitHub 教育",
+            "Community Exchange - GitHub Education": "社区交流 - GitHub 教育",
+            "Events - GitHub Education": "事件 - GitHub 教育",
+        },
+    },
 };
 
 I18N["zh-CN"]["mcp"] = {
@@ -27528,4 +28206,9 @@ I18N["zh-CN"]["mcp"] = {
             "Contact support": "获取支持",
     },
     "regexp": [],
+    "title": {
+        "static": {
+            "MCP Registry": "MCP 互联",
+        },
+    },
 };
