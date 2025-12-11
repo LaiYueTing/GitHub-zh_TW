@@ -77,7 +77,6 @@ I18N.conf = {
         'repository': [".AppHeader-context", "table"], //  "article.markdown-body",
         'repository/releases': [".Box-footer"], // 附件清单
         'repository/issues': [
-            'div.styled-input-content', // 筛选条
             'div[aria-live="polite"]>div.markdown-body', // 新建议题 - 正文编辑器预览
             '.markdown-body[data-team-hovercards-enabled="true"]', // 某个议题 - 正文以及正文编辑器、添加评论编辑器预览
         ],
@@ -91,12 +90,10 @@ I18N.conf = {
         'spark':[
             '.cm-line',
         ],
-        'issues':[
-            'div.styled-input-content', // 筛选条
-        ],
         '*': [
             'div.QueryBuilder-StyledInputContainer', // 顶部搜索栏 关键词
             '#qb-input-query span', // 搜索页面 搜索栏 关键词
+			'div.styled-input-content', // 筛选条
         ],
     },
 
@@ -151,7 +148,6 @@ I18N.conf = {
             '#file-name-id', // 文件路径中文件部分
         ],
         'repository/issues': [
-            'div.styled-input-content', // 筛选条
             'div[aria-live="polite"]>div.markdown-body', // 新建议题 - 正文编辑器预览
             '.markdown-body[data-team-hovercards-enabled="true"]', //  某个议题 - 正文以及正文编辑器、添加评论编辑器预览
         ],
@@ -213,14 +209,16 @@ I18N.conf = {
         'copilot':[
             '.cm-line',
         ],
-        'issues':[
-            'div.styled-input-content', // 筛选条
+        'spark': [
+            '.Table',
+            '.monaco-editor',
         ],
         '*': [
             '.comment-body', '.js-preview-body',
             '.markdown-title',
             'span.ActionListItem-descriptionWrap',  // 顶部搜索栏 关键词
-            'CODE', 'SCRIPT', 'STYLE', 'LINK', 'IMG', 'MARKED-TEXT', 'PRE', 'KBD', 'SVG', 'MARK' // 特定元素标签
+            'CODE', 'SCRIPT', 'STYLE', 'LINK', 'IMG', 'MARKED-TEXT', 'PRE', 'KBD', 'SVG', 'MARK', // 特定元素标签
+			'div.styled-input-content', // 筛选条
         ],
     },
 
@@ -570,48 +568,52 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
 
         // 顶部栏 (未登录)
             "Platform": "平台",
-                // Copilot
-                    "Write better code with AI": "借助 AI 写出更好的代码",
-                // Spark
-                    "Build and deploy intelligent apps": "构建和部署智能应用",
-                "GitHub Models": "GitHub 模型",
-                    "Manage and compare prompts": "管理和比较提示词",
-                // 操作
-                    "Automate any workflow": "自动化任何工作流程",
-                "GitHub Advanced Security": "GitHub 高级安全",
-                    "Find and fix vulnerabilities": "查找并修复漏洞",
-                // 代码空间
-                    "Instant dev environments": "即时开发环境",
-                // 议题
-                    "Plan and track work": "计划和追踪工作",
-                "Code Review": "代码审查",
-                    "Manage code changes": "管理代码更改",
-                // 讨论
-                    "Collaborate outside of code": "代码之外的协作",
-                "Code Search": "代码搜索",
-                    "Find more, search less": "查找更多，搜索更少",
+                "AI CODE CREATION": "AI 代码生成",
+                    // Copilot
+                        "Write better code with AI": "借助 AI 写出更好的代码",
+                    // Spark
+                        "Build and deploy intelligent apps": "构建和部署智能应用",
+                    "GitHub Models": "GitHub 模型",
+                        "Manage and compare prompts": "管理和比较提示词",
+                    "MCP Registry": "MCP 互联",
+                        "Integrate external tools": "集成外部工具",
+                "DEVELOPER WORKFLOWS": "开发者工作流",
+                    // 操作
+                        "Automate any workflow": "自动化任何工作流程",
+                    // 代码空间
+                        "Instant dev environments": "即时开发环境",
+                    // 议题
+                        "Plan and track work": "计划和追踪工作",
+                    "Code Review": "代码审查",
+                        "Manage code changes": "管理代码更改",
+                "APPLICATION SECURITY": "应用安全",
+                    "GitHub Advanced Security": "GitHub 高级安全",
+                        "Find and fix vulnerabilities": "查找并修复漏洞",
+                    "Code security": "代码安全",
+                        "Secure your code as you build": "边开发边保障代码安全",
+                    "Secret protection": "密钥保护",
+                        "Stop leaks before they start": "在泄露发生前就阻止它们",
 
-                // 右侧 搜索
+                "EXPLORE": "探索",
                     "Why GitHub": "为什么选择 GitHub",
-                "GitHub Skills": "GitHub 技能",
-                "Integrations": "集成",
+                    "Changelog": "更新日志",
                     "GitHub Marketplace": "GitHub 市场",
-                    "MCP Registry": "MCP 注册",
+
                 "View all features": "查看所有功能",
 
             "Solutions": "解决方案",
-                "By company size": "企业规模",
+                "BY COMPANY SIZE": "企业规模",
                     "Enterprises": "企业",
                     "Small and medium teams": "中小团队",
                     "Startups": "初创公司",
                     "Nonprofits": "非盈利组织",
-                "By use case": "使用案例",
+                "BY USE CASE": "使用案例",
                     "App Modernization": "应用现代化",
                     "DevSecOps": "开发安全运维",
                     "DevOps": "开发运维",
                     "CI/CD": "持续集成/持续部署",
                     "View all use cases": "查看所有使用案例",
-                "By industry": "工业",
+                "BY INDUSTRY": "工业",
                     "Healthcare": "健康护理",
                     "Financial services": "金融服务",
                     "Manufacturing": "制造业",
@@ -620,34 +622,44 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
                 "View all solutions": "查看所有解决方案",
 
             "Resources": "资源",
-                // 主题
+                "EXPLORE BY TOPIC": "按主题探索",
                     "Software Development": "软件开发",
-                // 探索
-                    "Learning Pathways": "学习路径",
-                    "Events & Webinars": "社区活动",
-                    "Ebooks & Whitepapers": "资料库",
+                    "View all topics": "查看所有主题",
+                "EXPLORE BY TYPE": "按类型探索",
                     "Customer Stories": "客户案例",
+                    "Customer stories": "客户案例",
+                    "Events & webinars": "活动与网络研讨会",
+                    "Ebooks & reports": "电子书与报告",
+                    "Business insights": "商业洞察",
+                    "GitHub Skills": "GitHub 技能课程",
+                "SUPPORT & SERVICES": "支持与服务",
                     "Partners": "合作洽谈",
-                    "Executive Insights": "高管洞察",
-                "View all": "查看全部",
+                    "Customer support": "客户支持",
+                    "Community forum": "社区论坛",
+                    "Trust center": "信任中心",
 
             "Open Source": "开源",
-                "GitHub Sponsors": "GitHub 赞助者",
-                    "Fund open source developers": "资助开源开发人员",
-                "The ReadME Project": "ReadME 项目",
-                    "GitHub community articles": "GitHub 社区文章",
-                // 仓库
+                "COMMUNITY": "社区",
+                    "GitHub Sponsors": "GitHub 赞助者",
+                        "Fund open source developers": "资助开源开发人员",
+                "PROGRAMS": "项目",
+                    "Security Lab": "安全实验室",
+                    "Maintainer Community": "维护者社区",
+                    "Accelerator": "加速器计划",
+                    "Archive Program": "存档计划",
+                "REPOSITORIES": "仓库",
                     "Topics": "主题",
                     "Trending": "趋势",
                     "Collections": "集合",
 
             "Enterprise": "企业",
-                "Enterprise platform": "企业平台",
-                    "AI-powered developer platform": "AI 驱动的开发者平台",
-                "Available add-ons": "可用扩展",
+                "ENTERPRISE SOLUTIONS": "企业级解决方案",
+                    "Enterprise platform": "企业平台",
+                        "AI-powered developer platform": "AI 驱动的开发者平台",
+                "AVAILABLE ADD-ONS": "可选附加组件",
                     // GitHub 高级安全
                         "Enterprise-grade security features": "企业级安全功能",
-                    "Copilot for business": "Copilot 企业版",
+                    "Copilot for Business": "Copilot 企业版",
                         "Enterprise-grade AI features": "企业级 AI 功能",
                     "Premium Support": "高级支持",
                         "Enterprise-grade 24/7 support": "企业级 24 小时全天候支持",
@@ -730,6 +742,7 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
             "Create new…": "新建…",
                 "New repository": "新建仓库",
                 "Import repository": "导入仓库",
+                "New spark": "新建 spark",
                 "New agent task": "新建智能体任务",
                 "New codespace": "新建代码空间",
                 "New gist": "新建代码片段",
@@ -737,6 +750,12 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
                 "New project": "新建项目",
                 "This organization": "本组织", // 组织
                 "New team": "新建团队", // 组织
+                // 新建议题 对话框
+                    "Create new issue": "新建议题",
+                    "Copy link": "复制链接",
+                    "Templates and forms": "模板和表单",
+                    "Blank issue": "空白议题",
+                        "Create a new issue from scratch": "从头开始创建新议题",
 
         // 右上角 Copilot 下拉菜单
             "Agents":"智能体",
@@ -1040,6 +1059,8 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
                     "Lists are currently in beta.": "清单目前处于测试阶段。",
                     "Share feedback and report bugs.": "分享反馈意见和报告错误。",
                     "Creating...": "创建中…",
+                    // 私有
+                        "Enabling this makes the list visible only to you.": "启用此选项将使该列表仅对您可见。",
 
         // 全局快捷键对话框 - 快捷键 ? 打开
             "Keyboard shortcuts": "键盘快捷键",
@@ -1890,6 +1911,13 @@ I18N["zh-CN"]["public"] = { // 公共区域翻译
             return count + ' ' + suffixKey[suffix] + '之前';
         }],
     ],
+    "title": {
+        "static": {
+            "GitHub · Where software is built": "GitHub · 软件构建的地方",
+            "Page not found · GitHub": "找不到页面 · GitHub",
+        },
+        "regexp": [],
+    },
 };
 
 I18N["zh-CN"]["orgs-public"] = { // 组织公共部分
@@ -1925,6 +1953,7 @@ I18N["zh-CN"]["page-dashboard"] = { // 已登录的首页 - 仪表板（含组�
         "start a session": "开始任务",
         "Agent sessions options": "智能体任务选项",
         "Agent sessions to include": "智能体任务包含",
+        "View all": "查看全部",
         "Number of results": "结果数量",
         "Pull request options": "拉取请求选项",
         "Pull requests to include": "拉取请求包含",
@@ -1950,6 +1979,8 @@ I18N["zh-CN"]["page-dashboard"] = { // 已登录的首页 - 仪表板（含组�
                     "Most powerful at complex tasks": "执行复杂任务",
 
         "Try the new experience": "尝试新版",
+        "Try the new dashboard experience": "试用新仪表板",
+        "Switch back": "切回旧版",
 
         // 新手帮助
         "Learn Git and GitHub without any code!": "了解 Git 和 GitHub 无需任何代码！",
@@ -2295,6 +2326,12 @@ I18N["zh-CN"]["page-dashboard"] = { // 已登录的首页 - 仪表板（含组�
         [/Switch dashboard: ([^ ]+)/, "切换仪表板：$1"],
         [/(.+)\#(\d+) · Opened by ([^ ]+) ·/, "$1#$2 · 打开者 $3"],
     ],
+    "title": {
+        "static": {
+            "GitHub Dashboard": "GitHub 仪表盘",
+            "Feed": "动态",
+        },
+    },
 };
 I18N["zh-CN"]["dashboard"] = I18N["zh-CN"]["page-dashboard"];
 I18N["zh-CN"]["feed"] = I18N["zh-CN"]["page-dashboard"];
@@ -2319,6 +2356,8 @@ I18N["zh-CN"]["page-profile-public"] = { // 个人首页（含组织）
             "Highlights": "高光时刻",
                 "Label: Pro": "标签：专业版",
             "Developer Program Member": "开发者计划成员",
+            "security advisory credits": "个安全咨询分",
+            "security advisory credit": "个安全咨询分",
             "Organizations": "组织",
             "Block or Report": "拉黑或举报",
             "Unblock or report user": "取消拉黑或举报",
@@ -2475,6 +2514,17 @@ I18N["zh-CN"]["page-profile-public"] = { // 个人首页（含组织）
             return '- ' + compareKey[compare] + num + '小时';
         }],
     ],
+    "title": {
+        "static": {
+            "Your Followers": "我的关注者",
+            "Who You’re Following": "我关注的人",
+        },
+        "regexp": [
+            [/Achievements/, "成就"],
+            [/Followers/, "关注者"],
+            [/Following/, "关注"],
+        ],
+    },
 };
 I18N["zh-CN"]["page-profile/achievements"] = I18N["zh-CN"]["page-profile-public"]; // ?tab=achievements
 I18N["zh-CN"]["page-profile/followers"] = I18N["zh-CN"]["page-profile-public"]; // ?tab=followers
@@ -2585,6 +2635,7 @@ I18N["zh-CN"]["page-profile"] = { // 个人首页
         [/([\d,]+) contributions? in (\d+) in ([^ ]+)/, "在 $2 年中向 $3, 贡献 $1 次"],
         [/([\d,]+) contributions? in (\d+)/, "在 $2 年中贡献 $1 次"],
         [/(\d+) contributions? in private repositor(y|ies)/, "私有仓库 $1 个贡献"],
+        [/Only people who can see (.+) can see this contribution/, "只有能看到 $1 的人才能看到此贡献"],
         [/(\d+|No) contribution(?:s)? on (.+)(?:st|nd|rd|th)./, (match, number, p1) => {
             const dateRegExp = I18N["zh-CN"]["public"]["time-regexp"];
             const translatedDate = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
@@ -2824,6 +2875,8 @@ I18N["zh-CN"]["page-profile/repositories"] = { // 个人首页 - 仓库标签卡
             "repository": "仓库",
             "No language": "无语言",
 
+            "Compact display density": "紧凑显示密度",
+            "Comfortable display density": "舒适显示密度",
     },
     "regexp": [ // 正则翻译
         [/(\d+(k|M|B)?) repositor(y|ies)/, "$1 个仓库"],
@@ -2838,6 +2891,14 @@ I18N["zh-CN"]["page-profile/repositories"] = { // 个人首页 - 仓库标签卡
     "selector": [ // 元素筛选器规则
         ["#type-options > summary > span:nth-child(1)", "类型"], // 个人主页 --> 仓库标签页-->类型筛选器 Type
     ],
+    "title": {
+        "static": {
+            "Your Repositories": "我的仓库",
+        },
+        "regexp": [
+            [/(R|r)epositories/, "仓库"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["page-profile/projects"] = { // 个人首页- 项目标签卡
@@ -2865,6 +2926,8 @@ I18N["zh-CN"]["page-profile/projects"] = { // 个人首页- 项目标签卡
                 "Least recently updated": "最早更新",
             // 清除筛选
             "Clear current search query and sorts": "清除当前的搜索查询和分类",
+
+            "No open projects": "无已打开的项目",
 
             "Plan and track work across repositories with custom fields and multiple views": "通过自定义字段和多个视图来计划和跟踪整个仓库的工作",
             "Kanban-style project board": "看板式项目面板",
@@ -2995,6 +3058,14 @@ I18N["zh-CN"]["page-profile/projects"] = { // 个人首页- 项目标签卡
         [/([\d,]+) Closed/, "$1 已关闭"],
         ...I18N["zh-CN"]["orgs-public"]["regexp"],
     ],
+    "title": {
+        "static": {
+            "Your Projects": "我的项目",
+        },
+        "regexp": [
+            [/Projects/, "项目"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["page-profile/sponsoring"] = { // 个人首页- 赞助标签卡
@@ -3008,15 +3079,25 @@ I18N["zh-CN"]["page-profile/sponsoring"] = { // 个人首页- 赞助标签卡
             "Get started": "前去赞助",
             "Past sponsorship": "曾经赞助",
             "Sponsored": "赞助于",
-
+            "organizations and maintainers and has sponsored": "个组织和维护者，过去曾赞助过",
+                "in the past": "个",
     },
     "regexp": [ // 正则翻译
         [/is sponsoring/, "正在赞助"],
-        [/Sponsoring since/, "赞助自"],
+        [/Sponsoring since (.+)/, (match ,p1) => {
+            const dateRegExp = I18N["zh-CN"]["public"]["time-regexp"];
+            const translatedDate = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
+            return `赞助自 ${translatedDate}`;
+        }],
         [/Sponsored/, "赞助于"],
         [/(\d+) repositor(y|ies)/, "$1 个仓库"],
         [/(\d+) members?/, "$1 成员"], // 组织 浮动信息卡
     ],
+    "title": {
+        "regexp": [
+            [/Sponsoring/, "赞助"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["page-profile/packages"] = { // 个人首页 - 软件包标签卡
@@ -3064,6 +3145,14 @@ I18N["zh-CN"]["page-profile/packages"] = { // 个人首页 - 软件包标签卡
         [/(\d+) members?/, "$1 成员"], // 组织 浮动信息卡
         ...I18N["zh-CN"]["orgs-public"]["regexp"],
     ],
+    "title": {
+        "static": {
+            "Your Packages": "我的软件包",
+        },
+        "regexp": [
+            [/Packages/, "软件包"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["page-profile/sponsors"] = { // 个人首页 - 赞助标签卡
@@ -3192,6 +3281,16 @@ I18N["zh-CN"]["page-profile/stars"] = { // 个人首页 - 星标标签卡
         [/(\d+) members?/, "$1 成员"], // 组织 浮动信息卡
         [/Language: /, "语言："],
     ],
+    "title": {
+        "static": {
+            "Your Stars": "我的星标",
+        },
+        "regexp": [
+            [/Your list/, "我的清单"],
+            [/Starred/, "星标"],
+            [/'s list/, " 的清单"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["confirm-access"] = { // “授权访问” 对话框
@@ -3211,6 +3310,7 @@ I18N["zh-CN"]["confirm-access"] = { // “授权访问” 对话框
             "Use GitHub Mobile": "使用 GitHub Mobile",
             "Use your passkey": "使用您的通行密钥",
             "Use your authenticator app": "使用您的身份验证器应用",
+            "Send a code via email": "通过电子邮件发送验证码",
             "Use your password": "使用您的密码",
 
             "GitHub Mobile": "GitHub Mobile",
@@ -3626,6 +3726,11 @@ I18N["zh-CN"]["settings/profile"] = { // 设置 - 个人资料
     },
     "regexp": [ // 正则翻译
     ],
+    "title": {
+        "static": {
+            "Your profile": "个人资料",
+        },
+    },
 };
 I18N["zh-CN"]["settings"] = I18N["zh-CN"]["settings/profile"];
 
@@ -3743,6 +3848,11 @@ I18N["zh-CN"]["settings/admin"] = { // 设置 - 账户
         [/You have revoked the successor invitation to ([^ ]+)./, "您已经撤销了对 $1 的继任者邀请。"],
         [/You have canceled the invitation to ([^ ]+) to be your designated successor./, "您已经取消了让 $1 成为您的指定继任者的邀请。"],
     ],
+    "title": {
+        "static": {
+            "Account settings": "账户设置",
+        },
+    },
 };
 
 I18N["zh-CN"]["succession/invitation"] = { // 账户继任者邀请  users/<邀请者的 user-name>/succession/invitation
@@ -3817,6 +3927,11 @@ I18N["zh-CN"]["settings/appearance"] = { // 设置 - 外观
     },
     "regexp": [ // 正则翻译
     ],
+    "title": {
+        "static": {
+            "Appearance": "外观",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/accessibility"] = { // 设置 - 无障碍
@@ -3900,6 +4015,11 @@ I18N["zh-CN"]["settings/accessibility"] = { // 设置 - 无障碍
     },
     "regexp": [ // 正则翻译
     ],
+    "title": {
+        "static": {
+            "Accessibility": "无障碍",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/notifications"] = { // 设置 - 通知
@@ -3996,6 +4116,11 @@ I18N["zh-CN"]["settings/notifications"] = { // 设置 - 通知
     },
     "regexp": [ // 正则翻译
     ],
+    "title": {
+        "static": {
+            "Notification settings": "通知设置",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
@@ -4811,6 +4936,17 @@ I18N["zh-CN"]["settings/billing"] = { // 设置 - 账单和计划
 
         ...I18N["zh-CN"]["orgs-public"]["regexp"],
     ],
+    "title": {
+        "static": {
+            "Billing Overview": "账单概览",
+            "Billing Usage": "计费用量",
+            "Premium request analytics": "高级请求分析",
+            "Budgets": "预算",
+            "Billing": "账单",
+            "Payment Information": "支付信息",
+            "Payment history": "支付历史",
+        },
+    },
 };
 I18N["zh-CN"]["account/billing/history"] = I18N["zh-CN"]["settings/billing"];
 I18N["zh-CN"]["orgs/settings/billing"] = I18N["zh-CN"]["settings/billing"];
@@ -4983,6 +5119,10 @@ I18N["zh-CN"]["settings/emails"] = { // 设置 - 电子邮箱
             "No subscriptions found": "未找到订阅信息",
             "Save subscription preferences": "保存订阅首选项",
             "Back to email settings": "返回电子邮件设置",
+            "To stop receiving emails for the topics below, uncheck any topics you don't want to receive, then click Save subscription preferences": "要停止接收以下主题的电子邮件，请取消选中您不想接收的任何主题，然后单击保存订阅首选项",
+            "General info and offers from GitHub": "GitHub 上的一般信息和优惠",
+                "Get tips, solutions and exclusive offers from GitHub about products, services and events we think you might find interesting.": "从 GitHub 获取有关我们认为您可能感兴趣的产品、服务和活动的提示、解决方案和独家优惠。",
+            "Unsubscribe from all topics": "取消订阅所有主题",
 
     },
     "regexp": [ // 正则翻译
@@ -4993,6 +5133,11 @@ I18N["zh-CN"]["settings/emails"] = { // 设置 - 电子邮箱
         [/Subscription preferences for ([^@]+@[^\n]+)/, "$1 的订阅偏好"],
         [/Removed email ([^@]+@[^\n]+) from your account./, "已将邮箱 $1 从您的账户中移除。"],
     ],
+    "title": {
+        "static": {
+            "Email settings": "邮箱设置",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/security"] = { // 设置 - 密码和身份身份验证
@@ -5183,6 +5328,11 @@ I18N["zh-CN"]["settings/security"] = { // 设置 - 密码和身份身份验证
             return `添加于 ${dateAdded} | 最后使用 ${dateLastUsed}`;
         }]
     ],
+    "title": {
+        "static": {
+            "Account security": "账户安全",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/auth"] = {
@@ -5255,6 +5405,11 @@ I18N["zh-CN"]["settings/sessions"] = {
     "regexp": [ // 正则翻译
         [/Seen in/, "登录于"],
     ],
+    "title": {
+        "static": {
+            "Sessions": "会话",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/keys"] = { // 设置 - SSH 与 GPG 公钥
@@ -5323,6 +5478,11 @@ I18N["zh-CN"]["settings/keys"] = { // 设置 - SSH 与 GPG 公钥
         [/You have successfully added the key \'([^ ]+)\'./, "成功添加密钥 “$1”。"],
         [/Last used within the last (\d+) weeks?/, "$1 周内最后一次使用"],
     ],
+    "title": {
+        "static": {
+            "SSH and GPG keys": "SSH 和 GPG 密钥",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/ssh"] = { // 设置 - SSH 与 GPG 公钥 - 添加 SSH 公钥
@@ -5393,6 +5553,11 @@ I18N["zh-CN"]["settings/organizations"] = { // 设置 - 组织
         [/Are you positive you want to leave ([^ ]+)\? You will lose access to all repositories and teams./, "您确定要离开 $1 吗？您将失去对所有仓库和团队的访问权。"], // 设置 - 组织 离开按钮 提醒
         [/Are you positive you want to leave ([^ ]+)\? You will lose access to all repositories./, "您确定要离开 $1 吗？您将失去对所有仓库的访问权。"], // 设置 - 组织 离开按钮 提醒
     ],
+    "title": {
+        "static": {
+            "Organizations": "组织",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/enterprises"] = { // 设置 - 企业版
@@ -5410,6 +5575,11 @@ I18N["zh-CN"]["settings/enterprises"] = { // 设置 - 企业版
     },
     "regexp": [ // 正则翻译
     ],
+    "title": {
+        "static": {
+            "Enterprises": "企业版",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/blocked_users"] = { // 设置 - 黑名单
@@ -5440,6 +5610,11 @@ I18N["zh-CN"]["settings/blocked_users"] = { // 设置 - 黑名单
     },
     "regexp": [ // 正则翻译
     ],
+    "title": {
+        "static": {
+            "Blocked users": "黑名单",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/interaction_limits"] = { // 设置 - 互动限制
@@ -5477,6 +5652,11 @@ I18N["zh-CN"]["settings/interaction_limits"] = { // 设置 - 互动限制
     "regexp": [ // 正则翻译
         [/Enabled with (.+) remaining./, "已启用，还剩 $1。"],
     ],
+    "title": {
+        "static": {
+            "Temporary interaction limits": "临时互动限制",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/code_review_limits"] = { // 设置 - 代码审查限制
@@ -5502,6 +5682,11 @@ I18N["zh-CN"]["settings/code_review_limits"] = { // 设置 - 代码审查限制
     },
     "regexp": [ // 正则翻译
     ],
+    "title": {
+        "static": {
+            "Code review limits": "代码审查限制",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/repositories"] = { // 设置 - 仓库
@@ -5519,6 +5704,11 @@ I18N["zh-CN"]["settings/repositories"] = { // 设置 - 仓库
     "regexp": [ // 正则翻译
         [/(\d+) collaborators?/, "$1 位协作者"]
     ],
+    "title": {
+        "static": {
+            "Repositorys": "仓库",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/deleted_repositories"] = { // 设置 - 仓库 - 删除的仓库
@@ -5695,6 +5885,11 @@ I18N["zh-CN"]["settings/codespaces"] = { // 设置 - 代码空间
         [/Are you sure you want to delete ([^ ]+)\?/, "您确定要删除 $1 吗？"],
         [/Remove ([^ ]+)/, "移除 $1"],
     ],
+    "title": {
+        "static": {
+            "Codespaces": "代码空间",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/models"] = {
@@ -5716,6 +5911,11 @@ I18N["zh-CN"]["settings/models"] = {
                 ". Enable paid usage to avoid interruption and add tokens.": "。启用付费使用以避免中断并添加令牌。",
     },
     "regexp": [],
+    "title": {
+        "static": {
+            "Models": "模型",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/packages"] = { // 设置 - 软件包
@@ -5753,6 +5953,11 @@ I18N["zh-CN"]["settings/packages"] = { // 设置 - 软件包
         [/No recoverable packages were found for ([^ ]+)./, "没有找到 $1 的可恢复包。"],
         ...I18N["zh-CN"]["orgs-public"]["regexp"],
     ],
+    "title": {
+        "static": {
+            "Packages": "软件包",
+        },
+    },
 };
 I18N["zh-CN"]["orgs/settings/packages"] = I18N["zh-CN"]["settings/packages"];
 
@@ -5828,44 +6033,13 @@ I18N["zh-CN"]["settings/copilot"] = { // 设置 - GitHub Copilot
                 "Copilot can search the web": "网络搜索",
                     "Copilot can answer questions about new trends and give improved answers, via Bing. See": "Copilot 可以回答有关新趋势的问题并给出改进的答案，通过必应。请参阅",
                     "Microsoft Privacy Statement": "微软隐私声明",
-                "Copilot access to Bing": "访问必应",
-                    "Copilot can answer questions about new trends and give improved answers.": "Copilot 可以回答有关新趋势的问题，并给出改进的答案。",
-                    "See Microsoft Privacy Statement": "请参阅微软隐私声明",
 
                     "GitHub Copilot will answer questions about new trends and give improved answers": "GitHub Copilot 将回答有关新趋势的问题并给出改进的答案",
                     "GitHub Copilot won't answer questions about new trends and give improved answers": "GitHub Copilot 将不会回答有关新趋势的问题并给出改进的答案",
-                "Anthropic Claude 3.5 Sonnet in Copilot": "Claude 3.5 模型", // 简化部分名称
-                    "You can use the latest Claude 3.5 Sonnet model.": "您可以使用最新 Claude 3.5 Sonnet 模型。",
-                    "Learn more about how GitHub Copilot serves Claude 3.5 Sonnet.": "了解更多关于 GitHub Copilot 如何为 Claude 3.5 Sonnet 提供服务。",
                     "Select an option": "选择",
                         "You will have access to the feature": "您将能够访问此功能",
                         "You won’t have access to the feature": "您将不能访问此功能",
-                "Anthropic Claude 3.7 Sonnet in Copilot": "Claude 3.7 模型",
-                    "You can use the latest Anthropic Claude 3.7 Sonnet model.": "您可以使用最新 Claude 3.7 Sonnet 模型。",
-                "Anthropic Claude Sonnet 4 in Copilot": "Claude Sonnet 4 模型",
-                    "You can use the latest Anthropic Claude Sonnet 4 model.": "您可以使用最新 Claude Sonnet 4 模型。",
-                    "Learn more about how GitHub Copilot serves Anthropic Claude Sonnet 4.": "了解更多关于 GitHub Copilot 如何为 Claude Sonnet 4 提供服务。",
-                "You can use the latest Anthropic Claude Sonnet 4.5 model." : "您可以使用最新 Claude Sonnet 4.5 模型。",
-                "Learn more about how GitHub Copilot serves Anthropic Claude Sonnet 4.5.": "了解更多关于 GitHub Copilot 如何为 Claude Sonnet 4.5 提供服务。",
-                "You can use the latest Anthropic Claude Haiku 4.5 model.": "您可以使用最新 Claude Haiku 4.5 模型。",
-                "Learn more about how GitHub Copilot serves Anthropic Claude Haiku 4.5.": "了解更多关于 GitHub Copilot 如何为 Claude Haiku 4.5 提供服务。",
-                "You can use the latest OpenAI GPT-5-Codex model.": "您可以使用最新 OpenAI GPT-5-Codex 模型。",
                 "Learn more about how GitHub Copilot serves OpenAI GPT-5-Codex and confirm compatibility with your IDE in our documentation.": "了解更多关于 GitHub Copilot 如何为 OpenAI GPT-5-Codex 提供服务，并确认与您的 IDE 的兼容性。",
-                "Google Gemini 2.0 Flash in Copilot": "Gemini 2.0 Flash 模型",
-                    "You can use Google’s Gemini 2.0 Flash model in Copilot.": "您可以使用 Gemini 2.0 Flash 模型。",
-                    "Learn more about the public preview of Gemini 2.0 Flash.": "了解更多关于 GitHub Copilot 如何为 Gemini 2.0 Flash 提供服务。",
-                "Google Gemini 2.5 Pro in Copilot": "Gemini 2.5 Pro 模型",
-                    "You can use the latest Google Gemini 2.5 Pro model.": "您可以使用 Gemini 2.5 Pro 模型。",
-                    "Learn more about how GitHub Copilot serves Google Gemini 2.5 Pro.": "了解更多关于 GitHub Copilot 如何为 Gemini 2.5 Pro 提供服务。",
-                "OpenAI o4-mini in Copilot": "o4-mini 模型",
-                    "You can use the latest OpenAI o4-mini model.": "您可以使用 o4-mini 模型",
-                    "Learn more about how GitHub Copilot serves OpenAI o4-mini.": "了解更多关于 GitHub Copilot 如何为 o4-mini 提供服务。",
-                "OpenAI GPT-4.1 in Copilot": "GPT-4.1 模型",
-                    "You can use the latest OpenAI GPT-4.1 model.": "您可以使用 GPT-4.1 模型。",
-                    "Learn more about how GitHub Copilot serves OpenAI GPT-4.1.": "了解更多关于 GitHub Copilot 如何为 GPT-4.1 提供服务。",
-                "OpenAI GPT-5 in Copilot": "GPT-5 模型",
-                    "You can use the latest OpenAI GPT-5 model.": "您可以使用 GPT-5 模型。",
-                    "Learn more about how GitHub Copilot serves OpenAI GPT-5.": "了解更多关于 GitHub Copilot 如何为 GPT-5 提供服务。",
                 "Dashboard entry point": "仪表板入口",
                     "Allows instant chatting when landing on GitHub.com": "允许登陆 GitHub.com 时即时聊天",
                 "Copilot code review": "Copilot 代码审查",
@@ -5930,12 +6104,8 @@ I18N["zh-CN"]["settings/copilot"] = { // 设置 - GitHub Copilot
                     "Delegate tasks to Copilot coding agent in repositories where it is enabled": "将任务委托给已启用 Copilot 编程智能体的仓库",
                 "MCP servers in Copilot": "Copilot 中的 MCP 服务器",
                     "Connect MCP servers to Copilot in all Copilot editors and Coding Agent.": "在所有 Copilot 编辑器和编程智能体中连接 MCP 服务器。",
-                "OpenAI GPT-5 mini in Copilot": "GPT-5 mini 模型",
-                    "You can use the latest OpenAI GPT-5 mini model.": "您可以使用 GPT-5 mini 模型。",
-                    "Learn more about how GitHub Copilot serves OpenAI GPT-5 mini.": "了解更多关于 GitHub Copilot 如何为 GPT-5 mini 提供服务。",
-                "xAI Grok Code Fast 1 in Copilot": "Grok Code Fast 1 模型",
+                // Grok
                     "If enabled, you can access and send data to xAI Grok Code Fast 1.": "若启用，您可以访问 xAI Grok Code Fast 1 并发送数据。",
-                    "Learn more about how GitHub Copilot serves xAI Grok Code Fast 1.": "了解更多关于 GitHub Copilot 如何为 xAI Grok Code Fast 1 提供服务。",
                 "Copilot-generated commit messages" : "Copilot 生成的提交消息",
                     "Allow Copilot to suggest commit messages when you make changes on GitHub.com.": "允许 Copilot 在您于 GitHub.com 上进行更改时提供提交消息建议。",
                     "Learn more about Copilot-generated commit messages.": "了解更多关于 Copilot 生成的提交消息。",
@@ -5986,7 +6156,14 @@ I18N["zh-CN"]["settings/copilot"] = { // 设置 - GitHub Copilot
         [/Outside collaborator on (\d+) repositor(y|ies)/, "$1 个仓库的外部协作者"],
         [/Member and collaborator on (\d+) repositor(y|ies)/, "$1 个仓库的成员和协作者"],
         [/Upgrade for higher limits, premium models, AI reviews. Free responses reset in (\d+) days?/, "升级以获取更高的限制、高级模型和 AI 审核。免费额度将在 $1 天内重置。"], // 免费版额度
+        [/You can use the latest (.+) model\./, "您可以使用最新的 $1 模型。"],
+        [/Learn more about how GitHub Copilot serves (.+)\./, "了解更多关于 GitHub Copilot 如何为 $1 提供服务。"],
     ],
+    "title": {
+        "static": {
+            "Copilot coding agent": "Copilot 编程智能体",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/pages"] = { // 设置 - GitHub Pages
@@ -6056,6 +6233,11 @@ I18N["zh-CN"]["settings/replies"] = { // 设置 - 快捷回复
     },
     "regexp": [ // 正则翻译
     ],
+    "title": {
+        "static": {
+            "Saved replies": "快捷回复",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/security_analysis"] = { // 设置 - 代码安全性与分析
@@ -6212,6 +6394,11 @@ I18N["zh-CN"]["settings/security_analysis"] = { // 设置 - 代码安全性与�
         [/You're about to enable private vulnerability reporting on all public repositories in ([^ ]+)./, "您即将在 $1 的所有公共仓库中启用私下漏洞报告。"],
         [/Security settings updated for ([^ ]+)\'s repositories./, "更新了$1 的仓库的安全设置。"],
     ],
+    "title": {
+        "static": {
+            "Security & analysis": "安全与分析",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/installations"] = { // 设置 - 应用/安装的 GitHub 应用
@@ -6419,6 +6606,13 @@ I18N["zh-CN"]["settings/installations"] = { // 设置 - 应用/安装的 GitHub 
         [/(.*) is denied access this organization’s resources/, "$1 被拒绝访问该组织的资源"],
         ...I18N["zh-CN"]["orgs-public"]["regexp"],
     ],
+    "title": {
+        "static": {
+            "Installed GitHub Apps": "已安装的 GitHub 应用",
+            "Authorized GitHub Apps": "授权的 GitHub 应用",
+            "Authorized OAuth Apps": "授权的 OAuth 应用",
+        },
+    },
 };
 I18N["zh-CN"]["settings/apps/authorizations"] = I18N["zh-CN"]["settings/installations"];
 I18N["zh-CN"]["settings/applications"] = I18N["zh-CN"]["settings/installations"];
@@ -6469,6 +6663,11 @@ I18N["zh-CN"]["settings/reminders"] = { // 设置 - 定时提醒
     },
     "regexp": [ // 正则翻译
     ],
+    "title": {
+        "static": {
+            "Scheduled reminders": "定时提醒",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/security-log"] = { // 设置 - 安全日志
@@ -6536,6 +6735,11 @@ I18N["zh-CN"]["settings/security-log"] = { // 设置 - 安全日志
         [/Found (\d+) events?/, "发现 $1 个活动"],
         [/View ([^ ]+)'s profile/, "查看 $1 的资料"],
     ],
+    "title": {
+        "static": {
+            "Security log": "安全日志",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/sponsors-log"] = { // 设置 - 赞助日志
@@ -6558,6 +6762,11 @@ I18N["zh-CN"]["settings/sponsors-log"] = { // 设置 - 赞助日志
     },
     "regexp": [ // 正则翻译
     ],
+    "title": {
+        "static": {
+            "Sponsorship Log": "赞助日志",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/apps"] = { // 设置 - 开发者设置/GitHub 应用
@@ -7150,6 +7359,12 @@ I18N["zh-CN"]["settings/apps"] = { // 设置 - 开发者设置/GitHub 应用
         [/Choose a feature to activate for (.*):/, "选择要为 $1 激活的功能："],
         ...I18N["zh-CN"]["orgs-public"]["regexp"],
     ],
+    "title": {
+        "static": {
+            "GitHub Apps": "GitHub 应用",
+            "New OAuth Application": "新 OAuth 应用",
+        },
+    },
 };
 I18N["zh-CN"]["orgs/settings/apps/new"] = I18N["zh-CN"]["settings/apps"];
 
@@ -7178,6 +7393,11 @@ I18N["zh-CN"]["settings/developers"] = { // 设置 - 开发者设置/OAuth 应�
     },
     "regexp": [ // 正则翻译
     ],
+    "title": {
+        "static": {
+            "Developer applications": "开发者应用",
+        },
+    },
 };
 
 I18N["zh-CN"]["settings/applications/new"] = { // 设置 - 开发者设置/OAuth 应用
@@ -7678,6 +7898,14 @@ I18N["zh-CN"]["settings/personal-access-tokens"] = { // 设置 - 开发者设置
             [/(\d+) permissions? for (\d+) repositori(y|es):/, "$1 个仓库的 $2 项权限"],
             [/(\d+) organization permissions?/, "$1 项组织权限"],
     ],
+    "title": {
+        "static": {
+            "Fine-grained Personal Access Tokens": "精细化的个人访问令牌",
+            "New Fine-grained Personal Access Token": "新建精细化个人访问令牌",
+            "Personal Access Tokens (Classic)": "个人访问令牌（经典）",
+            "New Personal Access Token (Classic)": "新建个人访问令牌（经典）",
+        },
+    },
 };
 I18N["zh-CN"]["settings/tokens"] = I18N["zh-CN"]["settings/personal-access-tokens"];
 
@@ -8272,6 +8500,15 @@ I18N["zh-CN"]["page-new-repo"] = {// 仓库 - 新建/导入/复刻仓库
         // [/(\d+) members?/, "$1 个成员"], // 组织  浮动信息卡
         ...I18N["zh-CN"]["orgs-public"]["regexp"],
     ],
+    "title": {
+        "static": {
+            "New repository": "新建仓库",
+            "Import repository": "导入仓库",
+        },
+        "regexp": [
+            [/Fork/, "复刻"],
+        ],
+    },
 };
 I18N["zh-CN"]["new"] = I18N["zh-CN"]["page-new-repo"];
 I18N["zh-CN"]["new/import"] = I18N["zh-CN"]["page-new-repo"];
@@ -8904,6 +9141,12 @@ I18N["zh-CN"]["repository"] = { // 仓库页面 /<user-name>/<repo-name>/
         [/(\d+) changes?/, "$1 个更改"],
         [/(.+) has unpushed changes, are you sure you want to delete\?/, "$1 有未提交更改，您确定要删除吗？"],
     ],
+    "title": {
+        "regexp": [
+            [/(.+) at (.+?) · (.+)/, "$1 在分支 $2 · $3"],
+            [/(.+) at (.+)/, "$1 在分支 $2"],
+        ],
+    },
 };
 I18N["zh-CN"]["repository/tree"] = I18N["zh-CN"]["repository"];
 
@@ -8995,24 +9238,24 @@ I18N["zh-CN"]["repository/pull_issue_public"] = { // 仓库 - 议题和拉取请
             "Clear current search query, filters, and sorts": "清除当前的搜索查询、筛选器和排序方式",
 
             "ProTip!": "专业提示！",
-                "Find everything you created by searching": "查找您创建的所有内容，使用",
-                "Exclude your own issues with": "如需查看您自己创建的内容，请使用",
-                "Mix and match filters to narrow down what you’re looking for.": "混搭筛选器，以缩小范围，找到您想看到的。",
-                "Exclude everything labeled": "要找到所有标有",
-                "with": "标签的内容，请使用",
-                "Follow long discussions with": "要跟随长讨论，请使用",
-                "on any issue or pull request to go back to the pull request listing page.": "在任何议题或拉取请求来返回拉取请求列表页面。",
+                "Find everything you created by searching": "通过搜索查找您创建的所有内容：",
+                "Exclude your own issues with": "排除您自己创建的议题：",
+                "Mix and match filters to narrow down what you’re looking for.": "通过混合和匹配筛选器以缩小查找范围。",
+                "Exclude everything labeled": "排除所有标有",
+                "with": "标签的内容，使用：",
+                "Follow long discussions with": "要跟进长讨论，请使用：",
+                "on any issue or pull request to go back to the pull request listing page.": "在任何议题或拉取请求上使用以返回拉取请求列表页面。",
                 "Filter pull requests by the default branch with": "通过默认分支过滤拉取请求：",
-                "to see everything that’s not assigned.": "查看所有未分配的内容。",
-                "Find all pull requests that aren't related to any open issues with": "查找所有与任何打开议题无关的拉取请求，并使用",
-                "Add comments to specific lines under": "为以下特定行添加注释于",
-                "will show everything without a milestone.": "将显示所有不含里程碑的内容",
-                "Updated in the last three days:": "显示最近 3 天更新：",
-                "Notify someone on an issue with a mention, like:": "用提及的方式通知某人某个议题，例如：",
+                "to see everything that’s not assigned.": "以查看所有未分配的内容。",
+                "Find all pull requests that aren't related to any open issues with": "查找所有未关联任何打开议题的拉取请求，使用：",
+                "Add comments to specific lines under": "在以下特定行添加注释：",
+                "will show everything without a milestone.": "将显示所有没有里程碑的内容。",
+                "Updated in the last three days:": "最近 3 天更新：",
+                "Notify someone on an issue with a mention, like:": "在议题中通过 @ 提及通知某人，例如：",
                 "Adding": "添加",
-                "will show everything without a label.": "将显示所有无标签内容。",
-                "on any issue or pull request to go back to the issue listing page.": "可返回议题列表页面。",
-                "Click a checkbox on the left to edit multiple issues at once.": "单击左侧的复选框可同时编辑多个议题。",
+                "will show everything without a label.": "将显示所有无标签的内容。",
+                "on any issue or pull request to go back to the issue listing page.": "在任何议题或拉取请求上使用以返回议题列表页面。",
+                "Click a checkbox on the left to edit multiple issues at once.": "单击左侧复选框即可同时编辑多个议题。",
                 // [/Ears burning? Get @([^ ]+) mentions with/, "耳朵要炸了？如果只需要查看提及了 $1 的内容，请使用"]
 
 
@@ -10113,7 +10356,7 @@ I18N["zh-CN"]["repository/issues"] = { // 仓库 - 议题页面
         [/added a commit to ([^ ]+) that referenced this issue/, "为 $1 添加了引用这个议题的提交"],
         [/Only people who can see ([^ ]+) will see this reference./, "只有能看到 $1 的人才能看到这个参考。"],
         [/Sponsor ([^ ]+)?/, "赞助 $1"], // 赞助按钮 对话框 标题
-        [/Notify someone on an issue with a mention, like: @([^ ]+)./, "在某个问题上通知并提及某人，例如：@$1。"], // 专业提示
+        [/Notify someone on an issue with a mention, like: @([^ ]+)./, "在议题中通过 @ 提及通知某人，例如：@$1。"], // 专业提示
         [/Edited (\d+) times?/, "已编辑 $1 次"],
         [/edited by ([^ ]+)/, "由 $1 编辑"],
         [/This issue will close when (#?\d+) is merged/, "此议题将在 $1 合并时关闭"],
@@ -10148,6 +10391,14 @@ I18N["zh-CN"]["repository/issues"] = { // 仓库 - 议题页面
         ...I18N["zh-CN"]["repository-public"]["regexp"],
         ...I18N["zh-CN"]["repository/pull_issue_public"]["regexp"],
     ],
+    "title": {
+        "static": {
+            "New Issue": "创建议题",
+        },
+        "regexp": [
+            [/Issues?/, "议题"],
+        ],
+    },
 };
 I18N["zh-CN"]["repository/labels"] = I18N["zh-CN"]["repository/issues"];
 
@@ -10224,9 +10475,14 @@ I18N["zh-CN"]["repository/pulls"] = { // 仓库 - 拉取请求页面
         [/(\d+) review requesting changes/, "$1 个要求修改的审查"],
         [/First time contributing to ([^ ]+)\?/, "首次为 $1 做贡献？"],
         [/Suggested change/, "建议更改"],
-        [/Ears burning\? Get\@([^ ]+) mentions with/, "烧脑吗？使用 @$1 提及"], // 专业提示
-        [/Notify someone on an issue with a mention, like: \@([^ ]+)/, "通知某人在议题上使用提及，例如：@$1"],
+        [/Ears burning\? Get\@([^ ]+) mentions with/, "耳朵痒吗？使用 @$1 查看提及："], // 专业提示
+        [/Notify someone on an issue with a mention, like: \@([^ ]+)/, "在议题中通过 @ 提及通知某人，例如：@$1"],
     ],
+    "title": {
+        "regexp": [
+            [/Pull requests/, "拉取请求"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
@@ -11212,7 +11468,8 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
             "off-topic": "偏离主题",
 
         "Merge status cannot be loaded": "合并状态加载出错",
-            "Try reloading the page, or if the problem persists contact support.": "尝试重载页面，或联系支持",
+            "Try reloading the page, or if the problem persists": "尝试重新加载页面，或者如果问题仍然存在",
+                "contact support": "请联系支持人员",
             "GitHub status": "GitHub 状态",
 
         "Mention \@copilot in a comment to make changes to this pull request.": "在评论中提及 @copilot 以对该拉取请求进行更改。",
@@ -11325,7 +11582,7 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
         [/(\d+) resolved conversations?/, "$1 条对话已解决"], // 拉取请求
         [/I understand, continue updating ([^ ]+)/, "我明白了，继续更新 $1"],
         [/I understand, sign off and update/, "我明白了，依然签署并更新"],
-        [/Notify someone on an issue with a mention, like: @([^ ]+)./, "在某个问题上通知并提及某人，例如：@$1。"], // 专业提示
+        [/Notify someone on an issue with a mention, like: @([^ ]+)./, "在议题中通过 @ 提及通知某人，例如：@$1。"], // 专业提示
         [/(\d+) conversations? must be resolved before merging./, "合并之前必须解决 $1 个对话。"],
         [/(\d+) hidden items?/, "$1 条隐藏项目"],
         [/([^ ]+) requested changes/, "$1 要求更改"],
@@ -11359,6 +11616,11 @@ I18N["zh-CN"]["repository/pull"] = { // 仓库 - 某个拉取请求页面
     "selector": [ // 元素筛选器规则
         ["span[data-message='Review changes']", "审查更改"], // 拉取请求 --> 更改的文件
     ],
+    "title": {
+        "regexp": [
+            [/(.+) by (.+) · Pull Request #(\d+) · (.+)/, "$1 作者：$2 · 拉取请求 #$3 · $4"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/compare"] = { // 仓库 - 比较并创建拉取请求
@@ -11647,6 +11909,11 @@ I18N["zh-CN"]["repository/compare"] = { // 仓库 - 比较并创建拉取请求
         [/(\d+) deletions?/, "$1 处删除"],
         [/At least (\d+) approving reviews? are required to merge this pull request./, "至少需要 $1 次批准审查才能合并此拉取请求。"], // 创建拉取请求
     ],
+    "title": {
+        "regexp": [
+            [/Compare/, "比较"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/commit"] = { // 仓库 - 提交页面
@@ -11951,6 +12218,11 @@ I18N["zh-CN"]["repository/commit"] = { // 仓库 - 提交页面
         [/Collapse non-diff lines: ([^ ]+)/, "折叠无差异行：$1"],
         [/(\d+) tags?/, "$1 标签"], // 出现位置：某提交所跨标签数
     ],
+    "title": {
+        "regexp": [
+            [/Commits/, "提交"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/blob"] = { // 仓库 - 浏览代码
@@ -12222,6 +12494,11 @@ I18N["zh-CN"]["repository/blob"] = { // 仓库 - 浏览代码
 
         ...I18N["zh-CN"]["repository-public"]["regexp"],
     ],
+    "title": {
+        "regexp": [
+            [/(.+) at (.+?) · (.+)/, "$1 在分支 $2 · $3"],
+        ],
+    },
 };
 I18N["zh-CN"]["repository/blame"] = I18N["zh-CN"]["repository/blob"];
 
@@ -12798,6 +13075,12 @@ I18N["zh-CN"]["repository/discussions"] = { // 讨论页面
         [/This user is sponsoring ([^ ]+)./, "该用户正在赞助 $1。"],
         [/(\d+) votes?/, "$1 投票"],
     ],
+    "title": {
+        "regexp": [
+            [/Discussions/, "讨论"],
+            [/New Discussion · (.+) · Category selection/, "新讨论 · $1 · 分类选择"],
+        ],
+    },
 };
 I18N["zh-CN"]["repository/orgs/discussions"] = I18N["zh-CN"]["repository/discussions"] ;
 
@@ -13295,6 +13578,12 @@ I18N["zh-CN"]["repository/actions"] = { // 仓库 - 操作页面
         [/(\d+)h (\d+)m (\d+)s/, "$1时$2分$3秒"],
         [/(\d+)h (\d+)m/, "$1时$2分"],
     ],
+    "title": {
+        "regexp": [
+            [/Workflow runs/, "工作流程运行"],
+            [/Caches/, "缓存"],
+        ],
+    },
 };
 I18N["zh-CN"]["repository/runs"] = I18N["zh-CN"]["repository/actions"];
 
@@ -13388,6 +13677,11 @@ I18N["zh-CN"]["repository/deployments"] = { // 仓库 - 部署页面
         [/Filter contains (\d+) issues?:/, "过滤器包含 $1 个问题："], // 过滤器报错窗口
         [/via/, "通过"],
     ],
+    "title": {
+        "regexp": [
+            [/Deployments/, "部署"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/attestations"] = { // 仓库 - 证书页面
@@ -13434,6 +13728,11 @@ I18N["zh-CN"]["repository/attestations"] = { // 仓库 - 证书页面
                 "Select items": "请选择项目",
                 "Select an item": "请选择一个项目",
                 "Filter values": "筛选值",
+    },
+    "title": {
+        "regexp": [
+            [/Attestations/, "证书"],
+        ],
     },
 };
 
@@ -13772,6 +14071,12 @@ I18N["zh-CN"]["repository/new"] = { // 仓库 - 新建/编辑/上传/删除文�
         [/([^ ]+) has committed since you started editing./, "$1 自您开始编辑以来已提交。"],
         ...I18N["zh-CN"]["repository-public"]["regexp"],
     ],
+    "title": {
+        "regexp": [
+            [/New File at/, "新建文件在"],
+            [/Editing (.+) at (.+) · (.+)/, "编辑文件 $1 在分支 $2 · $3"],
+        ],
+    },
 };
 I18N["zh-CN"]["repository/edit"] = I18N["zh-CN"]["repository/new"];
 I18N["zh-CN"]["repository/delete"] = I18N["zh-CN"]["repository/new"];
@@ -13850,6 +14155,12 @@ I18N["zh-CN"]["repository/models"] = { // 仓库 - 模型
         ...I18N["zh-CN"]["repository-public"]["regexp"],
         [/(\d+) prompts? found/, "$1 条提示词"],
     ],
+    "title": {
+        "regexp": [
+            [/Models/, "模型"],
+            [/Prompts/, "提示词"],
+        ],
+    },
 }
 
 I18N["zh-CN"]["repository/wiki"] = { // 仓库 - wiki 页面
@@ -14180,6 +14491,11 @@ I18N["zh-CN"]["repository/branches"] = { // 仓库 - 分支页面
     "selector": [ // 元素筛选器规则
         ["a[data-target='branch-filter.allFilter']", "所有分支"],
     ],
+    "title": {
+        "regexp": [
+            [/Branches/, "分支"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/activity"] = { // 仓库 - 活动页面
@@ -14536,6 +14852,13 @@ I18N["zh-CN"]["repository/releases"] = { // 仓库 - 发行版页面
         [/^([^ ]+) is used by another release/, "$1 已存在"], // 省略部分内容
         ...I18N["zh-CN"]["repository-public"]["regexp"],
     ],
+    "title": {
+        "regexp": [
+            [/Releases?/, "发行版"],
+            [/Tags/, "标签"],
+            [/New release/, "新建发行版"],
+        ],
+    },
 };
 I18N["zh-CN"]["repository/tags"] = I18N["zh-CN"]["repository/releases"];
 
@@ -14820,6 +15143,7 @@ I18N["zh-CN"]["repository/security"] = { // 仓库 - 安全页面
             "Code scanning alerts •": "代码扫描警报 •",
                 "Automatically detect common vulnerability and coding errors": "自动检测常见漏洞和编码错误",
                 "Set up code scanning": "设置代码扫描",
+                "View alerts": "查看警报",
                 // 私有库
                 "Advanced Security is only available for Organizations": "高级安全只适用于组织",
                 "Find out more": "了解更多",
@@ -14838,6 +15162,13 @@ I18N["zh-CN"]["repository/security"] = { // 仓库 - 安全页面
             // "Create dependabot security update": "创建可靠的安全更新",
 
             "Suggest a policy": "建议政策",
+
+            "Code scanning configuratierror": "代码扫描配置错误",
+                "CodeQL is reporting errors. Check the": "CodeQL 出错。检查",
+                "status page": "状态页",
+                "for help.": "以寻求帮助",
+
+            "Checking code scanning status...": "正在检查代码扫描状态",
 
         // 安全政策 /<user-name>/<repo-name>/security/policy
             "Set up a security policy": "制定安全政策",
@@ -14898,7 +15229,7 @@ I18N["zh-CN"]["repository/security"] = { // 仓库 - 安全页面
                         "Refresh queued, it may take several minutes to see changes reflected in your alerts.": "刷新队列后，可能需要几分钟才能看到警报中反映的更改。",
                         "Refreshed recently, available again in about 1 hour.": "最近刷新，约 1 小时后可再次使用。",
 
-            // 搜索条
+            "Search all Dependabot alerts": "搜索所有 Dependabot 警报",
                 "- submit": "- 提交",
                 "Narrow your search": "缩小搜索范围",
                     "fix-started, no-bandwidth, tolerable-risk, inaccurate, not-used, fixed, auto-dismissed": "修复启动、无带宽、可容忍风险、不准确、未使用、已修复、自动忽略",
@@ -14924,6 +15255,8 @@ I18N["zh-CN"]["repository/security"] = { // 仓库 - 安全页面
                         "Risk is tolerable to this project": "风险可承受",
                         "This alert is inaccurate or incorrect": "此警报不准确或不正确",
                         "Vulnerable code is not actually used": "漏洞代码实际未使用",
+                        "Dismissal comment": "忽略评论",
+                        "Dismiss Alerts": "忽略警报",
                         "Fixed": "已修复",
                         "fixed": "已修复",
                         "Auto-dismissed": "自动忽略",
@@ -14998,40 +15331,50 @@ I18N["zh-CN"]["repository/security"] = { // 仓库 - 安全页面
 
             // 右侧栏
                 "This score calculates overall vulnerability severity from 0 to 10 and is based on the Common Vulnerability Scoring System (CVSS).": "该分数以通用漏洞评分系统 (CVSS) 为基础，从 0 到 10 计算总体漏洞严重性。",
-                "CVSS v3 base metrics": "CVSS v3 基本指标",
-                    "Attack vector": "攻击载体",
-                        "Network": "网络",
-                        "Local": "本地",
-                    "Attack complexity": "攻击复杂性",
-                    "Privileges required": "所需权限",
-                        "None": "无",
-                    "User interaction": "用户交互",
-                        "Required": "必须",
-                    "Scope": "范围",
-                        "Unchanged": "无变化",
-                        "Changed": "已变化",
-                    "Confidentiality": "保密性",
-                    "Integrity": "完整性",
-                    "Availability": "可利用性",
+                "CVSS v4 base metrics": "CVSS v4 基本指标",
+                    "Exploitability Metrics": "可利用性指标",
+                        "Attack Vector": "攻击载体",
+                            "Network": "网络",
+                            "Local": "本地",
+                        "Attack Complexity": "攻击复杂性",
+                        "Attack Requirements": "攻击要求",
+                        "Privileges Required": "所需权限",
+                            "None": "无",
+                        "User interaction": "用户交互",
+                            "Required": "必须",
+                    "Vulnerable System Impact Metrics": "脆弱系统影响指标",
+                        "Confidentiality": "保密性",
+                        "Integrity": "完整性",
+                        "Availability": "可利用性",
+                    "Subsequent System Impact Metrics": "后续系统影响指标",
                     "Learn more about base metrics": "了解更多关于基础指标的信息",
 
-                    // CVSS v3 基本指标 对话框
-                    "Attack vector:": "攻击向量：",
-                        "More severe the more the remote (logically and physically) an attacker can be in order to exploit the vulnerability.": "越严重，攻击者利用漏洞的远程（逻辑上和物理上）距离就越远。",
-                    "Attack complexity:": "攻击复杂性：",
-                        "More severe for the least complex attacks.": "对最不复杂的攻击来说更严重。",
-                    "Privileges required:": "所需权限：",
-                        "More severe if no privileges are required.": "如果不需要权限，则更严重。",
-                    "User interaction:": "用户交互：",
-                        "More severe when no user interaction is required.": "不需要用户交互时更严重。",
-                    "Scope:": "范围：",
-                        "More severe when a scope change occurs, e.g. one vulnerable component impacts resources in components beyond its security scope.": "当范围发生变化时更严重，例如，一个易受攻击的组件会影响其安全范围以外组件的资源。",
-                    "Confidentiality:": "保密性：",
-                        "More severe when loss of data confidentiality is highest, measuring the level of data access available to an unauthorized user.": "数据失密程度最高时更严重，衡量未授权用户可访问数据的程度。",
-                    "Integrity:": "完整性：",
-                        "More severe when loss of data integrity is the highest, measuring the consequence of data modification possible by an unauthorized user.": "当数据完整性损失最高时更严重，衡量未经授权的用户可能修改数据的后果。",
-                    "Availability:": "可用性：",
-                        "More severe when the loss of impacted component availability is highest.": "当受影响组件可用性损失最大时，情况更为严重。",
+                    // CVSS v4 基本指标 对话框 // BUG: 详细解释文本翻译不生效
+                    // 可利用性指标
+                        "Attack Vector:": "攻击载体：",
+                            "This metric reflects the context by which vulnerability exploitation is possible. This metric value (and consequently the resulting severity) will be larger the more remote (logically, and physically) an attacker can be in order to exploit the vulnerable system. The assumption is that the number of potential attackers for a vulnerability that could be exploited from across a network is larger than the number of potential attackers that could exploit a vulnerability requiring physical access to a device, and therefore warrants a greater severity.": "该指标反映漏洞被利用的可能性的上下文。攻击者距离越远（逻辑上和物理上），该指标值（以及由此得出的严重性）就越高。假设可以从网络上利用的漏洞比需要物理访问设备的漏洞拥有更多的潜在攻击者，因此严重性更高。",
+                        "Attack Complexity:": "攻击复杂性：",
+                            "This metric captures measurable actions that must be taken by the attacker to actively evade or circumvent existing built-in security-enhancing conditions in order to obtain a working exploit. These are conditions whose primary purpose is to increase security and/or increase exploit engineering complexity. A vulnerability exploitable without a target-specific variable has a lower complexity than a vulnerability that would require non-trivial customization. This metric is meant to capture security mechanisms utilized by the vulnerable system.": "该指标衡量攻击者为绕过或规避现有内置安全机制而必须采取的可量化操作。这些机制的主要目的是提升安全性或增加利用难度。不需要目标特定变量的漏洞比需要非平凡定制的漏洞复杂性更低。",
+                        "Attack Requirements:": "攻击要求：",
+                            "This metric captures the prerequisite deployment and executiconditions or variables of the vulnerable system that enable the attack. These differ from security-enhancing techniques/technologies (ref Attack Complexity) as the primary purpose of these conditions is not to explicitly mitigate attacks, but rather, emerge naturally as a consequence of the deployment and execution of the vulnerable system.": "该指标衡量使攻击成为可能的先决部署和执行条件或变量。这些条件与安全增强技术不同（参见攻击复杂性），它们并非专门用于缓解攻击，而是脆弱系统部署和运行的自然结果。",
+                        "Privileges Required:": "所需权限：",
+                            "This metric describes the level of privileges an attacker must possess prior to successfully exploiting the vulnerability. The method by which the attacker obtains privileged credentials prior to the attack (e.g., free trial accounts), is outside the scope of this metric. Generally, self-service provisioned accounts do not constitute a privilege requirement if the attacker can grant themselves privileges as part of the attack.": "该指标描述攻击者在成功利用漏洞前必须拥有的权限级别。攻击者在攻击前获取特权凭据的方式（如免费试用账户）不在本指标范围内。",
+                        "User interaction:": "用户交互：",
+                            "This metric captures the requirement for a human user, other than the attacker, to participate in the successful compromise of the vulnerable system. This metric determines whether the vulnerability can be exploited solely at the will of the attacker, or whether a separate user (or user-initiated process) must participate in some manner.": "该指标衡量除攻击者外是否需要其他人类用户参与才能成功攻破脆弱系统。",
+                    // 脆弱系统影响指标
+                        "Confidentiality:": "机密性：",
+                            "This metric measures the impact to the confidentiality of the informatimanaged by the VULNERABLE SYSTEM due to a successfully exploited vulnerability. Confidentiality refers to limiting information access and disclosure to only authorized users, as well as preventing access by, or disclosure to, unauthorized ones.": "该指标衡量成功利用漏洞后对脆弱系统所管理信息的机密性影响。",
+                        "Integrity:": "完整性：",
+                            "This metric measures the impact to integrity of a successfully exploited vulnerability. Integrity refers to the trustworthiness and veracity of information. Integrity of the VULNERABLE SYSTEM is impacted when an attacker makes unauthorized modificatiof system data. Integrity is also impacted when a system user can repudiate critical actions taken in the context of the system (e.g. due to insufficient logging).": "该指标衡量成功利用漏洞后对信息的可信度和准确性的影响。",
+                        "Availability:": "可用性：",
+                            "This metric measures the impact to the availability of the VULNERABLE SYSTEM resulting from a successfully exploited vulnerability. While the Confidentiality and Integrity impact metrics apply to the loss of confidentiality or integrity of data (e.g., information, files) used by the system, this metric refers to the loss of availability of the impacted system itself, such as a networked service (e.g., web, database, email). Since availability refers to the accessibility of information resources, attacks that consume network bandwidth, processor cycles, or disk space all impact the availability of a system.": "该指标衡量成功利用漏洞后对脆弱系统本身可用性的影响（如网络服务被打挂）。",
+                    // 后续系统影响指标
+                        // 机密性
+                            "This metric measures the impact to the confidentiality of the informatimanaged by the SUBSEQUENT SYSTEM due to a successfully exploited vulnerability. Confidentiality refers to limiting information access and disclosure to only authorized users, as well as preventing access by, or disclosure to, unauthorized ones.": "该指标衡量成功利用漏洞后对后续系统所管理信息的机密性影响。",
+                        // 完整性
+                            "This metric measures the impact to integrity of a successfully exploited vulnerability. Integrity refers to the trustworthiness and veracity of information. Integrity of the SUBSEQUENT SYSTEM is impacted when an attacker makes unauthorized modificatiof system data. Integrity is also impacted when a system user can repudiate critical actions taken in the context of the system (e.g. due to insufficient logging).": "该指标衡量成功利用漏洞后对后续系统数据完整性的影响。",
+                        // 可用性
+                            "This metric measures the impact to the availability of the SUBSEQUENT SYSTEM resulting from a successfully exploited vulnerability. While the Confidentiality and Integrity impact metrics apply to the loss of confidentiality or integrity of data (e.g., information, files) used by the system, this metric refers to the loss of availability of the impacted system itself, such as a networked service (e.g., web, database, email). Since availability refers to the accessibility of information resources, attacks that consume network bandwidth, processor cycles, or disk space all impact the availability of a system.": "该指标衡量成功利用漏洞后对后续系统本身可用性的影响。",
 
                 "EPSS score": "EPSS 得分",
                 "Weaknesses": "缺陷",
@@ -15080,6 +15423,10 @@ I18N["zh-CN"]["repository/security"] = { // 仓库 - 安全页面
                     "filter by closure reason": "按关闭原因筛选",
                     "filter by file path (e.g. lib/crypto or *_test.js)": "按文件路径筛选（例如 lib/crypto or *_test.js）",
                     "filter by language": "按语言筛选",
+                    "filter by assignee": "按受理人过滤",
+                    "filter by presence of a property": "按属性的存在进行过滤",
+                    "filter by absence of a property": "按不存在属性进行过滤",
+                "Filter alerts": "筛选警报",
 
             "Language": "语言",
                 "Filter by language": "筛选语言",
@@ -15106,14 +15453,48 @@ I18N["zh-CN"]["repository/security"] = { // 仓库 - 安全页面
             "Detected by": "检测者",
             "in": "在",
 
+            "CodeQL is reporting errors.": "CodeQL 出错。",
+            "Check the": "检查",
+
+            // 专业提示
+                "You can run CodeQL locally from the command line.": "您可以从命令行在本地运行 CodeQL。",
+                "You can run CodeQL locally using Visual Studio Code.": "您可以使用 Visual Studio Code 在本地运行 CodeQL。",
+                "CodeQL queries are developed by an open-source coaliticalled the": "CodeQL 查询由一个开源联盟开发：", // BUG: 翻译不生效
+                    "GitHub Security Lab": "GitHub 安全实验室",
+                "The libraries and queries that power CodeQL are open-source.": "支持 CodeQL 的库和查询是开源的。",
+                "You can upload code scanning analyses from other third-party tools using GitHub Actions.": "您可以使用 GitHub Actions 从其他第三方工具上传代码扫描分析。",
+                "You can configure CodeQL to run with additional queries.": "您可以配置 CodeQL 以运行其他查询。",
+
         // 具体某条 代码扫描 警报/<user-name>/<repo-name>/security/security/code-scanning/<id>
             "Code scanning alerts": "代码扫描警报",
+            "Speed up the remediatiof this alert with": "加快修复此警报的速度，使用", // BUG: 翻译不生效
+                "Copilot Autofix for CodeQL": "CodeQL 的 Copilot 自动修复",
             "Generate fix": "创建修复",
             "Affected branches": "受影响分支",
             "Rule ID": "规则 ID",
             "Query": "查询",
             "View source": "查看源代码",
             "First detected in commit": "首次在提交中检测到",
+            "Assignees": "受理人",
+                "No one -": "无人 -",
+                "Assign yourself": "分配给自己",
+                "Assign up to 10 people to this alert": "最多为 10 人分配此警报",
+                "Filter assignees": "筛选受理人",
+                // Copilot
+                    "bot": "机器人",
+                    "Ensure a fix has been generated.": "确保已生成修复程序。",
+            "Development": "开发",
+                "Link a branch, pull request, or": "链接分支、拉取请求或",
+                    "create a new branch": "创建新分支",
+                    "to start working this alert.": "以开始处理此警报。", // BUG: 翻译不生效
+                "Link a branch or pull request": "链接分支或拉取请求",
+                "Search pull requests": "搜索拉取请求",
+                "Group selected": "已选择组",
+            // 受影响的分支
+                "Configurations analyzing": "配置分析",
+                    "The following configurations have reported this alert.": "以下配置已报告此警报。",
+                    "Last updated": "最后更新",
+            "Appeared in branch": "出现在分支",
 
         // /<user-name>/<repo-name>/security/code-scanning/tools/CodeQL/status
             "Scanned files": "扫描文件",
@@ -15312,7 +15693,22 @@ I18N["zh-CN"]["repository/security"] = { // 仓库 - 安全页面
         [/on (.+)/, "$1"],
         //[/Copy ([^/]\/(?:[^/]+\/)*[^/]+$) to clipboard/, "复制 $1 到剪切板"],
         [/Prototype Pollution in ([^ ]+)/, "$1 上游污染"],
+        [/First detected (.+)/, (match, p1) => { // 受影响的分支 // BUG: 翻译不生效
+            const dateRegExp = I18N["zh-CN"]["public"]["time-regexp"];
+            const translatedDate = dateRegExp.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), p1);
+            return `初次检测 ${translatedDate}`;
+        }],
     ],
+    "title": {
+        "regexp": [
+            [/Security Overview/, "安全概述"],
+            [/Security Policy/, "安全政策"],
+            [/Security Advisories/, "安全咨询"],
+            [/Dependabot alerts?/, "Dependabot 警报"],
+            [/Code scanning alerts?/, "代码扫描警报"],
+            [/Secret scanning/, "机密扫描"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/contribute"] = { // 仓库 - 贡献页面
@@ -15543,6 +15939,11 @@ I18N["zh-CN"]["repository/pulse"] = { // 仓库 -> 洞察 - 统计
         [/issues? closed/, "议题关闭"],
         [/(\d+) commits? authored by ([^ ]+)/, "$2 提交 $1 次"],
     ],
+    "title": {
+        "regexp": [
+            [/Pulse/, "洞察"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/graphs/contributors"] = { // 仓库 -> 洞察 - 贡献者
@@ -15650,6 +16051,11 @@ I18N["zh-CN"]["repository/graphs/contributors"] = { // 仓库 -> 洞察 - 贡献
         }],
         ...I18N["zh-CN"]["repository-public"]["regexp"],
     ],
+    "title": {
+        "regexp": [
+            [/Contributors to (.+)/, "$1 的贡献者"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/graphs/community"] = { // 仓库 -> 洞察 - 社区
@@ -15795,6 +16201,11 @@ I18N["zh-CN"]["repository/community"] = { // 仓库 -> 洞察 - 社区准则
     "regexp": [ // 正则翻译
         ...I18N["zh-CN"]["repository-public"]["regexp"],
     ],
+    "title": {
+        "static": {
+            "Community Standards": "社区准则",
+        },
+    },
 };
 
 I18N["zh-CN"]["repository/graphs/traffic"] = { // 仓库 -> 洞察 - 流量
@@ -15932,6 +16343,11 @@ I18N["zh-CN"]["repository/graphs/commit-activity"] = { // 仓库 -> 洞察 - 提
             return `${translatedDate}当周` ; // 这里写翻译结果
         }],
     ],
+    "title": {
+        "regexp": [
+            [/Commits/, "提交"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/graphs/code-frequency"] = { // 仓库 -> 洞察 - 代码频率
@@ -16007,6 +16423,11 @@ I18N["zh-CN"]["repository/graphs/code-frequency"] = { // 仓库 -> 洞察 - 代�
             return mKey[m] + d + "日";
         }],
     ],
+    "title": {
+        "regexp": [
+            [/Code frequency/, "代码频率"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/network/dependencies"] = { // 仓库 -> 洞察 - 依赖项关系图 - 依赖项
@@ -16102,6 +16523,11 @@ I18N["zh-CN"]["repository/network/dependencies"] = { // 仓库 -> 洞察 - 依�
         [/(\d+) moderate/, "$1 中风险"],
         [/Load (\d+) more…/, "加载更多 $1个…"],
     ],
+    "title": {
+        "regexp": [
+            [/Dependencies/, "依赖项"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/network/dependents"] = { // 仓库 -> 洞察 - 依赖项关系图 - 依赖者
@@ -16133,6 +16559,11 @@ I18N["zh-CN"]["repository/network/dependents"] = { // 仓库 -> 洞察 - 依赖�
         [/(\d+) Repositor(y|ies)/, "$1 仓库"],
         [/(\d+) Packages?/, "$1 软件包"],
     ],
+    "title": {
+        "regexp": [
+            [/Network Dependents/, "网络依赖者"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/network/updates"] = { // 仓库 -> 洞察 - 依赖项关系图 - Dependabot
@@ -16202,6 +16633,11 @@ I18N["zh-CN"]["repository/network"] = { // 仓库 -> 洞察 - 网络图
     "regexp": [ // 正则翻译
         ...I18N["zh-CN"]["repository-public"]["regexp"],
     ],
+    "title": {
+        "regexp": [
+            [/Network Graph/, "网络图"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/network/members"] = { // 仓库 -> 洞察 - 复刻
@@ -16287,6 +16723,11 @@ I18N["zh-CN"]["repository/forks"] = { // 仓库 -> 洞察 - 复刻
             return typeKey[type] + ' ' + num;
         }],
     ],
+    "title": {
+        "regexp": [
+            [/Forks/, "复刻"],
+        ],
+    },
 };
 
 // 洞察 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -16329,8 +16770,7 @@ I18N["zh-CN"]["repository-settings-menu"] = { // 仓库设置公共部分
                 "Custom properties": "自定义属性",  // 组织仓库
 
             // "Security": "安全",
-            "Code Security": "代码安全性",
-                "Code security and analysis": "代码安全性与分析",
+                "Advanced Security": "高级安全",
                 "Deploy keys": "部署密钥",
                 "Secrets and variables": "机密和变量",
 
@@ -16697,6 +17137,11 @@ I18N["zh-CN"]["repository/settings"] = { // 仓库设置 - 通常 /<user-name>/<
         // 离开复刻网络
         [/Forked from ([^ ])/, "复刻自 $1"],
     ],
+    "title": {
+        "static": {
+            "General": "通常",
+        },
+    },
 };
 
 I18N["zh-CN"]["repository/settings/access"] = { // 仓库设置 - 协作者/(组织仓库 协作者和团队) /<user-name>/<repo-name>/settings/access
@@ -16815,6 +17260,11 @@ I18N["zh-CN"]["repository/settings/access"] = { // 仓库设置 - 协作者/(组
         [/Removed ([^ ]+) as a collaborator of ([^ ]+\/[^ ]+)/, "删除 $1 为 $2 的协作者"],
         ...I18N["zh-CN"]["repository-public"]["regexp"],
     ],
+    "title": {
+        "static": {
+            "Manage access": "访问管理",
+        },
+    },
 };
 
 I18N["zh-CN"]["repository/settings/interaction_limits"] = { // 仓库设置 - 互动限制 /<user-name>/<repo-name>/settings/interaction_limits
@@ -16869,6 +17319,11 @@ I18N["zh-CN"]["repository/settings/interaction_limits"] = { // 仓库设置 - �
             [/You can restrict repository interactions across the ([^ ]+) organization in your/, "您可以在您的 $1 组织中限制仓库交互"],
             [/to the ([^ ]+) branch of this repository will be unable to interact with the repository./, "到该仓库的 $1 分支的用户将无法与该仓库互动。"],
     ],
+    "title": {
+        "static": {
+            "Temporary interaction limits": "临时互动限制",
+        },
+    },
 };
 
 I18N["zh-CN"]["repository/settings/code_review_limits"] = { // 仓库设置 - 代码审查限制 /<user-name>/<repo-name>/settings/code_review_limits
@@ -16889,6 +17344,11 @@ I18N["zh-CN"]["repository/settings/code_review_limits"] = { // 仓库设置 - �
     "regexp": [ // 正则翻译
         ...I18N["zh-CN"]["repository-public"]["regexp"],
     ],
+    "title": {
+        "static": {
+            "Code review limits": "代码审查限制",
+        },
+    },
 };
 
 I18N["zh-CN"]["repository/settings/branches"] = { // 仓库设置 - 分支 /<user-name>/<repo-name>/settings/branches
@@ -16940,6 +17400,11 @@ I18N["zh-CN"]["repository/settings/branches"] = { // 仓库设置 - 分支 /<use
         ...I18N["zh-CN"]["repository-public"]["regexp"],
         [/Currently applies to (\d+) branch(?:es|)/, "目前适用于 $1 个分支"], // 仓库设置-->分支-->分支保护规则
     ],
+    "title": {
+        "regexp": [
+            [/Settings · Branches/, "设置 · 分支"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/settings/branch_protection_rules"] = { // 仓库设置 - 分支/分支保护 /<user-name>/<repo-name>/settings/branch_protection_rules
@@ -17077,6 +17542,11 @@ I18N["zh-CN"]["repository/settings/branch_protection_rules"] = { // 仓库设置
         ...I18N["zh-CN"]["repository-public"]["regexp"],
         [/Applies to (\d+) branch(?:es|)/, "应用于 $1 个分支"], //仓库设置-->分支-->分支保护规则-->编辑
     ],
+    "title": {
+        "regexp": [
+            [/Settings · Branches · New branch protection rule/, "设置 · 分支 · 新建分支保护规则"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/settings/tag_protection"] = { // 仓库设置 - 标签 /<user-name>/<repo-name>/settings/tag_protection
@@ -17139,6 +17609,11 @@ I18N["zh-CN"]["repository/settings/tag_protection"] = { // 仓库设置 - 标签
         [/(\d+) rules?/, "$1 条规则"],
         ...I18N["zh-CN"]["repository-public"]["regexp"],
     ],
+    "title": {
+        "regexp": [
+            [/Settings · Tags/, "设置 · 标签"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/settings/rules"] = { // 仓库设置 - 规则 - 规则集 /<user-name>/<repo-name>/settings/rules
@@ -17469,11 +17944,14 @@ I18N["zh-CN"]["repository/settings/rules"] = { // 仓库设置 - 规则 - 规则
                         "The lowest severity level at which code quality reviews need to be resolved before commits can be merged.": "在合并提交之前，需要解决的最低严重级别代码质量审查。",
 
                     "Automatically request Copilot code review": "自动请求 Copilot 代码审查",
-                        "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review.": "如果作者有权访问 Copilot 代码审查，则自动请求 Copilot 对新拉取请求进行审查。",
+                        "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.": "如果作者有权访问 Copilot 代码审查并且其高级请求配额尚未达到限制，则自动请求 Copilot 对新拉取请求进行代码审查。",
                         "Review new pushes": "审查新的推送",
                         "Copilot automatically reviews each new push to the pull request.": "Copilot 自动审查每个新的推送请求。",
                         "Review draft pull requests": "审查草稿拉取请求",
                         "Copilot automatically reviews draft pull requests before they are marked as ready for review.": "Copilot 自动审查草稿拉取请求，在标记为准备好审查之前。",
+
+                    "Manage static analysis tools in Copilot code review": "在 Copilot 代码审查中管理静态分析工具",
+                        "Copilot code review will include findings from the selected static analysis tools in its review comments.": "Copilot 代码审查将在其审查意见中包括所选静态分析工具的结果。",
 
                     // 组织设置
                     "Require workflows to pass before merging": "要求合并前，工作流通过状态检查",
@@ -17577,6 +18055,7 @@ I18N["zh-CN"]["repository/settings/rules"] = { // 仓库设置 - 规则 - 规则
                 "Invalid rules: 'Required status checks'": "无效规则：“必需的状态检查”",
                 "This": "此",
                     "does not target any resources and will not be applied.": "未针对任何资源，将不会生效。",
+                "Ruleset updated": "规则已更新",
 
 
     },
@@ -17623,6 +18102,11 @@ I18N["zh-CN"]["repository/settings/rules"] = { // 仓库设置 - 规则 - 规则
         [/Branch name must not match a given regex pattern/, "分支名称不得匹配给定的正则表达式规则"],
         ...I18N["zh-CN"]["orgs-public"]["regexp"],
     ],
+    "title": {
+        "regexp": [
+            [/Settings · Rulesets?/, "设置 · 规则集"],
+        ],
+    },
 };
 I18N["zh-CN"]["orgs/settings/rules"] = I18N["zh-CN"]["repository/settings/rules"];
 I18N["zh-CN"]["repository/rules"] = I18N["zh-CN"]["repository/settings/rules"];
@@ -17754,6 +18238,13 @@ I18N["zh-CN"]["repository/settings/actions"] = { // 仓库设置 - 操作 /<user
         [/Add new self-hosted runner · (.+)/, "添加自托管运行器 · $1"],
         ...I18N["zh-CN"]["repository-public"]["regexp"],
     ],
+    "title": {
+        "regexp": [
+            [/Actions settings/, "操作设置"],
+            [/Runners/, "运行器"],
+            [/Add new self-hosted runner/, "添加自托管运行器"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/settings/models/access-policy"] = { // 仓库设置 - 模型 /<user-name>/<repo-name>/settings/models/access-policy
@@ -17769,6 +18260,11 @@ I18N["zh-CN"]["repository/settings/models/access-policy"] = { // 仓库设置 - 
             "Learn more about Models.": "了解更多。",
     },
     "regexp": [],
+    "title": {
+        "regexp": [
+            [/settings · GitHub Models access policy/, "设置 · GitHub 模型访问政策"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/settings/hooks"] = { // 仓库设置 - Web 钩子 /<user-name>/<repo-name>/settings/hooks
@@ -17985,6 +18481,14 @@ I18N["zh-CN"]["repository/settings/hooks"] = { // 仓库设置 - Web 钩子 /<us
         ...I18N["zh-CN"]["repository-public"]["regexp"],
         [/Completed in (\d+(\.\d+)) seconds?./, "在 $1 秒内完成。"],
     ],
+    "title": {
+        "static": {
+            "Add webhook": "添加 Web 钩子",
+        },
+        "regexp": [
+            [/Webhooks · Settings/, "Web 钩子 · 设置"],
+        ],
+    },
 };
 I18N["zh-CN"]["orgs/settings/hooks"] = I18N["zh-CN"]["repository/settings/hooks"];
 
@@ -18024,6 +18528,11 @@ I18N["zh-CN"]["repository/settings/copilot/code_review"] = {
         // 3 branch rules • targeting 1 branch
         [/(\d+) branch rules? • targeting (\d+) branch(?:es)?/, "$1 分支规则 • 针对 $2 分支"],
     ],
+    "title": {
+        "regexp": [
+            [/Settings · Code review/, "设置 · 代码审查"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/settings/copilot/coding_agent"] = {
@@ -18090,6 +18599,11 @@ I18N["zh-CN"]["repository/settings/copilot/coding_agent"] = {
     "regexp": [
         [/(\d+) rules?/, "$1 规则"],
     ],
+    "title": {
+        "static": {
+            "Copilot coding agent": "Copilot 编程智能体",
+        },
+    },
 };
 
 I18N["zh-CN"]["repository/settings/environments"] = { // 仓库设置 - 环境 /<user-name>/<repo-name>/settings/environment
@@ -18243,6 +18757,13 @@ I18N["zh-CN"]["repository/settings/environments"] = { // 仓库设置 - 环境 /
         [/Deployment branch rule \"([^ ]+)\" saved successfully./ ,"部署分支规则 “$1” 已成功保存。"],
         [/Deployment branch rule \"([^ ]+)\" removed./, "部署分支规则 “$1” 已删除。",]
     ],
+    "title": {
+        "regexp": [
+            [/Environments/, "环境"],
+            [/Create environment/, "创建环境"],
+            [/Configure environment/, "配置环境"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/settings/codespaces"] = { // 仓库设置 - 代码空间 /<user-name>/<repo-name>/settings/codespaces
@@ -18349,6 +18870,11 @@ I18N["zh-CN"]["repository/settings/codespaces"] = { // 仓库设置 - 代码空�
     "regexp": [ // 正则翻译
         ...I18N["zh-CN"]["repository-public"]["regexp"],
     ],
+    "title": {
+        "static": {
+            "Codespaces": "代码空间",
+        },
+    },
 };
 
 I18N["zh-CN"]["repository/settings/pages"] = { // 仓库设置页面(含组织仓库) /<user-name>/<repo-name>/settings
@@ -18701,6 +19227,11 @@ I18N["zh-CN"]["repository/settings/security_analysis"] = { // 仓库设置 - 高
         ...I18N["zh-CN"]["repository-public"]["regexp"],
         [/(\d+) rules? enabled/, "已启用 $1 条规则"],
     ],
+    "title": {
+        "regexp": [
+            [/Settings · Advanced Security/, "设置 · 高级安全"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["repository/settings/keys"] = { // 仓库设置 - 部署密钥 /<user-name>/<repo-name>/settings/keys
@@ -18753,6 +19284,12 @@ I18N["zh-CN"]["repository/settings/keys"] = { // 仓库设置 - 部署密钥 /<u
         [/Last used within the last (\d+) weeks?/, "最后一次使用是最近 $1 周之内"], // /keys
         [/Last used within the last (\d+) months?/, "最后一次使用是最近 $1 个月之内"], // /keys
     ],
+    "title": {
+        "static": {
+            "Deploy keys": "部署密钥",
+            "Add deploy key": "添加部署密钥",
+        },
+    },
 };
 
 I18N["zh-CN"]["repository/settings/secrets"] = { // 仓库设置 - 机密 /<user-name>/<repo-name>/settings/secrets
@@ -18843,10 +19380,9 @@ I18N["zh-CN"]["repository/settings/secrets"] = { // 仓库设置 - 机密 /<user
             "create a secret": "创建机密",
             "instead.": "代替。",
 
-            "Alphanumeric characters ([a-z], [A-Z], [0-9]) or underscores (_) only.": "字母数字字符（[A-Z]，[A-Z]，[0-9]）或仅下划线（_）。",
-            "Spaces are not allowed.": "不允许出现空格。",
-            "Cannot start with a number.": "不能以数字开头。",
-            "Cannot start with": "不能以",
+            "Variable names may only contain alphanumeric characters ([a-z], [A-Z], [0-9]) or underscores (_).": "变量名称只能包含字母数字字符（[A-Z]，[A-Z]，[0-9]）或仅下划线（_）。",
+            "Variable names cannot start with a number.": "变量名称不能以数字开头。",
+            "Variable names cannot start with": "变量名称不能以",
             "prefix.": "前缀开头。",
 
             "Add variable": "添加变量",
@@ -18889,6 +19425,16 @@ I18N["zh-CN"]["repository/settings/secrets"] = { // 仓库设置 - 机密 /<user
         ...I18N["zh-CN"]["repository-public"]["regexp"],
         [/Organization secrets for ([^ ]+) can be managed within/, "$1  的组织机密可以管理，在"], // /secrets/dependabot
     ],
+    "title": {
+        "regexp": [
+            [/Actions secrets/, "操作机密"],
+            [/Add Actions secret/, "新建操作机密"],
+            [/Actions variables/, "操作变量"],
+            [/Add Actions variable/, "新建操作变量"],
+            [/Codespaces secrets/, "代码空间机密"],
+            [/Add Codespaces secret/, "新建代码空间机密"],
+        ],
+    },
 };
 I18N["zh-CN"]["repository/settings/variables"] = I18N["zh-CN"]["repository/settings/secrets"];
 
@@ -18911,6 +19457,11 @@ I18N["zh-CN"]["repository/settings/installations"] = { // 仓库设置 - GitHub 
     "regexp": [ // 正则翻译
         ...I18N["zh-CN"]["repository-public"]["regexp"],
     ],
+    "title": {
+        "static": {
+            "GitHub Apps": "GitHub 应用",
+        },
+    },
 };
 
 I18N["zh-CN"]["repository/settings/notifications"] = { // 仓库设置 - 邮件通知 /<user-name>/<repo-name>/settings/notifications/edit
@@ -18935,6 +19486,11 @@ I18N["zh-CN"]["repository/settings/notifications"] = { // 仓库设置 - 邮件�
     "regexp": [ // 正则翻译
         ...I18N["zh-CN"]["repository-public"]["regexp"],
     ],
+    "title": {
+        "static": {
+            "Configure email notifications": "配置电子邮件通知",
+        },
+    },
 };
 
 I18N["zh-CN"]["repository/settings/key_links"] = { // 仓库设置 - 自动链接引用（注：只有专业版有） /<user-name>/<repo-name>/settings/key_links
@@ -18966,6 +19522,12 @@ I18N["zh-CN"]["repository/settings/key_links"] = { // 仓库设置 - 自动链�
                     "for the reference number.": "作为引用编号。",
     },
     "regexp": [],
+    "title": {
+        "static": {
+            "Autolink references": "自动链接引用",
+            "Add autolink reference": "添加自动链接引用",
+        },
+    },
 };
 
 I18N["zh-CN"]["repository/transfer"] = { // 转让仓库
@@ -19147,17 +19709,21 @@ I18N["zh-CN"]["repository/codespaces"] = { // 仓库 - 内容举报 /<user-name>
 
 I18N["zh-CN"]["homepage"] = { // 未登录的首页
     "static": { // 静态翻译
-        "GitHub Copilot is now available for free.": "免费使用 GitHub Copilot。",
+        //"GitHub Copilot is now available for free.": "免费使用 GitHub Copilot。",
         //"Let’s build from here": "让我们从这里开始",
         //"The world’s leading AI-powered developer platform.": "全球领先的人工智能开发者平台。",
-        "Build and ship software on a single, collaborative platform": "在单一协作平台上构建和发布软件",
-        "Join the world’s most widely adopted AI-powered developer platform.": "加入全球最广泛采用的人工智能开发者平台",
+        //"Build and ship software on a single, collaborative platform": "在单一协作平台上构建和发布软件",
+        //"Join the world’s most widely adopted AI-powered developer platform.": "加入全球最广泛采用的人工智能开发者平台",
         //"Join the world’s most widely adopted AI-powered developer platform where millions of developers, businesses, and the largest open source community build software that advances humanity.": "加入全球最广泛采用的人工智能开发者平台，在这里，数百万的开发人员、企业和最大的开源社区构建推动人类进步的软件。",
+        "Explore the latest tools from Universe '25": "探索 Universe '25 的最新工具",
+        "The future of building happens together": "构建未来的方式是共同创造",
+        "Tools and trends evolve, but collaboration endures. With GitHub, developers, agents, and code come together on one platform.": "工具与趋势不断演变，但协作永恒。有 GitHub在，开发者、智能体与代码在同一个平台汇聚。",
 
         //"Email address": "电子邮箱地址",
         "Enter your email": "键入邮箱地址",
         "Sign up for GitHub": "注册 GitHub",
         //"Start a free enterprise trial": "开始免费试用企业版",
+        "Try GitHub Copilot free": "免费试用 GitHub Copilot",
 
         "Try Copilot Free": "试用 GitHub Copilot",
             "30 days free": "30天免费",
@@ -19165,18 +19731,21 @@ I18N["zh-CN"]["homepage"] = { // 未登录的首页
         "Explore upcoming releases": "探索即将发布的产品", // 已登录
 
         // 代码
-            "Build code quickly and more securely with GitHub Copilot embedded throughout your workflows.": "使用嵌入在整个工作流程中的 GitHub Copilot 快速、更安全地构建代码。",
+            "Write, test, and fix code quickly with GitHub Copilot, from simple boilerplate to complex features.": "使用 GitHub Copilot 快速编写、测试和修复代码，从简单的样板代码到复杂功能都能胜任。",
         "Plan": "计划",
-            "Track and coordinate your work with GitHub Issues, GitHub Projects, and insights.": "使用 GitHub 议题、GitHub 项目和见解来跟踪和协调您的工作。",
+            "Align your team from idea to launch with tools that track work, visualize roadmaps, and gather insights.": "借助跟踪工作、可视化路线图、收集洞察的工具，让团队从创意到上线全程对齐。",
         "Collaborate": "协作",
-            "Work easily with your team in real time with GitHub Pull Requests, code reviews, and GitHub Discussions.": "通过 GitHub 拉取请求、代码审查和 GitHub 讨论轻松地与您的团队实时合作。",
+            "Enable your team to collaborate with agents to plan, code, and test the next big thing.": "让团队与智能体协作，一起规划、编写和测试下一个大项目。",
         "Automate": "自动化",
-            "Streamline your workflows with automated CI/CD, testing, planning, project management, issue labeling, approvals, onboarding, and more.": "通过自动化的 CI/CD、测试、规划、项目管理、问题标签、批准、入职等简化您的工作流程。",
+            "Improve your software development process by automating builds, tests, and deployments with CI/CD.": "通过 CI/CD 自动化构建、测试和部署，提升整个软件开发流程。",
         "Secure": "安全",
             "Leverage tooling to detect, review, and fix vulnerabilities before they reach production.": "利用工具在漏洞进入生产之前检测、审查并修复漏洞。",
 
-        "Accelerate performance": "提高性能",
-            "With GitHub Copilot embedded throughout the platform, you can simplify your toolchain, automate tasks, and improve the developer experience.": "通过嵌入整个平台的 GitHub Copilot，您可以简化工具链、自动执行任务并改善开发人员体验。",
+        "Accelerate your entire workflow": "加速你的全部工作流",
+            "From your first line of code to final deployment, GitHub provides AI and automation tools to help you build and ship better software faster.": "从第一行代码到最终部署，GitHub 提供 AI 和自动化工具，帮助你更快地构建并发布更优质的软件。",
+
+            "Your AI partner everywhere.": "你的 AI 伙伴，无处不在。",
+                "Copilot is ready to work with you at each step of the software development lifecycle.": "Copilot 已准备好在软件开发生命周期的每一个阶段与你并肩工作。",
 
             "Work 55% faster.": "工作快 55%。",
                 "Increase productivity with AI-powered coding assistance, including code completion, chat, and more.": "通过人工智能编码辅助（包括代码完成、聊天等）提高生产力。",
@@ -19186,46 +19755,56 @@ I18N["zh-CN"]["homepage"] = { // 未登录的首页
             "Duolingo boosts developer speed by 25% with GitHub Copilot": "多邻国利用 GitHub Copilot 将开发速度提高了 25%",
               "Read customer story": "阅读客户故事",
 
-            "2024 Gartner® Magic Quadrant™ for AI Code Assistants": "2024 年 Gartner® 人工智能代码助手魔力象限™",
+            "2025 Gartner® Magic Quadrant™ for AI Code Assistants": "2025 Gartner® AI 代码助手魔力象限™",
               "Read industry report": "阅读行业报告",
 
-        "Optimize your process with simple and secured CI/CD.": "使用简单、安全的 CI/CD 优化您的流程。",
-            "Get up and running in seconds": "数秒内即可启动并运行",
-                "Start building instantly with a comprehensive dev environment in the cloud.": "利用云中全面的开发环境立即开始构建。",
-            "Build on the go": "随时随地构建",
-                "Manage projects and chat with GitHub Copilot from anywhere.": "随时随地管理项目并与 GitHub Copilot 聊天。",
-            "Integrate the tools you love": "整合您喜爱的工具",
-                "Sync with 17,000+ integrations and a growing library of Copilot Extensions.": "与 17,000 多个集成和不断增长的 Copilot 扩展库同步。",
-                "Visit GitHub Marketplace": "访问 GitHub 市场",
+        "Automate your path to production": "自动化通往生产的路径",
+            "Ship faster with secure, reliable CI/CD.": "使用安全可靠的 CI/CD，更快交付。",
+            "Explore GitHub Actions": "探索 GitHub Actions",
 
-        "Built-in application security": "内置的应用程序安全",
-        "where found means fixed": "发现即修复",
-            "Use AI to find and fix vulnerabilities—freeing your teams to ship more secure software faster.": "使用人工智能来查找和修复漏洞——让您的团队能够更快地交付更安全的软件。",
+            "Code instantly from anywhere": "随时随地立即开始编码",
+            "Launch a full, cloud-based development environment in seconds.": "几秒内启动完整的云端开发环境。",
+            "Explore GitHub Codespaces": "探索 GitHub 代码空间",
 
+            "Keep momentum on the go": "随时随地保持开发节奏",
+            "Manage projects and assign tasks to Copilot, all from your mobile device.": "在手机上就能管理项目、给 Copilot 派任务。",
+            "Explore GitHub Mobile": "探索 GitHub 移动端",
+
+            "Shape your toolchain": "塑造你的工具链",
+            "Extend your stack with apps, actions, and AI models.": "通过应用、Actions 和 AI 模型扩展你的技术栈。",
+            "Explore GitHub Marketplace": "探索 GitHub 市场",
+
+        "Built-in application security where found means fixed": "内置应用安全，发现即修复",
+            "Use AI to find and fix vulnerabilities so your team can ship more secure software faster.": "利用 AI 发现并修复漏洞，让团队更快交付更安全的软件。",
+            
             "Apply fixes in seconds.": "在几秒钟内完成修复。",
-                "Spend less time fixing vulnerabilities and more time building features with Copilot Autofix.": "使用 Copilot 自动修复可以减少修复漏洞的时间，而将更多的时间用于构建功能。",
+                "Spend less time debugging and more time building features with Copilot Autofix.": "使用 Copilot 自动修复，花更少时间调试，把更多时间用来开发新功能。",
                 "Explore GitHub Advanced Security": "探索 GitHub 高级安全",
 
-                "Solve security debt.": "解决担保债务。",
-                    "Leverage AI-assisted security campaigns to reduce application vulnerabilities and zero-day attacks.": "利用人工智能辅助安全活动来减少\n应用程序漏洞和零日攻击。",
-                    "Discover security campaigns": "探索安全活动",
+                "Security debt, solved.": "安全债务，一键解决。",
+                    "Leverage security campaigns and Copilot Autofix to reduce application vulnerabilities.": "利用安全整治活动和 Copilot 自动修复，大幅减少应用漏洞。",
+                    "Learn about GitHub Code Security": "了解 GitHub 代码安全功能",
 
                 "Dependencies you can depend on.": "您可以依赖的依赖项。",
                     "Update vulnerable dependencies with supported fixes for breaking changes.": "使用支持的修复程序更新易受攻击的依赖项\n以解决重大更改。",
                     "Learn about Dependabot": "了解 Dependabot",
 
-                "Your secrets, your business: protected.": "您的机密、您的业务：受到保护。",
+                "Your secrets, your business.": "你的密钥，你说了算。",
                     "Detect, prevent, and remediate leaked secrets across your organization.": "检测、预防并补救整个组织内泄露的机密。",
+                    "Learn about GitHub Secret Protection": "了解 GitHub 密钥保护功能",
 
-                "90% coverage": "90% 覆盖率",
-                    "of alert types in all supported languages with Copilot Autofix": "Copilot 自动修复支持所有语言的警报类型",
+                "70% MTTR reduction": "平均修复时间 (MTTR) 降低 70%",
+                    "with Copilot Autofix": "得益于 Copilot 自动修复",
+
+                "8.3M secret leaks stopped": "阻止了 830 万次密钥泄露",
+                    "in the past 12 months with push protection": "过去 12 个月内通过推送保护实现",
 
         "Work together, achieve more": "共同协作，取得更大成就",
-            "Collaborate with your teams, use management tools that sync with your projects, and code from anywhere—all on a single, integrated platform.": "与您的团队协作，使用与您的项目同步的管理工具并从任何地方编写代码——所有这些都在单一集成平台上进行。",
+            "From planning and discussion to code review, GitHub keeps your team’s conversation and context next to your code.": "从规划、讨论到代码审查，GitHub 始终将团队的对话和上下文紧贴在代码旁边。",
 
-            "Your workflows, your way.": "您的工作流程，您的方式。",
-                "Plan effectively with an adaptable spreadsheet that syncs with your work.": "使用与工作同步的可调整电子表格，有效制定计划。",
-                "Jump into GitHub Projects": "跳转到 GitHub 项目",
+            "Plan with clarity.": "清晰规划。",
+                "Organize everything from high-level roadmaps to everyday tasks.": "从高层路线图到日常任务，一切井井有条。",
+                "Explore GitHub Projects": "探索 GitHub 项目",
             "It helps us onboard new software engineers and get them productive right away. We have all our source code, issues, and pull requests in one place... GitHub is a complete platform that frees us from menial tasks and enables us to do our best work.": "它可以帮助我们吸收新的软件工程师，让他们立即投入工作。我们的所有源代码、问题和拉取请求都在一个地方... GitHub 是一个完整的平台，它将我们从琐碎的工作中解脱出来，让我们能够全力以赴。",
                 "Application manager at Mercedes-Benz": "Mercedes-Benz 应用管理员",
             "Keep track of your tasks": "跟踪任务",
@@ -19233,104 +19812,39 @@ I18N["zh-CN"]["homepage"] = { // 未登录的首页
                 "Explore GitHub Issues": "探索 GitHub 议题",
             "Share ideas and ask questions": "交流想法和提出问题",
                 "Create space for open-ended conversations alongside your project.": "在开展项目的同时，为开放式对话创造空间。",
-                "Discover GitHub Discussions": "探索 GitHub 讨论",
+                "Explore GitHub Discussions": "探索 GitHub 讨论",
             "Review code changes together": "共同审查代码",
-                "Create review processes that improve code quality and fit neatly into your workflow.": "创建可提高代码质量的审查流程，并与您的工作流程完美契合。",
-                "Learn about code review": "了解代码审查",
+                "Assign initial reviews to Copilot for greater speed and quality.": "将初步审查交给 Copilot，获得更快的速度和更高的质量。",
+                "Explore code review": "探索代码审查",
             "Fund open source projects": "资助开源项目",
                 "Become an open source partner and support the tools and libraries that power your work.": "成为开源合作伙伴，支持为您的工作提供动力的工具和库。",
-                "Dive into GitHub Sponsors": " 深入了解 GitHub 赞助",
+                "Explore GitHub Sponsors": "探索 GitHub 赞助",
 
-        // 从初创公司到大型企业，GitHub 可以适应任何行业、任何规模的团队。
         "From startups to enterprises,": "从初创公司到大型企业，",
-            "GitHub scales": "GitHub",
-            "with teams of any size in any industry.": "可以适应任何行业、任何规模的团队。",
+            "GitHub scales with teams of any size in any industry.": "GitHub 能适配任何规模、任何行业的团队。",
+
+            // 工业
+                "Technology": "技术",
+                "Figma streamlines development and strengthens security": "Figma 简化开发并增强安全性",
+                "Automotive": "汽车",
+                "Mercedes-Benz standardizes source code and automates onboarding": "奔驰标准化源代码并自动化入职",
+                "Mercado Libre cuts coding time by 50%": "Mercado Libre 将编码时间缩短了 50%",
+            "By size": "规模",
+                "Buffer enhances collaboration and control with GitHub Team": "Buffer 通过 GitHub 团队 提升协作与控制力",
+                "Accenture customizes GitHub Copilot for its 12,000 developers": "埃森哲为其 12,000 名开发者定制 GitHub Copilot",
+                "Philips reduces infrastructure costs by 80%": "飞利浦将基础设施成本降低 80%",
+            // 使用案例
+                "TELUS saves $16.9M with GitHub": "TELUS 使用 GitHub 节省 1690 万美元",
+                "Automation": "自动化",
+                "Fullstory automates DevSecOps at scale with GitHub": "Fullstory 使用 GitHub 大规模自动化 DevSecOps",
+                "EY leverages GitHub and Microsoft Azure DevOps to outpace the competition": "安永（EY）借助 GitHub 和 Microsoft Azure DevOps 领先竞争对手",
 
             "Explore customer stories": "探索客户故事",
 
         "Millions of developers and businesses call GitHub home": "数百万开发者和企业将 GitHub 视为自己的家",
-            "Whether you’re scaling your development process or just learning how to code, GitHub is where you belong. Join the world’s most widely adopted AI-powered developer platform to build the technologies that redefine what’s possible.": "无论您是在扩展开发流程还是只是学习如何编码，GitHub 都是您的理想选择。加入全球最广泛采用的 AI 驱动开发者平台，构建重新定义可能性的技术。",
+            "Whether you’re scaling your development process or just learning how to code, GitHub is where you belong. Join the world’s most widely adopted developer platform to build the technologies that shape what’s next.": "无论你是正在扩展开发流程，还是刚刚开始学习编程，GitHub 都是你的归属之地。加入全球采用最广泛的开发者平台，一起构建塑造未来的技术。",
 
-        //"Trusted by the world’s leading organizations ↘︎": "全球领先机构所信赖的合作伙伴 ↘︎",
-
-        //"Productivity": "生产力",
-        //"Accelerate innovation": "加快创新",
-        //"Our AI-powered platform increases the pace of software development.": "我们的人工智能平台加快了软件开发的步伐。",
-
-        //"empowers developers to complete tasks 55% faster with contextualized AI coding assistance across workflows.": "能够为开发者提供上下文化的 AI 编程辅助，帮助他们在整个工作流程中完成任务的速度提高 55%。",
-
-        //"Did you know?": "您知道吗?",
-
-        //"22% increase": "22% 效率提升",
-        //"in developer productivity after three years with GitHub": "使用 GitHub 三年后，开发人员的工作效率",
-        //"Read the report": "阅读报告",
-
-        //automates your build, test, and deployment workflow with simple and secure CI/CD.": "可以使用简单且安全的 CI/CD 来自动化您的构建、测试和部署工作流。",
-        "Discover GitHub Actions": "探索 GitHub Actions",
-
-        //GitHub Codespaces": "GitHub 代码空间",
-        //offers a complete dev environment in seconds. Code, build, test, and open pull requests from any repo.": "可在几秒钟内提供完整的开发环境。可在任何代码库中编写代码、构建、测试并打开拉取请求。",
-        "Check out GitHub Codespaces": "查看 GitHub 代码空间",
-
-        //GitHub Mobile and Copilot": "GitHub Mobile 和 Copilot",
-        //"fits your projects in your pocket, so you never miss a beat while on the go.": "让您的项目尽在掌握，让您在旅途中永不遗漏任何信息。",
-        //"now let you manage projects and converse with your AI pair programmer on the go.": "让您可以管理项目，并与您的 AI 结对程序员在旅途中交流。",
-        "Download GitHub Mobile": "下载 GitHub 移动端",
-
-        //"Application security": "应用安全",
-        //"Empower developers": "为开发者赋能",
-        //"With GitHub, you can secure code in minutes.": "通过 GitHub，您可以在几分钟内保护代码安全",
-
-        //"GitHub Advanced Security": "GitHub 高级安全功能",
-        //"enables you to find and fix vulnerabilities with ease and ship secure code quickly.": "可帮助您轻松发现和修复漏洞，并快速发布安全代码。",
-        //"Dive into GitHub Advanced Security": "深入了解 GitHub 高级安全功能",
-
-        "7x faster": "快 7 倍",
-        "vulnerability fixes with GitHub": "GitHub 漏洞修复速度",
-
-        //"Code scanning": "代码扫描",
-        //"is our code analysis tool that helps you remediate issues in your code.": "是我们的代码分析工具，可以帮助您修复代码中的问题。",
-        //"Download the latest SAST ebook": "下载最新 SAST 电子书",
-
-        //"makes it easy to find and fix vulnerable dependencies in your supply chain.": "易于发现和修复供应链中的脆弱依赖项。",
-        //"Explore Dependabot": "探索 Dependabot",
-
-        //"Secret scanning": "机密扫描",
-        //"automatically looks for partner patterns and prevents fraudulent use of accidentally committed secrets.": "可以自动寻找合作伙伴模式，并防止意外泄露的机密被恶意使用。",
-        "Read about secret scanning": "了解机密扫描",
-
-        //"Collaboration": "协作",
-        //"Supercharge collaboration": "加强协作",
-        //"GitHub helps your teams work more efficiently together.": "GitHub 帮助您的团队更高效地协作。",
-
-        //"GitHub Issues and GitHub Projects": "GitHub 议题和 GitHub 项目",
-        //"supply project management tools that adapt to your team alongside your code.": "提供了适合您的团队和代码的项目管理工具。",
-        //"Get started with GitHub Issues": "开始使用 GitHub 议题",
-
-        //"reduction in onboarding time with GitHub": "使用 GitHub 缩短入职时间",
-
-       //"GitHub Discussions": "GitHub 讨论",
-       //"creates space to ask questions and have open-ended conversations.": "营造了提问和开放式对话的空间。",
-       //"Jump into GitHub Discussions": "跳转到 GitHub 讨论",
-
-       //"allow real-time communication and collaboration about code changes.": "允许就代码更改进行实时交流和协作。",
-       //"Check out pull requests": "查看拉取请求",
-
-       //"GitHub Sponsors": "GitHub 赞助者",
-       //"lets you support your favorite open source maintainers and projects.": "让您能够支持您喜欢的开源维护者和项目。",
-       //"Invest with GitHub Sponsors": "通过 GitHub 赞助者进行投资",
-
-       //"Over 100 million developers call GitHub home": "超过 1 亿开发者把 GitHub 视为自己的家",
-       //"Whether you’re scaling your startup or just learning how to code, GitHub is your home. Join the world’s largest developer platform to build the innovations that empower humanity. Let’s build from here.": "无论您是正在扩大创业规模，还是刚刚开始学习编程，GitHub 都是您的家。加入全球最大的开发者平台，构建赋予人类力量的创新。让我们从这里开始。",
-
-        // 动画下方按钮
-        //"Pause": "停止",
-        //"Play": "播放",
-
-        "This 7X times factor is based on data from the industry’s longest running analysis of fix rates Veracode State of Software Security 2023, which cites the average time to fix 50% of flaws as 198 days vs. GitHub’s fix rates of 72% of flaws with in 28 days which is at a minimum of 7X faster when compared.": "这个 7 倍的修复速率是基于软件安全领域持续时间最长的修复率分析数据 —— Veracode《2023 年软件安全状况》中提到的，修复 50% 漏洞的平均时间为 198 天，而 GitHub 在 28 天内修复了 72% 的漏洞，相比之下至少快 7 倍。",
-        //"The Total Economic Impact™ Of GitHub Enterprise Cloud and Advanced Security, a commissioned study conducted by Forrester Consulting, 2022. Results are for a composite organization based on interviewed customers.": "由 Forrester Consulting 开展的委托研究《GitHub Enterprise Cloud 和高级安全的总体经济影响》(The Total Economic Impact™ Of GitHub Enterprise Cloud and Advanced Security)，其结果显示了基于受访客户的综合组织的结果。",
-        //"There are now 100 million developers around the world using GitHub.": "现在全球有 1 亿开发者使用 GitHub。",
-        //"Read the blog post": "阅读博客文章",
+        "GitHub internal customer data, 2025.": "GitHub 内部客户数据，2025年。",
 
         // 底部栏
         "Subscribe to our developer newsletter": "订阅我们的开发者新闻",
@@ -19342,6 +19856,7 @@ I18N["zh-CN"]["homepage"] = { // 未登录的首页
         "Roadmap": "路线图",
         "Compare GitHub": "比较 GitHub",
 
+        "Ecosystem": "生态",
         "Platform": "平台",
         "Developer API": "开发者 API",
         "Education": "教育",
@@ -19370,6 +19885,11 @@ I18N["zh-CN"]["homepage"] = { // 未登录的首页
     },
     "regexp": [ // 正则翻译
     ],
+    "title": {
+        "static": {
+            "GitHub · Change is constant. GitHub keeps you ahead. · GitHub": "GitHub · 变化是常态，GitHub 让你始终领先 · GitHub",
+        },
+    },
 };
 
 I18N["zh-CN"]["home"] = I18N["zh-CN"]["homepage"];
@@ -19813,6 +20333,13 @@ I18N["zh-CN"]["session-authentication"] = { // 登录页 包含(/login, /session
         // 设备验证 https://github.com/sessions/verified-device
         [/We just sent your authentication code via email to (.*)\. The code will expire at (.*)\./, "我们刚刚通过电子邮件将您的验证码发送给 $1。验证码将于 $2 过期。"],
     ],
+    "title": {
+        "static": {
+            "Confirm access": "授权访问",
+            "Forgot your password?": "忘记您的密码了吗？",
+            "Sign in to GitHub · GitHub": "登录 GitHub · GitHub",
+        },
+    },
 };
 I18N["zh-CN"].login = I18N["zh-CN"]["session-authentication"];
 I18N["zh-CN"].logout = I18N["zh-CN"]["session-authentication"];
@@ -19881,6 +20408,11 @@ I18N["zh-CN"]["signup"] = { // 注册页
         [/Username ([^ ]+) is not available./, "用户名 $1 不可用。"],
         [/([^ ]+) is available./, "用户名 $1 可用。"],
     ],
+    "title": {
+        "static": {
+            "Sign up for GitHub · GitHub": "注册 GitHub · GitHub",
+        },
+    },
 };
 
 I18N["zh-CN"]["account_verifications"] = {
@@ -20056,6 +20588,11 @@ I18N["zh-CN"]["notifications"] = { // 通知页面
         [/of (\d+)/, " 共 $1 条"],
         [/workflow run failed for ([^ ]+) branch/, "工作流程运行失败，$1 分支"], // F12 才翻译
     ],
+    "title": {
+        "static": {
+            "Notifications": "通知",
+        },
+    },
 };
 
 I18N["zh-CN"]["watching"] = { // 关注的仓库页面
@@ -20208,7 +20745,7 @@ I18N["zh-CN"]["stars"] = { // 星标 https://github.com/stars/<user-name>
         "You don’t have any starred topics, yet.": "您尚无任何的星标主题。",
         "As you": "如果您",
         "explore GitHub": "探索 GitHub",
-        ", star topics to save them for later and they’ll show up here.": " 时，标星主题，它们会在这里显示出来。",
+        "star topics to save them for later and they’ll show up here.": " 时，标星主题，它们会在这里显示出来。",
 
 
         // 右侧栏
@@ -20223,10 +20760,17 @@ I18N["zh-CN"]["stars"] = { // 星标 https://github.com/stars/<user-name>
     },
     "regexp": [ // 正则翻译
     ],
+    "title": {
+        "static": {
+            "Your starred topics": "我的星标主题",
+        },
+    },
 };
 
 I18N["zh-CN"]["issues"] = { // 议题页面
     "static": { // 静态翻译
+        ...I18N["zh-CN"]["repository/issues"]["static"],
+
         "Pull Requests": "拉取请求", // pulls
 
         "Assigned to me": "分配给您",
@@ -20312,10 +20856,21 @@ I18N["zh-CN"]["issues"] = { // 议题页面
         // ". The Filters menu is also super helpful for quickly finding issues most relevant to you.": "。筛选菜单也是快速找到议题最相关的您超级有帮助的。",
         // "Updated in the last three days": "更新了最后三天：",
         "ProTip!": "专业提示！",
-            "Exclude your own issues with": "排除自己的问题",
+            "Exclude your own issues with": "排除自己的议题",
             "Mix and match filters to narrow down what you’re looking for.": "通过混合和匹配筛选器以缩小您要查找的范围。",
             "Exclude everything labeled": "如果要找到所有标有",
             "with": "标签的，请使用",
+            "on any issue or pull request to go back to the issue listing page.": "在任何议题或拉取请求上以返回到问题列表页面。",
+            "on any issue or pull request to go back to the pull request listing page.": "在任何问题或拉取请求上以返回拉取请求列表页面。",
+            "Updated in the last three days:": "最近三天更新：",
+            "Find all pull requests that aren't related to any open issues with": "查找与任何未解决议题无关的所有拉取请求",
+            "Adding": "添加",
+            "will show everything without a label.": "将显示没有标签的所有内容。",
+            "Follow long discussions with": "要跟随长讨论，请使用",
+            "Find everything you created by searching": "找到您创建的所有内容，通过搜索",
+            "will show everything without a milestone.": "将显示没有里程碑的任何东西。",
+            "What’s not been updated in a month:": "1 个月之内没有更新的内容：",
+            "to see everything that’s not assigned.": "以查看所有未分配的内容。",
 
         // 键盘快捷键
             "Pull request list"  : "拉取请求列表",
@@ -20550,8 +21105,12 @@ I18N["zh-CN"]["issues"] = { // 议题页面
             "Invalid value": "无效值",
             "for": "对于",
         "Clear filter": "清除筛选",
+
+        "View issue": "查看议题",
     },
     "regexp": [ // 正则翻译
+        ...I18N["zh-CN"]["repository/issues"]["regexp"],
+
         [/(\d+) Open/, "$1 打开"],
         [/(\d+) Closed/, "$1 已关闭"],
         [/(\d+) tasks? done/, "$1 个任务完成"],
@@ -20568,10 +21127,27 @@ I18N["zh-CN"]["issues"] = { // 议题页面
         [/Updated/, "更新于"],
         [/#([^ ]+) opened/, "#$1 打开于"],
         [/#(\d+) by/, "#$1 打开者"],
-        [/Notify someone on an issue with a mention, like: @([^ ]+)./, "在某个问题上通知并提及某人，例如：@$1。"], // 专业提示
+        [/Notify someone on an issue with a mention, like: @([^ ]+)./, "在议题中通过 @ 提及通知某人，例如：@$1。"], // 专业提示
+        [/Ears burning\? Get @([^ ]+) mentions with/, "耳朵痒了？用它筛选 @$1 的提及："], // 专业提示
         [/Are you sure you want to delete view (.*)\?/, "您确定要删除视图 $1 吗？"],
         [/Filter contains (\d+) issues?:/, "过滤器包含 $1 个问题："]
     ],
+    "title": {
+        "static": {
+            // issues
+            "Assigned to me": "分配给您",
+            "Created by me": "由您创建",
+            "Mentioned": "提到的",
+            "Recent Activity": "最近活动",
+            "View": "视图",
+
+            // pulls
+            "Pull requests - Created": "拉取请求 - 已创建",
+            "Pull requests - Assigned": "拉取请求 - 已分配",
+            "Pull requests - Mentioned": "拉取请求 - 提到的",
+            "Pull requests - Review requests": "拉取请求 - 审查请求",
+        },
+    },
 };
 I18N["zh-CN"].pulls = I18N["zh-CN"].issues;
 
@@ -20954,6 +21530,21 @@ I18N["zh-CN"]["search"] = { // 搜索页面
         ["#search_form > div.container-lg.p-responsive.advanced-search-form > fieldset:nth-child(2) > label > select > option:nth-child(2)", "要"],
         ["#search_form > div.container-lg.p-responsive.advanced-search-form > fieldset:nth-child(3) > label > select > option:nth-child(2)", "要"],
     ],
+    "title": {
+        "static": {
+            "Repository search results": "仓库搜索结果",
+            "Code search results": "代码搜索结果",
+            "Issue search results": "议题搜索结果",
+            "Pull request search results": "拉取请求搜索结果",
+            "Discussion search results": "讨论搜索结果",
+            "User search results": "用户搜索结果",
+            "Commit search results": "提交搜索结果",
+            "Package search results": "软件包搜索结果",
+            "Wiki search results": "Wiki 搜索结果",
+            "Topic search results": "主题搜索结果",
+            "Marketplace search results": "市场搜索结果",
+        },
+    },
 };
 I18N["zh-CN"]["repository/search"] = I18N["zh-CN"]["search"];
 
@@ -20974,6 +21565,11 @@ I18N["zh-CN"]["discussions"] = {
     },
     "regexp": [ // 正则翻译
     ],
+    "title": {
+        "static": {
+            "Discussions": "讨论",
+        },
+    },
 };
 
 I18N["zh-CN"]["gist"] = { // 代码片段页面
@@ -21247,6 +21843,16 @@ I18N["zh-CN"]["gist"] = { // 代码片段页面
         [/([\d,]+) gist results?/, "$1 个片段结果"],
         [/Sort:/, "排序："],
     ],
+    "title": {
+        "static": {
+            "Create a new Gist": "新建代码片段",
+            "Discover gists": "探索代码片段",
+        },
+        "regexp": [
+            [/’s gists/, " 的代码片段"],
+            [/Search/, "搜索"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["login/oauth"] = { // 应用授权
@@ -21405,6 +22011,11 @@ I18N["zh-CN"]["explore"] = { // 探索页面
         [/See the ([\d,]+) items? in this collection/, "查看该系列中的 $1 个项目"],
         [/Topic: ([^ ]+)/, "主题：$1"],
     ],
+    "title": {
+        "static": {
+            "Explore GitHub": "探索 GitHub",
+        },
+    },
 };
 
 I18N["zh-CN"]["topics"] = { // 探索-->主题页面
@@ -21466,6 +22077,14 @@ I18N["zh-CN"]["topics"] = { // 探索-->主题页面
         [/Here are ([\d,]+) public repositories? matching this topic.../, "有 $1 个公共仓库与此主题相匹配"],
         [/Topic: ([^ ]+)/, "主题：$1"],
     ],
+    "title": {
+        "static": {
+            "Topics on GitHub": "GitHub 上的主题",
+        },
+        "regexp": [
+            [/GitHub Topics/, "GitHub 主题"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["trending"] = { // 热门页面
@@ -21529,6 +22148,16 @@ I18N["zh-CN"]["trending"] = { // 热门页面
         [/([\d,]+) stars? this week/, "本周 $1 星标"],
         [/([\d,]+) stars? this month/, "本月 $1 星标"],
     ],
+    "title": {
+        "static": {
+            "Trending repositories on GitHub today": "今日热门仓库",
+            "Trending repositories on GitHub this week": "本周热门仓库",
+            "Trending repositories on GitHub this month": "本月热门仓库",
+            "Trending developers on GitHub today": "今日热门开发者",
+            "Trending developers on GitHub this week": "本周热门开发者",
+            "Trending developers on GitHub this month": "本月热门开发者",
+        },
+    },
 };
 
 I18N["zh-CN"]["collections"] = { // 集合页面
@@ -21537,16 +22166,25 @@ I18N["zh-CN"]["collections"] = { // 集合页面
         "Topics": "主题",
         "Trending": "热门",
         "Collections": "集合",
+        "Collection": "集合",
         "Events": "活动",
         "GitHub Sponsors": "GitHub 赞助",
         "Get email updates": "获取电子邮件更新",
         "Change email updates": "更改电子邮件更新", // 已设置邮件更新通知
         "Curated lists and insight into burgeoning industries, topics, and communities.": "精心策划的列表和对新兴行业、主题和社区的见解。",
         "Create a collection": "创建一个集合",
-
+        "Suggest edits": "建议修改",
     },
     "regexp": [ // 正则翻译
     ],
+    "title": {
+        "static": {
+            "Collections": "集合",
+        },
+        "regexp": [
+            [/Collection: /, "集合："],
+        ],
+    },
 };
 
 I18N["zh-CN"]["sponsors"] = { // 赞助界面
@@ -21745,6 +22383,31 @@ I18N["zh-CN"]["sponsors"] = { // 赞助界面
             "Talk to your organization about GitHub Sponsors": "与您的组织讨论 GitHub 赞助者事宜",
             "Share this discovery page with your team to start a conversation about investing in the people and projects you rely on.": "与您的团队分享本发现页面，并就投资于您所依赖的人员和项目展开讨论。",
             "Invest in open source software and we'll track your progress here!": "投资开源软件，我们将在这里跟踪您的进度！",
+
+        // 批量赞助页 https://github.com/sponsors/bulk-sponsorships/frequencies
+            "Bulk sponsor": "批量赞助",
+            "Bulk sponsorship": "批量赞助",
+
+            "Choose a frequency": "选择一个频率",
+                "Choose": "选择",
+                // 一次性
+                    "Sponsored maintainers will receive a one-time payment. Your profile picture will appear in their sponsors for one month.": "赞助的维护者将收到一笔一次性付款。您的个人资料照片将在他们的赞助商中显示一个月。",
+                // 每月
+                    "Sponsored maintainers will receive a recurring sponsorship until you cancel. Your profile picture will appear in their sponsors for the duration of your sponsorship.": "赞助的维护者将获得定期赞助，直到您取消为止。在您的赞助期间，您的个人资料照片将显示在他们的赞助商中。",
+        // 批量赞助页 https://github.com/sponsors/bulk-sponsorships/import/new
+            "Import": "导入",
+
+            "One-time bulk sponsorship": "一次性批量赞助",
+            "Monthly bulk sponsorship": "每月批量赞助",
+
+            "Import a CSV": "从 CSV 导入",
+                "Choose file": "选择文件",
+                "Download example CSV": "下载示例 CSV",
+
+                "Or export a list of your dependencies on": "或者导出您的依赖项列表",
+                    "Explore Sponsors": "探索赞助者",
+
+                "A CSV is a type of file that contains the names of the people you want to sponsor and the sponsorship amount. We'll look for columns labeled Maintainer Username and Amount in USD. We'll safely ignore the rest of your columns. You can modify the file using a tool like Microsoft Excel, Google Sheets, or a text editor.": "CSV 是一种文件类型，其中包含您想要赞助的人员的姓名和赞助金额。我们将查找标有维护者用户名和美元金额的列。我们将安全地忽略您的其余专栏。您可以使用 Microsoft Excel、Google Sheets 或文本编辑器等工具修改该文件。",
     },
     "regexp": [ // 正则匹配
         [/You are previewing ([^ ]+)’s GitHub Sponsors profile./, "您正在预览 $1 组织的 GitHub 赞助者个人资料。"], // sponsors/<org-name>?preview=true
@@ -21765,6 +22428,18 @@ I18N["zh-CN"]["sponsors"] = { // 赞助界面
         [/and (\d+) others sponsor this goal/, "和另外 $1 人赞助此目标"],
         [/(\d+) of your repositories depends? on this/, "您有 $1 个仓库依赖此"],
     ],
+    "title": {
+        "static": {
+            "Explore GitHub Sponsors": "探索 GitHub 赞助者",
+            "GitHub Sponsors accounts": "GitHub 赞助者账户",
+            "GitHub Sponsors · Get sponsored": "GitHub 赞助者 · 获得赞助",
+            "Choose frequency to bulk sponsor": "选择批量赞助的频率",
+            "Create sponsorships in bulk via file import": "通过文件导入批量创建赞助",
+        },
+        "regexp": [
+            [/Sponsor @(.+) on GitHub Sponsors/, "GitHub 赞助上赞助者 @$1"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["showcases"] = { // 展示页面
@@ -21836,6 +22511,11 @@ I18N["zh-CN"]["account/organizations/new"] = { // 创建组织
         [/Organization name \'([^ ]+)\' is unavailable./, "组织名称 '$1' 不可用。"],
         [/I.e.,/, "即："],
     ],
+    "title": {
+        "static": {
+            "Set up your organization": "设置您的组织",
+        },
+    },
 };
 
 I18N["zh-CN"]["account/choose"] = { // 账户升级选择
@@ -21905,13 +22585,56 @@ I18N["zh-CN"]["marketplace"] = { // GitHub 市场
     "static": { // 静态翻译
 
         // GitHub 市场主页及相关type页 https://github.com/marketplace
-           "Enhance your workflow with extensions": "增强您的工作流程",
-               "Tools from the community and partners to simplify tasks and automate processes": "社区和合作伙伴提供的简化任务和自动化流程的工具",
-               "Search for Copilot extensions, apps, actions, and models": "搜索 Copilot 扩展、应用、操作和模型",
-               "Listing Type": "显示类型",
-                   "Copilot extensions": "Copilot 扩展",
-               "Clear filter": "清除筛选",
-               "Menu": "菜单", // Android UA 下出现
+			"Enhance your workflow with extensions": "增强您的工作流程",
+				"Tools from the community and partners to simplify tasks and automate processes": "社区和合作伙伴提供的简化任务和自动化流程的工具",
+				"Search for apps, actions, and models": "搜索应用程序、操作和模型",
+    				"Listing Type": "显示类型",
+    					"Has listing type": "包含显示类型",
+                    "Input modality": "输入模态",
+                        "No input modality": "无输入模态",
+                        "Has input modality": "包含输入模态",
+                        "audio": "音频",
+                        "image": "图片",
+                        "text": "文本",
+                    "Supported language": "支持的语言",
+                        "No supported language": "无支持的语言",
+                        "Has supported language": "包含支持的语言",
+                    "Output modality": "输出模态",
+                        "No output modality": "无输出模态",
+                        "Has output modality": "包含输出模态",
+                        "embeddings": "嵌入",
+                    "Capability": "能力",
+                        "No capability": "无能力",
+                        "Has capability": "包含能力",
+                    "Publisher": "供应商",
+                        "No publisher": "无供应商",
+                        "Has publisher": "包含供应商",
+                    // 类别
+                        "No category": "无类别",
+                        "Has category": "包含类别",
+                        "agents": "智能体",
+                        "coding": "编码",
+                        "conversation": "对话",
+                        "instruction": "指令",
+                        "large context": "长上下文",
+                        "low latency": "低延时",
+                        "multilingual": "多语言",
+                        "multimodal": "多模态",
+                        "multipurpose": "多用途",
+                        "rag": "RAG",
+                        "reasoning": "推理",
+                        "summarization": "文本摘要",
+                        "understanding": "理解",
+                        "vision": "视觉",
+				    "Exclude": "排除",
+                    "Has": "包含",
+                "Copilot extensions": "Copilot 扩展",
+				"Clear filter": "清除筛选",
+				// 过滤器问题
+					"Empty value for": "空值",
+					"Invalid value": "无效值",
+					"for": "对于",
+				"Menu": "菜单", // Android UA 下出现
 
             "Featured": "精选",
                 "Models for your every use case": "适用于各种方案的模型",
@@ -21923,6 +22646,7 @@ I18N["zh-CN"]["marketplace"] = { // GitHub 市场
 
                 "Recommended": "推荐",
                 "Recently added": "最近添加",
+				"Most popular": "最热门",
 
             // Copilot
                 "Copilot Extensions": "Copilot 扩展",
@@ -21941,8 +22665,12 @@ I18N["zh-CN"]["marketplace"] = { // GitHub 市场
             "Models": "模型",
                 "Model": "模型",
                 "Catalog": "目录",
-
-                    // 分类
+				
+					"Create applications with GitHub powered by AI Models. Free to use, quick personal setup, and seamless model switching to help you build AI products using the latest models.": "使用由 AI 模型提供支持的 GitHub 创建应用程序。免费使用、快速个人设置和无缝模型切换，帮助您使用最新模型构建 AI 产品。",
+					
+					"Try models in playground": "在运行场上尝试模型",
+                    
+					// 分类
                         "All providers": "所有提供商",
                     "Publisher:": "发布者：",
                     "Capability:": "能力：",
@@ -21960,6 +22688,11 @@ I18N["zh-CN"]["marketplace"] = { // GitHub 市场
                         "Rag": "检索增强生成",
                         "Reasoning": "推理",
                         "Understanding": "理解",
+						"Audio": "音频",
+						"Coding": "编码",
+						"Instruction": "指令",
+						"RAG": "检索增强生成",
+						"Vision": "视觉",
                     // 排序
                         "Alphabetical": "A-Z",
                         "Output token limit": "输出令牌限制",
@@ -22347,7 +23080,9 @@ I18N["zh-CN"]["marketplace"] = { // GitHub 市场
                 "input": "输入",
                 "output": "输出",
             "Training date": "训练日期",
-            "Rate limit tier": "速率限制",
+            // 价格
+                "View pricing": "查看价格",
+            "Free rate limit tier": "免费速率限制等级",
                 "Low": "低",
                 "High": "高",
                 "Custom": "自定义",
@@ -22529,7 +23264,19 @@ I18N["zh-CN"]["marketplace"] = { // GitHub 市场
                 "Admission to the limited public beta for GitHub Models will be limited. You will receive an email if you are granted access.": "GitHub 模型的限量公开测试有名额限制。如果您获准访问，您将收到一封电子邮件。",
                 "Return to continue exploring": "继续探索",
                 "GitHub Models": "GitHub 模型",
+		// 新上市市场页 https://github.com/marketplace/new
+			"List your tool": "上市你的工具",
+			"List your tool on GitHub Marketplace": "在 GitHub 市场上市你的工具",
+			
+			"You have no tools to list on GitHub Marketplace": "您没有可在 GitHub 市场上市的工具",
+				"Learn more about the requirements": "了解有关要求的更多信息",
+				"to list a tool on GitHub Marketplace.": "在 GitHub 市场上市工具。",
 
+            "More about tools and GitHub Marketplace": "有关工具和 GitHub 市场的更多信息",
+                "About GitHub Marketplace": "关于 GitHub 市场",
+                    "How to create and list tools on the GitHub Marketplace, including guidelines for listing content, artwork, and screenshots.": "如何在 GitHub 市场上创建和上市工具，包括列出内容、插图和屏幕截图的指南。",
+                "Adding webhooks for a GitHub Marketplace listing": "为 GitHub 市场上市添加 Webhook",
+                    "Add webhooks for your app to notify you when specified events are triggered.": "为您的应用程序添加 Webhooks，以便在触发指定事件时通知您。",
     },
     "regexp": [ // 正则翻译
         [/Search results for “(.+)”/, "“$1”的搜索结果"], // 市场搜索
@@ -22543,7 +23290,21 @@ I18N["zh-CN"]["marketplace"] = { // GitHub 市场
         [/Prorated for/, "按比例计算"],
 
         [/Thank you! ([^ ]+) is now on the waitlist for GitHub Models./, "谢谢！$1 现已进入 GitHub 模型等待名单。"],
+		
+		[/Filter contains (\d+) issues?:/, "过滤器包含 $1 个问题："]
     ],
+    "title": {
+        "static": {
+            "Marketplace": "市场",
+            "Marketplace · Tools to improve your workflow": "市场 · 改进工作流程的工具",
+            "GitHub Models": "GitHub 模型",
+            "Models · GitHub Marketplace": "模型 · GitHub 市场",
+            "New Marketplace Listing · GitHub Marketplace": "新建市场 · GitHub 市场",
+        },
+        "regexp": [
+            [/Models/, "模型"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["apps"] = { // GitHub 应用
@@ -22844,6 +23605,11 @@ I18N["zh-CN"]["orgs"] = { // 组织页面
     "selector": [ // 元素筛选器规则
         ["#type-options > summary > span:nth-child(1)", "类型"], // 组织主页 --> 仓库标签页-->类型筛选器 Type
     ],
+    "title": {
+        "static": {
+            "Choose a plan": "选择一个计划",
+        },
+    },
 };
 
 I18N["zh-CN"]["orgs/repositories"] = I18N["zh-CN"]["page-profile/repositories"];
@@ -23002,6 +23768,11 @@ I18N["zh-CN"]["orgs/people"] = { // 组织 - 成员标签卡
         }],
         ...I18N["zh-CN"]["orgs-public"]["regexp"],
    ],
+    "title": {
+        "regexp": [
+            [/Members · People/, "成员 · 人"],
+        ],
+    },
 };
 I18N["zh-CN"]["orgs/outside-collaborators"] = I18N["zh-CN"]["orgs/people"];
 I18N["zh-CN"]["orgs/pending_collaborators"] = I18N["zh-CN"]["orgs/people"];
@@ -25640,6 +26411,11 @@ I18N["zh-CN"]["projects"] = { // 项目页面(含仓库项目)
         // Showing 1 most recent item that has not been added to this project
         [/Showing (\d+) most recent item that has not been added to this project/, "显示 $1 个最近的项目，尚未添加到此项目"],
     ],
+    "title": {
+        "regexp": [
+            [/Projects/, "项目"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["new/project"] = I18N["zh-CN"]["projects"];
@@ -25993,6 +26769,13 @@ I18N["zh-CN"]["codespaces"] = { // 代码空间页面
         }],
         [/This codespace is (\d+) commits? ahead of remote/, "此代码空间 $1 条提交领先远端"],
     ],
+    "title": {
+        "static": {
+            "Codespaces": "代码空间",
+            "Codespace templates": "代码空间模版",
+            "Create new codespace": "创建代码空间",
+        },
+    },
 };
 
 I18N["zh-CN"]["codespaces/allow_permissions"] = { // 代码空间申请额外权限页面，似乎不可用
@@ -26104,6 +26887,11 @@ I18N["zh-CN"]["features"] = {
     },
     "regexp": [
     ],
+    "title": {
+        "static": {
+            "GitHub Features · GitHub": "GitHub 特点 · GitHub",
+        },
+    },
 };
 
 I18N["zh-CN"]["status"] = { // GitHub Status
@@ -26477,11 +27265,20 @@ I18N["zh-CN"]["orgs/sponsoring"] = { // https://github.com/orgs/<org-name>/spons
         "Name": "名称",
         "Start date": "开始日期",
         "Sponsor": "赞助",
+
+        "No sponsorships": "无赞助",
+        "No sponsorships to display.": "暂无赞助内容可显示。",
+        "Explore your dependencies": "探索你的依赖项",
     },
     "regexp": [
         [/([^ ]+) hasn’t sponsored any users yet./, "$1 尚未赞助任何人。"],
         ...I18N["zh-CN"]["orgs-public"]["regexp"],
     ],
+    "title": {
+        "regexp": [
+            [/Sponsoring/, "赞助"],
+        ],
+    },
 };
 
 I18N["zh-CN"]["organizations/plan"] = {
@@ -26627,6 +27424,11 @@ I18N["zh-CN"]["repository/actions/metrics/usage"] = {
     "regexp": [
         ...I18N["zh-CN"]["repo-actions-merics-public"]["regexp"],
     ],
+    "title": {
+        "static": {
+            "Actions usage metrics": "操作使用情况",
+        },
+    },
 };
 
 I18N["zh-CN"]["repository/actions/metrics/performance"] = {
@@ -26670,6 +27472,11 @@ I18N["zh-CN"]["repository/actions/metrics/performance"] = {
         [/(\d+)m (\d+)s/, "$1分$2秒"],
         [/(\d+)m/, "$1分钟"],
     ],
+    "title": {
+        "static": {
+            "Actions performance metrics": "操作数据看板",
+        },
+    },
 };
 
 I18N["zh-CN"]["copilot"] = {
@@ -27053,9 +27860,12 @@ I18N["zh-CN"]["copilot"] = {
 
             //"Add a light/dark mode switcher": "添加浅色/深色模式切换器",
 
+            "You": "您",
             "started a task": "开始任务",
             "started work": "Copilot 开工",
             "Copilot is working…": "Copilot 工作中…",
+
+            "Stop": "停止",
 
             "View pull request": "查看拉取请求",
 
@@ -27138,6 +27948,13 @@ I18N["zh-CN"]["copilot"] = {
         [/Collapse non-diff lines: (.+)/, "折叠未更改行：$1"],
 
     ],
+    "title": {
+        "static": {
+            "Agents · GitHub Copilot": "智能体 · GitHub Copilot",
+            "New chat · GitHub Copilot": "新聊天 · GitHub Copilot",
+            "Spaces · GitHub Copilot": "空间 · GitHub Copilot",
+        },
+    },
 };
 
 I18N["zh-CN"]["github-copilot/code-review-waitlist"] = {
@@ -27172,11 +27989,179 @@ I18N["zh-CN"]["spark"] = {
 
             "Create web apps with React and TypeScript to prototype ideas, build tools, and more": "使用 React 和 TypeScript 创建 Web 应用，原型化想法，构建工具等",
                 "Submit prompt": "提交提示词",
+                "Attach image": "附上图片",
+
+            "Recent": "最近",
+                "Favorite this spark": "收藏此 spark",
+                "Unfavorite this spark": "取消收藏此 spark",
+                "More Options": "更多选项",
+            "Favorites": "收藏",
+                "Nothing to see here… yet.": "这里还没有什么可看的。",
+            "Last updated": "最后更新于",
 
             "uses AI. Check for mistakes.": "使用 AI。请检查错误。",
             "Terms of service": "服务条款",
 
-    }
+        // https://github.com/spark/<user-name>/<spark-name>
+            "All sparks": "所有 spark",
+
+            // 顶部提示条
+            "Live preview is interrupted. Try refreshing the page to reconnect.": "实时预览已中断。请尝试刷新页面重新连接。",
+            "Refresh": "刷新",
+
+            // 预览区
+                "Hm, something went wrong": "嗯，出了点问题",
+                    "Runtime error": "运行时错误",
+                        "at": "位于",
+                    "Autofix error": "自动修复错误",
+
+            // 代码区
+                "Read-only": "只读",
+                "Cannot edit in read-only editor": "不能在只读编辑器中编辑",
+                "to escape the editor.": "退出编辑器",
+                "Dismiss hint": "关闭提示",
+                "Styling with Markdown is supported": "支持使用 Markdown 进行样式设置",
+                "Collapse file tree": "折叠文件树",
+                "Expand file tree": "展开文件树",
+                "Copy file contents": "复制文件内容",
+                "Display options": "显示选项",
+                    "Wrap lines": "自动换行",
+                    "Hide whitespace": "隐藏空白字符",
+                    "Hide problems": "隐藏问题标记",
+                    "Show minimap": "显示缩略图",
+
+            // 顶栏
+                "Action unavailable": "无法执行操作",
+                "Action unavailable in this mode": "在此模式下无法执行操作",
+                "Action loading": "操作加载中",
+                "Select element to edit": "选择要编辑的元素",
+                "Refresh preview": "刷新预览",
+                "Show mobile view": "显示移动端视图",
+                "Exit mobile view": "退出移动端视图",
+                "Publish": "发布",
+                "Preview mode": "预览模式",
+                "Code mode": "代码模式",
+                "Why not both?": "为什么不两者兼得呢？",
+                // 更多操作
+                    "Open codespace": "打开代码空间",
+                    "Create repository": "创建仓库",
+                    // 设置
+                        "Close settings": "关闭设置",
+                        "Name": "名称",
+                        "Your spark will be published as": "你的 Spark 将被发布为",
+                        "Description": "描述",
+                        "Generated by Spark": "由 Spark 生成",
+                        "Delete spark": "删除 Spark",
+                        "Once you delete a spark, there is no going back. Please be certain.": "一旦删除 Spark，就无法恢复。请确认是否确定。",
+
+            // 左侧面板
+                "Collapse side panel": "折叠侧面板",
+                "Expand side panel": "展开侧面板",
+                "Iterate": "迭代",
+                    "What do you want to change?": "你想改变什么？",
+                    // 提示词操作
+                    "Restore": "还原",
+                    "Expand prompt": "展开提示词",
+                    "Collapse prompt": "折叠提示词",
+                    "Copy prompt": "复制提示词",
+                    "Manual edit": "手动编辑",
+                    // 错误
+                    "Fix all": "修复全部",
+                    "At": "在",
+                "Theme": "主题",
+                    "Custom theme": "自定义主题",
+                    "Select a theme": "选择一个主题",
+                        "Filter themes": "筛选主题",
+                        "Aurora Borealis": "极光",
+                        "Neon Noir": "霓虹黑",
+                        "Minimalist": "极简",
+                        "Cosmic Latte": "宇宙拿铁",
+                        "Candy Shop": "糖果店",
+                        "Neutral": "中性",
+                        "Golden Hour": "黄金时段",
+                        "Hacker Terminal": "黑客终端",
+                        "Neobrutalism": "新粗野主义",
+                        "High Contrast": "高对比度",
+                        "No themes found": "未找到主题",
+                        "Try changing the filter or selecting a different theme.": "尝试更改筛选条件或选择其他主题。",
+                    "Typography": "排版",
+                        "Sans serif": "无衬线",
+                        "Serif": "衬线",
+                        "Monospace": "等宽",
+                        "Select an item": "选择一项",
+                        "Select a font": "选择字体",
+                    "Color": "颜色",
+                        "Accent": "强调色",
+                        "Primary": "主色",
+                        "Secondary": "次要色",
+                        "Base": "基础色",
+                        "Muted": "柔和色",
+                        "Destructive": "危险色",
+                        "Card": "卡片",
+                        "Popover": "气泡提示",
+                        "Input": "输入框",
+                        "Border": "边框",
+                        "Ring": "聚焦环",
+                        "Background": "背景",
+                        "Text": "文字",
+                        "Search colors...": "搜索颜色...",
+                            "slate": "石板",
+                            "gray": "灰色",
+                            "zinc": "锌色",
+                            "neutral": "中性",
+                            "stone": "岩石",
+                            "red": "红色",
+                            "orange": "橙色",
+                            "amber": "琥珀",
+                            "yellow": "黄色",
+                            "lime": "酸橙",
+                            "green": "绿色",
+                            "emerald": "翡翠",
+                            "teal": "蓝绿",
+                            "cyan": "青色",
+                            "sky": "天蓝",
+                            "blue": "蓝色",
+                            "indigo": "靛蓝",
+                            "violet": "紫罗兰",
+                            "purple": "紫色",
+                            "fuchsia": "品红/紫红",
+                            "pink": "粉色",
+                            "rose": "玫瑰",
+                        "Show all colors": "显示所有颜色",
+                        "Hide colors": "隐藏颜色",
+                    // 外观
+                        "Border radius": "圆角",
+                            "Border radius None": "无圆角",
+                            "Border radius Small": "小圆角",
+                            "Border radius Medium": "中等圆角",
+                            "Border radius Large": "大圆角",
+                            "Border radius Full": "完全圆角",
+                        "Spacing": "间距",
+                            "Spacing None": "无间距",
+                            "Spacing Small": "小间距",
+                            "Spacing Medium": "中等间距",
+                "Data": "数据",
+                    "Add data storage by asking in the Iterate panel. View and edit the associated tables and data here.": "在 迭代 面板中提出需求即可添加数据存储。你可以在这里查看和编辑相关的表格与数据。",
+                    "rows": "行",
+                    "Edit this row": "编辑此行",
+                    "Edit value": "编辑值",
+                    "Done": "完成",
+                    "Read only": "只读",
+                "Prompts": "提示词",
+                    "Add AI capabilities by asking in the Iterate panel. View and edit the prompts powering those features here.": "在 Iterate 面板中提出需求即可添加 AI 能力。你可以在这里查看和编辑驱动这些功能的提示词。",
+                    
+                    "We couldn't load your data": "无法加载你的数据",
+                        "Please try again. If the problem persists, try again later.": "请重试。如果问题仍然存在，请稍后再试。",
+                "Assets": "素材",
+                    "Upload files": "上传文件",
+                    "Upload assets here or in the Iterate panel. Assets support images, documents, audio, and video. Ask in the Iterate panel to add them to your app.": "在此处或 迭代 面板中上传素材。素材支持图片、文档、音频和视频。在 迭代 面板中提出需求即可将它们添加到你的应用中。",
+    },
+    "regexp": [
+        [/(\d+) Errors?/, "$1 个错误"],
+        [/Made (\d+) changes?/, "做了 $1 个更改"],
+        [/(\d+) rows? • (.+)/, "$1 行 • $2"],
+        [/Delete \((\d+)\)/, "删除（$1）"],
+    ],
 };
 
 I18N["zh-CN"]["sitemap"] = { // 网站地图页，仅匹配公共部分
@@ -27482,7 +28467,8 @@ I18N["zh-CN"]["education"] = { // 教育页面，申请学生包会用到
 
                     "Education blog": "教育博客",
                         "View more": "查看更多",
-
+        // 底部
+            "Product": "产品",
     },
     "regexp":[
         [/(\d+) requests?/, "$1 次"],
@@ -27507,6 +28493,14 @@ I18N["zh-CN"]["education"] = { // 教育页面，申请学生包会用到
         //[/Verified since (.+)/, "验证自 $1"],
         [/(\d+) views?/, "$1 次观看"],
     ],
+    "title": {
+        "static": {
+            "GitHub Education": "GitHub 教育",
+            "GitHub Student Developer Pack - GitHub Education": "GitHub 学生开发者包 - GitHub 教育",
+            "Community Exchange - GitHub Education": "社区交流 - GitHub 教育",
+            "Events - GitHub Education": "事件 - GitHub 教育",
+        },
+    },
 };
 
 I18N["zh-CN"]["mcp"] = {
@@ -27528,4 +28522,9 @@ I18N["zh-CN"]["mcp"] = {
             "Contact support": "获取支持",
     },
     "regexp": [],
+    "title": {
+        "static": {
+            "MCP Registry": "MCP 互联",
+        },
+    },
 };
