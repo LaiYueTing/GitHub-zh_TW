@@ -262,6 +262,7 @@ GitHub 的 ajax 載入方式逐步從 [defunkt/jquery-pjax](https://github.com/d
 1. [Pro Git: 翻譯約定](https://github.com/progit/progit2-zh/blob/master/TRANSLATION_NOTES.asc)
 1. [Git 官方軟件包的簡體中文翻譯](https://github.com/git/git/blob/master/po/zh_CN.po)
 1. [GitHub 詞彙表官方譯本](https://docs.github.com/cn/get-started/quickstart/github-glossary)
+1. **[CSS 選擇器](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Selectors) 用於編寫忽略規則**
 
 > [查看詳細貢獻指南](https://github.com/maboloshi/github-chinese/discussions/57)
 
