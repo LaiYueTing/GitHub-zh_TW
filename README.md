@@ -65,17 +65,15 @@ Via（Android）       | 内置管理器
 
 1. 安装用户脚本管理器：
     - 推荐：[Tampermonkey][Tampermonkey]
-1. **Chrome / Chromium 内核浏览器，请务必开启 “扩展程序” 管理中的 “开发者模式”[^1]**
+1. **基于 Chrome / Chromium 内核浏览器：**
+    1. 务必开启 “扩展程序” 管理中的 **“开发者模式”**[^1]
+    1. 务必开启 “扩展程序” 管理中脚本管理器扩展的 **“允许运行用户脚本”**
+    1. 具体可参考 [Tampermonkey 官方指引](https://www.tampermonkey.net/faq.php#Q209)
 1. 选择安装源：
     - [GitHub 源【开发版】][main.user.js]
     - [GreasyFork 源【稳定版】][main(greasyfork).user.js]
 1. 刷新页面后，插件即可生效
 1. 必要时，重启浏览器
-
-> [!IMPORTANT]
-> **若无效，请检查 “扩展程序” 管理中的以下设置：**
-> 1.  “允许运行用户脚本” 是否开启
-> 1.  “有权访问的网站”
 
 [^1]: [Chrome 切换到 Manifest V3后，使用问题](https://github.com/maboloshi/github-chinese/issues/234)
 

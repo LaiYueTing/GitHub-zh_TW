@@ -68,7 +68,10 @@ Via（Android）       | 內置管理器
 
 1. 安裝用戶腳本管理器：
     - 推薦：[Tampermonkey][Tampermonkey]
-1. **開啟瀏覽器 “擴展程序” 管理中的 “開發者模式”[^1]**
+1. **基於 Chrome / Chromium 內核瀏覽器：**
+    1. 務必開啟 「擴展程序」 管理中的 **「開發者模式」**[^1]
+    1. 務必開啟 「擴展程序」 管理中腳本管理器擴展的 **「允許運行用戶腳本」**
+    1. 具體可參考 [Tampermonkey 官方指引](https://www.tampermonkey.net/faq.php#Q209)
 1. 選擇安裝源：
     - [GitHub 源【開發版】][main_zh-TW.user.js]
 1. 刷新頁面後，插件即可生效
