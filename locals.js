@@ -74,7 +74,15 @@ I18N.conf = {
             "#repos-sticky-header", // 代码视图 置顶标题
         ],
         'repository/blame': ["#highlighted-line-menu-positioner"], // 代码视图
-        'repository': [".AppHeader-context", "table"], //  "article.markdown-body",
+        'repository': [
+            ".AppHeader-context",
+            "table",
+            "article.markdown-body",
+        ],
+        'repository/tree': [
+            'nav[data-testid="breadcrumbs"]', // 面包屑导航
+            'div[data-testid="breadcrumbs-filename"]', // 面包屑导航 文件名部分
+        ],
         'repository/releases': [".Box-footer"], // 附件清单
         'repository/issues': [
             'div[aria-live="polite"]>div.markdown-body', // 新建议题 - 正文编辑器预览
@@ -130,9 +138,9 @@ I18N.conf = {
             'div.react-tree-show-tree-items', // 左侧文件树项目
             'span.PRIVATE_TreeView-item-content-text', // 左侧文件树项目 - 子文件夹
             '.react-directory-row', // 文件列表中文件夹和文件条目
-            '#repos-header-breadcrumb',
-            '#file-name-id', // 文件路径中文件部分
             'article.markdown-body', // Markdown 正文
+            'nav[data-testid="breadcrumbs"]', // 面包屑导航
+            'div[data-testid="breadcrumbs-filename"]', // 面包屑导航 文件名部分
         ],
         'repository/blob': [
             '.AppHeader-context-full', // 顶部 <username>/<repo_name>
