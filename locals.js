@@ -84,6 +84,7 @@ I18N.conf = {
         'repository/tree': [
             'nav[data-testid="breadcrumbs"]', // 面包屑导航
             'div[data-testid="breadcrumbs-filename"]', // 面包屑导航 文件名部分
+            'tr.react-directory-row', // 文件列表中文件夹和文件条目
         ],
         'repository/releases': [".Box-footer"], // 附件清单
         'repository/issues': [
@@ -128,7 +129,7 @@ I18N.conf = {
             'strong[itemprop="name"]', // 仓库名称
             // 'ul.list-style-none', // 右侧 部署列表 无效
             'div[data-testid="latest-commit"]', // 最新的提交
-            '.react-directory-row', // 文件列表中文件夹和文件条目
+            'tr.react-directory-row', // 文件列表中文件夹和文件条目
             'p.f4.my-3', // 仓库简介正文
             '#translate-me',
             '.my-3.d-flex.flex-items-center', // 仓库简介中的链接
@@ -139,10 +140,10 @@ I18N.conf = {
             '.AppHeader-context-full', // 顶部 <username>/<repo_name>
             'div.react-tree-show-tree-items', // 左侧文件树项目
             'span.PRIVATE_TreeView-item-content-text', // 左侧文件树项目 - 子文件夹
-            '.react-directory-row', // 文件列表中文件夹和文件条目
             'article.markdown-body', // Markdown 正文
             'nav[data-testid="breadcrumbs"]', // 面包屑导航
             'div[data-testid="breadcrumbs-filename"]', // 面包屑导航 文件名部分
+            'tr.react-directory-row', // 文件列表中文件夹和文件条目
         ],
         'repository/blob': [
             '.AppHeader-context-full', // 顶部 <username>/<repo_name>
