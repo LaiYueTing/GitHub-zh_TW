@@ -72,6 +72,8 @@ I18N.conf = {
         'repository/blob': [
             "#highlighted-line-menu-positioner", // 代码视图 存在
             "#repos-sticky-header", // 代码视图 置顶标题
+            'nav[data-testid="breadcrumbs"]', // 面包屑导航
+            'div[data-testid="breadcrumbs-filename"]', // 面包屑导航 文件名部分
         ],
         'repository/blame': ["#highlighted-line-menu-positioner"], // 代码视图
         'repository': [
@@ -150,10 +152,8 @@ I18N.conf = {
             '#highlighted-line-menu-positioner', // 代码视图
             '#filter-results', // 右侧 符号筛选
             '.Text__StyledText-sc-17v1xeu-0', // 右侧 符号筛选
-            '#repos-header-breadcrumb', // 文件路径中文件夹路径
-            '#repos-header-breadcrumb--wide', // 文件路径中文件夹路径 左侧文件树展开情况
-            '#sticky-breadcrumb',
-            '#file-name-id', // 文件路径中文件部分
+            'nav[data-testid="breadcrumbs"]', // 面包屑导航
+            'div[data-testid="breadcrumbs-filename"]', // 面包屑导航 文件名部分
         ],
         'repository/issues': [
             'div[aria-live="polite"]>div.markdown-body', // 新建议题 - 正文编辑器预览
