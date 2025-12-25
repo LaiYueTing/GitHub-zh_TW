@@ -1,18 +1,18 @@
 // ==UserScript==
-// @name         GitHub 中文化插件
-// @namespace    https://github.com/maboloshi/github-chinese
-// @description  中文化 GitHub 界面的部分菜单及内容。原作者为楼教主(http://www.52cik.com/)。
-// @copyright    2021, 沙漠之子 (https://maboloshi.github.io/Blog)
+// @name         GitHub 繁體中文化
+// @namespace    https://github.com/LaiYueTing/GitHub-zh_TW
+// @description  繁體中文化 GitHub 介面的部分選單及內容。
+// @copyright    2025, LaiYueTing (https://github.com/LaiYueTing)
 // @icon         https://github.githubassets.com/pinned-octocat.svg
-// @version      1.9.3-2025-12-19
-// @author       沙漠之子
+// @version      1.9.3
+// @author       LaiYueTing
 // @license      GPL-3.0
 // @match        https://github.com/*
 // @match        https://skills.github.com/*
 // @match        https://gist.github.com/*
 // @match        https://education.github.com/*
 // @match        https://www.githubstatus.com/*
-// @require      https://raw.githubusercontent.com/maboloshi/github-chinese/gh-pages/locals.js?v1.9.3-2025-12-19
+// @require      https://raw.githubusercontent.com/LaiYueTing/GitHub-zh_TW/main/locals.js?v1.9.3
 // @run-at       document-start
 // @grant        GM_xmlhttpRequest
 // @grant        GM_getValue
@@ -21,29 +21,29 @@
 // @grant        GM_unregisterMenuCommand
 // @grant        GM_notification
 // @connect      fanyi.iflyrec.com
-// @supportURL   https://github.com/maboloshi/github-chinese/issues
+// @supportURL   https://github.com/LaiYueTing/Github-zh_TW/issues
 // ==/UserScript==
 
 (function (window, document, undefined) {
     'use strict';
 
-    /****************** 全局配置区（开发者可修改部分） ******************/
+    /****************** 全域設定區（開發者可修改部分） ******************/
     const FeatureSet = {
         enable_RegExp: GM_getValue("enable_RegExp", true),
         enable_transDesc: GM_getValue("enable_transDesc", true),
     };
     const CONFIG = {
-        LANG: 'zh-CN',
-        // 站点域名 -> 类型映射
+        LANG: 'zh-TW',
+        // 網站域名 -> 類型映射
         PAGE_MAP: {
             'gist.github.com': 'gist',
             'www.githubstatus.com': 'status',
             'skills.github.com': 'skills',
             'education.github.com': 'education'
         },
-        // 需要特殊处理的站点类型
+        // 需要特殊處理的網站類型
         SPECIAL_SITES: ['gist', 'status', 'skills', 'education'],
-        // 简介 css 筛选器规则
+        // 簡介 CSS 篩選器規則
         DESC_SELECTORS: {
             repository: ".f4.my-3",
             gist: ".gist-content [itemprop='about']"
@@ -54,12 +54,12 @@
             characterData: true,
             attributeFilter: ['value', 'placeholder', 'aria-label', 'data-confirm']
         },
-        // 当前使用引擎（开发者可切换）
+        // 目前使用引擎（開發者可切換）
         transEngine: 'iflyrec',
-        // 翻译引擎配置
+        // 翻譯引擎設定
         TRANS_ENGINES: {
             iflyrec: {
-                name: '讯飞听见',
+                name: '訊飛聽見',
                 url: 'https://fanyi.iflyrec.com/text-translate',
                 url_api: 'https://fanyi.iflyrec.com/TJHZTranslationService/v2/textAutoTranslation',
                 method: 'POST',
@@ -67,14 +67,14 @@
                     'Content-Type': 'application/json',
                     'Origin': 'https://fanyi.iflyrec.com'
                 },
-                // 请求体数据结构
+                // 請求體資料結構
                 getRequestData: (text) => ({
                     from: 2,
                     to: 1,
                     type: 1,
                     contents: [{ text: text }]
                 }),
-                // 响应标识
+                // 響應標識
                 responseIdentifier: 'biz[0]?.sectionResult[0]?.dst',
             },
         }
@@ -85,53 +85,53 @@
     // 初始化
     init();
 
-    // 更新页面设置
+    // 更新頁面設定
     function updatePageConfig(currentPageChangeTrigger) {
         const newType = detectPageType();
         if (newType && newType !== pageConfig.currentPageType) {
             pageConfig = buildPageConfig(newType);
         }
-        console.log(`【Debug】${currentPageChangeTrigger}触发, 页面类型为 ${pageConfig.currentPageType}`);
+        console.log(`【Debug】${currentPageChangeTrigger} 觸發, 頁面類型為 ${pageConfig.currentPageType}`);
     }
 
-    // 构建页面设置 pageConfig 对象
+    // 構建頁面設定 pageConfig 對象
     function buildPageConfig(pageType = pageConfig.currentPageType) {
         return {
-            // 当前页面类型
+            // 目前頁面類型
             currentPageType: pageType,
-            // 页面标题静态词库
+            // 頁面標題靜態詞庫
             titleStaticDict: {
                 ...I18N[CONFIG.LANG].public.title.static,
                 ...(I18N[CONFIG.LANG][pageType]?.title?.static || {})
             },
-            // 页面标题正则词库
+            // 頁面標題正規表達式詞庫
             titleRegexpRules: [
                 ...I18N[CONFIG.LANG].public.title.regexp,
                 ...(I18N[CONFIG.LANG][pageType]?.title?.regexp || [])
             ],
-            // 静态词库
+            // 靜態詞庫
             staticDict: {
                 ...I18N[CONFIG.LANG].public.static,
                 ...(I18N[CONFIG.LANG][pageType]?.static || {})
             },
-            // 正则词库
+            // 正規表達式詞庫
             regexpRules: [
                 ...(I18N[CONFIG.LANG][pageType]?.regexp || []),
                 ...I18N[CONFIG.LANG].public.regexp
             ],
-            // 忽略突变元素选择器（字符串）
+            // 忽略突變元素選擇器（字串）
             ignoreMutationSelectors: [
                 ...I18N.conf.ignoreMutationSelectorPage['*'],
                 ...(I18N.conf.ignoreMutationSelectorPage[pageType] || [])
             ].join(', '),
-            // 忽略元素选择器规则（字符串）
+            // 忽略元素選擇器規則（字串）
             ignoreSelectors: [
                 ...I18N.conf.ignoreSelectorPage['*'],
                 ...(I18N.conf.ignoreSelectorPage[pageType] || [])
             ].join(', '),
-            // 字符数据监视开启规则（布尔值）
+            // 字元資料監視開啟規則（布林值）
             characterData: I18N.conf.characterDataPage.includes(pageType),
-            // CSS 选择器规则
+            // CSS 選擇器規則
             tranSelectors: [
                 ...(I18N[CONFIG.LANG].public.selector || []),
                 ...(I18N[CONFIG.LANG][pageType]?.selector || [])
@@ -140,53 +140,53 @@
     }
 
     /**
-     * watchUpdate 函数：监视页面变化，根据变化的节点进行翻译
+     * watchUpdate 函式：監視頁面變化，根據變化的節點進行翻譯
      */
     function watchUpdate() {
-        // 缓存当前页面的 URL
+        // 快取目前頁面的 URL
         let previousURL = window.location.href;
 
         const handleUrlChange = () => {
             const currentURL = window.location.href;
-            // 如果页面的 URL 发生变化
+            // 如果頁面的 URL 發生變化
             if (currentURL !== previousURL) {
                 previousURL = currentURL;
-                updatePageConfig("DOM变化");
+                updatePageConfig("DOM 變化");
             }
         }
 
         const processMutations = mutations => {
-            // 平铺突变记录并过滤需要处理的节点（链式操作）
-            // 使用 mutations.flatMap 进行筛选突变:
-            //   1. 针对`节点增加`突变，后期迭代翻译的对象调整为`addedNodes`中记录的新增节点，而不是`target`，此举大幅减少重复迭代翻译
-            //   2. 对于其它`属性`和特定页面`文本节点`突变，仍旧直接处理`target`
-            //   3. 使用`.filter()`筛选丢弃特定页面`特定忽略元素`内突变的节点
+            // 平鋪突變記錄並過濾需要處理的節點（鏈式操作）
+            // 使用 mutations.flatMap 進行篩選突變:
+            //   1. 針對 `節點增加` 突變，後期疊代翻譯的對象調整為 `addedNodes` 中記錄的新增節點，而不是 `target`，此舉大幅減少重複疊代翻譯
+            //   2. 對於其他 `屬性` 和特定頁面 `文字節點` 突變，仍舊直接處理 `target`
+            //   3. 使用 `.filter()` 篩選丟棄特定頁面 `特定忽略元素` 內突變的節點
             mutations.flatMap(({ target, addedNodes, type }) => {
-                // 处理子节点添加的情况
+                // 處理子節點新增的情況
                 if (type === 'childList' && addedNodes.length > 0) {
-                    return [...addedNodes]; // 将新增节点转换为数组
+                    return [...addedNodes]; // 將新增節點轉換為數組
                 }
-                // 处理属性和文本内容变更的情况
+                // 處理屬性和文字內容變更的情況
                 return (type === 'attributes' || (type === 'characterData' && pageConfig.characterData))
-                    ? [target] // 否则，仅处理目标节点
+                    ? [target] // 否則，僅處理目標節點
                     : [];
             })
-            // 过滤需要忽略的突变节点
+            // 過濾需要忽略的突變節點
             .filter(node =>
-                // 剔除节点元素所在 DOM 树中匹配忽略选择器
+                // 剔除節點元素所在 DOM 樹中匹配忽略選擇器
                 !(node.closest
                   ? node.closest(pageConfig.ignoreMutationSelectors)
                   : node.parentElement?.closest(pageConfig.ignoreMutationSelectors)
                 )
             )
-            // 处理每个变化
+            // 處理每個變化
             .forEach(node =>
-                // 递归遍历节点树进行处理
+                // 遞迴遍歷節點樹進行處理
                 traverseNode(node)
             );
         }
 
-        // 监听 document.body 下 DOM 变化，用于处理节点变化
+        // 監聽 document.body 下 DOM 變化，用於處理節點變化
         new MutationObserver(mutations => {
             handleUrlChange();
             if (pageConfig.currentPageType) processMutations(mutations);
@@ -194,8 +194,8 @@
     }
 
     /**
-     * traverseNode 函数：遍历指定的节点，并对节点进行翻译。
-     * @param {Node} node - 需要遍历的节点。
+     * traverseNode 函式：遍歷指定的節點，並對節點進行翻譯。
+     * @param {Node} node - 需要遍歷的節點。
      */
     function traverseNode(rootNode) {
         const start = performance.now();
@@ -205,33 +205,33 @@
             transElement(node, 'data');
         }
 
-        // 如果 rootNode 是文本节点，直接处理
+        // 如果 rootNode 是文字節點，直接處理
         if (rootNode.nodeType === Node.TEXT_NODE) {
             handleTextNode(rootNode);
-            return; // 文本节点没有子节点，直接返回
+            return; // 文字節點沒有子節點，直接回傳
         }
 
         const treeWalker = document.createTreeWalker(
             rootNode,
             NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT,
             node =>
-                // 跳过忽略的节点
+                // 跳過忽略的節點
                 node.matches?.(pageConfig.ignoreSelectors)
                 ? NodeFilter.FILTER_REJECT
                 : NodeFilter.FILTER_ACCEPT,
         );
 
         const handleElement = node => {
-            // 处理不同标签的元素属性翻译
+            // 處理不同標籤的元素屬性翻譯
             switch (node.tagName) {
-                case "RELATIVE-TIME": // 翻译时间元素
+                case "RELATIVE-TIME": // 翻譯時間元素
                     transTimeElement(node.shadowRoot);
                     return;
 
                 case "INPUT":
-                case "TEXTAREA": // 输入框 按钮 文本域
+                case "TEXTAREA": // 輸入框 按鈕 文字域
                     if (['button', 'submit', 'reset'].includes(node.type)) {
-                        transElement(node.dataset, 'confirm'); // 翻译 浏览器 提示对话框
+                        transElement(node.dataset, 'confirm'); // 翻譯 瀏覽器 提示對話框
                         transElement(node, 'value');
                     } else {
                         transElement(node, 'placeholder');
@@ -239,29 +239,29 @@
                     break;
 
                 case "OPTGROUP":
-                    transElement(node, 'label'); // 翻译 <optgroup> 的 label 属性
+                    transElement(node, 'label'); // 翻譯 <optgroup> 的 label 屬性
                     break;
 
                 case "BUTTON":
-                    transElement(node, 'title'); // 翻译 浏览器 提示对话框
-                    transElement(node.dataset, 'confirm'); // 翻译 浏览器 提示对话框 ok
-                    transElement(node.dataset, 'confirmText'); // 翻译 浏览器 提示对话框 ok
-                    transElement(node.dataset, 'confirmCancelText'); // 取消按钮 提醒
-                    transElement(node, 'cancelConfirmText'); // 取消按钮 提醒
-                    transElement(node.dataset, 'disableWith'); // 按钮等待提示
+                    transElement(node, 'title'); // 翻譯 瀏覽器 提示對話框
+                    transElement(node.dataset, 'confirm'); // 翻譯 瀏覽器 提示對話框
+                    transElement(node.dataset, 'confirmText'); // 翻譯 瀏覽器 提示對話框
+                    transElement(node.dataset, 'confirmCancelText'); // 取消按鈕 提醒
+                    transElement(node, 'cancelConfirmText'); // 取消按鈕 提醒
+                    transElement(node.dataset, 'disableWith'); // 按鈕等待提示
 
                 case "A":
                 case "SPAN":
-                    transElement(node, 'title'); // title 属性
-                    transElement(node.dataset, 'visibleText'); // 翻译 浏览器 提示对话框 ok
+                    transElement(node, 'title'); // title 屬性
+                    transElement(node.dataset, 'visibleText'); // 翻譯 瀏覽器 提示對話框
 
                 default:
-                    // 仅当 元素存在'tooltipped'样式 aria-label 才起效果
-                    if (/tooltipped/.test(node.className)) transElement(node, 'ariaLabel'); // 带提示的元素，类似 tooltip 效果的
+                    // 僅當 元素存在 'tooltipped' 樣式 aria-label 才起效果
+                    if (/tooltipped/.test(node.className)) transElement(node, 'ariaLabel'); // 帶提示的元素，類似 tooltip 效果的
             }
         }
 
-        // 预绑定处理函数提升性能
+        // 預綁定處理函式提升性能
         const handlers = {
             [Node.ELEMENT_NODE]: handleElement,
             [Node.TEXT_NODE]: handleTextNode
@@ -274,49 +274,49 @@
 
         const duration = performance.now() - start;
         if (duration > 10) {
-            // console.warn(`【Debug】节点遍历耗时: ${duration.toFixed(2)}ms`, rootNode);
-            console.log(`节点遍历耗时: ${duration.toFixed(2)}ms`);
+            // console.warn(`【Debug】節點遍歷耗時：${duration.toFixed(2)}ms`, rootNode);
+            console.log(`節點遍歷耗時：${duration.toFixed(2)}ms`);
         }
     }
 
     /**
-     * detectPageType 函数：检测当前页面类型，基于URL、元素类名和meta信息。
-     * @returns {string|boolean} 页面的类型，如'repository'、'dashboard'等，如果无法确定类型，那么返回 false。
+     * detectPageType 函式：檢測目前頁面類型，基於 URL、元素類名和 meta 資訊。
+     * @returns {string|boolean} 頁面的類型，如 'repository'、'dashboard' 等，如果無法確定類型，那麼回傳 false。
      */
     function detectPageType() {
         const url = new URL(window.location.href);
         const { PAGE_MAP, SPECIAL_SITES } = CONFIG;
         const { hostname, pathname } = url;
 
-        // 基础配置 ===============================================
-        const site = PAGE_MAP[hostname] || 'github'; // 通过站点映射获取基础类型
+        // 基礎設定 ===============================================
+        const site = PAGE_MAP[hostname] || 'github'; // 透過網站映射取得基礎類型
         const isLogin = document.body.classList.contains("logged-in");
         const metaLocation = document.head.querySelector('meta[name="analytics-location"]')?.content || '';
 
-        // 页面特征检测 ============================================
+        // 頁面特徵檢測 ============================================
         const isSession = document.body.classList.contains("session-authentication");
         const isHomepage = pathname === '/' && site === 'github';
         const isProfile = document.body.classList.contains("page-profile") || metaLocation === '/<user-name>';
         const isRepository = /\/<user-name>\/<repo-name>/.test(metaLocation);
         const isOrganization = /\/<org-login>/.test(metaLocation) || /^\/(?:orgs|organizations)/.test(pathname);
 
-        // 正则配置 ================================================
+        // 正規表達式設定 ================================================
         const { rePagePathRepo, rePagePathOrg, rePagePath } = I18N.conf;
 
-        // 核心判断逻辑 ============================================
+        // 核心判斷邏輯 ============================================
         let pageType;
-        switch (true) { // 使用 switch(true) 模式处理多条件分支
-            // 1. 登录相关页面
+        switch (true) { // 使用 switch(true) 模式處理多條件分支
+            // 1. 登入相關頁面
             case isSession:
                 pageType = 'session-authentication';
                 break;
 
-            // 2. 特殊站点类型（gist/status/skills/education）
+            // 2. 特殊網站類型（gist/status/skills/education）
             case SPECIAL_SITES.includes(site):
                 pageType = site;
                 break;
 
-            // 3. 个人资料页
+            // 3. 個人資料頁
             case isProfile:
                 const tabParam = new URLSearchParams(url.search).get('tab');
                 pageType = pathname.includes('/stars') ? 'page-profile/stars'
@@ -324,24 +324,24 @@
                          : 'page-profile';
                 break;
 
-            // 4. 首页/仪表盘
+            // 4. 首頁 / 儀表板
             case isHomepage:
                 pageType = isLogin ? 'dashboard' : 'homepage';
                 break;
 
-            // 5. 代码仓库页
+            // 5. 程式碼倉庫頁
             case isRepository:
                 const repoMatch = pathname.match(rePagePathRepo);
                 pageType = repoMatch ? `repository/${repoMatch[1]}` : 'repository';
                 break;
 
-            // 6. 组织页面
+            // 6. 組織頁面
             case isOrganization:
                 const orgMatch = pathname.match(rePagePathOrg);
                 pageType = orgMatch ? `orgs/${orgMatch[1] || orgMatch.slice(-1)[0]}` : 'orgs';
                 break;
 
-            // 7. 默认处理逻辑
+            // 7. 預設處理邏輯
             default:
                 const pathMatch = pathname.match(rePagePath);
                 pageType = pathMatch ? (pathMatch[1] || pathMatch.slice(-1)[0]) : false;
@@ -349,20 +349,20 @@
 
         console.log(`【Debug】pathname = ${pathname}, site = ${site}, isLogin = ${isLogin}, analyticsLocation = ${metaLocation}, isOrganization = ${isOrganization}, isRepository = ${isRepository}, isProfile = ${isProfile}, isSession = ${isSession}`)
 
-        // 词库校验 ================================================
+        // 詞庫校驗 ================================================
         if (pageType === false || !I18N[CONFIG.LANG]?.[pageType]) {
-            console.warn(`[i18n] 页面类型未匹配或词库缺失: ${pageType}`);
-            return false; // 明确返回 false 表示异常
+            console.warn(`[i18n] 頁面類型未匹配或詞庫缺失：${pageType}`);
+            return false; // 明確回傳 false 表示異常
         }
 
         return pageType;
     }
 
     /**
-     * transTitle 函数：翻译页面标题
+     * transTitle 函式：翻譯頁面標題
      */
     function transTitle() {
-        const text = document.title; // 获取标题文本内容
+        const text = document.title; // 取得標題文字內容
         let translatedText = pageConfig.titleStaticDict[text] || '';
         if (!translatedText) {
             for (const [pattern, replacement] of pageConfig.titleRegexpRules) {
@@ -376,8 +376,8 @@
     }
 
     /**
-     * transTimeElement 函数：翻译时间元素文本内容。
-     * @param {Element} el - 需要翻译的元素。
+     * transTimeElement 函式：翻譯時間元素文字內容。
+     * @param {Element} el - 需要翻譯的元素。
      */
     function transTimeElement(el) {
         const text = el.childNodes.length > 0 ? el.lastChild.textContent : el.textContent;
@@ -388,61 +388,61 @@
     }
 
     /**
-     * transElement 函数：翻译指定元素的文本内容或属性。
-     * @param {Element|DOMStringMap} el - 需要翻译的元素或元素的数据集 (node.dataset)。
-     * @param {string} field - 需要翻译的属性名称或文本内容字段。
+     * transElement 函式：翻譯指定元素的文字內容或屬性。
+     * @param {Element|DOMStringMap} el - 需要翻譯的元素或元素的資料集 (node.dataset)。
+     * @param {string} field - 需要翻譯的屬性名稱或文字內容欄位。
      */
     function transElement(el, field) {
-        const text = el[field]; // 获取需要翻译的文本
-        if (!text) return false; // 当 text 为空时，退出函数
+        const text = el[field]; // 取得需要翻譯的文字
+        if (!text) return false; // 當 text 為空時，退出函式
 
-        const translatedText = transText(text); // 翻译后的文本
+        const translatedText = transText(text); // 翻譯後的文字
         if (translatedText) {
-            el[field] = translatedText; // 替换翻译后的内容
+            el[field] = translatedText; // 替換翻譯後的內容
         }
     }
 
     /**
-     * transText 函数：翻译文本内容。
-     * @param {string} text - 需要翻译的文本内容。
-     * @returns {string|boolean} 翻译后的文本内容，如果没有找到对应的翻译，那么返回 false。
+     * transText 函式：翻譯文字內容。
+     * @param {string} text - 需要翻譯的文字內容。
+     * @returns {string|boolean} 翻譯後的文字內容，如果沒有找到對應的翻譯，那麼回傳 false。
      */
     function transText(text) {
-        // 判断是否需要跳过翻译
-        //  1. 检查内容是否为空或者仅包含空白字符或数字。
-        //  2. 检查内容是否仅包含中文字符。
-        //  3. 检查内容是否不包含英文字母和符号。
+        // 判斷是否需要跳過翻譯
+        //  1. 檢查內容是否為空或者僅包含空白字元或數字。
+        //  2. 檢查內容是否僅包含中文字符。
+        //  3. 檢查內容是否不包含英文字母和符號。
         const shouldSkip = text => /^[\s0-9]*$/.test(text) || /^[\u4e00-\u9fa5]+$/.test(text) || !/[a-zA-Z,.]/.test(text);
         if (shouldSkip(text)) return false;
 
-        // 清理文本内容
+        // 清理文字內容
         const trimmedText = text.trim(); // 去除首尾空格
-        const cleanedText = trimmedText.replace(/\xa0|[\s]+/g, ' '); // 去除多余空白字符（包括 &nbsp; 空格 换行符）
+        const cleanedText = trimmedText.replace(/\xa0|[\s]+/g, ' '); // 去除多餘空白字元（包括 &nbsp; 空格 換行符）
 
-        // 尝试获取翻译结果
+        // 嘗試取得翻譯結果
         const translatedText = fetchTranslatedText(cleanedText);
 
-        // 如果找到翻译并且不与清理后的文本相同，则返回替换后的结果
+        // 如果找到翻譯並且不與清理後的文字相同，則回傳替換後的結果
         if (translatedText && translatedText !== cleanedText) {
-            return text.replace(trimmedText, translatedText); // 替换原字符，保留首尾空白部分
+            return text.replace(trimmedText, translatedText); // 替換原字元，保留首尾空白部分
         }
 
         return false;
     }
 
     /**
-     * fetchTranslatedText 函数：从特定页面的词库中获得翻译文本内容。
-     * @param {string} text - 需要翻译的文本内容。
-     * @returns {string|boolean} 翻译后的文本内容，如果没有找到对应的翻译，那么返回 false。
+     * fetchTranslatedText 函式：從特定頁面的詞庫中獲得翻譯文字內容。
+     * @param {string} text - 需要翻譯的文字內容。
+     * @returns {string|boolean} 翻譯後的文字內容，如果沒有找到對應的翻譯，那麼回傳 false。
      */
     function fetchTranslatedText(text) {
 
-        // 静态翻译
-        let translatedText = pageConfig.staticDict[text]; // 默认翻译 公共部分
+        // 靜態翻譯
+        let translatedText = pageConfig.staticDict[text]; // 預設翻譯 公共部分
 
         if (typeof translatedText === 'string') return translatedText;
 
-        // 正则翻译
+        // 正規表達式翻譯
         if (FeatureSet.enable_RegExp) {
             for (const [pattern, replacement] of pageConfig.regexpRules) {
                 translatedText = text.replace(pattern, replacement);
@@ -450,28 +450,28 @@
             }
         }
 
-        return false; // 没有翻译条目
+        return false; // 沒有翻譯條目
     }
 
     /**
-     * transDesc 函数：为指定的元素添加一个翻译按钮，并为该按钮添加点击事件。
-     * @param {string} selector - CSS选择器，用于选择需要添加翻译按钮的元素。
+     * transDesc 函式：為指定的元素新增一個翻譯按鈕，並為該按鈕新增點擊事件。
+     * @param {string} selector - CSS 選擇器，用於選擇需要新增翻譯按鈕的元素。
      */
     function transDesc(selector) {
-        // 使用 CSS 选择器选择元素
+        // 使用 CSS 選擇器選擇元素
         const element = document.querySelector(selector);
 
-        // 如果元素不存在 或者 translate-me 元素已存在，那么直接返回
+        // 如果元素不存在 或者 translate-me 元素已存在，那麼直接回傳
         if (!element || element.nextElementSibling?.id === 'translate-me') return;
 
-        // 在元素后面插入一个翻译按钮
+        // 在元素後面插入一個翻譯按鈕
         const button = document.createElement('div');
         button.id = 'translate-me';
         button.style.cssText = 'color: #1b95e0; font-size: small; cursor: pointer;';
-        button.textContent = '翻译';
+        button.textContent = '翻譯';
         element.after(button);
 
-        // 为翻译按钮添加点击事件
+        // 為翻譯按鈕新增點擊事件
         button.addEventListener('click', async() => {
             if (button.disabled) return;
             button.disabled = true;
@@ -479,19 +479,19 @@
                 const descText = element.textContent.trim();
                 if (!descText) return;
 
-                // 执行翻译
+                // 執行翻譯
                 const translatedText = await requestRemoteTranslation(descText);
 
-                // 安全创建结果元素
+                // 安全創建結果元素
                 const { name, url } = CONFIG.TRANS_ENGINES[CONFIG.transEngine];
                 const resultContainer = document.createElement('div');
                 resultContainer.innerHTML = `
                     <span style='font-size: small'>
-                        由 <a target='_blank' style='color:#1b95e0;' href=${url}>${name}</a> 翻译👇
+                        翻譯 👇
                     </span>
                     <br/>
                 `;
-                // 安全插入文本内容
+                // 安全插入文字內容
                 const textNode = document.createTextNode(translatedText);
                 resultContainer.appendChild(textNode);
 
@@ -504,10 +504,10 @@
     }
 
     /**
-     * getNestedProperty 函数：获取嵌套属性的安全函数
-     * @param {Object} obj - 需要查询的对象
-     * @param {string} path - 属性路径，例如 'biz[0].sectionResult[0].dst'
-     * @returns {*} - 返回嵌套属性的值
+     * getNestedProperty 函式：取得嵌套屬性的安全函式
+     * @param {Object} obj - 需要查詢的對象
+     * @param {string} path - 屬性路徑，例如 'biz[0].sectionResult[0].dst'
+     * @returns {*} - 回傳嵌套屬性的值
      */
     function getNestedProperty(obj, path) {
         return path.split('.').reduce((acc, part) => {
@@ -523,19 +523,19 @@
     }
 
     /**
-     * requestRemoteTranslation 函数：将指定的文本发送到设定的翻译引擎进行翻译。
-     * @param {string} text - 需要翻译的文本。
+     * requestRemoteTranslation 函式：將指定的文字發送到設定的翻譯引擎進行翻譯。
+     * @param {string} text - 需要翻譯的文字。
      */
     async function requestRemoteTranslation(text) {
         return new Promise((resolve) => {
             const { url_api, method, headers, getRequestData, responseIdentifier } = CONFIG.TRANS_ENGINES[CONFIG.transEngine];
-            // 构建请求数据
+            // 構建請求資料
             const requestData = getRequestData(text);
 
-            // 使用 GM_xmlhttpRequest 函数发送 HTTP 请求
+            // 使用 GM_xmlhttpRequest 函式發送 HTTP 請求
             GM_xmlhttpRequest({
                 method: method,
-                url: url_api, // 请求的 URL
+                url: url_api, // 請求的 URL
                 headers: headers,
                 data: method === 'POST' ? JSON.stringify(requestData) : null,
                 params: method === 'GET' ? requestData : null, // For GET requests
@@ -543,30 +543,30 @@
                     try {
                         const result = JSON.parse(res.responseText);
                         console.log(result);
-                        const translatedText = getNestedProperty(result, responseIdentifier) || '翻译失败';
+                        const translatedText = getNestedProperty(result, responseIdentifier) || '翻譯失敗';
                         resolve(translatedText);
                     } catch (err) {
-                        console.error('翻译失败:', err);
-                        resolve(`翻译失败（${err.type}）`);
+                        console.error('翻譯失敗：', err);
+                        resolve(`翻譯失敗（${err.type}）`);
                     }
                 },
                 onerror: (err) => {
-                    console.error('翻译请求失败:', err);
-                    resolve(`翻译失败（${err.type}）`);
+                    console.error('翻譯請求失敗：', err);
+                    resolve(`翻譯失敗（${err.type}）`);
                 }
             });
         });
     }
 
     /**
-     * transBySelector 函数：通过 CSS 选择器找到页面上的元素，并将其文本内容替换为预定义的翻译。
+     * transBySelector 函式：透過 CSS 選擇器找到頁面上的元素，並將其文字內容替換為預定義的翻譯。
      */
     function transBySelector() {
-        // 遍历每个翻译规则
+        // 遍歷每個翻譯規則
         pageConfig.tranSelectors?.forEach(([selector, translatedText]) => {
-            // 使用 CSS 选择器找到对应的元素
+            // 使用 CSS 選擇器找到對應的元素
             const element = document.querySelector(selector);
-            // 如果找到了元素，那么将其文本内容替换为翻译后的文本
+            // 如果找到了元素，那麼將其文字內容替換為翻譯後的文字
             if (element) {
                 element.textContent = translatedText;
             }
@@ -574,7 +574,7 @@
     }
 
     /**
-     * registerMenuCommand 函数：注册菜单。
+     * registerMenuCommand 函式：註冊選單。
      */
     function registerMenuCommand() {
         const createMenuCommand = (config) => {
@@ -582,18 +582,18 @@
             let menuId;
 
             const getMenuLabel = (label, isEnabled) =>
-                `${isEnabled ? "禁用" : "启用"} ${label}`;
+                `${isEnabled ? "禁用" : "啟用"} ${label}`;
 
             const toggle = () => {
                 const newFeatureState = !FeatureSet[key];
                 GM_setValue(key, newFeatureState);
                 FeatureSet[key] = newFeatureState;
-                GM_notification(`${label}已${newFeatureState ? '启用' : '禁用'}`);
+                GM_notification(`${label}已${newFeatureState ? '啟用' : '禁用'}`);
 
-                // 调用回调函数
+                // 呼叫回調函式
                 if (callback) callback(newFeatureState);
 
-                // 更新菜单命令的标签
+                // 更新選單指令的標籤
                 GM_unregisterMenuCommand(menuId);
                 menuId = GM_registerMenuCommand(
                     getMenuLabel(label, newFeatureState),
@@ -601,7 +601,7 @@
                 );
             };
 
-            // 初始注册菜单命令
+            // 初始註冊選單指令
             menuId = GM_registerMenuCommand(
                 getMenuLabel(label, FeatureSet[key]),
                 toggle
@@ -610,14 +610,14 @@
 
         const menuConfigs = [
             {
-                label: "正则功能",
+                label: "正規表達式功能",
                 key: "enable_RegExp",
                 callback: newFeatureState => {
                     if (newFeatureState) traverseNode(document.body);
                 }
             },
             {
-                label: "描述翻译",
+                label: "描述翻譯",
                 key: "enable_transDesc",
                 callback: newFeatureState => {
                     if (newFeatureState && CONFIG.DESC_SELECTORS[pageConfig.currentPageType]) {
@@ -629,35 +629,35 @@
             }
         ];
 
-        // 注册所有菜单项
+        // 註冊所有選單項
         menuConfigs.forEach(config => createMenuCommand(config));
     };
 
     /**
-     * init 函数：初始化翻译功能。
+     * init 函式：初始化翻譯功能。
      */
     function init() {
         if (typeof I18N === 'undefined') {
-            alert('GitHub 汉化插件：词库文件 locals.js 未加载，脚本无法运行！');
-        // 也可以选择 return 或 throw new Error
+            alert('GitHub 繁體中文化插件：詞庫檔案 locals.js 未載入，腳本無法執行！');
+        // 也可以選擇 return 或 throw new Error
         } else {
-            console.log(`词库文件 locals.js 已加载`);
+            console.log(`詞庫檔案 locals.js 已載入`);
         }
-        // 设置中文环境
+        // 設定中文環境
         document.documentElement.lang = CONFIG.LANG;
 
-        // 监测 HTML Lang 值, 设置中文环境
+        // 監測 HTML Lang 值, 設定中文環境
         new MutationObserver(() => {
             if (document.documentElement.lang === "en") {
                 document.documentElement.lang = CONFIG.LANG;
             }
         }).observe(document.documentElement, { attributeFilter: ['lang'] });
 
-        // 监听 Turbo 完成事件（延迟翻译）
+        // 監聽 Turbo 完成事件（延遲翻譯）
         document.addEventListener('turbo:load', () => {
             if (!pageConfig.currentPageType) return;
 
-            transTitle(); // 翻译页面标题
+            transTitle(); // 翻譯頁面標題
             transBySelector();
 
             if (FeatureSet.enable_transDesc && CONFIG.DESC_SELECTORS[pageConfig.currentPageType]) {
@@ -665,17 +665,17 @@
             }
         });
 
-        // 初始化菜单
+        // 初始化選單
         registerMenuCommand();
 
 
-        // 首次页面翻译
+        // 首次頁面翻譯
         window.addEventListener('DOMContentLoaded', () => {
-            // 获取当前页面的翻译规则
-            updatePageConfig('首次载入');
+            // 取得目前頁面的翻譯規則
+            updatePageConfig('首次載入');
             if (pageConfig.currentPageType) traverseNode(document.body);
 
-            // 监视页面变化
+            // 監視頁面變化
             watchUpdate();
         });
     }
