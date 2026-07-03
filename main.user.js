@@ -1,18 +1,18 @@
 // ==UserScript==
-// @name         GitHub 中文化插件
-// @namespace    https://github.com/maboloshi/github-chinese
-// @description  中文化 GitHub 界面的部分菜单及内容。原作者为楼教主(http://www.52cik.com/)。
-// @copyright    2021, 沙漠之子 (https://maboloshi.github.io/Blog)
+// @name         GitHub 繁體中文化
+// @namespace    https://github.com/LaiYueTing/GitHub-zh_TW
+// @description  繁體中文化 GitHub 介面的部分選單及內容。
+// @copyright    2026, LaiYueTing (https://github.com/LaiYueTing)
 // @icon         https://github.githubassets.com/pinned-octocat.svg
-// @version      1.9.4.4-2026-06-21
-// @author       沙漠之子
+// @version      1.9.4.4
+// @author       LaiYueTing
 // @license      GPL-3.0
 // @match        https://github.com/*
 // @match        https://skills.github.com/*
 // @match        https://gist.github.com/*
 // @match        https://education.github.com/*
 // @match        https://www.githubstatus.com/*
-// @require      https://raw.githubusercontent.com/maboloshi/github-chinese/gh-pages/locals.js?v1.9.4.4-2026-06-21
+// @require      https://raw.githubusercontent.com/LaiYueTing/GitHub-zh_TW/main/locals.js?v1.9.4.4
 // @run-at       document-start
 // @grant        GM_addStyle
 // @grant        GM_xmlhttpRequest
@@ -22,36 +22,36 @@
 // @grant        GM_unregisterMenuCommand
 // @grant        GM_notification
 // @connect      fanyi.iflyrec.com
-// @supportURL   https://github.com/maboloshi/github-chinese/issues
+// @supportURL   https://github.com/LaiYueTing/Github-zh_TW/issues
 // ==/UserScript==
 
 (function (window, document, undefined) {
     'use strict';
 
-    /* =========================== 全局配置常量 =========================== */
+    /* =========================== 全域設定常數 =========================== */
     const CONFIG = {
-        LANG: 'zh-CN', // 默认语言
-        DEV: false, // 默认不开启开发者模式
-        PAGE_MAP: { // 站点域名 -> 类型映射
+        LANG: 'zh-TW', // 預設語言
+        DEV: false, // 預設不開啟開發者模式
+        PAGE_MAP: { // 站台網域 -> 類型對應
             'gist.github.com': 'gist',
             'www.githubstatus.com': 'status',
             'skills.github.com': 'skills',
             'education.github.com': 'education'
         },
-        SPECIAL_SITES: ['gist', 'status', 'skills', 'education'], // 特殊站点类型
-        DESC_SELECTORS: { // 简介元素的CSS选择器
+        SPECIAL_SITES: ['gist', 'status', 'skills', 'education'], // 特殊站台類型
+        DESC_SELECTORS: { // 簡介元素的 CSS 選擇器
             repository: ".f4.tmp-my-3",
             gist: ".gist-content [itemprop='about']"
         },
-        OBSERVER_CONFIG: { // MutationObserver配置
+        OBSERVER_CONFIG: { // MutationObserver 設定
             childList: true,
             subtree: true,
             characterData: true,
             attributeFilter: ['value', 'placeholder', 'aria-label', 'data-confirm']
         },
-        TRANS_ENGINES: { // 翻译引擎配置
+        TRANS_ENGINES: { // 翻譯引擎設定
             iflyrec: {
-                name: '讯飞听见',
+                name: '訊飛聽見',
                 url: 'https://fanyi.iflyrec.com/text-translate',
                 url_api: 'https://fanyi.iflyrec.com/TJHZTranslationService/v2/textAutoTranslation',
                 method: 'POST',
@@ -60,23 +60,23 @@
                     'Origin': 'https://fanyi.iflyrec.com'
                 },
                 getRequestData: (text) => ({
-                    from: 2, // 英语
-                    to: 1,   // 简体中文
+                    from: 2, // 英文
+                    to: 1,   // 繁體中文
                     type: 1,
                     contents: [{ text: text }]
                 }),
-                responseIdentifier: 'biz[0]?.sectionResult[0]?.dst', // 翻译结果在响应中的路径
+                responseIdentifier: 'biz[0]?.sectionResult[0]?.dst', // 翻譯結果在回應中的路徑
             },
         },
         STYLES: `
-            /* 基础样式变量 */
+            /* 基礎樣式變數 */
             :root {
                 --ghc-primary-color: #1b95e0;
                 --ghc-bg-color: #f8f9fa;
                 --ghc-border-color: #e1e4e8;
                 --ghc-button-bg: #f6f8fa;
             }
-            /* 浅色主题样式（默认） */
+            /* 淺色主題樣式（預設） */
             .translate-button {
                 color: var(--ghc-primary-color);
                 font-size: small;
@@ -100,7 +100,7 @@
                 white-space: pre-wrap;
             }
 
-            /* 暗色主题适配 - 使用 prefers-color-scheme */
+            /* 暗色主題適配 - 使用 prefers-color-scheme */
             @media (prefers-color-scheme: dark) {
                 :root {
                     --ghc-primary-color: #58a6ff;
@@ -112,9 +112,9 @@
         `
     };
 
-    /* =========================== 状态管理器 =========================== */
+    /* =========================== 狀態管理器 =========================== */
     const State = {
-        // 功能开关
+        // 功能開關
         featureSet: {
             enable_RegExp: GM_getValue("enable_RegExp", true),
             enable_transDesc: GM_getValue("enable_transDesc", true),
@@ -122,45 +122,45 @@
             enable_onurlchange: false,
         },
 
-        // 当前运行时状态
-        pageConfig: null,        // 当前页面配置（null 表示无有效页面）
-        currentURL: window.location.href, // 当前页面URL
-        transEngine: 'iflyrec',  // 当前翻译引擎
-        mutationObserver: null,  // DOM变化观察器
-        urlChangeHandler: null,  // 存储URL变化处理器
-        dynamicMenus: {},        // 动态菜单ID记录
+        // 目前執行階段狀態
+        pageConfig: null,        // 目前頁面設定（null 表示無有效頁面）
+        currentURL: window.location.href, // 目前頁面 URL
+        transEngine: 'iflyrec',  // 目前翻譯引擎
+        mutationObserver: null,  // DOM 變化觀察器
+        urlChangeHandler: null,  // 儲存 URL 變化處理器
+        dynamicMenus: {},        // 動態選單 ID 紀錄
         initDone: false,
     };
 
-    /* =========================== 安全检查 =========================== */
+    /* =========================== 安全檢查 =========================== */
 
     /**
-     * 检查词库文件是否加载 — 未加载则抛出错误阻止继续执行
+     * 檢查詞庫檔案是否載入 — 未載入則拋出錯誤阻止繼續執行
      */
     function checkI18NLoaded() {
         if (typeof I18N === 'undefined') {
-            alert('GitHub 汉化插件：词库文件 locals.js 未加载，脚本无法运行！');
-            throw new Error('[GitHub 中文化插件] 词库文件 locals.js 未加载');
+            alert('GitHub 繁體中文化插件：詞庫檔案 locals.js 未載入，腳本無法執行！');
+            throw new Error('[GitHub 繁體中文化插件] 詞庫檔案 locals.js 未載入');
         }
     }
 
     /**
-     * 错误边界 — 包装函数，捕获异常避免阻断页面正常使用
-     * @param {Function} fn - 要执行的函数
-     * @param {string} label - 错误标签
-     * @returns {Function} 包装后的函数
+     * 錯誤邊界 — 包裝函式，捕捉例外避免阻斷頁面正常使用
+     * @param {Function} fn - 要執行的函式
+     * @param {string} label - 錯誤標籤
+     * @returns {Function} 包裝後的函式
      */
     function safe(fn, label) {
         return function (...args) {
             try {
                 return fn.apply(this, args);
             } catch (e) {
-                console.error(`[GitHub 中文化插件] ${label} 出错:`, e);
+                console.error(`[GitHub 繁體中文化插件] ${label} 發生錯誤:`, e);
             }
         };
     }
 
-    /* =========================== 初始化入口 =========================== */
+    /* =========================== 初始化進入點 =========================== */
     function init() {
         checkI18NLoaded();
         setupReactGlobalNavTranslation();
@@ -174,15 +174,15 @@
     }
 
     /**
-     * 初始化并保护中文语言环境
+     * 初始化並保護中文語言環境
      */
     function initLangEnv() {
-        // 设置初始语言
+        // 設定初始語言
         document.documentElement.lang = CONFIG.LANG;
 
-        // 监视语言属性变化，防止被改回英文
+        // 監看語言屬性變化，防止被改回英文
         const langObserver = new MutationObserver(() => {
-            // 如果检测到语言被改回英文，重新设置
+            // 如果偵測到語言被改回英文，重新設定
             if (document.documentElement.lang === "en") {
                 document.documentElement.lang = CONFIG.LANG;
             }
@@ -191,30 +191,30 @@
     }
 
     /**
-     * 注入自定义样式到页面
+     * 注入自訂樣式到頁面
      */
     function injectStyles() {
         GM_addStyle(CONFIG.STYLES);
     }
 
     /**
-     * 设置初始翻译
+     * 設定初始翻譯
      *
-     * 即使 @run-at document-start，Tampermonkey 注入脚本也可能晚于 DOMContentLoaded
-     *（扩展冷启动、bfcache 恢复等场景）。因此不能假设注册监听器时事件尚未触发：
-     * readyState 已是 interactive/complete 则直接执行，否则才注册一次性监听器。
+     * 即使 @run-at document-start，Tampermonkey 注入腳本也可能晚於 DOMContentLoaded
+     *（擴充功能冷啟動、bfcache 復原等情境）。因此不能假設註冊監聽器時事件尚未觸發：
+     * readyState 已是 interactive/complete 則直接執行，否則才註冊一次性監聽器。
      */
     function setupInitTrans() {
         function doInitTrans() {
-            updatePageConfig('首次载入');
+            updatePageConfig('首次載入');
             if (State.pageConfig) {
-                safe(traverseNode, '首次遍历')(document.body);
+                safe(traverseNode, '首次遍歷')(document.body);
             }
-            setupMutationObserver(); // 设置DOM变化观察器
+            setupMutationObserver(); // 設定 DOM 變化觀察器
         }
 
         if (document.readyState === 'interactive' || document.readyState === 'complete') {
-            // 文档已就绪，直接执行
+            // 文件已就緒，直接執行
             doInitTrans();
         } else {
             // 等待 DOMContentLoaded
@@ -222,48 +222,48 @@
         }
     }
 
-    /* =========================== URL 变化监听 =========================== */
+    /* =========================== URL 變化監聽 =========================== */
     /**
-     * 设置URL变化监听器
-     * Tampermonkey 环境使用 onurlchange 事件，其他环境回退到 MutationObserver URL 检测
+     * 設定 URL 變化監聽器
+     * Tampermonkey 環境使用 onurlchange 事件，其他環境回退到 MutationObserver URL 偵測
      */
     function setupUrlChangeListener() {
-        // Tampermonkey 环境下 window.onurlchange 为 null（支持），其他环境为 undefined
+        // Tampermonkey 環境下 window.onurlchange 為 null（支援），其他環境為 undefined
         if (State.featureSet.enable_onurlchange && window.onurlchange === null) {
 
-            // 创建URL变化处理函数
+            // 建立 URL 變化處理函式
             State.urlChangeHandler = function (event) {
-                console.log("URL变化检测 (Tampermonkey onurlchange)", event);
+                console.log("URL 變化偵測 (Tampermonkey onurlchange)", event);
                 handleUrlChange();
             };
 
             window.addEventListener('urlchange', State.urlChangeHandler);
-            console.log("🛠️ 开发者模式：已启用 onurlchange 事件监听");
+            console.log("🛠️ 開發者模式：已啟用 onurlchange 事件監聽");
         } else {
-            console.log("当前环境不支持 onurlchange 事件，使用传统URL检测方式");
+            console.log("目前環境不支援 onurlchange 事件，使用傳統 URL 偵測方式");
         }
     }
 
     /**
-     * 处理URL变化
+     * 處理 URL 變化
      */
     function handleUrlChange() {
         const currentURL = window.location.href;
 
-        // 如果URL没有实际变化，则跳过处理
+        // 如果 URL 沒有實際變化，則跳過處理
         if (currentURL === State.currentURL) return;
 
         State.currentURL = currentURL;
-        updatePageConfig("URL变化 (onurlchange)");
+        updatePageConfig("URL 變化 (onurlchange)");
 
-        // 重新设置观察器
+        // 重新設定觀察器
         if (State.mutationObserver) {
             State.mutationObserver.disconnect();
         }
 
-        // 如果页面类型有效，重新遍历DOM
+        // 如果頁面類型有效，重新走訪 DOM
         if (State.pageConfig) {
-            safe(traverseNode, 'URL变化遍历')(document.body);
+            safe(traverseNode, 'URL 變化遍歷')(document.body);
         }
 
         setupMutationObserver();
@@ -271,35 +271,35 @@
 
     /* =========================== Turbo 事件 =========================== */
     /**
-     * 设置Turbo框架事件监听
-     * 处理GitHub的Turbolinks页面切换
+     * 設定 Turbo 框架事件監聽
+     * 處理 GitHub 的 Turbolinks 頁面切換
      */
     function setupTurboEvents() {
         document.addEventListener('turbo:load', handleTurboLoad);
     }
 
     /**
-     * 处理Turbo页面加载事件
-     * 在新页面加载后执行必要的翻译
+     * 處理 Turbo 頁面載入事件
+     * 在新頁面載入後執行必要的翻譯
      */
     function handleTurboLoad() {
         if (!State.pageConfig) return;
 
-        transTitle(); // 翻译页面标题
-        transBySelector(); // 通过选择器翻译特定元素
+        transTitle(); // 翻譯頁面標題
+        transBySelector(); // 透過選擇器翻譯特定元素
 
-        // 如果描述翻译功能启用，翻译页面描述
+        // 如果描述翻譯功能啟用，翻譯頁面描述
         if (State.featureSet.enable_transDesc &&
             CONFIG.DESC_SELECTORS[State.pageConfig.currentPageType]) {
             transDesc(CONFIG.DESC_SELECTORS[State.pageConfig.currentPageType]);
         }
     }
 
-    /* =========================== 页面配置管理 =========================== */
+    /* =========================== 頁面設定管理 =========================== */
 
     /**
-     * 更新页面配置 — 页面类型变化时重建 State.pageConfig
-     * @param {string} trigger - 触发更新的原因（用于调试）
+     * 更新頁面設定 — 頁面類型變化時重建 State.pageConfig
+     * @param {string} trigger - 觸發更新的原因（用於偵錯）
      */
     function updatePageConfig(trigger) {
         const newType = detectPageType();
@@ -308,61 +308,61 @@
         } else if (newType !== State.pageConfig?.currentPageType) {
             State.pageConfig = buildPageConfig(newType);
         }
-        console.log(`【Debug】${trigger}触发, 页面类型为 ${State.pageConfig?.currentPageType}`);
+        console.log(`【Debug】${trigger} 觸發, 頁面類型為 ${State.pageConfig?.currentPageType}`);
     }
 
     /**
-     * 构建页面配置对象
-     * @param {string} pageType - 页面类型
-     * @returns {Object} 页面配置对象
+     * 建構頁面設定物件
+     * @param {string} pageType - 頁面類型
+     * @returns {Object} 頁面設定物件
      */
     function buildPageConfig(pageType) {
         return {
-            currentPageType: pageType, // 当前页面类型
-            currentPath: window.location.pathname, // 当前路径
+            currentPageType: pageType, // 目前頁面類型
+            currentPath: window.location.pathname, // 目前路徑
             titleStaticDict: I18N[CONFIG.LANG][pageType]?.title?.static || {},
             titleRegexpRules: I18N[CONFIG.LANG][pageType]?.title?.regexp || [],
-            staticDict: { // 合并公共和页面特定的静态词典
+            staticDict: { // 合併公共與頁面特定的靜態詞典
                 ...I18N[CONFIG.LANG].public.static,
                 ...(I18N[CONFIG.LANG][pageType]?.static || {})
             },
-            regexpRules: [ // 合并公共和页面特定的正则规则
+            regexpRules: [ // 合併公共與頁面特定的正規表達式規則
                 ...(I18N[CONFIG.LANG][pageType]?.regexp || []),
                 ...(I18N[CONFIG.LANG].public.regexp || [])
             ],
-            ignoreMutationSelectors: [ // 忽略的突变选择器
+            ignoreMutationSelectors: [ // 忽略的變動選擇器
                 ...(I18N.conf.ignoreMutationSelectorPage['*'] || []),
                 ...(I18N.conf.ignoreMutationSelectorPage[pageType] || [])
             ].join(', '),
-            ignoreSelectors: [ // 忽略的选择器
+            ignoreSelectors: [ // 忽略的選擇器
                 ...(I18N.conf.ignoreSelectorPage['*'] || []),
                 ...(I18N.conf.ignoreSelectorPage[pageType] || [])
             ].join(', '),
-            characterData: (I18N.conf.characterDataPage || []).includes(pageType), // 是否监视文本节点变化
-            transSelectors: [ // 翻译选择器规则
+            characterData: (I18N.conf.characterDataPage || []).includes(pageType), // 是否監看文字節點變化
+            transSelectors: [ // 翻譯選擇器規則
                 ...(I18N[CONFIG.LANG].public.selector || []),
                 ...(I18N[CONFIG.LANG][pageType]?.selector || [])
             ],
         };
     }
 
-    /* =========================== 页面类型检测 =========================== */
+    /* =========================== 頁面類型偵測 =========================== */
 
     /**
-     * 检测当前页面类型
-     * @returns {string|boolean} 页面类型或false（如果未识别）
+     * 偵測目前頁面類型
+     * @returns {string|boolean} 頁面類型或 false（如果未辨識）
      */
     function detectPageType() {
         const url = new URL(window.location.href);
         const { PAGE_MAP, SPECIAL_SITES } = CONFIG;
         const { hostname, pathname } = url;
 
-        // 基础配置
-        const site = PAGE_MAP[hostname] || 'github'; // 通过站点映射获取基础类型
+        // 基礎設定
+        const site = PAGE_MAP[hostname] || 'github'; // 透過站台對應取得基礎類型
         const isLogin = document.body.classList.contains("logged-in");
         const metaLocation = document.head.querySelector('meta[name="analytics-location"]')?.content || '';
 
-        // 页面特征检测
+        // 頁面特徵偵測
         const isSession = document.body.classList.contains("session-authentication");
         const isHomepage = pathname === '/' && site === 'github';
         const isProfile = document.body.classList.contains("page-profile") || metaLocation === '/<user-name>';
@@ -370,45 +370,45 @@
         const isOrganization = /\/<org-login>/.test(metaLocation) || /^\/(?:orgs|organizations)/.test(pathname);
 
         let pageType;
-        // 根据页面特征确定页面类型
-        switch (true) { // 使用 switch(true) 模式处理多条件分支
-            case isSession: // 登录/认证页面
+        // 根據頁面特徵決定頁面類型
+        switch (true) { // 使用 switch(true) 模式處理多條件分支
+            case isSession: // 登入/認證頁面
                 pageType = 'session-authentication';
                 break;
-            case SPECIAL_SITES.includes(site): // 特殊站点
+            case SPECIAL_SITES.includes(site): // 特殊站台
                 pageType = site;
                 break;
-            case isProfile: { // 用户资料页面
+            case isProfile: { // 使用者資料頁面
                 const tabParam = new URLSearchParams(url.search).get('tab');
                 pageType = pathname.includes('/stars') ? 'page-profile/stars'
                          : tabParam ? `page-profile/${tabParam}`
                          : 'page-profile';
                 break;
             }
-            case isHomepage: // 首页/仪表盘
+            case isHomepage: // 首頁/儀表板
                 pageType = isLogin ? 'dashboard' : 'homepage';
                 break;
-            case isRepository: { // 代码仓库页面
+            case isRepository: { // 程式碼儲存庫頁面
                 const repoMatch = pathname.match(I18N.conf.rePagePathRepo);
                 pageType = repoMatch ? `repository/${repoMatch[1]}` : 'repository';
                 break;
             }
-            case isOrganization: { // 组织页面
+            case isOrganization: { // 組織頁面
                 const orgMatch = pathname.match(I18N.conf.rePagePathOrg);
                 pageType = orgMatch ? `orgs/${orgMatch[1] || orgMatch.slice(-1)[0]}` : 'orgs';
                 break;
             }
-            default: { // 默认页面类型
+            default: { // 預設頁面類型
                 const pathMatch = pathname.match(I18N.conf.rePagePath);
                 pageType = pathMatch ? (pathMatch[1] || pathMatch.slice(-1)[0]) : false;
             }
         }
 
-        // 验证页面类型是否有效
+        // 驗證頁面類型是否有效
         if (pageType === false || !I18N[CONFIG.LANG]?.[pageType]) {
             const reason = pageType === false
-                ? '路径未匹配任何页面规则'
-                : `词库中缺少 "${pageType}" 的翻译`;
+                ? '路徑未符合任何頁面規則'
+                : `詞庫中缺少 "${pageType}" 的翻譯`;
             console.warn('[i18n] %s', reason, {
                 url: window.location.href,
                 hostname,
@@ -424,12 +424,12 @@
         return pageType;
     }
 
-    /* =========================== React 新版头部翻译补丁 =================== */
+    /* =========================== React 新版頁首翻譯修補 =================== */
     /**
-     * 模块：React 新版头部翻译补丁
-     * 说明：针对 GitHub 新版 React 头部（GlobalNav）及其弹层，
-     *       通过 DOM 操作 + 精细的时机控制来翻译文本，
-     *       避免与 React 渲染发生冲突。
+     * 模組：React 新版頁首翻譯修補
+     * 說明：針對 GitHub 新版 React 頁首（GlobalNav）及其彈出層，
+     *       透過 DOM 操作 + 精細的時機控制來翻譯文字，
+     *       避免與 React 渲染發生衝突。
      * 作者：MasterBao66
      * 日期：2026-06-17
      */
@@ -485,28 +485,28 @@
     }
 
     function setupReactGlobalNavTranslation() {
-        // ----- 环境检查 -----
+        // ----- 環境檢查 -----
         if (typeof document === 'undefined' || typeof window === 'undefined') return;
 
-        // ----- 词库（从 I18N 读取）-----
+        // ----- 詞庫（從 I18N 讀取）-----
         const labels = I18N.conf.reactGlobalNavLabels || {};
 
-        // ----- 选择器定义 -----
+        // ----- 選擇器定義 -----
         const dataContentLabelSelector = 'header.GlobalNav [data-component="text"][data-content]';
-        // 需要监听的 React 渲染区域：头部和弹层
+        // 需要監聽的 React 渲染區域：頁首與彈出層
         const controlledSurfaceSelector = [
             'header.GlobalNav',
             '#__primerPortalRoot__ [role="menu"]',
             '#__primerPortalRoot__ [role="dialog"]',
             '#__primerPortalRoot__ [role="tooltip"]',
         ].join(', ');
-        // 仅弹层（用于单独判断更新状态）
+        // 僅彈出層（用於單獨判斷更新狀態）
         const portalSurfaceSelector = '#__primerPortalRoot__ [role="menu"], #__primerPortalRoot__ [role="dialog"], #__primerPortalRoot__ [role="tooltip"]';
-        // 旧版搜索框（兼容）
+        // 舊版搜尋框（相容）
         const searchSurfaceSelector = 'qbsearch-input';
-        // 新版搜索模块（类名包含 Search-module__）
+        // 新版搜尋模組（類別名稱包含 Search-module__）
         const searchModuleSelector = 'header.GlobalNav [class*="Search-module__"]';
-        // 不翻译的标签（避免破坏代码、图片等）
+        // 不翻譯的標籤（避免破壞程式碼、圖片等）
         const unsafeTextSelector = [
             'textarea',
             '[contenteditable="true"]',
@@ -518,26 +518,26 @@
             'canvas',
             'video',
         ].join(', ');
-        // 搜索相关区域（用于判断焦点状态）
+        // 搜尋相關區域（用於判斷焦點狀態）
         const searchSelector = `${searchModuleSelector}, ${searchSurfaceSelector}, #__primerPortalRoot__ [role="dialog"]`;
-        // 需要翻译的属性列表
+        // 需要翻譯的屬性清單
         const translatableAttributeNames = ['title', 'aria-label', 'data-visible-text', 'placeholder'];
 
-        // ----- 时间控制参数 -----
-        const reactGlobalNavIdleMs = 700;       // 判断渲染空闲的等待时间（毫秒）
-        const reactGlobalNavRetryMs = 400;      // 重试间隔
+        // ----- 時間控制參數 -----
+        const reactGlobalNavIdleMs = 700;       // 判斷渲染閒置的等待時間（毫秒）
+        const reactGlobalNavRetryMs = 400;      // 重試間隔
 
-        // ----- 状态变量 -----
-        let timer = null;                       // 延时执行句柄
-        let headerObserver = null;              // MutationObserver 实例
-        let lastReactGlobalNavMutationAt = Date.now();     // 头部最后变化时间
-        let lastReactGlobalNavPortalMutationAt = Date.now(); // 弹层最后变化时间
-        const observedSurfaces = new WeakSet(); // 已监听的 DOM 元素（避免重复绑定）
+        // ----- 狀態變數 -----
+        let timer = null;                       // 延時執行控制代碼
+        let headerObserver = null;              // MutationObserver 實例
+        let lastReactGlobalNavMutationAt = Date.now();     // 頁首最後變化時間
+        let lastReactGlobalNavPortalMutationAt = Date.now(); // 彈出層最後變化時間
+        const observedSurfaces = new WeakSet(); // 已監聽的 DOM 元素（避免重複繫結）
 
 
-        // ----- 状态查询函数 -----
+        // ----- 狀態查詢函式 -----
         /**
-         * 判断当前是否处于搜索激活状态（输入框有焦点或弹层打开）
+         * 判斷目前是否處於搜尋啟用狀態（輸入框有焦點或彈出層開啟）
          */
         function isReactGlobalNavSearchActive() {
             const active = document.activeElement;
@@ -546,7 +546,7 @@
         }
 
         /**
-         * 判断指定区域是否已经处于空闲状态（无变化超过 IDLE_MS）
+         * 判斷指定區域是否已經處於閒置狀態（無變化超過 IDLE_MS）
          * @param {string} surfaceType - 'header' 或 'portal'
          */
         function isReactGlobalNavSurfaceIdle(surfaceType = 'header') {
@@ -557,8 +557,8 @@
         }
 
         /**
-         * 判断是否可以进行头部翻译
-         * 条件：页面完全加载、头部空闲、搜索未激活
+         * 判斷是否可以進行頁首翻譯
+         * 條件：頁面完全載入、頁首閒置、搜尋未啟用
          */
         function canTranslateReactGlobalNavHeader() {
             return document.readyState === 'complete'
@@ -566,14 +566,14 @@
                 && !isReactGlobalNavSearchActive();
         }
 
-        // ----- 词库查找函数（与现有 I18N 集成） -----
+        // ----- 詞庫尋找函式（與現有 I18N 整合） -----
         /**
-         * 从 I18N 的静态词典中查找翻译
+         * 從 I18N 的靜態詞典中尋找翻譯
          * @param {string} source - 原文
          * @returns {string|null}
          */
         function findStaticGlobalNavLabel(source) {
-            const locale = I18N["zh-CN"] || I18N.zh;
+            const locale = I18N["zh-TW"] || I18N.zh;
             if (!locale) return null;
 
             for (const section of Object.values(locale)) {
@@ -587,10 +587,10 @@
         }
 
         /**
-         * 从 I18N 的正则规则中查找翻译
+         * 從 I18N 的正規表達式規則中尋找翻譯
          */
         function findRegexpGlobalNavLabel(source) {
-            const locale = I18N["zh-CN"] || I18N.zh;
+            const locale = I18N["zh-TW"] || I18N.zh;
             if (!locale) return null;
 
             for (const section of Object.values(locale)) {
@@ -607,13 +607,13 @@
         }
 
         /**
-         * 解析翻译：优先硬编码标签 -> 静态词库 -> 正则词库
+         * 解析翻譯：優先硬編碼標籤 -> 靜態詞庫 -> 正規表達式詞庫
          */
         function resolveReactGlobalNavLabel(source) {
             return labels[source] || findStaticGlobalNavLabel(source) || findRegexpGlobalNavLabel(source);
         }
 
-        // ----- 文本处理辅助函数 -----
+        // ----- 文字處理輔助函式 -----
         function normalizeReactGlobalNavText(text) {
             return text?.replace(/\s+/g, ' ').trim();
         }
@@ -623,9 +623,9 @@
             return source ? resolveReactGlobalNavLabel(source) : null;
         }
 
-        // ----- 翻译执行函数 -----
+        // ----- 翻譯執行函式 -----
         /**
-         * 翻译单个元素的文本内容（直接修改 textContent）
+         * 翻譯單一元素的文字內容（直接修改 textContent）
          */
         function translateReactGlobalNavElement(element, source) {
             const label = translateReactGlobalNavText(source ?? element.textContent);
@@ -635,7 +635,7 @@
         }
 
         /**
-         * 判断节点是否应该被跳过（不翻译）
+         * 判斷節點是否應該被跳過（不翻譯）
          */
         function shouldSkipReactGlobalNavNode(node) {
             const element = node.nodeType === Node.ELEMENT_NODE ? node : node.parentElement;
@@ -648,7 +648,7 @@
         }
 
         /**
-         * 翻译元素的可翻译属性（title、aria-label 等）
+         * 翻譯元素的可翻譯屬性（title、aria-label 等）
          */
         function translateReactGlobalNavAttributes(element) {
             translatableAttributeNames.forEach(attributeName => {
@@ -661,19 +661,19 @@
         }
 
         /**
-         * 翻译文本节点
+         * 翻譯文字節點
          */
         function translateReactGlobalNavTextNode(node) {
             const label = translateReactGlobalNavText(node.data);
             if (label) {
-                // 替换原有文本（保留前后空白）
+                // 取代原有文字（保留前後空白）
                 node.data = node.data.replace(node.data.trim(), label);
             }
         }
 
         /**
-         * 遍历并翻译整个 Surface（区域）
-         * 使用 TreeWalker 遍历所有元素和文本节点
+         * 走訪並翻譯整個 Surface（區域）
+         * 使用 TreeWalker 走訪所有元素與文字節點
          */
         function translateReactGlobalNavSurface(surface) {
             if (!surface || shouldSkipReactGlobalNavNode(surface)) return;
@@ -704,23 +704,23 @@
             }
         }
 
-        // ----- 主翻译入口 -----
+        // ----- 主翻譯進入點 -----
         /**
-         * 翻译头部（header.GlobalNav）
-         * @returns {boolean} 是否成功翻译（头部存在且空闲）
+         * 翻譯頁首（header.GlobalNav）
+         * @returns {boolean} 是否成功翻譯（頁首存在且閒置）
          */
         function translateReactGlobalNavHeader() {
             const header = document.querySelector('header.GlobalNav');
-            if (!header) return true;   // 不存在时认为已处理
+            if (!header) return true;   // 不存在時視為已處理
             if (!canTranslateReactGlobalNavHeader()) return false;
 
-            // 优先翻译包含 data-content 的元素（React 组件通过此属性存储原始文案）
+            // 優先翻譯包含 data-content 的元素（React 元件透過此屬性儲存原始文案）
             document.querySelectorAll(dataContentLabelSelector).forEach(element => {
                 if (!shouldSkipReactGlobalNavNode(element)) {
                     translateReactGlobalNavElement(element, element.getAttribute('data-content'));
                 }
             });
-            // 翻译整个头部区域
+            // 翻譯整個頁首區域
             translateReactGlobalNavSurface(header);
 
             return true;
@@ -732,8 +732,8 @@
         }
 
         /**
-         * 翻译弹层（portal）
-         * @returns {boolean} 是否成功翻译（弹层存在且空闲）
+         * 翻譯彈出層（portal）
+         * @returns {boolean} 是否成功翻譯（彈出層存在且閒置）
          */
         function translateReactGlobalNavPortals() {
             const surfaces = Array.from(document.querySelectorAll(portalSurfaceSelector))
@@ -753,24 +753,24 @@
         }
 
         /**
-         * 总翻译入口，被调度函数调用
+         * 總翻譯進入點，由排程函式呼叫
          * @param {object} options - { requireSettledHeader: true/false }
          */
         function translateReactGlobalNavLabels(options = { requireSettledHeader: true }) {
-            observeReactGlobalNav();   // 确保观察器已启动
+            observeReactGlobalNav();   // 確保觀察器已啟動
 
             const headerTranslated = translateReactGlobalNavHeader();
             const portalsTranslated = translateReactGlobalNavPortals();
 
-            // 如果未完成（头部未就绪或弹层未空闲），则安排重试
+            // 如果未完成（頁首未就緒或彈出層未閒置），則安排重試
             if ((options.requireSettledHeader && !headerTranslated) || !portalsTranslated) {
                 scheduleReactGlobalNavTranslation(reactGlobalNavRetryMs, options);
             }
         }
 
-        // ----- 调度函数 -----
+        // ----- 排程函式 -----
         /**
-         * 延迟调度翻译
+         * 延遲排程翻譯
          */
         function scheduleReactGlobalNavTranslation(delay = 800, options = {}) {
             window.clearTimeout(timer);
@@ -778,7 +778,7 @@
         }
 
         /**
-         * 初始启动序列：在多个时间点尝试翻译，覆盖 React 异步渲染
+         * 初始啟動序列：在多個時間點嘗試翻譯，涵蓋 React 非同步渲染
          */
         function scheduleReactGlobalNavSeries() {
             [800, 1600, 3000].forEach(delay => {
@@ -786,9 +786,9 @@
             });
         }
 
-        // ----- MutationObserver 与状态记录 -----
+        // ----- MutationObserver 與狀態紀錄 -----
         /**
-         * 记录 DOM 变化的时间戳（区分头部和弹层）
+         * 記錄 DOM 變化的時間戳記（區分頁首與彈出層）
          */
         function recordReactGlobalNavMutation(surface) {
             if (surface?.id === '__primerPortalRoot__' || surface?.closest?.('#__primerPortalRoot__')) {
@@ -800,14 +800,14 @@
         }
 
         /**
-         * 设置 MutationObserver，监听头部和弹层的变化
+         * 設定 MutationObserver，監聽頁首與彈出層的變化
          */
         function observeReactGlobalNav() {
             if (!headerObserver) {
                 headerObserver = new MutationObserver(mutations => {
                     mutations.forEach(mutation => recordReactGlobalNavMutation(mutation.target));
                     translateReactGlobalNavPortals();
-                    // 变化后延迟重试翻译
+                    // 變化後延遲重試翻譯
                     scheduleReactGlobalNavTranslation(reactGlobalNavRetryMs, { requireSettledHeader: true });
                 });
             }
@@ -833,18 +833,18 @@
             scheduleReactGlobalNavSeries();
         }
 
-        // ----- 初始化入口 -----
+        // ----- 初始化進入點 -----
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', startReactGlobalNavTranslation, { once: true });
         } else {
             startReactGlobalNavTranslation();
         }
 
-        // 监听 Turbo 导航和 URL 变化
+        // 監聽 Turbo 導覽與 URL 變化
         window.addEventListener('turbo:load', scheduleReactGlobalNavSeries);
         window.addEventListener('urlchange', scheduleReactGlobalNavSeries);
 
-        // 监听用户交互事件，交互后可能触发 React 更新，延迟重试翻译
+        // 監聽使用者互動事件，互動後可能觸發 React 更新，延遲重試翻譯
         ['click', 'focusin', 'focusout', 'pointerover'].forEach(evt => {
             document.addEventListener(evt, () => scheduleReactGlobalNavTranslation(reactGlobalNavRetryMs, { requireSettledHeader: true }), true);
         });
@@ -853,11 +853,11 @@
     /* =========================== MutationObserver =========================== */
 
     /**
-     * 设置DOM变化观察器
-     * 监听页面变化并触发翻译
+     * 設定 DOM 變化觀察器
+     * 監聽頁面變化並觸發翻譯
      */
     function setupMutationObserver() {
-        // 缓存当前页面的 URL
+        // 快取目前頁面的 URL
         let previousURL = window.location.href;
 
         if (State.mutationObserver) {
@@ -867,28 +867,28 @@
         State.mutationObserver = new MutationObserver(
             safe((mutations) => {
                 const currentURL = window.location.href;
-                // 当没有 onurlchange 支持时，通过 Observer 检测 URL 变化
+                // 當沒有 onurlchange 支援時，透過 Observer 偵測 URL 變化
                 if (!State.urlChangeHandler && currentURL !== previousURL) {
                     previousURL = currentURL;
                     State.currentURL = currentURL;
-                    updatePageConfig("URL变化 (MutationObserver)");
+                    updatePageConfig("URL 變化 (MutationObserver)");
                 }
 
-                // 处理DOM变化
+                // 處理 DOM 變化
                 if (State.pageConfig) {
                     processMutations(mutations);
                 }
             }, 'MutationObserver')
         );
 
-        // 开始观察页面主体
+        // 開始觀察頁面主體
         State.mutationObserver.observe(document.body, CONFIG.OBSERVER_CONFIG);
     }
 
     /**
-     * 处理MutationObserver检测到的变化
-     * 收集突变节点、过滤忽略选择器、对祖先-后代关系去重，仅遍历顶层节点
-     * @param {Array} mutations - 变化记录数组
+     * 處理 MutationObserver 偵測到的變化
+     * 收集變動節點、過濾忽略選擇器、對祖先-後代關係去重，僅走訪頂層節點
+     * @param {Array} mutations - 變化紀錄陣列
      */
     function shouldIgnoreMutationNode(node) {
         const element = node?.nodeType === Node.ELEMENT_NODE ? node : node?.parentElement;
@@ -903,29 +903,29 @@
     function processMutations(mutations) {
         const nodesToProcess = new Set();
 
-        // 收集需要处理的节点
+        // 收集需要處理的節點
         mutations.forEach(({ target, addedNodes, type }) => {
             if (type === 'childList' && addedNodes.length > 0) {
-                // 处理新增节点
+                // 處理新增節點
                 addedNodes.forEach(node => {
                     if (!shouldIgnoreMutationNode(node)) {
                         nodesToProcess.add(node);
                     }
                 });
             } else if (type === 'attributes') {
-                // 处理属性变化，target 就是元素
+                // 處理屬性變化，target 就是元素
                 if (!shouldIgnoreMutationNode(target)) {
                     nodesToProcess.add(target);
                 }
             } else if (type === 'characterData' && State.pageConfig.characterData) {
-                // 处理文本变化，target 是文本节点，取其父元素
+                // 處理文字變化，target 是文字節點，取其父元素
                 if (!shouldIgnoreMutationNode(target)) {
                     nodesToProcess.add(target);
                 }
             }
         });
 
-        // 过滤掉祖先已在集合中的后代节点，避免重复遍历
+        // 過濾掉祖先已在集合中的後代節點，避免重複走訪
         const topNodes = new Set();
         nodesToProcess.forEach(node => {
             let ancestor = node.parentElement;
@@ -942,29 +942,29 @@
             }
         });
 
-        if (CONFIG.DEV) console.log("DOM变化(已过滤)", topNodes);
+        if (CONFIG.DEV) console.log("DOM 變化(已過濾)", topNodes);
 
-        // 仅遍历顶层节点
+        // 僅走訪頂層節點
         topNodes.forEach(node => {
             traverseNode(node);
         });
     }
 
-    /* =========================== DOM 遍历与节点处理 =========================== */
+    /* =========================== DOM 走訪與節點處理 =========================== */
     /**
-     * 遍历节点树并进行翻译
-     * @param {Node} rootNode - 要遍历的根节点
+     * 走訪節點樹並進行翻譯
+     * @param {Node} rootNode - 要走訪的根節點
      */
     function traverseNode(rootNode) {
         const start = performance.now();
 
-        // 文本节点直接处理
+        // 文字節點直接處理
         if (rootNode.nodeType === Node.TEXT_NODE) {
             handleTextNode(rootNode);
             return;
         }
 
-        // 创建TreeWalker遍历节点树
+        // 建立 TreeWalker 走訪節點樹
         const treeWalker = document.createTreeWalker(
             rootNode,
             NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT,
@@ -972,14 +972,14 @@
                 if (node.nodeType === Node.ELEMENT_NODE
                     && State.pageConfig.ignoreSelectors
                     && node.matches(State.pageConfig.ignoreSelectors)) {
-                    return NodeFilter.FILTER_REJECT; // 跳过忽略的选择器
+                    return NodeFilter.FILTER_REJECT; // 跳過忽略的選擇器
                 }
-                return NodeFilter.FILTER_ACCEPT; // 接受其他节点
+                return NodeFilter.FILTER_ACCEPT; // 接受其他節點
             }
         );
 
         let currentNode;
-        // 遍历所有节点
+        // 走訪所有節點
         while ((currentNode = treeWalker.nextNode())) {
             if (currentNode.nodeType === Node.ELEMENT_NODE) {
                 handleElementNode(currentNode);
@@ -988,120 +988,120 @@
             }
         }
 
-        // 性能监控
+        // 效能監控
         const duration = performance.now() - start;
         if (duration > 10) {
-            console.log(`节点遍历耗时: ${duration.toFixed(2)}ms`);
+            console.log(`節點走訪耗時: ${duration.toFixed(2)}ms`);
         }
     }
 
     /**
-     * 处理文本节点
-     * @param {Node} node - 文本节点
+     * 處理文字節點
+     * @param {Node} node - 文字節點
      */
     function handleTextNode(node) {
-        if (node.length > 500) return; // 跳过长文本节点
-        transElementAttrs(node, 'data'); // 翻译文本内容
+        if (node.length > 500) return; // 跳過長文字節點
+        transElementAttrs(node, 'data'); // 翻譯文字內容
     }
 
     /**
-     * 处理元素节点
-     * @param {Element} node - 元素节点
+     * 處理元素節點
+     * @param {Element} node - 元素節點
      */
     function handleElementNode(node) {
-        // 根据标签类型进行不同的翻译处理
+        // 根據標籤類型進行不同的翻譯處理
         const tag = node.tagName;
 
-        if (tag === "RELATIVE-TIME") { // 相对时间元素
+        if (tag === "RELATIVE-TIME") { // 相對時間元素
             if (node.shadowRoot) {
                 transTimeElement(node.shadowRoot);
             }
             return;
         }
 
-        if (tag === "INPUT" || tag === "TEXTAREA") { // 输入框和文本域
+        if (tag === "INPUT" || tag === "TEXTAREA") { // 輸入框與文字區域
             if (['button', 'submit', 'reset'].includes(node.type)) {
-                transElementAttrs(node.dataset, 'confirm'); // 确认对话框文本
-                transElementAttrs(node, 'value'); // 值属性
+                transElementAttrs(node.dataset, 'confirm'); // 確認對話框文字
+                transElementAttrs(node, 'value'); // 值屬性
             } else {
-                transElementAttrs(node, 'placeholder'); // 占位符
+                transElementAttrs(node, 'placeholder'); // 佔位符
             }
             return;
         }
 
-        if (tag === "OPTGROUP") { // 选项组
-            transElementAttrs(node, 'label'); // 标签文本
+        if (tag === "OPTGROUP") { // 選項群組
+            transElementAttrs(node, 'label'); // 標籤文字
             return;
         }
 
-        if (tag === "BUTTON") { // 按钮
+        if (tag === "BUTTON") { // 按鈕
             transElementAttrs(node, [
                 'title',
                 'cancelConfirmText'
             ]);
             transElementAttrs(node.dataset, [
-                'confirm', // 确认文本
-                'confirmText', // 确认按钮文本
-                'confirmCancelText', // 取消按钮文本
-                'disableWith', // 禁用提示
+                'confirm', // 確認文字
+                'confirmText', // 確認按鈕文字
+                'confirmCancelText', // 取消按鈕文字
+                'disableWith', // 停用提示
                 'visibleText'
             ]);
         }
 
         if (tag === "A" || tag === "SPAN") {
-            transElementAttrs(node, 'title'); // 标题提示
-            transElementAttrs(node.dataset, 'visibleText'); // 可见文本
+            transElementAttrs(node, 'title'); // 標題提示
+            transElementAttrs(node.dataset, 'visibleText'); // 可見文字
         }
 
-        // 带有 tooltipped 样式的元素
+        // 帶有 tooltipped 樣式的元素
         if (/tooltipped/.test(node.className)) {
             transElementAttrs(node, 'ariaLabel');
         }
     }
 
-    /* =========================== 翻译功能 =========================== */
+    /* =========================== 翻譯功能 =========================== */
 
     /**
-     * 翻译页面标题
+     * 翻譯頁面標題
      */
     function transTitle() {
         const text = document.title;
         let result = State.pageConfig.titleStaticDict[text] || '';
 
-        // 尝试静态翻译
+        // 嘗試靜態翻譯
         if (!result) {
-            // 尝试正则表达式翻译
+            // 嘗試正規表達式翻譯
             for (const [pattern, replacement] of State.pageConfig.titleRegexpRules) {
                 result = text.replace(pattern, replacement);
                 if (result !== text) break;
             }
         }
 
-        // 应用翻译结果
+        // 套用翻譯結果
         if (result) {
             document.title = result;
         }
     }
 
     /**
-     * 翻译时间元素
-     * @param {Element} element - 时间元素
+     * 翻譯時間元素
+     * @param {Element} element - 時間元素
      */
     function transTimeElement(element) {
-        // 获取时间文本
+        // 取得時間文字
         const text = element.textContent;
         if (!text) return;
-        // 移除开头的"on"
+        // 移除開頭的 "on"
         const result = text.replace(/^on/, "");
         if (result !== text) {
-            element.textContent = result; // 应用翻译
+            element.textContent = result; // 套用翻譯
         }
     }
 
     /**
-     * 翻译元素的单个属性
-     * @param {Object} target - 元素对象或元素数据集
-     * @param {string} attrName - 要翻译的属性名
+     * 翻譯元素的單一屬性
+     * @param {Object} target - 元素物件或元素資料集
+     * @param {string} attrName - 要翻譯的屬性名稱
      */
     function transElementAttr(target, attrName) {
         const text = target[attrName];
@@ -1114,9 +1114,9 @@
     }
 
     /**
-     * 批量翻译元素的多个属性
-     * @param {Object} target - 元素对象或元素数据集
-     * @param {string|string[]} attrs - 要翻译的属性名或属性名数组
+     * 批次翻譯元素的多個屬性
+     * @param {Object} target - 元素物件或元素資料集
+     * @param {string|string[]} attrs - 要翻譯的屬性名稱或屬性名稱陣列
      */
     function transElementAttrs(target, attrs) {
         const attrList = Array.isArray(attrs) ? attrs : [attrs];
@@ -1124,38 +1124,38 @@
     }
 
     /**
-     * 通过选择器翻译特定元素
+     * 透過選擇器翻譯特定元素
      */
     function transBySelector() {
         State.pageConfig.transSelectors?.forEach(([selector, result]) => {
             const element = document.querySelector(selector);
             if (element) {
-                element.textContent = result; // 应用翻译
+                element.textContent = result; // 套用翻譯
             }
         });
     }
 
     /**
-     * 翻译文本内容
-     * @param {string} text - 要翻译的文本
-     * @returns {string|boolean} 翻译后的文本或 false
+     * 翻譯文字內容
+     * @param {string} text - 要翻譯的文字
+     * @returns {string|boolean} 翻譯後的文字或 false
      */
     function transText(text) {
-        // 跳过不需要翻译的文本：
-        // 1. 空文本（包空白字符）或纯数字
-        // 2. 纯中文字符
-        // 3. 不包含英文字母和,.符号的文本
+        // 跳過不需要翻譯的文字：
+        // 1. 空文字（含空白字元）或純數字
+        // 2. 純中文字元
+        // 3. 不包含英文字母與 ,. 符號的文字
         if (/^[\s0-9]*$/.test(text) ||
-            /^[\u4e00-\u9fa5]+$/.test(text) ||
+            /^[一-龥]+$/.test(text) ||
             !/[a-zA-Z,.]/.test(text)) {
             return false;
         }
 
-        // 清理文本：去除首尾空格和多余空白
+        // 清理文字：去除首尾空格與多餘空白
         const trimmedText = text.trim();
         const cleanedText = trimmedText.replace(/\xa0|[\s]+/g, ' ');
 
-        // 获取翻译
+        // 取得翻譯
         const result = fetchTransResult(cleanedText);
         if (result && result !== cleanedText) {
             return text.replace(trimmedText, result);
@@ -1165,21 +1165,21 @@
     }
 
     /**
-     * 从词库获取翻译 — 直接读取 State.pageConfig
-     * @param {string} text - 要翻译的文本
-     * @returns {string|boolean} 翻译结果或 false
+     * 從詞庫取得翻譯 — 直接讀取 State.pageConfig
+     * @param {string} text - 要翻譯的文字
+     * @returns {string|boolean} 翻譯結果或 false
      */
     function fetchTransResult(text) {
         if (!State.pageConfig) return false;
 
-        // 静态词典查找
+        // 靜態詞典尋找
         const staticResult = State.pageConfig.staticDict[text];
         if (typeof staticResult === 'string') {
             MissedTermsManager.cleanup(text, State.pageConfig.currentPath);
             return staticResult;
         }
 
-        // 正则规则查找
+        // 正規表達式規則尋找
         if (State.featureSet.enable_RegExp) {
             for (const [pattern, replacement] of State.pageConfig.regexpRules) {
                 const result = text.replace(pattern, replacement);
@@ -1190,7 +1190,7 @@
             }
         }
 
-        // 记录未命中词条
+        // 記錄未命中詞條
         if (State.featureSet.enable_missedTerms) {
             MissedTermsManager.record(text, State.pageConfig.currentPath);
             refreshMenuStates();
@@ -1199,38 +1199,38 @@
         return false;
     }
 
-    /* =========================== 远程翻译 =========================== */
+    /* =========================== 遠端翻譯 =========================== */
 
     /**
-     * 为描述元素添加翻译按钮
-     * @param {string} selector - 描述元素的选择器
+     * 為描述元素新增翻譯按鈕
+     * @param {string} selector - 描述元素的選擇器
      */
     function transDesc(selector) {
         const element = document.querySelector(selector);
         if (!element) return;
 
-        // 修复：安全检查 classList.contains，避免 null sibling 时崩溃
+        // 修正：安全檢查 classList.contains，避免 null sibling 時當機
         const nextSibling = element.nextElementSibling;
         if (nextSibling?.classList?.contains('translate-button')) return;
 
-        // 创建翻译按钮
+        // 建立翻譯按鈕
         const button = document.createElement('div');
         button.classList.add('translate-button');
-        button.textContent = '翻译';
+        button.textContent = '翻譯';
         element.after(button);
 
-        // 绑定点击事件
+        // 繫結點擊事件
         button.addEventListener('click', () => handleTransClick(button, element));
     }
 
     /**
-     * 处理翻译按钮点击事件
-     * @param {Element} button - 翻译按钮元素
-     * @param {Element} element - 要翻译的元素
+     * 處理翻譯按鈕點擊事件
+     * @param {Element} button - 翻譯按鈕元素
+     * @param {Element} element - 要翻譯的元素
      */
     function handleTransClick(button, element) {
         if (button.disabled) return;
-        button.disabled = true; // 防止重复点击
+        button.disabled = true; // 防止重複點擊
 
         const descText = element.textContent.trim();
         if (!descText) {
@@ -1238,75 +1238,75 @@
             return;
         }
 
-        // 发起远程翻译请求
+        // 發起遠端翻譯請求
         requestRemoteTrans(descText)
             .then(result => {
                 showTransResult(element, button, result);
             })
             .catch(error => {
-                console.error('翻译失败:', error);
-                button.disabled = false; // 启用按钮以允许重试
+                console.error('翻譯失敗:', error);
+                button.disabled = false; // 啟用按鈕以允許重試
             });
     }
 
     /**
-     * 显示翻译结果
+     * 顯示翻譯結果
      * @param {Element} element - 原始元素
-     * @param {Element} button - 翻译按钮
-     * @param {string} result - 翻译结果
+     * @param {Element} button - 翻譯按鈕
+     * @param {string} result - 翻譯結果
      */
     function showTransResult(element, button, result) {
         const { name, url } = CONFIG.TRANS_ENGINES[State.transEngine];
 
-        // 创建结果容器 — 结构与不可信文本分离，防止 XSS
+        // 建立結果容器 — 結構與不可信文字分離，防止 XSS
         const resultContainer = document.createElement('div');
         resultContainer.className = 'translation-result';
         resultContainer.innerHTML = `
             <span class="translation-credit">
-                由 <a target='_blank' href='${url}'>${name}</a> 翻译👇
+                翻譯 👇
             </span>
             <br/>
             <div class="translation-content"></div>
         `;
 
-        // API 响应文本使用 textContent，禁止 HTML 解析
+        // API 回應文字使用 textContent，禁止 HTML 解析
         resultContainer.querySelector('.translation-content').textContent = result;
 
-        // 移除按钮并显示结果
+        // 移除按鈕並顯示結果
         button.remove();
         element.after(resultContainer);
     }
 
     /**
-     * 请求远程翻译API
-     * @param {string} text - 要翻译的文本
-     * @returns {Promise} 返回翻译结果的Promise
+     * 請求遠端翻譯 API
+     * @param {string} text - 要翻譯的文字
+     * @returns {Promise} 回傳翻譯結果的 Promise
      */
     function requestRemoteTrans(text) {
         return new Promise((resolve, reject) => {
             const engine = CONFIG.TRANS_ENGINES[State.transEngine];
             const { url_api, method, headers, getRequestData, responseIdentifier } = engine;
 
-            // 准备请求数据
+            // 準備請求資料
             const requestData = getRequestData(text);
 
-            // 使用GM_xmlhttpRequest发起跨域请求
+            // 使用 GM_xmlhttpRequest 發起跨網域請求
             GM_xmlhttpRequest({
                 method: method,
                 url: url_api,
                 headers: headers,
                 data: method === 'POST' ? JSON.stringify(requestData) : null,
                 params: method === 'GET' ? requestData : null, // For GET requests
-                timeout: 10000, // 10秒超时
+                timeout: 10000, // 10 秒逾時
                 onload: (res) => {
                     try {
                         const response = JSON.parse(res.responseText);
-                        // 从响应中提取翻译结果
+                        // 從回應中擷取翻譯結果
                         const result = getNestedProperty(response, responseIdentifier);
                         if (result) {
                             resolve(result);
                         } else {
-                            reject(new Error('翻译结果无效'));
+                            reject(new Error('翻譯結果無效'));
                         }
                     } catch (err) {
                         reject(err);
@@ -1320,15 +1320,15 @@
     }
 
     /**
-     * 安全获取嵌套对象属性
-     * 支持路径格式如 'biz[0]?.sectionResult[0]?.dst'
-     *   - '?.' 在路径中作为可选链标记被忽略，实际按强制访问处理
-     * @param {Object} obj - 目标对象
-     * @param {string} path - 属性路径
-     * @returns {*} 属性值或 undefined
+     * 安全取得巢狀物件屬性
+     * 支援路徑格式如 'biz[0]?.sectionResult[0]?.dst'
+     *   - '?.' 在路徑中作為可選鏈結標記被忽略，實際按強制存取處理
+     * @param {Object} obj - 目標物件
+     * @param {string} path - 屬性路徑
+     * @returns {*} 屬性值或 undefined
      */
     function getNestedProperty(obj, path) {
-        // 移除路径中的 ?. 标记（讯飞API返回的路径表示可选，但此处按强制处理）
+        // 移除路徑中的 ?. 標記（訊飛 API 回傳的路徑表示可選，但此處按強制處理）
         const cleanPath = path.replace(/\?\./g, '.');
         return cleanPath.split('.').reduce((acc, part) => {
             if (!acc) return undefined;
@@ -1336,19 +1336,19 @@
             if (!match) return undefined;
             const key = match[1];
             const index = match[2];
-            // 处理数组索引或对象属性
+            // 處理陣列索引或物件屬性
             return index !== undefined ? acc[key]?.[index] : acc[key];
         }, obj);
     }
 
-    /* =========================== 未命中词条管理器 =========================== */
+    /* =========================== 未命中詞條管理器 =========================== */
     const MissedTermsManager = {
         /**
-         * 未命中词条数据结构（简洁模式）
+         * 未命中詞條資料結構（簡潔模式）
          * {
          *   [pathname]: {
-         *     "原始文本1": "",
-         *     "原始文本2": "",
+         *     "原始文字1": "",
+         *     "原始文字2": "",
          *     ...
          *   }
          * }
@@ -1356,9 +1356,9 @@
         data: GM_getValue("missedTerms", {}),
 
         /**
-         * 记录未命中词条
-         * @param {string} text - 未翻译的文本
-         * @param {string} path - 当前页面路径
+         * 記錄未命中詞條
+         * @param {string} text - 未翻譯的文字
+         * @param {string} path - 目前頁面路徑
          */
         record(text, path) {
             if (!path) return false;
@@ -1366,26 +1366,26 @@
                 this.data[path] = {};
             }
 
-            // 使用对象存储，保持简洁
+            // 使用物件儲存，保持簡潔
             if (!(text in this.data[path])) {
                 this.data[path][text] = "";
                 this.save();
-                return true; // 新增词条
+                return true; // 新增詞條
             }
-            return false; // 词条已存在
+            return false; // 詞條已存在
         },
 
         /**
-         * 清理已命中的词条
-         * @param {string} text - 已翻译的文本
-         * @param {string} path - 当前页面路径
+         * 清理已命中的詞條
+         * @param {string} text - 已翻譯的文字
+         * @param {string} path - 目前頁面路徑
          */
         cleanup(text, path) {
             if (!path) return false;
             if (this.data[path] && text in this.data[path]) {
                 delete this.data[path][text];
 
-                // 如果该路径下没有词条了，删除路径条目
+                // 如果該路徑下沒有詞條了，刪除路徑項目
                 if (Object.keys(this.data[path]).length === 0) {
                     delete this.data[path];
                 }
@@ -1396,25 +1396,25 @@
         },
 
         /**
-         * 获取所有未命中词条
-         * @returns {Object} 未命中词条数据
+         * 取得所有未命中詞條
+         * @returns {Object} 未命中詞條資料
          */
         getAll() {
             return this.data;
         },
 
         /**
-         * 按路径获取词条
-         * @param {string} path - 页面路径
-         * @returns {Object} 该路径下的词条对象
+         * 依路徑取得詞條
+         * @param {string} path - 頁面路徑
+         * @returns {Object} 該路徑下的詞條物件
          */
         getByPath(path) {
             return this.data[path] || {};
         },
 
         /**
-         * 获取所有词条的文本数组（按路径分组）
-         * @returns {Array} 格式为 [{path, terms: []}, ...]
+         * 取得所有詞條的文字陣列（依路徑分組）
+         * @returns {Array} 格式為 [{path, terms: []}, ...]
          */
         getAllTermsArray() {
             return Object.entries(this.data).map(([path, terms]) => ({
@@ -1424,7 +1424,7 @@
         },
 
         /**
-         * 清空所有词条
+         * 清空所有詞條
          */
         clearAll() {
             this.data = {};
@@ -1432,8 +1432,8 @@
         },
 
         /**
-         * 清空指定路径的词条
-         * @param {string} path - 页面路径
+         * 清空指定路徑的詞條
+         * @param {string} path - 頁面路徑
          */
         clearPath(path) {
             if (this.data[path]) {
@@ -1443,8 +1443,8 @@
         },
 
         /**
-         * 获取统计信息
-         * @returns {Object} 统计信息
+         * 取得統計資訊
+         * @returns {Object} 統計資訊
          */
         getStats() {
             const paths = Object.keys(this.data);
@@ -1455,8 +1455,8 @@
         },
 
         /**
-         * 导出数据
-         * @returns {Object} 导出数据
+         * 匯出資料
+         * @returns {Object} 匯出資料
          */
         exportData() {
             const data = this.data;
@@ -1472,28 +1472,28 @@
         },
 
         /**
-         * 保存数据到存储
+         * 儲存資料到儲存空間
          */
         save() {
             GM_setValue("missedTerms", this.data);
         }
     };
 
-    /* =========================== 用户菜单 =========================== */
+    /* =========================== 使用者選單 =========================== */
 
     /**
-     * 1. 动态菜单管理
+     * 1. 動態選單管理
      */
     function refreshMenuStates() {
-        // 注销所有动态菜单
+        // 取消註冊所有動態選單
         Object.values(State.dynamicMenus).forEach(id => GM_unregisterMenuCommand(id));
         State.dynamicMenus = {};
 
-        // 仅开发者模式下显示未命中词条相关菜单
+        // 僅開發者模式下顯示未命中詞條相關選單
         if (!CONFIG.DEV) return;
 
-        // 切换菜单
-        const toggleLabel = `${State.featureSet.enable_missedTerms ? "禁用" : "启用"} 未命中词条记录`;
+        // 切換選單
+        const toggleLabel = `${State.featureSet.enable_missedTerms ? "停用" : "啟用"} 未命中詞條紀錄`;
         State.dynamicMenus.toggle = GM_registerMenuCommand(toggleLabel, () => {
             const newState = !State.featureSet.enable_missedTerms;
             State.featureSet.enable_missedTerms = newState;
@@ -1501,23 +1501,23 @@
 
             if (!newState) {
                 MissedTermsManager.clearAll();
-                GM_notification("未命中词条记录已禁用，所有记录已清空");
+                GM_notification("未命中詞條紀錄已停用，所有紀錄已清空");
             } else {
-                GM_notification("未命中词条记录已启用");
+                GM_notification("未命中詞條紀錄已啟用");
             }
 
             refreshMenuStates();
         });
 
-        // 启用 + 有词条时显示导出和清空菜单
+        // 啟用 + 有詞條時顯示匯出與清空選單
         if (State.featureSet.enable_missedTerms) {
             const stats = MissedTermsManager.getStats();
             const hasData = stats.totalTerms > 0;
 
             if (hasData) {
-                // 导出菜单
+                // 匯出選單
                 State.dynamicMenus.export = GM_registerMenuCommand(
-                    `📥 导出未命中词条 (${stats.totalTerms}条)`,
+                    `📥 匯出未命中詞條 (${stats.totalTerms} 條)`,
                     () => {
                         const exportData = MissedTermsManager.exportData();
                         const blob = new Blob([JSON.stringify(exportData, null, 2)], {
@@ -1526,32 +1526,32 @@
                         const url = URL.createObjectURL(blob);
                         const a = document.createElement("a");
                         a.href = url;
-                        a.download = `GitHub_未命中词条_${new Date().toISOString().split('T')[0]}.json`;
+                        a.download = `GitHub_未命中詞條_${new Date().toISOString().split('T')[0]}.json`;
                         a.click();
                         URL.revokeObjectURL(url);
                     }
                 );
 
-                // 清空菜单
+                // 清空選單
                 State.dynamicMenus.clear = GM_registerMenuCommand(
-                    "🗑️ 清空未命中词条",
+                    "🗑️ 清空未命中詞條",
                     () => {
-                        if (confirm(`确定要清空所有未命中词条吗？\n共 ${stats.totalPaths} 个页面，${stats.totalTerms} 个词条`)) {
+                        if (confirm(`確定要清空所有未命中詞條嗎？\n共 ${stats.totalPaths} 個頁面，${stats.totalTerms} 個詞條`)) {
                             MissedTermsManager.clearAll();
-                            GM_notification("未命中词条记录已清空");
+                            GM_notification("未命中詞條紀錄已清空");
                             refreshMenuStates();
                         }
                     }
                 );
 
-                // 查看统计菜单
+                // 查看統計選單
                 State.dynamicMenus.stats = GM_registerMenuCommand(
-                    "📊 查看统计",
+                    "📊 查看統計",
                     () => {
                         const s = MissedTermsManager.getStats();
                         GM_notification({
-                            title: "未命中词条统计",
-                            text: `页面数: ${s.totalPaths}\n词条数: ${s.totalTerms}`,
+                            title: "未命中詞條統計",
+                            text: `頁面數: ${s.totalPaths}\n詞條數: ${s.totalTerms}`,
                             timeout: 5000
                         });
                     }
@@ -1561,73 +1561,73 @@
     }
 
     /**
-     * 2. 静态菜单创建
-     * @param {Object} config - 菜单配置
+     * 2. 靜態選單建立
+     * @param {Object} config - 選單設定
      */
     function createMenuCommand(config) {
         const { label, key, callback } = config;
         let menuId;
 
-        // 生成菜单标签（根据当前状态）
+        // 產生選單標籤（根據目前狀態）
         const getMenuLabel = () =>
-            `${State.featureSet[key] ? "禁用" : "启用"} ${label}`;
+            `${State.featureSet[key] ? "停用" : "啟用"} ${label}`;
 
-        // 切换功能状态
+        // 切換功能狀態
         const toggle = () => {
             const newState = !State.featureSet[key];
-            // 保存到存储
+            // 儲存到儲存空間
             GM_setValue(key, newState);
             State.featureSet[key] = newState;
-            // 显示通知
-            GM_notification(`${label}已${newState ? '启用' : '禁用'}`);
+            // 顯示通知
+            GM_notification(`${label}已${newState ? '啟用' : '停用'}`);
 
-            // 执行回调
+            // 執行回呼
             callback?.(newState);
 
-            // 重新注册菜单（更新标签）
+            // 重新註冊選單（更新標籤）
             GM_unregisterMenuCommand(menuId);
             menuId = GM_registerMenuCommand(getMenuLabel(), toggle);
         };
 
-        // 初始注册菜单
+        // 初始註冊選單
         menuId = GM_registerMenuCommand(getMenuLabel(), toggle);
     }
 
     /**
-     * 3. 主菜单设置
+     * 3. 主選單設定
      */
     function setupMenuCommands() {
         const menuConfigs = [
             {
-                label: "正则功能",
+                label: "正規表達式功能",
                 key: "enable_RegExp",
                 callback: (enabled) => {
-                    if (enabled && State.pageConfig) safe(traverseNode, '菜单触发遍历')(document.body);
+                    if (enabled && State.pageConfig) safe(traverseNode, '選單觸發遍歷')(document.body);
                 }
             },
             {
-                label: "描述翻译",
+                label: "描述翻譯",
                 key: "enable_transDesc",
                 callback: (enabled) => {
                     const pageType = State.pageConfig?.currentPageType;
                     if (enabled && pageType) {
-                        // 启用描述翻译
+                        // 啟用描述翻譯
                         transDesc(CONFIG.DESC_SELECTORS[pageType]);
                     } else if (!enabled) {
-                        // 禁用描述翻译，移除按钮
+                        // 停用描述翻譯，移除按鈕
                         document.querySelector('.translate-button')?.remove();
                     }
                 }
             }
         ];
 
-        // 为每个配置创建静态菜单
+        // 為每個設定建立靜態選單
         menuConfigs.forEach(config => createMenuCommand(config));
 
-        // 初始化动态菜单
+        // 初始化動態選單
         refreshMenuStates();
     }
 
-    /* =========================== 启动 =========================== */
+    /* =========================== 啟動 =========================== */
     init();
 })(window, document);
